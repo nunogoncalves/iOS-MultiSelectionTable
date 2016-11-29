@@ -71,32 +71,34 @@ class ViewController: UIViewController {
         self.lineHorizontalConstraint.constant = 100
         
         self.leftTableLeadingConstraint.constant = 5
-        self.rightTableTrailingConstraint.constant = -105
+        self.rightTableTrailingConstraint.constant = -95
         view.layoutIfNeeded()
         
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(swipped(sender:)))
         verticalLine.addGestureRecognizer(panGesture)
     }
-
+    
     @objc private func swipped(sender: UIPanGestureRecognizer) {
         var isToAnimate = false
     
         if sender.translation(in: verticalLine).x > 0 {
+            //left visible
             if !isSelectingMode {
                 self.lineHorizontalConstraint.constant = 100
                 
                 self.leftTableLeadingConstraint.constant = 5
-                self.rightTableTrailingConstraint.constant = -110
+                self.rightTableTrailingConstraint.constant -= self.lineHorizontalConstraint.constant * 2
                 
                 isToAnimate = true
             }
             isSelectingMode = true
         } else {
+            //right visible
             if isSelectingMode {
                 self.lineHorizontalConstraint.constant = -100
                 
-                self.leftTableLeadingConstraint.constant = -205
-                self.rightTableTrailingConstraint.constant = -100
+                self.leftTableLeadingConstraint.constant += self.lineHorizontalConstraint.constant * 2
+                self.rightTableTrailingConstraint.constant = 5
                 
                 isToAnimate = true
             }
@@ -173,11 +175,11 @@ extension ViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView == rightTable {
             highlightCell(at: indexPath, in: tableView) {
-                self.unselectAlbum(tableView, indexPath: indexPath)
+                self.unselectAlbum(at: indexPath)
             }
         } else {
             highlightCell(at: indexPath, in: tableView) {
-                self.selectAlbum(tableView, indexPath: indexPath)
+                self.selectAlbum(at: indexPath)
             }
         }
     }
@@ -222,7 +224,7 @@ extension ViewController : UITableViewDelegate {
         CATransaction.commit()
     }
     
-    private func selectAlbum(_ tableView: UITableView, indexPath: IndexPath) {
+    private func selectAlbum(at indexPath: IndexPath) {
         let album = allAlbumIndexes.remove(at: indexPath.row)
         selectedAlbumIndexes.append(album)
         
@@ -231,35 +233,46 @@ extension ViewController : UITableViewDelegate {
         let newIndexPath = IndexPath(item: count, section: 0)
         rightTable.insertRows(at: [newIndexPath], with: .bottom)
         
-        if let newCellAdded = rightTable.cellForRow(at: newIndexPath) {
-            newCellAdded.contentView.isHidden = true
-            let newCellConvertedFrame = newCellAdded.convert(newCellAdded.contentView.frame, to: self.view)
+        var _newCellAdded: UITableViewCell?
+        
+        if let cell = rightTable.cellForRow(at: newIndexPath) {
+            _newCellAdded = cell
+        } else if let cell = rightTable.visibleCells.last {
+            _newCellAdded = cell
+        }
+        
+        guard let newCellAdded = _newCellAdded else { return }
+        
+        newCellAdded.contentView.isHidden = true
+        let newCellConvertedFrame = newCellAdded.convert(newCellAdded.contentView.frame, to: self.view)
+        
+        guard let cellToDelete = leftTable.cellForRow(at: indexPath) else { return }
+        
+        if let movingCell = cellToDelete.contentView.snapshotView(afterScreenUpdates: false) {
+            cellToDelete.contentView.isHidden = true
+            view.addSubview(movingCell)
+            movingCell.frame = leftTable.convert(cellToDelete.frame, to: self.view)
             
-            guard let cellToDelete = leftTable.cellForRow(at: indexPath) else { return }
+            self.leftTable.deleteRows(at: [indexPath], with: .top)
             
-            if let movingCell = cellToDelete.contentView.snapshotView(afterScreenUpdates: false) {
-                cellToDelete.contentView.isHidden = true
-                view.addSubview(movingCell)
-                movingCell.frame = leftTable.convert(cellToDelete.frame, to: self.view)
-                
-                self.leftTable.deleteRows(at: [indexPath], with: .top)
-                
-                UIView.animate(withDuration: 0.4, animations: {
-                    movingCell.frame = newCellConvertedFrame
-                }, completion: { _ in
-                    movingCell.removeFromSuperview()
-                    newCellAdded.contentView.isHidden = false
-                    cellToDelete.contentView.isHidden = false
-                })
-            }
+            UIView.animate(withDuration: 0.4, animations: {
+                movingCell.frame = newCellConvertedFrame
+            }, completion: { _ in
+                movingCell.removeFromSuperview()
+                newCellAdded.contentView.isHidden = false
+                cellToDelete.contentView.isHidden = false
+            })
         }
     }
-    
-    private func unselectAlbum(_ tableView: UITableView, indexPath: IndexPath) {
+
+    private func unselectAlbum(at indexPath: IndexPath) {
         let album = selectedAlbumIndexes.remove(at: indexPath.row)
-        allAlbumIndexes.insert(album, at: album.index)
         
-        let newIndexPath = IndexPath(item: album.index, section: 0)
+        let indexToAdd = findIndexToAdd(album: album, in: allAlbumIndexes)
+//        allAlbumIndexes.insert(album, at: album.index)
+        allAlbumIndexes.insert(album, at: indexToAdd)
+        
+        let newIndexPath = IndexPath(item: indexToAdd, section: 0)
         leftTable.insertRows(at: [newIndexPath], with: .bottom)
         
         var _newCellAdded: UITableViewCell?
@@ -293,6 +306,17 @@ extension ViewController : UITableViewDelegate {
         }
     }
 
+    private func findIndexToAdd(album: AlbumIndex, in list: [AlbumIndex]) -> Int {
+        var indexToReturn = 0
+        for (index, iteratedAlbumIndex) in list.enumerated() {
+            if iteratedAlbumIndex.index >= album.index {
+                indexToReturn = index
+                break
+            }
+        }
+        return indexToReturn
+    }
+    
 }
 
 extension UIColor {
