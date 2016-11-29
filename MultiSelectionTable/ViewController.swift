@@ -53,6 +53,8 @@ class ViewController: UIViewController {
     
     var isSelectingMode = true
     
+    var seperatorWidthOffset: CGFloat = 130
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     
@@ -68,55 +70,60 @@ class ViewController: UIViewController {
         leftTable.delegate = self
         
         
-        self.lineHorizontalConstraint.constant = 100
+        self.lineHorizontalConstraint.constant = seperatorWidthOffset
         
-        self.leftTableLeadingConstraint.constant = 5
-        self.rightTableTrailingConstraint.constant = -95
+        self.rightTableTrailingConstraint.constant = -seperatorWidthOffset * 2
+
         view.layoutIfNeeded()
         
-        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(swipped(sender:)))
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(swipped(gesture:)))
         verticalLine.addGestureRecognizer(panGesture)
     }
     
-    @objc private func swipped(sender: UIPanGestureRecognizer) {
-        var isToAnimate = false
-    
-        if sender.translation(in: verticalLine).x > 0 {
-            //left visible
-            if !isSelectingMode {
-                self.lineHorizontalConstraint.constant = 100
-                
-                self.leftTableLeadingConstraint.constant = 5
-                self.rightTableTrailingConstraint.constant -= self.lineHorizontalConstraint.constant * 2
-                
-                isToAnimate = true
-            }
-            isSelectingMode = true
+    @objc private func swipped(gesture: UIPanGestureRecognizer) {
+        if gesture.translation(in: verticalLine).x > 0 {
+            displayAllItems()
         } else {
-            //right visible
-            if isSelectingMode {
-                self.lineHorizontalConstraint.constant = -100
-                
-                self.leftTableLeadingConstraint.constant += self.lineHorizontalConstraint.constant * 2
-                self.rightTableTrailingConstraint.constant = 5
-                
-                isToAnimate = true
-            }
-            isSelectingMode = false
+            displaySelectedItems()
         }
-        
-        if isToAnimate {
-            UIView.animate(withDuration: 0.3,
-                           delay: 0,
-                           usingSpringWithDamping: 1,
-                           initialSpringVelocity: 1,
-                           options: .curveEaseInOut,
-                           animations: {
-                            self.view.layoutIfNeeded()
-                           },
-                           completion: nil)
+    }
+    
+    fileprivate func displayAllItems() {
+        //left visible
+        if !isSelectingMode {
+            self.lineHorizontalConstraint.constant = seperatorWidthOffset
+            
+            self.leftTableLeadingConstraint.constant = 5
+            self.rightTableTrailingConstraint.constant -= self.lineHorizontalConstraint.constant * 2
+            
+            animateDisplayChange()
         }
-        
+        isSelectingMode = true
+    }
+    
+    fileprivate func displaySelectedItems() {
+        //right visible
+        if isSelectingMode {
+            self.lineHorizontalConstraint.constant = -seperatorWidthOffset
+            
+            self.leftTableLeadingConstraint.constant += self.lineHorizontalConstraint.constant * 2
+            self.rightTableTrailingConstraint.constant = 5
+            
+            animateDisplayChange()
+        }
+        isSelectingMode = false
+    }
+    
+    private func animateDisplayChange() {
+        UIView.animate(withDuration: 0.3,
+                       delay: 0,
+                       usingSpringWithDamping: 1,
+                       initialSpringVelocity: 1,
+                       options: .curveEaseInOut,
+                       animations: {
+                        self.view.layoutIfNeeded()
+                       },
+                       completion: nil)
     }
 }
 
@@ -268,8 +275,7 @@ extension ViewController : UITableViewDelegate {
     private func unselectAlbum(at indexPath: IndexPath) {
         let album = selectedAlbumIndexes.remove(at: indexPath.row)
         
-        let indexToAdd = findIndexToAdd(album: album, in: allAlbumIndexes)
-//        allAlbumIndexes.insert(album, at: album.index)
+        let indexToAdd = findIndexToAdd(album, in: allAlbumIndexes)
         allAlbumIndexes.insert(album, at: indexToAdd)
         
         let newIndexPath = IndexPath(item: indexToAdd, section: 0)
@@ -302,11 +308,17 @@ extension ViewController : UITableViewDelegate {
             }, completion: { _ in
                 movingCell.removeFromSuperview()
                 newCellAdded.contentView.isHidden = false
+                
+                if self.selectedAlbumIndexes.isEmpty {
+                    self.displayAllItems()
+                }
+
             })
         }
+        
     }
 
-    private func findIndexToAdd(album: AlbumIndex, in list: [AlbumIndex]) -> Int {
+    private func findIndexToAdd(_ album: AlbumIndex, in list: [AlbumIndex]) -> Int {
         var indexToReturn = 0
         for (index, iteratedAlbumIndex) in list.enumerated() {
             if iteratedAlbumIndex.index >= album.index {
