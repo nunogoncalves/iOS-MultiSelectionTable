@@ -11,7 +11,6 @@
 		85C315161DECEFF30095AFA1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C315151DECEFF30095AFA1 /* AppDelegate.swift */; };
 		85C315181DECEFF30095AFA1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C315171DECEFF30095AFA1 /* ViewController.swift */; };
 		85C3151B1DECEFF30095AFA1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85C315191DECEFF30095AFA1 /* Main.storyboard */; };
-		85C3151E1DECEFF30095AFA1 /* MultiSelectionTable.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 85C3151C1DECEFF30095AFA1 /* MultiSelectionTable.xcdatamodeld */; };
 		85C315201DECEFF30095AFA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85C3151F1DECEFF30095AFA1 /* Assets.xcassets */; };
 		85C315231DECEFF30095AFA1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85C315211DECEFF30095AFA1 /* LaunchScreen.storyboard */; };
 		85C3152E1DECEFF30095AFA1 /* MultiSelectionTableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C3152D1DECEFF30095AFA1 /* MultiSelectionTableTests.swift */; };
@@ -45,7 +44,6 @@
 		85C315151DECEFF30095AFA1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85C315171DECEFF30095AFA1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		85C3151A1DECEFF30095AFA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		85C3151D1DECEFF30095AFA1 /* MultiSelectionTable.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MultiSelectionTable.xcdatamodel; sourceTree = "<group>"; };
 		85C3151F1DECEFF30095AFA1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		85C315221DECEFF30095AFA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		85C315241DECEFF30095AFA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -115,7 +113,6 @@
 				85C3151F1DECEFF30095AFA1 /* Assets.xcassets */,
 				85C315211DECEFF30095AFA1 /* LaunchScreen.storyboard */,
 				85C315241DECEFF30095AFA1 /* Info.plist */,
-				85C3151C1DECEFF30095AFA1 /* MultiSelectionTable.xcdatamodeld */,
 				85D3566F1DED638900E32A04 /* Album.swift */,
 				85D356711DED807400E32A04 /* Band.swift */,
 				8536F8041DEE3768003C38B3 /* MultiSelectionTableControl.swift */,
@@ -284,7 +281,6 @@
 				85C315181DECEFF30095AFA1 /* ViewController.swift in Sources */,
 				85C315161DECEFF30095AFA1 /* AppDelegate.swift in Sources */,
 				85D8179D1DEEB6880063E95E /* AlbumCell.swift in Sources */,
-				85C3151E1DECEFF30095AFA1 /* MultiSelectionTable.xcdatamodeld in Sources */,
 				8536F8051DEE3768003C38B3 /* MultiSelectionTableControl.swift in Sources */,
 				85D356701DED638900E32A04 /* Album.swift in Sources */,
 			);
@@ -560,19 +556,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		85C3151C1DECEFF30095AFA1 /* MultiSelectionTable.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				85C3151D1DECEFF30095AFA1 /* MultiSelectionTable.xcdatamodel */,
-			);
-			currentVersion = 85C3151D1DECEFF30095AFA1 /* MultiSelectionTable.xcdatamodel */;
-			path = MultiSelectionTable.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 85C3150A1DECEFF30095AFA1 /* Project object */;
 }
