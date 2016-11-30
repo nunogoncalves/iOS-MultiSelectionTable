@@ -15,9 +15,10 @@
 		85C315231DECEFF30095AFA1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85C315211DECEFF30095AFA1 /* LaunchScreen.storyboard */; };
 		85C3152E1DECEFF30095AFA1 /* MultiSelectionTableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C3152D1DECEFF30095AFA1 /* MultiSelectionTableTests.swift */; };
 		85C315391DECEFF30095AFA1 /* MultiSelectionTableUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C315381DECEFF30095AFA1 /* MultiSelectionTableUITests.swift */; };
-		85D3566E1DECFB1300E32A04 /* AlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D3566D1DECFB1300E32A04 /* AlbumCell.swift */; };
 		85D356701DED638900E32A04 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D3566F1DED638900E32A04 /* Album.swift */; };
 		85D356721DED807400E32A04 /* Band.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D356711DED807400E32A04 /* Band.swift */; };
+		85D8179D1DEEB6880063E95E /* AlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D8179B1DEEB6880063E95E /* AlbumCell.swift */; };
+		85D8179E1DEEB6880063E95E /* AlbumCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85D8179C1DEEB6880063E95E /* AlbumCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,9 +53,10 @@
 		85C315341DECEFF30095AFA1 /* MultiSelectionTableUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MultiSelectionTableUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		85C315381DECEFF30095AFA1 /* MultiSelectionTableUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelectionTableUITests.swift; sourceTree = "<group>"; };
 		85C3153A1DECEFF30095AFA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		85D3566D1DECFB1300E32A04 /* AlbumCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumCell.swift; sourceTree = "<group>"; };
 		85D3566F1DED638900E32A04 /* Album.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		85D356711DED807400E32A04 /* Band.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Band.swift; sourceTree = "<group>"; };
+		85D8179B1DEEB6880063E95E /* AlbumCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumCell.swift; sourceTree = "<group>"; };
+		85D8179C1DEEB6880063E95E /* AlbumCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlbumCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,9 +114,10 @@
 				85C315211DECEFF30095AFA1 /* LaunchScreen.storyboard */,
 				85C315241DECEFF30095AFA1 /* Info.plist */,
 				85C3151C1DECEFF30095AFA1 /* MultiSelectionTable.xcdatamodeld */,
-				85D3566D1DECFB1300E32A04 /* AlbumCell.swift */,
 				85D3566F1DED638900E32A04 /* Album.swift */,
 				85D356711DED807400E32A04 /* Band.swift */,
+				85D8179B1DEEB6880063E95E /* AlbumCell.swift */,
+				85D8179C1DEEB6880063E95E /* AlbumCell.xib */,
 			);
 			path = MultiSelectionTable;
 			sourceTree = "<group>";
@@ -249,6 +252,7 @@
 			files = (
 				85C315231DECEFF30095AFA1 /* LaunchScreen.storyboard in Resources */,
 				85C315201DECEFF30095AFA1 /* Assets.xcassets in Resources */,
+				85D8179E1DEEB6880063E95E /* AlbumCell.xib in Resources */,
 				85C3151B1DECEFF30095AFA1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -277,8 +281,8 @@
 				85D356721DED807400E32A04 /* Band.swift in Sources */,
 				85C315181DECEFF30095AFA1 /* ViewController.swift in Sources */,
 				85C315161DECEFF30095AFA1 /* AppDelegate.swift in Sources */,
+				85D8179D1DEEB6880063E95E /* AlbumCell.swift in Sources */,
 				85C3151E1DECEFF30095AFA1 /* MultiSelectionTable.xcdatamodeld in Sources */,
-				85D3566E1DECFB1300E32A04 /* AlbumCell.swift in Sources */,
 				85D356701DED638900E32A04 /* Album.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
