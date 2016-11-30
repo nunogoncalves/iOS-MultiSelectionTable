@@ -8,10 +8,16 @@
 
 import UIKit
 
-fileprivate struct AlbumIndex {
+fileprivate struct ItemIndex {
     
-    let album: Album
+    let item: Any
     let index: Int
+    
+}
+
+protocol MultiSelectionTableDelegate : class {
+    
+    func paint(_ cell: UITableViewCell, for indexPath: IndexPath, with object: Any)
     
 }
 
@@ -23,32 +29,35 @@ enum State {
 @IBDesignable
 //class MultiSelectionTableControl<T> : UIControl {
 class MultiSelectionTableControl : UIControl {
+
+    fileprivate let allItemsTableContainer = UIView()
+    fileprivate let allItemsTable = UITableView()
     
-    let allItemsContainer = UIView()
-    let allItemsTable = UITableView()
-    let selectedItemsContainer = UIView()
-    let selectedItemsTable = UITableView()
+    fileprivate let selectedItemsTableContainer = UIView()
+    fileprivate let selectedItemsTable = UITableView()
     
-    let seperator = UIView()
+    fileprivate let seperator = UIView()
     
-    var seperatorCenterXConstraint: NSLayoutConstraint!
-    var allItemsTableLeadingConstraint: NSLayoutConstraint!
-    var selectedItemsTableTrailingConstraint: NSLayoutConstraint!
+    fileprivate var seperatorCenterXConstraint: NSLayoutConstraint!
+    fileprivate var allItemsTableLeadingConstraint: NSLayoutConstraint!
+    fileprivate var selectedItemsTableTrailingConstraint: NSLayoutConstraint!
     
-    var isSelectingMode = false
-    var seperatorWidthOffset: CGFloat = 100
+    fileprivate var isSelectingMode = false
+    fileprivate var seperatorWidthOffset: CGFloat = 100
     
-    fileprivate var allItemsIndexes: [AlbumIndex] = []
-    var allItems: [Album] = [] {
+    weak var delegate: MultiSelectionTableDelegate?
+    
+    fileprivate var allItemsIndexes: [ItemIndex] = []
+    var allItems: [Any] = [] {
         didSet {
-            allItemsIndexes = allItems.enumerated().map { AlbumIndex(album: $1, index: $0) }
+            allItemsIndexes = allItems.enumerated().map { ItemIndex(item: $1, index: $0) }
         }
     }
     
-    fileprivate var selectedItemsIndexes: [AlbumIndex] = []
-    var selectedItems: [Album] = [] {
+    fileprivate var selectedItemsIndexes: [ItemIndex] = []
+    var selectedItems: [Any] = [] {
         didSet {
-            selectedItemsIndexes = selectedItems.enumerated().map { AlbumIndex(album: $1, index: $0) }
+            selectedItemsIndexes = selectedItems.enumerated().map { ItemIndex(item: $1, index: $0) }
         }
     }
     
@@ -84,10 +93,6 @@ class MultiSelectionTableControl : UIControl {
         allItemsTable.dataSource = self
         selectedItemsTable.delegate = self
         selectedItemsTable.dataSource = self
-
-        allItemsTable.register(UINib(nibName: "AlbumCell", bundle: nil), forCellReuseIdentifier: "AlbumCell")
-        selectedItemsTable.register(UINib(nibName: "AlbumCell", bundle: nil), forCellReuseIdentifier: "AlbumCell")
-        
         
         allItemsTable.estimatedRowHeight = 100
         allItemsTable.rowHeight = UITableViewAutomaticDimension
@@ -182,9 +187,6 @@ class MultiSelectionTableControl : UIControl {
         
     }
     
-    let allItemsTableContainer = UIView()
-    let selectedItemsTableContainer = UIView()
-    
     private func buildAllItemsTable() {
         addSubview(allItemsTableContainer)
         allItemsTableContainer.backgroundColor = UIColor(colorLiteralRed: 0, green: 0, blue: 0, alpha: 1)
@@ -234,6 +236,13 @@ class MultiSelectionTableControl : UIControl {
         selectedItemsTable.trailingAnchor.constraint(equalTo: selectedItemsTableContainer.trailingAnchor).isActive = true
         selectedItemsTable.translatesAutoresizingMaskIntoConstraints = false
     }
+    
+    fileprivate var cellReuseId = "Cell"
+    func register(nib: UINib, for cellReuseIdentifier: String) {
+        cellReuseId = cellReuseIdentifier
+        allItemsTable.register(nib, forCellReuseIdentifier: cellReuseId)
+        selectedItemsTable.register(nib, forCellReuseIdentifier: cellReuseId)
+    }
 }
 
 extension MultiSelectionTableControl : UITableViewDataSource {
@@ -246,17 +255,16 @@ extension MultiSelectionTableControl : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "AlbumCell", for: indexPath) as! AlbumCell
-        let item: AlbumIndex
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseId, for: indexPath)
+
+        let item: ItemIndex
         if tableView == allItemsTable {
             item = allItemsIndexes[indexPath.row]
         } else {
             item = selectedItemsIndexes[indexPath.row]
         }
         
-        cell.nameLabel.text = item.album.band.name
-        cell.subtitleLabel.text = item.album.name
-        cell.albumImageView.image = item.album.cover
+        delegate?.paint(cell, for: indexPath, with: item.item)
         
         return cell
     }
@@ -287,11 +295,11 @@ extension MultiSelectionTableControl : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView == selectedItemsTable {
             highlightCell(at: indexPath, in: tableView) {
-                self.unselectAlbum(at: indexPath)
+                self.unselectItem(at: indexPath)
             }
         } else {
             highlightCell(at: indexPath, in: tableView) {
-                self.selectAlbum(at: indexPath)
+                self.selectItem(at: indexPath)
             }
         }
     }
@@ -336,10 +344,10 @@ extension MultiSelectionTableControl : UITableViewDelegate {
         CATransaction.commit()
     }
     
-    private func selectAlbum(at indexPath: IndexPath) {
+    private func selectItem(at indexPath: IndexPath) {
         
-        let album = allItemsIndexes.remove(at: indexPath.row)
-        selectedItemsIndexes.append(album)
+        let item = allItemsIndexes.remove(at: indexPath.row)
+        selectedItemsIndexes.append(item)
         
         let count = selectedItemsTable.numberOfRows(inSection: 0)
         
@@ -378,11 +386,11 @@ extension MultiSelectionTableControl : UITableViewDelegate {
         }
     }
     
-    private func unselectAlbum(at indexPath: IndexPath) {
-        let album = selectedItemsIndexes.remove(at: indexPath.row)
+    private func unselectItem(at indexPath: IndexPath) {
+        let item = selectedItemsIndexes.remove(at: indexPath.row)
         
-        let indexToAdd = findIndexToAdd(album, in: allItemsIndexes)
-        allItemsIndexes.insert(album, at: indexToAdd)
+        let indexToAdd = findIndexToAdd(item, in: allItemsIndexes)
+        allItemsIndexes.insert(item, at: indexToAdd)
         
         let newIndexPath = IndexPath(item: indexToAdd, section: 0)
         allItemsTable.insertRows(at: [newIndexPath], with: .bottom)
@@ -424,10 +432,10 @@ extension MultiSelectionTableControl : UITableViewDelegate {
         
     }
     
-    private func findIndexToAdd(_ album: AlbumIndex, in list: [AlbumIndex]) -> Int {
+    private func findIndexToAdd(_ item: ItemIndex, in list: [ItemIndex]) -> Int {
         var indexToReturn = 0
-        for (index, iteratedAlbumIndex) in list.enumerated() {
-            if iteratedAlbumIndex.index >= album.index {
+        for (index, iteratedItemIndex) in list.enumerated() {
+            if iteratedItemIndex.index >= item.index {
                 indexToReturn = index
                 break
             }

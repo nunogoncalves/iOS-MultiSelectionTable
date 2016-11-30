@@ -38,6 +38,21 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         multiSelectionTableControl.allItems = allAlbumIndexes
+        multiSelectionTableControl.delegate = self
+        multiSelectionTableControl.register(nib: UINib(nibName: "AlbumCell", bundle: nil), for: "AlbumCell")
+    }
+    
+}
+
+extension ViewController : MultiSelectionTableDelegate {
+    
+    func paint(_ cell: UITableViewCell, for indexPath: IndexPath, with item: Any) {
+        if let _cell = cell as? AlbumCell,
+            let album = item as? Album {
+            _cell.nameLabel.text = album.band.name
+            _cell.subtitleLabel.text = album.name
+            _cell.albumImageView.image = album.cover
+        }
     }
     
 }
