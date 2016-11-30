@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8536F8051DEE3768003C38B3 /* MultiSelectionTableControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8536F8041DEE3768003C38B3 /* MultiSelectionTableControl.swift */; };
 		85C315161DECEFF30095AFA1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C315151DECEFF30095AFA1 /* AppDelegate.swift */; };
 		85C315181DECEFF30095AFA1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C315171DECEFF30095AFA1 /* ViewController.swift */; };
 		85C3151B1DECEFF30095AFA1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85C315191DECEFF30095AFA1 /* Main.storyboard */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8536F8041DEE3768003C38B3 /* MultiSelectionTableControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiSelectionTableControl.swift; sourceTree = "<group>"; };
 		85C315121DECEFF30095AFA1 /* MultiSelectionTable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiSelectionTable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85C315151DECEFF30095AFA1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85C315171DECEFF30095AFA1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				85C3151C1DECEFF30095AFA1 /* MultiSelectionTable.xcdatamodeld */,
 				85D3566F1DED638900E32A04 /* Album.swift */,
 				85D356711DED807400E32A04 /* Band.swift */,
+				8536F8041DEE3768003C38B3 /* MultiSelectionTableControl.swift */,
 				85D8179B1DEEB6880063E95E /* AlbumCell.swift */,
 				85D8179C1DEEB6880063E95E /* AlbumCell.xib */,
 			);
@@ -283,6 +286,7 @@
 				85C315161DECEFF30095AFA1 /* AppDelegate.swift in Sources */,
 				85D8179D1DEEB6880063E95E /* AlbumCell.swift in Sources */,
 				85C3151E1DECEFF30095AFA1 /* MultiSelectionTable.xcdatamodeld in Sources */,
+				8536F8051DEE3768003C38B3 /* MultiSelectionTableControl.swift in Sources */,
 				85D356701DED638900E32A04 /* Album.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
