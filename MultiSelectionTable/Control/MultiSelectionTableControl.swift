@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum State {
+enum MultiSelectionTableControlState {
     case displaying //idea here is to hide the selection table
     case selecting //idea is to show the selectio table
 }
@@ -30,7 +30,7 @@ class MultiSelectionTableControl<T: Equatable> : UIView,
     fileprivate var selectedItemsTableTrailingConstraint: NSLayoutConstraint!
     
     fileprivate var isSelectingMode = false
-    fileprivate var seperatorWidthOffset: CGFloat = 100
+    var seperatorWidthOffset: CGFloat = 100
     
     weak var delegate: MultiSelectionTableDelegate?
     
@@ -208,40 +208,38 @@ class MultiSelectionTableControl<T: Equatable> : UIView,
     }
     
     fileprivate func displayAllItems() {
-        //show all items
         if !isSelectingMode {
             seperatorCenterXConstraint.constant = seperatorWidthOffset
             
             allItemsTableLeadingConstraint.constant = 0
             selectedItemsTableTrailingConstraint.constant += seperatorCenterXConstraint.constant * 2
             
-            animateDisplayChange()
+            animateStateTransition()
+            isSelectingMode = true
         }
-        isSelectingMode = true
     }
     
     fileprivate func displaySelectedItems() {
-        //show selected items
         if isSelectingMode {
             seperatorCenterXConstraint.constant = -seperatorWidthOffset
             
             allItemsTableLeadingConstraint.constant += seperatorCenterXConstraint.constant * 2
             selectedItemsTableTrailingConstraint.constant = 5
             
-            animateDisplayChange()
+            animateStateTransition()
+            isSelectingMode = false
         }
-        isSelectingMode = false
     }
     
-    private func animateDisplayChange() {
+    private func animateStateTransition() {
         UIView.animate(withDuration: 0.3,
                        delay: 0,
                        usingSpringWithDamping: 1,
                        initialSpringVelocity: 1,
                        options: .curveEaseInOut,
-                       animations: {
-                        self.layoutIfNeeded()
-        },
+                       animations: { [weak self] in
+                          self?.layoutIfNeeded()
+                       },
                        completion: nil)
     }
     

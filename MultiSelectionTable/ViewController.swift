@@ -56,7 +56,7 @@ class ViewController: UIViewController {
         multiSelectionTableControl.allItems = allAlbumIndexes
         multiSelectionTableControl.delegate = self
         multiSelectionTableControl.register(nib: UINib(nibName: "AlbumCell", bundle: nil), for: "AlbumCell")
-        
+        multiSelectionTableControl.seperatorWidthOffset = 130
         
     }
     
