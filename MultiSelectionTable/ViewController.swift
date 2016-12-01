@@ -10,7 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var multiSelectionTableControl: MultiSelectionTableControl!
+    @IBOutlet weak var multiSelectionTableContainer: UIStackView!
+    
+    fileprivate let multiSelectionTableControl: MultiSelectionTableControl<Album>! = MultiSelectionTableControl(frame: .zero)
     
     fileprivate var allAlbumIndexes: [Album] = [
         Album(band: Band(name: "Nirvana"), name: "Nevermind", cover: #imageLiteral(resourceName: "nevermind")),
@@ -34,12 +36,30 @@ class ViewController: UIViewController {
         Album(band: Band(name: "INXS"), name: "Switch", cover: #imageLiteral(resourceName: "switch")),
         ]
     
+    fileprivate var filteredAlbuns: [Album] = []
+    
+    @IBAction func textUpdated(_ sender: UITextField) {
+        if let searchText = sender.text,
+            searchText.characters.count > 0 {
+            filteredAlbuns = allAlbumIndexes.filter { $0.name.lowercased().contains(searchText.lowercased()) }
+        } else {
+            filteredAlbuns = allAlbumIndexes
+        }
+        multiSelectionTableControl.allItems = filteredAlbuns
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        multiSelectionTableContainer.addArrangedSubview(multiSelectionTableControl)
+        
+        multiSelectionTableControl.allItemsTableBackgroundColor = UIColor(colorLiteralRed: 25/255, green: 25/255, blue: 25/255, alpha: 1)
+        multiSelectionTableControl.selectedItemsTableBackgroundColor = UIColor(colorLiteralRed: 25/255, green: 25/255, blue: 25/255, alpha: 1)
         
         multiSelectionTableControl.allItems = allAlbumIndexes
         multiSelectionTableControl.delegate = self
         multiSelectionTableControl.register(nib: UINib(nibName: "AlbumCell", bundle: nil), for: "AlbumCell")
+        
+        
     }
     
 }

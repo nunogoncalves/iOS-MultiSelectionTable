@@ -8,19 +8,6 @@
 
 import UIKit
 
-fileprivate struct ItemIndex {
-    
-    let item: Any
-    let index: Int
-    
-}
-
-protocol MultiSelectionTableDelegate : class {
-    
-    func paint(_ cell: UITableViewCell, for indexPath: IndexPath, with object: Any)
-    
-}
-
 enum State {
     case displaying //idea here is to hide the selection table
     case selecting //idea is to show the selectio table
@@ -28,7 +15,9 @@ enum State {
 
 @IBDesignable
 //class MultiSelectionTableControl<T> : UIControl {
-class MultiSelectionTableControl : UIControl {
+class MultiSelectionTableControl<T: Equatable> : UIView,
+                                                 UITableViewDataSource,
+                                                 UITableViewDelegate {
 
     fileprivate let allItemsTableContainer = UIView()
     fileprivate let allItemsTable = UITableView()
@@ -47,33 +36,62 @@ class MultiSelectionTableControl : UIControl {
     
     weak var delegate: MultiSelectionTableDelegate?
     
-    fileprivate var allItemsIndexes: [ItemIndex] = []
-    var allItems: [Any] = [] {
+    fileprivate var allItemsIndexes: [ItemIndex<T>] = []
+    var allItems: [T] = [] {
         didSet {
-            allItemsIndexes = allItems.enumerated().map { ItemIndex(item: $1, index: $0) }
+            let _selectedItems = selectedItemsIndexes.map{ $0.item }
+            allItemsIndexes = allItems.enumerated().flatMap { index, item in
+                if let indexOfItem = _selectedItems.index(of: item) {
+                    selectedItemsIndexes[indexOfItem].index = index
+                    return nil
+                }
+                return ItemIndex(item: item, index: index)
+            }
+            allItemsTable.reloadData()
         }
     }
     
-    fileprivate var selectedItemsIndexes: [ItemIndex] = []
-    var selectedItems: [Any] = [] {
+    fileprivate var selectedItemsIndexes: [ItemIndex<T>] = []
+    private (set) var selectedItems: [T] = [] {
         didSet {
             selectedItemsIndexes = selectedItems.enumerated().map { ItemIndex(item: $1, index: $0) }
         }
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        backgroundColor = .black
-        selectedItemsTable.backgroundColor = UIColor(colorLiteralRed: 25/255, green: 25/255, blue: 25/255, alpha: 1)
-        allItemsTable.backgroundColor = UIColor(colorLiteralRed: 25/255, green: 25/255, blue: 25/255, alpha: 1)
-        
-        allItemsTable.separatorColor = .clear
-        selectedItemsTable.separatorColor = .clear
-        
-        selectedItemsTableContainer.backgroundColor = UIColor(colorLiteralRed: 25/255, green: 25/255, blue: 25/255, alpha: 1)
-        allItemsTableContainer.backgroundColor = UIColor(colorLiteralRed: 25/255, green: 25/255, blue: 25/255, alpha: 1)
+    @IBInspectable var controlBackgroundColor: UIColor = .black {
+        didSet {
+            setNeedsDisplay()
+        }
     }
     
+    @IBInspectable var allItemsTableBackgroundColor: UIColor = .defaultTableBackground {
+        didSet {
+            allItemsTable.setNeedsDisplay()
+            allItemsTable.backgroundColor = allItemsTableBackgroundColor
+        }
+    }
+    
+    @IBInspectable var selectedItemsTableBackgroundColor: UIColor = .defaultTableBackground {
+        didSet {
+            selectedItemsTable.setNeedsDisplay()
+            selectedItemsTable.backgroundColor = selectedItemsTableBackgroundColor
+        }
+    }
+    
+//    override func awakeFromNib() {
+//        super.awakeFromNib()
+//        backgroundColor = controlBackgroundColor
+//        blackLine.backgroundColor = controlBackgroundColor
+//        selectedItemsTable.backgroundColor = selectedItemsTableBackgroundColor
+//        allItemsTable.backgroundColor = allItemsTableBackgroundColor
+//        
+//        allItemsTable.separatorColor = .clear
+//        selectedItemsTable.separatorColor = .clear
+//        
+//        selectedItemsTableContainer.backgroundColor = UIColor(colorLiteralRed: 25/255, green: 25/255, blue: 25/255, alpha: 1)
+//        allItemsTableContainer.backgroundColor = UIColor(colorLiteralRed: 25/255, green: 25/255, blue: 25/255, alpha: 1)
+//    }
+//    
     override init(frame: CGRect) {
         super.init(frame: frame)
         initialize()
@@ -104,6 +122,101 @@ class MultiSelectionTableControl : UIControl {
         seperator.addGestureRecognizer(panGesture)
         
         displayAllItems()
+        backgroundColor = controlBackgroundColor
+                selectedItemsTableContainer.backgroundColor = UIColor(colorLiteralRed: 25/255, green: 25/255, blue: 25/255, alpha: 1)
+                allItemsTableContainer.backgroundColor = UIColor(colorLiteralRed: 25/255, green: 25/255, blue: 25/255, alpha: 1)
+
+    }
+    
+    fileprivate let blackLine = UIView()
+    private func buildSeperator() {
+        addSubview(blackLine)
+        blackLine.backgroundColor = controlBackgroundColor
+        
+        blackLine.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        blackLine.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        seperatorCenterXConstraint = blackLine.centerXAnchor.constraint(equalTo: centerXAnchor)
+        seperatorCenterXConstraint.isActive = true
+        
+        blackLine.widthAnchor.constraint(equalToConstant: 4).isActive = true
+        blackLine.translatesAutoresizingMaskIntoConstraints = false
+        
+        let grayIndicator = UIView()
+        blackLine.addSubview(grayIndicator)
+        grayIndicator.layer.cornerRadius = 2
+        grayIndicator.backgroundColor = .lightGray
+        
+        grayIndicator.centerXAnchor.constraint(equalTo: blackLine.centerXAnchor).isActive = true
+        grayIndicator.centerYAnchor.constraint(equalTo: blackLine.centerYAnchor).isActive = true
+        grayIndicator.widthAnchor.constraint(equalToConstant: 4).isActive = true
+        grayIndicator.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        grayIndicator.translatesAutoresizingMaskIntoConstraints = false
+        
+        addSubview(seperator)
+        seperator.backgroundColor = .clear
+        
+        seperator.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        seperator.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        seperator.leadingAnchor.constraint(equalTo: blackLine.leadingAnchor, constant: -10).isActive = true
+        seperator.trailingAnchor.constraint(equalTo: blackLine.trailingAnchor, constant: 10).isActive = true
+        seperator.translatesAutoresizingMaskIntoConstraints = false
+        
+    }
+    
+    private func buildAllItemsTable() {
+        addSubview(allItemsTableContainer)
+        allItemsTableContainer.backgroundColor = .black//allItemsTableBackgroundColor
+        
+        allItemsTableLeadingConstraint = allItemsTableContainer.leadingAnchor.constraint(equalTo: leadingAnchor)
+        allItemsTableLeadingConstraint.isActive = true
+        allItemsTableContainer.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        allItemsTableContainer.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        allItemsTableContainer.trailingAnchor.constraint(equalTo: seperator.leadingAnchor, constant: 5).isActive = true
+        allItemsTableContainer.translatesAutoresizingMaskIntoConstraints = false
+        
+        allItemsTable.keyboardDismissMode = .interactive
+        
+        let footer = UIView()
+        allItemsTable.tableFooterView = footer
+        
+        allItemsTableContainer.addSubview(allItemsTable)
+        
+        allItemsTable.backgroundView = nil
+        allItemsTable.backgroundColor = allItemsTableBackgroundColor
+        allItemsTable.separatorColor = .clear
+        
+        allItemsTable.topAnchor.constraint(equalTo: allItemsTableContainer.topAnchor).isActive = true
+        allItemsTable.leadingAnchor.constraint(equalTo: allItemsTableContainer.leadingAnchor).isActive = true
+        allItemsTable.bottomAnchor.constraint(equalTo: allItemsTableContainer.bottomAnchor).isActive = true
+        allItemsTable.trailingAnchor.constraint(equalTo: allItemsTableContainer.trailingAnchor).isActive = true
+        allItemsTable.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    private func buildSelectedItemsTable() {
+        addSubview(selectedItemsTableContainer)
+        
+        selectedItemsTableContainer.leadingAnchor.constraint(equalTo: seperator.trailingAnchor, constant: -5).isActive = true
+        selectedItemsTableContainer.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        selectedItemsTableContainer.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        selectedItemsTableTrailingConstraint = selectedItemsTableContainer.trailingAnchor.constraint(equalTo: trailingAnchor)
+        selectedItemsTableTrailingConstraint.isActive = true
+        selectedItemsTableContainer.translatesAutoresizingMaskIntoConstraints = false
+        
+        let footer = UIView()
+        selectedItemsTable.tableFooterView = footer
+        
+        selectedItemsTableContainer.addSubview(selectedItemsTable)
+        
+        selectedItemsTable.backgroundView = nil
+        selectedItemsTable.backgroundColor = selectedItemsTableBackgroundColor
+        
+        selectedItemsTable.keyboardDismissMode = .interactive
+        
+        selectedItemsTable.topAnchor.constraint(equalTo: selectedItemsTableContainer.topAnchor).isActive = true
+        selectedItemsTable.leadingAnchor.constraint(equalTo: selectedItemsTableContainer.leadingAnchor).isActive = true
+        selectedItemsTable.bottomAnchor.constraint(equalTo: selectedItemsTableContainer.bottomAnchor).isActive = true
+        selectedItemsTable.trailingAnchor.constraint(equalTo: selectedItemsTableContainer.trailingAnchor).isActive = true
+        selectedItemsTable.translatesAutoresizingMaskIntoConstraints = false
     }
     
     @objc private func swipped(gesture: UIPanGestureRecognizer) {
@@ -152,100 +265,13 @@ class MultiSelectionTableControl : UIControl {
                        completion: nil)
     }
     
-    private func buildSeperator() {
-        let blackLine = UIView()
-        addSubview(blackLine)
-        blackLine.backgroundColor = .black
-        
-        blackLine.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        blackLine.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        seperatorCenterXConstraint = blackLine.centerXAnchor.constraint(equalTo: centerXAnchor)
-        seperatorCenterXConstraint.isActive = true
-        
-        blackLine.widthAnchor.constraint(equalToConstant: 4).isActive = true
-        blackLine.translatesAutoresizingMaskIntoConstraints = false
-        
-        let grayIndicator = UIView()
-        blackLine.addSubview(grayIndicator)
-        grayIndicator.layer.cornerRadius = 2
-        grayIndicator.backgroundColor = .lightGray
-        
-        grayIndicator.centerXAnchor.constraint(equalTo: blackLine.centerXAnchor).isActive = true
-        grayIndicator.centerYAnchor.constraint(equalTo: blackLine.centerYAnchor).isActive = true
-        grayIndicator.widthAnchor.constraint(equalToConstant: 4).isActive = true
-        grayIndicator.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        grayIndicator.translatesAutoresizingMaskIntoConstraints = false
-        
-        addSubview(seperator)
-        seperator.backgroundColor = .clear
-        
-        seperator.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        seperator.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        seperator.leadingAnchor.constraint(equalTo: blackLine.leadingAnchor, constant: -10).isActive = true
-        seperator.trailingAnchor.constraint(equalTo: blackLine.trailingAnchor, constant: 10).isActive = true
-        seperator.translatesAutoresizingMaskIntoConstraints = false
-        
-    }
-    
-    private func buildAllItemsTable() {
-        addSubview(allItemsTableContainer)
-        allItemsTableContainer.backgroundColor = UIColor(colorLiteralRed: 0, green: 0, blue: 0, alpha: 1)
-        
-        allItemsTableLeadingConstraint = allItemsTableContainer.leadingAnchor.constraint(equalTo: leadingAnchor)
-        allItemsTableLeadingConstraint.isActive = true
-        allItemsTableContainer.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        allItemsTableContainer.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        allItemsTableContainer.trailingAnchor.constraint(equalTo: seperator.leadingAnchor, constant: 5).isActive = true
-        allItemsTableContainer.translatesAutoresizingMaskIntoConstraints = false
-        
-        let footer = UIView()
-        allItemsTable.tableFooterView = footer
-        
-        allItemsTableContainer.addSubview(allItemsTable)
-        
-        allItemsTable.backgroundView = nil
-        allItemsTable.separatorColor = .clear
-        
-        allItemsTable.topAnchor.constraint(equalTo: allItemsTableContainer.topAnchor).isActive = true
-        allItemsTable.leadingAnchor.constraint(equalTo: allItemsTableContainer.leadingAnchor).isActive = true
-        allItemsTable.bottomAnchor.constraint(equalTo: allItemsTableContainer.bottomAnchor).isActive = true
-        allItemsTable.trailingAnchor.constraint(equalTo: allItemsTableContainer.trailingAnchor).isActive = true
-        allItemsTable.translatesAutoresizingMaskIntoConstraints = false
-    }
-    
-    private func buildSelectedItemsTable() {
-        addSubview(selectedItemsTableContainer)
-        selectedItemsTableContainer.backgroundColor = UIColor(colorLiteralRed: 0, green: 0, blue: 0, alpha: 1)
-        
-        selectedItemsTableContainer.leadingAnchor.constraint(equalTo: seperator.trailingAnchor, constant: -5).isActive = true
-        selectedItemsTableContainer.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        selectedItemsTableContainer.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        selectedItemsTableTrailingConstraint = selectedItemsTableContainer.trailingAnchor.constraint(equalTo: trailingAnchor)
-        selectedItemsTableTrailingConstraint.isActive = true
-        selectedItemsTableContainer.translatesAutoresizingMaskIntoConstraints = false
-        
-        let footer = UIView()
-        selectedItemsTable.tableFooterView = footer
-        
-        selectedItemsTableContainer.addSubview(selectedItemsTable)
-        selectedItemsTable.backgroundView = nil
-        selectedItemsTable.backgroundColor = .clear
-        selectedItemsTable.topAnchor.constraint(equalTo: selectedItemsTableContainer.topAnchor).isActive = true
-        selectedItemsTable.leadingAnchor.constraint(equalTo: selectedItemsTableContainer.leadingAnchor).isActive = true
-        selectedItemsTable.bottomAnchor.constraint(equalTo: selectedItemsTableContainer.bottomAnchor).isActive = true
-        selectedItemsTable.trailingAnchor.constraint(equalTo: selectedItemsTableContainer.trailingAnchor).isActive = true
-        selectedItemsTable.translatesAutoresizingMaskIntoConstraints = false
-    }
-    
     fileprivate var cellReuseId = "Cell"
     func register(nib: UINib, for cellReuseIdentifier: String) {
         cellReuseId = cellReuseIdentifier
         allItemsTable.register(nib, forCellReuseIdentifier: cellReuseId)
         selectedItemsTable.register(nib, forCellReuseIdentifier: cellReuseId)
     }
-}
 
-extension MultiSelectionTableControl : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == allItemsTable {
             return allItemsIndexes.count
@@ -257,7 +283,7 @@ extension MultiSelectionTableControl : UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseId, for: indexPath)
 
-        let item: ItemIndex
+        let item: ItemIndex<T>
         if tableView == allItemsTable {
             item = allItemsIndexes[indexPath.row]
         } else {
@@ -268,9 +294,6 @@ extension MultiSelectionTableControl : UITableViewDataSource {
         
         return cell
     }
-}
-
-extension MultiSelectionTableControl : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return tableView == selectedItemsTable ? 50 : 0
@@ -389,7 +412,11 @@ extension MultiSelectionTableControl : UITableViewDelegate {
     private func unselectItem(at indexPath: IndexPath) {
         let item = selectedItemsIndexes.remove(at: indexPath.row)
         
-        let indexToAdd = findIndexToAdd(item, in: allItemsIndexes)
+        guard let indexToAdd = findIndexToAdd(item, in: allItemsIndexes) else {
+            self.selectedItemsTable.deleteRows(at: [indexPath], with: .top)
+            return
+        }
+        
         allItemsIndexes.insert(item, at: indexToAdd)
         
         let newIndexPath = IndexPath(item: indexToAdd, section: 0)
@@ -432,7 +459,9 @@ extension MultiSelectionTableControl : UITableViewDelegate {
         
     }
     
-    private func findIndexToAdd(_ item: ItemIndex, in list: [ItemIndex]) -> Int {
+    private func findIndexToAdd(_ item: ItemIndex<T>, in list: [ItemIndex<T>]) -> Int? {
+        guard allItems.contains(item.item) else { return nil }
+        
         var indexToReturn = 0
         for (index, iteratedItemIndex) in list.enumerated() {
             if iteratedItemIndex.index >= item.index {
@@ -441,6 +470,14 @@ extension MultiSelectionTableControl : UITableViewDelegate {
             }
         }
         return indexToReturn
+    }
+    
+}
+
+fileprivate extension UIColor {
+    
+    static var defaultTableBackground: UIColor {
+        return UIColor(colorLiteralRed: 25/255, green: 25/255, blue: 25/255, alpha: 1)
     }
     
 }

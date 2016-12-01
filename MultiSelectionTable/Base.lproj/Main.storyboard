@@ -21,20 +21,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vu8-yg-Hr3" customClass="MultiSelectionTableControl" customModule="MultiSelectionTable" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                            </view>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mWh-4O-Jog">
+                                <rect key="frame" x="0.0" y="20" width="375" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="textUpdated:" destination="wwJ-Jc-SVD" eventType="editingChanged" id="dAw-6V-7B5"/>
+                                </connections>
+                            </textField>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u7X-2r-L26">
+                                <rect key="frame" x="0.0" y="50" width="375" height="617"/>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="vu8-yg-Hr3" secondAttribute="trailing" id="DCO-a9-9ty"/>
-                            <constraint firstItem="vu8-yg-Hr3" firstAttribute="leading" secondItem="LWu-FQ-YWP" secondAttribute="leading" id="Nhn-Ls-bFK"/>
-                            <constraint firstItem="Uwz-1U-gXq" firstAttribute="top" secondItem="vu8-yg-Hr3" secondAttribute="bottom" id="TBy-M5-TlL"/>
-                            <constraint firstItem="vu8-yg-Hr3" firstAttribute="top" secondItem="2ym-ub-Ufv" secondAttribute="bottom" id="irT-TX-LCd"/>
+                            <constraint firstItem="Uwz-1U-gXq" firstAttribute="top" secondItem="u7X-2r-L26" secondAttribute="bottom" id="0Sd-ss-ExW"/>
+                            <constraint firstItem="mWh-4O-Jog" firstAttribute="leading" secondItem="LWu-FQ-YWP" secondAttribute="leading" id="8dx-1s-QjE"/>
+                            <constraint firstAttribute="trailing" secondItem="mWh-4O-Jog" secondAttribute="trailing" id="CS2-Vt-UVL"/>
+                            <constraint firstAttribute="trailing" secondItem="u7X-2r-L26" secondAttribute="trailing" id="ab1-N4-k0U"/>
+                            <constraint firstItem="u7X-2r-L26" firstAttribute="leading" secondItem="LWu-FQ-YWP" secondAttribute="leading" id="eV9-ai-kea"/>
+                            <constraint firstItem="mWh-4O-Jog" firstAttribute="top" secondItem="2ym-ub-Ufv" secondAttribute="bottom" id="nrv-VI-byI"/>
+                            <constraint firstItem="u7X-2r-L26" firstAttribute="top" secondItem="mWh-4O-Jog" secondAttribute="bottom" id="saI-n4-1aP"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="multiSelectionTableControl" destination="vu8-yg-Hr3" id="1gz-BS-Csg"/>
+                        <outlet property="multiSelectionTableContainer" destination="u7X-2r-L26" id="f2p-ms-hGj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KTC-c5-b6g" userLabel="First Responder" sceneMemberID="firstResponder"/>

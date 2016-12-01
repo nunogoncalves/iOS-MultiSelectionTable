@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8536F8051DEE3768003C38B3 /* MultiSelectionTableControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8536F8041DEE3768003C38B3 /* MultiSelectionTableControl.swift */; };
+		8561BB6C1DF00C7A00EA363E /* ItemIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8561BB6B1DF00C7A00EA363E /* ItemIndex.swift */; };
+		8561BB6E1DF00CA600EA363E /* MultiSelectionTableControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8561BB6D1DF00CA600EA363E /* MultiSelectionTableControl.swift */; };
+		8561BB701DF00CC500EA363E /* MultiSelectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8561BB6F1DF00CC500EA363E /* MultiSelectionDelegate.swift */; };
 		85C315161DECEFF30095AFA1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C315151DECEFF30095AFA1 /* AppDelegate.swift */; };
 		85C315181DECEFF30095AFA1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C315171DECEFF30095AFA1 /* ViewController.swift */; };
 		85C3151B1DECEFF30095AFA1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85C315191DECEFF30095AFA1 /* Main.storyboard */; };
@@ -39,7 +41,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		8536F8041DEE3768003C38B3 /* MultiSelectionTableControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiSelectionTableControl.swift; sourceTree = "<group>"; };
+		8561BB6B1DF00C7A00EA363E /* ItemIndex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemIndex.swift; path = Control/ItemIndex.swift; sourceTree = "<group>"; };
+		8561BB6D1DF00CA600EA363E /* MultiSelectionTableControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MultiSelectionTableControl.swift; path = Control/MultiSelectionTableControl.swift; sourceTree = "<group>"; };
+		8561BB6F1DF00CC500EA363E /* MultiSelectionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MultiSelectionDelegate.swift; path = Control/MultiSelectionDelegate.swift; sourceTree = "<group>"; };
 		85C315121DECEFF30095AFA1 /* MultiSelectionTable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiSelectionTable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85C315151DECEFF30095AFA1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85C315171DECEFF30095AFA1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -84,6 +88,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8561BB6A1DF00C5700EA363E /* Control */ = {
+			isa = PBXGroup;
+			children = (
+				8561BB6D1DF00CA600EA363E /* MultiSelectionTableControl.swift */,
+				8561BB6B1DF00C7A00EA363E /* ItemIndex.swift */,
+				8561BB6F1DF00CC500EA363E /* MultiSelectionDelegate.swift */,
+			);
+			name = Control;
+			sourceTree = "<group>";
+		};
 		85C315091DECEFF30095AFA1 = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +121,7 @@
 		85C315141DECEFF30095AFA1 /* MultiSelectionTable */ = {
 			isa = PBXGroup;
 			children = (
+				8561BB6A1DF00C5700EA363E /* Control */,
 				85C315151DECEFF30095AFA1 /* AppDelegate.swift */,
 				85C315171DECEFF30095AFA1 /* ViewController.swift */,
 				85C315191DECEFF30095AFA1 /* Main.storyboard */,
@@ -115,7 +130,6 @@
 				85C315241DECEFF30095AFA1 /* Info.plist */,
 				85D3566F1DED638900E32A04 /* Album.swift */,
 				85D356711DED807400E32A04 /* Band.swift */,
-				8536F8041DEE3768003C38B3 /* MultiSelectionTableControl.swift */,
 				85D8179B1DEEB6880063E95E /* AlbumCell.swift */,
 				85D8179C1DEEB6880063E95E /* AlbumCell.xib */,
 			);
@@ -208,6 +222,7 @@
 				TargetAttributes = {
 					85C315111DECEFF30095AFA1 = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 9D23XSN84S;
 						ProvisioningStyle = Automatic;
 					};
 					85C315281DECEFF30095AFA1 = {
@@ -279,9 +294,11 @@
 			files = (
 				85D356721DED807400E32A04 /* Band.swift in Sources */,
 				85C315181DECEFF30095AFA1 /* ViewController.swift in Sources */,
+				8561BB6E1DF00CA600EA363E /* MultiSelectionTableControl.swift in Sources */,
+				8561BB701DF00CC500EA363E /* MultiSelectionDelegate.swift in Sources */,
 				85C315161DECEFF30095AFA1 /* AppDelegate.swift in Sources */,
+				8561BB6C1DF00C7A00EA363E /* ItemIndex.swift in Sources */,
 				85D8179D1DEEB6880063E95E /* AlbumCell.swift in Sources */,
-				8536F8051DEE3768003C38B3 /* MultiSelectionTableControl.swift in Sources */,
 				85D356701DED638900E32A04 /* Album.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -435,7 +452,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 9D23XSN84S;
 				INFOPLIST_FILE = MultiSelectionTable/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.numicago.MultiSelectionTable;
@@ -449,7 +466,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 9D23XSN84S;
 				INFOPLIST_FILE = MultiSelectionTable/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.numicago.MultiSelectionTable;
