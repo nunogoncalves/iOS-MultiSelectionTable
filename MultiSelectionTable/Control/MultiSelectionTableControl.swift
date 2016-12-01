@@ -13,8 +13,6 @@ enum State {
     case selecting //idea is to show the selectio table
 }
 
-@IBDesignable
-//class MultiSelectionTableControl<T> : UIControl {
 class MultiSelectionTableControl<T: Equatable> : UIView,
                                                  UITableViewDataSource,
                                                  UITableViewDelegate {
@@ -58,40 +56,24 @@ class MultiSelectionTableControl<T: Equatable> : UIView,
         }
     }
     
-    @IBInspectable var controlBackgroundColor: UIColor = .black {
+    var controlBackgroundColor: UIColor = .black {
         didSet {
-            setNeedsDisplay()
+            blackLine.backgroundColor = controlBackgroundColor
         }
     }
     
-    @IBInspectable var allItemsTableBackgroundColor: UIColor = .defaultTableBackground {
+    var allItemsTableBackgroundColor: UIColor = .defaultTableBackground {
         didSet {
-            allItemsTable.setNeedsDisplay()
             allItemsTable.backgroundColor = allItemsTableBackgroundColor
         }
     }
     
-    @IBInspectable var selectedItemsTableBackgroundColor: UIColor = .defaultTableBackground {
+    var selectedItemsTableBackgroundColor: UIColor = .defaultTableBackground {
         didSet {
-            selectedItemsTable.setNeedsDisplay()
             selectedItemsTable.backgroundColor = selectedItemsTableBackgroundColor
         }
     }
     
-//    override func awakeFromNib() {
-//        super.awakeFromNib()
-//        backgroundColor = controlBackgroundColor
-//        blackLine.backgroundColor = controlBackgroundColor
-//        selectedItemsTable.backgroundColor = selectedItemsTableBackgroundColor
-//        allItemsTable.backgroundColor = allItemsTableBackgroundColor
-//        
-//        allItemsTable.separatorColor = .clear
-//        selectedItemsTable.separatorColor = .clear
-//        
-//        selectedItemsTableContainer.backgroundColor = UIColor(colorLiteralRed: 25/255, green: 25/255, blue: 25/255, alpha: 1)
-//        allItemsTableContainer.backgroundColor = UIColor(colorLiteralRed: 25/255, green: 25/255, blue: 25/255, alpha: 1)
-//    }
-//    
     override init(frame: CGRect) {
         super.init(frame: frame)
         initialize()
@@ -103,29 +85,13 @@ class MultiSelectionTableControl<T: Equatable> : UIView,
     }
     
     private func initialize() {
+        backgroundColor = controlBackgroundColor
+        
         buildSeperator()
         buildAllItemsTable()
         buildSelectedItemsTable()
         
-        allItemsTable.delegate = self
-        allItemsTable.dataSource = self
-        selectedItemsTable.delegate = self
-        selectedItemsTable.dataSource = self
-        
-        allItemsTable.estimatedRowHeight = 100
-        allItemsTable.rowHeight = UITableViewAutomaticDimension
-        
-        selectedItemsTable.estimatedRowHeight = 100
-        selectedItemsTable.rowHeight = UITableViewAutomaticDimension
-        
-        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(swipped(gesture:)))
-        seperator.addGestureRecognizer(panGesture)
-        
         displayAllItems()
-        backgroundColor = controlBackgroundColor
-                selectedItemsTableContainer.backgroundColor = UIColor(colorLiteralRed: 25/255, green: 25/255, blue: 25/255, alpha: 1)
-                allItemsTableContainer.backgroundColor = UIColor(colorLiteralRed: 25/255, green: 25/255, blue: 25/255, alpha: 1)
-
     }
     
     fileprivate let blackLine = UIView()
@@ -161,6 +127,8 @@ class MultiSelectionTableControl<T: Equatable> : UIView,
         seperator.trailingAnchor.constraint(equalTo: blackLine.trailingAnchor, constant: 10).isActive = true
         seperator.translatesAutoresizingMaskIntoConstraints = false
         
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(swipped(gesture:)))
+        seperator.addGestureRecognizer(panGesture)
     }
     
     private func buildAllItemsTable() {
@@ -190,6 +158,11 @@ class MultiSelectionTableControl<T: Equatable> : UIView,
         allItemsTable.bottomAnchor.constraint(equalTo: allItemsTableContainer.bottomAnchor).isActive = true
         allItemsTable.trailingAnchor.constraint(equalTo: allItemsTableContainer.trailingAnchor).isActive = true
         allItemsTable.translatesAutoresizingMaskIntoConstraints = false
+        
+        allItemsTable.delegate = self
+        allItemsTable.dataSource = self
+        allItemsTable.estimatedRowHeight = 100
+        allItemsTable.rowHeight = UITableViewAutomaticDimension
     }
     
     private func buildSelectedItemsTable() {
@@ -212,11 +185,18 @@ class MultiSelectionTableControl<T: Equatable> : UIView,
         
         selectedItemsTable.keyboardDismissMode = .interactive
         
+        selectedItemsTable.separatorColor = .clear
+        
         selectedItemsTable.topAnchor.constraint(equalTo: selectedItemsTableContainer.topAnchor).isActive = true
         selectedItemsTable.leadingAnchor.constraint(equalTo: selectedItemsTableContainer.leadingAnchor).isActive = true
         selectedItemsTable.bottomAnchor.constraint(equalTo: selectedItemsTableContainer.bottomAnchor).isActive = true
         selectedItemsTable.trailingAnchor.constraint(equalTo: selectedItemsTableContainer.trailingAnchor).isActive = true
         selectedItemsTable.translatesAutoresizingMaskIntoConstraints = false
+        
+        selectedItemsTable.estimatedRowHeight = 100
+        selectedItemsTable.rowHeight = UITableViewAutomaticDimension
+        selectedItemsTable.delegate = self
+        selectedItemsTable.dataSource = self
     }
     
     @objc private func swipped(gesture: UIPanGestureRecognizer) {
@@ -347,8 +327,7 @@ class MultiSelectionTableControl<T: Equatable> : UIView,
         
         let pathLayer = CAShapeLayer()
         pathLayer.lineWidth = 0
-        pathLayer.fillColor = UIColor(colorLiteralRed: 121/255, green: 2/255, blue: 188/255, alpha: 0.3).cgColor
-        pathLayer.path = smallCircle.cgPath
+        pathLayer.fillColor = UIColor.cellPulseColor.cgColor
         cell.contentView.layer.addSublayer(pathLayer)
         
         CATransaction.begin()
@@ -469,6 +448,7 @@ class MultiSelectionTableControl<T: Equatable> : UIView,
                 break
             }
         }
+        
         return indexToReturn
     }
     
@@ -478,6 +458,10 @@ fileprivate extension UIColor {
     
     static var defaultTableBackground: UIColor {
         return UIColor(colorLiteralRed: 25/255, green: 25/255, blue: 25/255, alpha: 1)
+    }
+    
+    static var cellPulseColor: UIColor {
+        return UIColor(colorLiteralRed: 121/255, green: 2/255, blue: 188/255, alpha: 0.3)
     }
     
 }

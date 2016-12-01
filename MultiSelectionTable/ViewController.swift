@@ -12,8 +12,6 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var multiSelectionTableContainer: UIStackView!
     
-    fileprivate let multiSelectionTableControl: MultiSelectionTableControl<Album>! = MultiSelectionTableControl(frame: .zero)
-    
     fileprivate var allAlbumIndexes: [Album] = [
         Album(band: Band(name: "Nirvana"), name: "Nevermind", cover: #imageLiteral(resourceName: "nevermind")),
         Album(band: Band(name: "Red Hot Chili Peppers"), name: "Californication", cover: #imageLiteral(resourceName: "californication")),
@@ -47,13 +45,13 @@ class ViewController: UIViewController {
         }
         multiSelectionTableControl.allItems = filteredAlbuns
     }
+    fileprivate var multiSelectionTableControl: MultiSelectionTableControl<Album>!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+      
+        multiSelectionTableControl = MultiSelectionTableControl(frame: .zero)
         multiSelectionTableContainer.addArrangedSubview(multiSelectionTableControl)
-        
-        multiSelectionTableControl.allItemsTableBackgroundColor = UIColor(colorLiteralRed: 25/255, green: 25/255, blue: 25/255, alpha: 1)
-        multiSelectionTableControl.selectedItemsTableBackgroundColor = UIColor(colorLiteralRed: 25/255, green: 25/255, blue: 25/255, alpha: 1)
         
         multiSelectionTableControl.allItems = allAlbumIndexes
         multiSelectionTableControl.delegate = self
