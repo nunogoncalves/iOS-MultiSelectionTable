@@ -8,10 +8,16 @@
 
 import UIKit
 
-struct Album {
+struct Album : Equatable {
     
     let band: Band
     let name: String
     let cover: UIImage
+    
+    static func ==(left: Album, right: Album) -> Bool {
+        return left.name == right.name &&
+            left.cover == right.cover &&
+            left.band == right.band
+    }
     
 }

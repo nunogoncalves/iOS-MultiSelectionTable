@@ -6,8 +6,12 @@
 //  Copyright © 2016 Nuno Gonçalves. All rights reserved.
 //
 
-struct Band {
+struct Band: Equatable {
     
     let name: String
+    
+    static func ==(left: Band, right: Band) -> Bool {
+        return left.name == right.name
+    }
     
 }
