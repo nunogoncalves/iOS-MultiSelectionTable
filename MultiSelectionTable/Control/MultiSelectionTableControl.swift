@@ -18,10 +18,44 @@ class MultiSelectionTableControl<T: Equatable> : UIView,
                                                  UITableViewDelegate {
 
     fileprivate let allItemsTableContainer = UIView()
-    fileprivate let allItemsTable = UITableView()
+    fileprivate lazy var allItemsTable: UITableView = {
+        let tableView = UITableView()
+
+        tableView.tableFooterView = UIView()
+
+        tableView.backgroundView = nil
+        tableView.backgroundColor = self.allItemsTableBackgroundColor
+        tableView.separatorColor = .clear
+        tableView.keyboardDismissMode = .interactive
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+
+        tableView.estimatedRowHeight = 100
+        tableView.rowHeight = UITableViewAutomaticDimension
+
+        return tableView
+    }()
     
     fileprivate let selectedItemsTableContainer = UIView()
-    fileprivate let selectedItemsTable = UITableView()
+    fileprivate lazy var selectedItemsTable: UITableView = {
+        let tableView = UITableView()
+        
+        tableView.tableFooterView = UIView()
+        
+        tableView.backgroundView = nil
+        tableView.backgroundColor = self.selectedItemsTableBackgroundColor
+        tableView.separatorColor = .clear
+        tableView.keyboardDismissMode = .interactive
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        tableView.estimatedRowHeight = 100
+        tableView.rowHeight = UITableViewAutomaticDimension
+
+        return tableView
+    }()
     
     fileprivate let seperator = UIView()
     
@@ -133,7 +167,7 @@ class MultiSelectionTableControl<T: Equatable> : UIView,
     
     private func buildAllItemsTable() {
         addSubview(allItemsTableContainer)
-        allItemsTableContainer.backgroundColor = .black//allItemsTableBackgroundColor
+        allItemsTableContainer.backgroundColor = .black
         
         allItemsTableLeadingConstraint = allItemsTableContainer.leadingAnchor.constraint(equalTo: leadingAnchor)
         allItemsTableLeadingConstraint.isActive = true
@@ -142,27 +176,10 @@ class MultiSelectionTableControl<T: Equatable> : UIView,
         allItemsTableContainer.trailingAnchor.constraint(equalTo: seperator.leadingAnchor, constant: 5).isActive = true
         allItemsTableContainer.translatesAutoresizingMaskIntoConstraints = false
         
-        allItemsTable.keyboardDismissMode = .interactive
-        
-        let footer = UIView()
-        allItemsTable.tableFooterView = footer
-        
         allItemsTableContainer.addSubview(allItemsTable)
         
-        allItemsTable.backgroundView = nil
-        allItemsTable.backgroundColor = allItemsTableBackgroundColor
-        allItemsTable.separatorColor = .clear
-        
-        allItemsTable.topAnchor.constraint(equalTo: allItemsTableContainer.topAnchor).isActive = true
-        allItemsTable.leadingAnchor.constraint(equalTo: allItemsTableContainer.leadingAnchor).isActive = true
-        allItemsTable.bottomAnchor.constraint(equalTo: allItemsTableContainer.bottomAnchor).isActive = true
-        allItemsTable.trailingAnchor.constraint(equalTo: allItemsTableContainer.trailingAnchor).isActive = true
+        allItemsTable._alignToEdges(of: allItemsTableContainer)
         allItemsTable.translatesAutoresizingMaskIntoConstraints = false
-        
-        allItemsTable.delegate = self
-        allItemsTable.dataSource = self
-        allItemsTable.estimatedRowHeight = 100
-        allItemsTable.rowHeight = UITableViewAutomaticDimension
     }
     
     private func buildSelectedItemsTable() {
@@ -175,28 +192,11 @@ class MultiSelectionTableControl<T: Equatable> : UIView,
         selectedItemsTableTrailingConstraint.isActive = true
         selectedItemsTableContainer.translatesAutoresizingMaskIntoConstraints = false
         
-        let footer = UIView()
-        selectedItemsTable.tableFooterView = footer
-        
         selectedItemsTableContainer.addSubview(selectedItemsTable)
         
-        selectedItemsTable.backgroundView = nil
-        selectedItemsTable.backgroundColor = selectedItemsTableBackgroundColor
         
-        selectedItemsTable.keyboardDismissMode = .interactive
-        
-        selectedItemsTable.separatorColor = .clear
-        
-        selectedItemsTable.topAnchor.constraint(equalTo: selectedItemsTableContainer.topAnchor).isActive = true
-        selectedItemsTable.leadingAnchor.constraint(equalTo: selectedItemsTableContainer.leadingAnchor).isActive = true
-        selectedItemsTable.bottomAnchor.constraint(equalTo: selectedItemsTableContainer.bottomAnchor).isActive = true
-        selectedItemsTable.trailingAnchor.constraint(equalTo: selectedItemsTableContainer.trailingAnchor).isActive = true
+        selectedItemsTable._alignToEdges(of: selectedItemsTableContainer)
         selectedItemsTable.translatesAutoresizingMaskIntoConstraints = false
-        
-        selectedItemsTable.estimatedRowHeight = 100
-        selectedItemsTable.rowHeight = UITableViewAutomaticDimension
-        selectedItemsTable.delegate = self
-        selectedItemsTable.dataSource = self
     }
     
     @objc private func swipped(gesture: UIPanGestureRecognizer) {
@@ -305,6 +305,8 @@ class MultiSelectionTableControl<T: Equatable> : UIView,
         }
     }
     
+    private let pathLayer = CAShapeLayer()
+    let pathAnimation = CABasicAnimation(keyPath: "path")
     private func highlightCell(at indexPath: IndexPath,
                                in tableView: UITableView,
                                finish: @escaping () -> () = {}) {
@@ -323,14 +325,14 @@ class MultiSelectionTableControl<T: Equatable> : UIView,
                                      clockwise: true)
         
         
-        let pathLayer = CAShapeLayer()
+        
         pathLayer.lineWidth = 0
         pathLayer.fillColor = UIColor.cellPulseColor.cgColor
         cell.contentView.layer.addSublayer(pathLayer)
         
         CATransaction.begin()
         
-        let pathAnimation = CABasicAnimation(keyPath: "path")
+        
         pathAnimation.fromValue = smallCircle.cgPath
         pathAnimation.toValue = bigCircle.cgPath
         pathAnimation.duration = 0.2
@@ -462,4 +464,13 @@ fileprivate extension UIColor {
         return UIColor(colorLiteralRed: 121/255, green: 2/255, blue: 188/255, alpha: 0.3)
     }
     
+}
+
+fileprivate extension UIView {
+    func _alignToEdges(of view: UIView) {
+        topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+    }
 }
