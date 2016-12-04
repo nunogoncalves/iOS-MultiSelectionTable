@@ -24,3 +24,7 @@ Most basic usage:
        
    multiSelectionTableView.dataSource = multiSelectionDataSource
    ```
+
+##Licence
+
+**iOS-MultiSelectionTable** is available under the MIT license. See the [LICENSE](https://github.com/nunogoncalves/iOS-MultiSelectionTable/blob/master/LICENSE.md) file for more info.
