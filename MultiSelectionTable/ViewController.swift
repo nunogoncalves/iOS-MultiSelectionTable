@@ -40,6 +40,8 @@ class ViewController: UIViewController {
     
     fileprivate var filteredAlbuns: [Album] = []
     
+    private var multiSelectionDataSource: MultiSelectionDataSource<Album>!
+    
     @IBAction func textUpdated(_ sender: UITextField) {
         if let searchText = sender.text,
             searchText.characters.count > 0 {
@@ -49,17 +51,23 @@ class ViewController: UIViewController {
         }
         multiSelectionDataSource.allItems = filteredAlbuns
     }
-    fileprivate var multiSelectionTableControl: MultiSelectionTableControl<Album>!
+    
+    fileprivate var multiSelectionTableControl: MultiSelectionTableControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+        
         multiSelectionTableControl = MultiSelectionTableControl(frame: .zero)
+      
+        multiSelectionDataSource = MultiSelectionDataSource(control: multiSelectionTableControl)
+        multiSelectionDataSource.allItems = allAlbums
+        multiSelectionDataSource.delegate = self
+        multiSelectionDataSource.register(nib: UINib(nibName: "AlbumCell", bundle: nil), for: "AlbumCell")
+        
+        multiSelectionTableControl.dataSource = multiSelectionDataSource
+        
         multiSelectionTableContainer.addArrangedSubview(multiSelectionTableControl)
         
-        multiSelectionTableControl.allItems = allAlbumIndexes
-        multiSelectionTableControl.delegate = self
-        multiSelectionTableControl.register(nib: UINib(nibName: "AlbumCell", bundle: nil), for: "AlbumCell")
         multiSelectionTableControl.seperatorWidthOffset = 130
         
     }

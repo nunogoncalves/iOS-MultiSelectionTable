@@ -8,15 +8,13 @@
 
 import UIKit
 
-enum MultiSelectionTableControlState {
-    case displaying //idea here is to hide the selection table
-    case selecting //idea is to show the selectio table
-}
-
-class MultiSelectionTableControl<T: Equatable> : UIView,
+class MultiSelectionTableControl : UIView,
                                                  UITableViewDataSource,
                                                  UITableViewDelegate {
 
+    weak var dataSource: DataSource!
+//    weak var dataSource: MultiSelectionDataSource<T>!
+    
     fileprivate let allItemsTableContainer = UIView()
     fileprivate lazy var allItemsTable: UITableView = {
         let tableView = UITableView()
@@ -65,30 +63,6 @@ class MultiSelectionTableControl<T: Equatable> : UIView,
     
     fileprivate var isSelectingMode = false
     var seperatorWidthOffset: CGFloat = 100
-    
-    weak var delegate: MultiSelectionTableDelegate?
-    
-    fileprivate var allItemsIndexes: [ItemIndex<T>] = []
-    var allItems: [T] = [] {
-        didSet {
-            let _selectedItems = selectedItemsIndexes.map{ $0.item }
-            allItemsIndexes = allItems.enumerated().flatMap { index, item in
-                if let indexOfItem = _selectedItems.index(of: item) {
-                    selectedItemsIndexes[indexOfItem].index = index
-                    return nil
-                }
-                return ItemIndex(item: item, index: index)
-            }
-            allItemsTable.reloadData()
-        }
-    }
-    
-    fileprivate var selectedItemsIndexes: [ItemIndex<T>] = []
-    private (set) var selectedItems: [T] = [] {
-        didSet {
-            selectedItemsIndexes = selectedItems.enumerated().map { ItemIndex(item: $1, index: $0) }
-        }
-    }
     
     var controlBackgroundColor: UIColor = .black {
         didSet {
@@ -207,7 +181,7 @@ class MultiSelectionTableControl<T: Equatable> : UIView,
         }
     }
     
-    fileprivate func displayAllItems() {
+    func displayAllItems() {
         if !isSelectingMode {
             seperatorCenterXConstraint.constant = seperatorWidthOffset
             
@@ -244,33 +218,28 @@ class MultiSelectionTableControl<T: Equatable> : UIView,
     }
     
     fileprivate var cellReuseId = "Cell"
-    func register(nib: UINib, for cellReuseIdentifier: String) {
+    func register(_ nib: UINib, for cellReuseIdentifier: String) {
         cellReuseId = cellReuseIdentifier
         allItemsTable.register(nib, forCellReuseIdentifier: cellReuseId)
         selectedItemsTable.register(nib, forCellReuseIdentifier: cellReuseId)
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let dataSource = dataSource else { return 0 }
+        
         if tableView == allItemsTable {
-            return allItemsIndexes.count
+           return dataSource.allItemsCount
         } else {
-            return selectedItemsIndexes.count
+            return dataSource.selectedItemsCount
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseId, for: indexPath)
-
-        let item: ItemIndex<T>
         if tableView == allItemsTable {
-            item = allItemsIndexes[indexPath.row]
+            return dataSource.cell(for: indexPath, inAllItemsTable: tableView)
         } else {
-            item = selectedItemsIndexes[indexPath.row]
+            return dataSource.cell(for: indexPath, inSelectedItemsTable: tableView)
         }
-        
-        delegate?.paint(cell, for: indexPath, with: item.item)
-        
-        return cell
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -293,14 +262,60 @@ class MultiSelectionTableControl<T: Equatable> : UIView,
         return nil
     }
     
+    func reloadAllItemsTable() {
+        allItemsTable.reloadData()
+    }
+    
+    func putBackInAllItemsTable(at index: Int, selectedItemAt selectedItemIndex: Int) {
+        let newIndexPath = IndexPath(item: index, section: 0)
+        allItemsTable.insertRows(at: [newIndexPath], with: .bottom)
+        
+        var _newCellAdded: UITableViewCell?
+        
+        if let cell = allItemsTable.cellForRow(at: newIndexPath) {
+            _newCellAdded = cell
+        } else if let cell = allItemsTable.visibleCells.last {
+            _newCellAdded = cell
+        }
+        
+        guard let newCellAdded = _newCellAdded else { return }
+        
+        newCellAdded.contentView.isHidden = true
+        let newCellConvertedFrame = newCellAdded.convert(newCellAdded.contentView.frame, to: self)
+        
+        let indexPath = IndexPath(item: selectedItemIndex, section: 0)
+        guard let cellToDelete = selectedItemsTable.cellForRow(at: indexPath) else { return }
+        
+        if let movingCell = cellToDelete.contentView.snapshotView(afterScreenUpdates: false) {
+            cellToDelete.contentView.isHidden = true
+            addSubview(movingCell)
+            movingCell.frame = selectedItemsTable.convert(cellToDelete.frame, to: self)
+            
+            self.selectedItemsTable.deleteRows(at: [indexPath], with: .top)
+            
+            UIView.animate(withDuration: 0.4, animations: {
+                movingCell.frame = newCellConvertedFrame
+            }, completion: { _ in
+                movingCell.removeFromSuperview()
+                newCellAdded.contentView.isHidden = false
+            })
+        }
+    }
+    
+    func removeFromSelected(at index: Int) {
+        let indexPath = IndexPath(item: index, section: 0)
+        selectedItemsTable.deleteRows(at: [indexPath], with: .right)
+    }
+    
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView == selectedItemsTable {
-            highlightCell(at: indexPath, in: tableView) {
-                self.unselectItem(at: indexPath)
+            highlightCell(at: indexPath, in: tableView) { [weak self] in
+                self?.dataSource.unselectedItem(at: indexPath.row)
             }
         } else {
-            highlightCell(at: indexPath, in: tableView) {
-                self.selectItem(at: indexPath)
+            highlightCell(at: indexPath, in: tableView) { [weak self] in
+                self?.dataSource.selectedItem(at: indexPath.row)
             }
         }
     }
@@ -324,8 +339,6 @@ class MultiSelectionTableControl<T: Equatable> : UIView,
                                      endAngle: CGFloat(2 * CGFloat.pi),
                                      clockwise: true)
         
-        
-        
         pathLayer.lineWidth = 0
         pathLayer.fillColor = UIColor.cellPulseColor.cgColor
         cell.contentView.layer.addSublayer(pathLayer)
@@ -345,12 +358,10 @@ class MultiSelectionTableControl<T: Equatable> : UIView,
         
         CATransaction.commit()
     }
+
     
-    private func selectItem(at indexPath: IndexPath) {
-        
-        let item = allItemsIndexes.remove(at: indexPath.row)
-        selectedItemsIndexes.append(item)
-        
+    func addToSelectedItemsTable(at index: Int) {
+     
         let count = selectedItemsTable.numberOfRows(inSection: 0)
         
         let newIndexPath = IndexPath(item: count, section: 0)
@@ -369,6 +380,7 @@ class MultiSelectionTableControl<T: Equatable> : UIView,
         newCellAdded.contentView.isHidden = true
         let newCellConvertedFrame = newCellAdded.convert(newCellAdded.contentView.frame, to: self)
         
+        let indexPath = IndexPath(item: index, section: 0)
         guard let cellToDelete = allItemsTable.cellForRow(at: indexPath) else { return }
         
         if let movingCell = cellToDelete.contentView.snapshotView(afterScreenUpdates: false) {
@@ -387,71 +399,6 @@ class MultiSelectionTableControl<T: Equatable> : UIView,
             })
         }
     }
-    
-    private func unselectItem(at indexPath: IndexPath) {
-        let item = selectedItemsIndexes.remove(at: indexPath.row)
-        
-        guard let indexToAdd = findIndexToAdd(item, in: allItemsIndexes) else {
-            self.selectedItemsTable.deleteRows(at: [indexPath], with: .top)
-            return
-        }
-        
-        allItemsIndexes.insert(item, at: indexToAdd)
-        
-        let newIndexPath = IndexPath(item: indexToAdd, section: 0)
-        allItemsTable.insertRows(at: [newIndexPath], with: .bottom)
-        
-        var _newCellAdded: UITableViewCell?
-        
-        if let cell = allItemsTable.cellForRow(at: newIndexPath) {
-            _newCellAdded = cell
-        } else if let cell = allItemsTable.visibleCells.last {
-            _newCellAdded = cell
-        }
-        
-        guard let newCellAdded = _newCellAdded else { return }
-        
-        newCellAdded.contentView.isHidden = true
-        let newCellConvertedFrame = newCellAdded.convert(newCellAdded.contentView.frame, to: self)
-        
-        guard let cellToDelete = selectedItemsTable.cellForRow(at: indexPath) else { return }
-        
-        if let movingCell = cellToDelete.contentView.snapshotView(afterScreenUpdates: false) {
-            cellToDelete.contentView.isHidden = true
-            addSubview(movingCell)
-            movingCell.frame = selectedItemsTable.convert(cellToDelete.frame, to: self)
-            
-            self.selectedItemsTable.deleteRows(at: [indexPath], with: .top)
-            
-            UIView.animate(withDuration: 0.4, animations: {
-                movingCell.frame = newCellConvertedFrame
-            }, completion: { _ in
-                movingCell.removeFromSuperview()
-                newCellAdded.contentView.isHidden = false
-                
-                if self.selectedItemsIndexes.isEmpty {
-                    self.displayAllItems()
-                }
-                
-            })
-        }
-        
-    }
-    
-    private func findIndexToAdd(_ item: ItemIndex<T>, in list: [ItemIndex<T>]) -> Int? {
-        guard allItems.contains(item.item) else { return nil }
-        
-        var indexToReturn = 0
-        for (index, iteratedItemIndex) in list.enumerated() {
-            if iteratedItemIndex.index >= item.index {
-                indexToReturn = index
-                break
-            }
-        }
-        
-        return indexToReturn
-    }
-    
 }
 
 fileprivate extension UIColor {

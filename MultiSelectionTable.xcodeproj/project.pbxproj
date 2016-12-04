@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8503FAD71DF489B7000EF3A0 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8503FAD61DF489B7000EF3A0 /* DataSource.swift */; };
 		8561BB6C1DF00C7A00EA363E /* ItemIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8561BB6B1DF00C7A00EA363E /* ItemIndex.swift */; };
 		8561BB6E1DF00CA600EA363E /* MultiSelectionTableControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8561BB6D1DF00CA600EA363E /* MultiSelectionTableControl.swift */; };
 		8561BB701DF00CC500EA363E /* MultiSelectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8561BB6F1DF00CC500EA363E /* MultiSelectionDelegate.swift */; };
@@ -21,6 +22,7 @@
 		85D356721DED807400E32A04 /* Band.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D356711DED807400E32A04 /* Band.swift */; };
 		85D8179D1DEEB6880063E95E /* AlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D8179B1DEEB6880063E95E /* AlbumCell.swift */; };
 		85D8179E1DEEB6880063E95E /* AlbumCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85D8179C1DEEB6880063E95E /* AlbumCell.xib */; };
+		85F673D81DF4240B0023C36F /* MultiSelectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F673D71DF4240B0023C36F /* MultiSelectionDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8503FAD61DF489B7000EF3A0 /* DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataSource.swift; path = Control/DataSource.swift; sourceTree = "<group>"; };
 		8561BB6B1DF00C7A00EA363E /* ItemIndex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemIndex.swift; path = Control/ItemIndex.swift; sourceTree = "<group>"; };
 		8561BB6D1DF00CA600EA363E /* MultiSelectionTableControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MultiSelectionTableControl.swift; path = Control/MultiSelectionTableControl.swift; sourceTree = "<group>"; };
 		8561BB6F1DF00CC500EA363E /* MultiSelectionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MultiSelectionDelegate.swift; path = Control/MultiSelectionDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +64,7 @@
 		85D356711DED807400E32A04 /* Band.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Band.swift; sourceTree = "<group>"; };
 		85D8179B1DEEB6880063E95E /* AlbumCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumCell.swift; sourceTree = "<group>"; };
 		85D8179C1DEEB6880063E95E /* AlbumCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlbumCell.xib; sourceTree = "<group>"; };
+		85F673D71DF4240B0023C36F /* MultiSelectionDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MultiSelectionDataSource.swift; path = Control/MultiSelectionDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +98,8 @@
 				8561BB6D1DF00CA600EA363E /* MultiSelectionTableControl.swift */,
 				8561BB6B1DF00C7A00EA363E /* ItemIndex.swift */,
 				8561BB6F1DF00CC500EA363E /* MultiSelectionDelegate.swift */,
+				85F673D71DF4240B0023C36F /* MultiSelectionDataSource.swift */,
+				8503FAD61DF489B7000EF3A0 /* DataSource.swift */,
 			);
 			name = Control;
 			sourceTree = "<group>";
@@ -295,9 +301,11 @@
 				85C315181DECEFF30095AFA1 /* ViewController.swift in Sources */,
 				8561BB6E1DF00CA600EA363E /* MultiSelectionTableControl.swift in Sources */,
 				8561BB701DF00CC500EA363E /* MultiSelectionDelegate.swift in Sources */,
+				85F673D81DF4240B0023C36F /* MultiSelectionDataSource.swift in Sources */,
 				85C315161DECEFF30095AFA1 /* AppDelegate.swift in Sources */,
 				8561BB6C1DF00C7A00EA363E /* ItemIndex.swift in Sources */,
 				85D8179D1DEEB6880063E95E /* AlbumCell.swift in Sources */,
+				8503FAD71DF489B7000EF3A0 /* DataSource.swift in Sources */,
 				85D356701DED638900E32A04 /* Album.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
