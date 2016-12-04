@@ -14,6 +14,7 @@ class AlbumCell: UITableViewCell {
     @IBOutlet weak var albumImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
+    @IBOutlet weak var yearLabel: UILabel!
     
     @IBOutlet weak var bottomLineHeightConstraint: NSLayoutConstraint!
     

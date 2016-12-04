@@ -35,7 +35,7 @@
                                 <rect key="frame" x="0.0" y="50" width="375" height="617"/>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Uwz-1U-gXq" firstAttribute="top" secondItem="u7X-2r-L26" secondAttribute="bottom" id="0Sd-ss-ExW"/>
                             <constraint firstItem="mWh-4O-Jog" firstAttribute="leading" secondItem="LWu-FQ-YWP" secondAttribute="leading" id="8dx-1s-QjE"/>

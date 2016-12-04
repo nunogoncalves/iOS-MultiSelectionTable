@@ -13,6 +13,7 @@ struct Album : Equatable {
     let band: Band
     let name: String
     let cover: UIImage
+    let year: Int
     
     static func ==(left: Album, right: Album) -> Bool {
         return left.name == right.name &&
