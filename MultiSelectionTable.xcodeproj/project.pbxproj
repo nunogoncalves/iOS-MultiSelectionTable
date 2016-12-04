@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		8503FAD71DF489B7000EF3A0 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8503FAD61DF489B7000EF3A0 /* DataSource.swift */; };
 		8561BB6C1DF00C7A00EA363E /* ItemIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8561BB6B1DF00C7A00EA363E /* ItemIndex.swift */; };
-		8561BB6E1DF00CA600EA363E /* MultiSelectionTableControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8561BB6D1DF00CA600EA363E /* MultiSelectionTableControl.swift */; };
+		8561BB6E1DF00CA600EA363E /* MultiSelectionTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8561BB6D1DF00CA600EA363E /* MultiSelectionTableView.swift */; };
 		8561BB701DF00CC500EA363E /* MultiSelectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8561BB6F1DF00CC500EA363E /* MultiSelectionDelegate.swift */; };
 		85C315161DECEFF30095AFA1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C315151DECEFF30095AFA1 /* AppDelegate.swift */; };
 		85C315181DECEFF30095AFA1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C315171DECEFF30095AFA1 /* ViewController.swift */; };
@@ -45,7 +45,7 @@
 /* Begin PBXFileReference section */
 		8503FAD61DF489B7000EF3A0 /* DataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataSource.swift; path = Control/DataSource.swift; sourceTree = "<group>"; };
 		8561BB6B1DF00C7A00EA363E /* ItemIndex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemIndex.swift; path = Control/ItemIndex.swift; sourceTree = "<group>"; };
-		8561BB6D1DF00CA600EA363E /* MultiSelectionTableControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MultiSelectionTableControl.swift; path = Control/MultiSelectionTableControl.swift; sourceTree = "<group>"; };
+		8561BB6D1DF00CA600EA363E /* MultiSelectionTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MultiSelectionTableView.swift; path = Control/MultiSelectionTableView.swift; sourceTree = "<group>"; };
 		8561BB6F1DF00CC500EA363E /* MultiSelectionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MultiSelectionDelegate.swift; path = Control/MultiSelectionDelegate.swift; sourceTree = "<group>"; };
 		85C315121DECEFF30095AFA1 /* MultiSelectionTable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiSelectionTable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85C315151DECEFF30095AFA1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,11 +95,11 @@
 		8561BB6A1DF00C5700EA363E /* Control */ = {
 			isa = PBXGroup;
 			children = (
-				8561BB6D1DF00CA600EA363E /* MultiSelectionTableControl.swift */,
+				8503FAD61DF489B7000EF3A0 /* DataSource.swift */,
 				8561BB6B1DF00C7A00EA363E /* ItemIndex.swift */,
+				8561BB6D1DF00CA600EA363E /* MultiSelectionTableView.swift */,
 				8561BB6F1DF00CC500EA363E /* MultiSelectionDelegate.swift */,
 				85F673D71DF4240B0023C36F /* MultiSelectionDataSource.swift */,
-				8503FAD61DF489B7000EF3A0 /* DataSource.swift */,
 			);
 			name = Control;
 			sourceTree = "<group>";
@@ -299,7 +299,7 @@
 			files = (
 				85D356721DED807400E32A04 /* Band.swift in Sources */,
 				85C315181DECEFF30095AFA1 /* ViewController.swift in Sources */,
-				8561BB6E1DF00CA600EA363E /* MultiSelectionTableControl.swift in Sources */,
+				8561BB6E1DF00CA600EA363E /* MultiSelectionTableView.swift in Sources */,
 				8561BB701DF00CC500EA363E /* MultiSelectionDelegate.swift in Sources */,
 				85F673D81DF4240B0023C36F /* MultiSelectionDataSource.swift in Sources */,
 				85C315161DECEFF30095AFA1 /* AppDelegate.swift in Sources */,

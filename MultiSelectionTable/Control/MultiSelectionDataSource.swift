@@ -10,7 +10,7 @@ import UIKit
 
 class MultiSelectionDataSource<T : Equatable> : DataSource {
     
-    let control: MultiSelectionTableControl!
+    let control: MultiSelectionTableView!
     
     weak var delegate: MultiSelectionTableDelegate?
     
@@ -44,7 +44,7 @@ class MultiSelectionDataSource<T : Equatable> : DataSource {
         }
     }
     
-    init(control: MultiSelectionTableControl) {
+    init(control: MultiSelectionTableView) {
         self.control = control
     }
     

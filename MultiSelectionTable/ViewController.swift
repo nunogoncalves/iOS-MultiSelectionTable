@@ -52,24 +52,22 @@ class ViewController: UIViewController {
         multiSelectionDataSource.allItems = filteredAlbuns
     }
     
-    fileprivate var multiSelectionTableControl: MultiSelectionTableControl!
+    fileprivate var multiSelectionTableView: MultiSelectionTableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        multiSelectionTableControl = MultiSelectionTableControl(frame: .zero)
+        multiSelectionTableView = MultiSelectionTableView()
+        multiSelectionTableContainer.addArrangedSubview(multiSelectionTableView)
+        multiSelectionTableView.seperatorWidthOffset = 130
       
-        multiSelectionDataSource = MultiSelectionDataSource(control: multiSelectionTableControl)
-        multiSelectionDataSource.allItems = allAlbums
+        multiSelectionDataSource = MultiSelectionDataSource(control: multiSelectionTableView)
         multiSelectionDataSource.delegate = self
         multiSelectionDataSource.register(nib: UINib(nibName: "AlbumCell", bundle: nil), for: "AlbumCell")
         
-        multiSelectionTableControl.dataSource = multiSelectionDataSource
+        multiSelectionDataSource.allItems = allAlbums
         
-        multiSelectionTableContainer.addArrangedSubview(multiSelectionTableControl)
-        
-        multiSelectionTableControl.seperatorWidthOffset = 130
-        
+        multiSelectionTableView.dataSource = multiSelectionDataSource
     }
     
 }

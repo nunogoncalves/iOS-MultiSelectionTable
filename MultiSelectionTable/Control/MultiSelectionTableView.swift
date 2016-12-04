@@ -8,12 +8,9 @@
 
 import UIKit
 
-class MultiSelectionTableControl : UIView,
-                                                 UITableViewDataSource,
-                                                 UITableViewDelegate {
+class MultiSelectionTableView : UIView {
 
     weak var dataSource: DataSource!
-//    weak var dataSource: MultiSelectionDataSource<T>!
     
     fileprivate let allItemsTableContainer = UIView()
     fileprivate lazy var allItemsTable: UITableView = {
@@ -223,44 +220,6 @@ class MultiSelectionTableControl : UIView,
         allItemsTable.register(nib, forCellReuseIdentifier: cellReuseId)
         selectedItemsTable.register(nib, forCellReuseIdentifier: cellReuseId)
     }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let dataSource = dataSource else { return 0 }
-        
-        if tableView == allItemsTable {
-           return dataSource.allItemsCount
-        } else {
-            return dataSource.selectedItemsCount
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if tableView == allItemsTable {
-            return dataSource.cell(for: indexPath, inAllItemsTable: tableView)
-        } else {
-            return dataSource.cell(for: indexPath, inSelectedItemsTable: tableView)
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return tableView == selectedItemsTable ? 50 : 0
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if tableView == selectedItemsTable {
-            let view = UIView()
-            let label = UILabel()
-            view.addSubview(label)
-            label.text = "SELECTED"
-            label.textColor = .gray
-            label.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-            label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-            label.translatesAutoresizingMaskIntoConstraints = false
-            return view
-        }
-        
-        return nil
-    }
     
     func reloadAllItemsTable() {
         allItemsTable.reloadData()
@@ -308,21 +267,9 @@ class MultiSelectionTableControl : UIView,
     }
     
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if tableView == selectedItemsTable {
-            highlightCell(at: indexPath, in: tableView) { [weak self] in
-                self?.dataSource.unselectedItem(at: indexPath.row)
-            }
-        } else {
-            highlightCell(at: indexPath, in: tableView) { [weak self] in
-                self?.dataSource.selectedItem(at: indexPath.row)
-            }
-        }
-    }
-    
     private let pathLayer = CAShapeLayer()
     let pathAnimation = CABasicAnimation(keyPath: "path")
-    private func highlightCell(at indexPath: IndexPath,
+    fileprivate func highlightCell(at indexPath: IndexPath,
                                in tableView: UITableView,
                                finish: @escaping () -> () = {}) {
         guard let cell = tableView.cellForRow(at: indexPath) else { return }
@@ -399,6 +346,64 @@ class MultiSelectionTableControl : UIView,
             })
         }
     }
+}
+
+extension MultiSelectionTableView : UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let dataSource = dataSource else { return 0 }
+        
+        if tableView == allItemsTable {
+            return dataSource.allItemsCount
+        } else {
+            return dataSource.selectedItemsCount
+        }
+    }
+
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if tableView == allItemsTable {
+            return dataSource.cell(for: indexPath, inAllItemsTable: tableView)
+        } else {
+            return dataSource.cell(for: indexPath, inSelectedItemsTable: tableView)
+        }
+    }
+
+}
+
+extension MultiSelectionTableView : UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return tableView == selectedItemsTable ? 50 : 0
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if tableView == selectedItemsTable {
+            let view = UIView()
+            let label = UILabel()
+            view.addSubview(label)
+            label.text = "SELECTED"
+            label.textColor = .gray
+            label.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+            label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+            label.translatesAutoresizingMaskIntoConstraints = false
+            return view
+        }
+        
+        return nil
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if tableView == selectedItemsTable {
+            highlightCell(at: indexPath, in: tableView) { [weak self] in
+                self?.dataSource.unselectedItem(at: indexPath.row)
+            }
+        } else {
+            highlightCell(at: indexPath, in: tableView) { [weak self] in
+                self?.dataSource.selectedItem(at: indexPath.row)
+            }
+        }
+    }
+
 }
 
 fileprivate extension UIColor {
