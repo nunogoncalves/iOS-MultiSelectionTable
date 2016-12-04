@@ -14,16 +14,16 @@ https://dribbble.com/shots/2904577-Multi-Selection-Experiment
 Most basic usage:
 
 ```swift
-   let multiSelectionTableView = MultiSelectionTableView()
-   
-   let multiSelectionDataSource = MultiSelectionDataSource(control: multiSelectionTableView)
-   multiSelectionDataSource.delegate = self
-   multiSelectionDataSource.register(nib: UINib(nibName: "CellNib", bundle: nil), for: "CellIdentifier")
+let multiSelectionTableView = MultiSelectionTableView()
+
+let multiSelectionDataSource = MultiSelectionDataSource(control: multiSelectionTableView)
+multiSelectionDataSource.delegate = self
+multiSelectionDataSource.register(nib: UINib(nibName: "CellNib", bundle: nil), for: "CellIdentifier")
         
-   multiSelectionDataSource.allItems = items
+multiSelectionDataSource.allItems = items
        
-   multiSelectionTableView.dataSource = multiSelectionDataSource
-   ```
+multiSelectionTableView.dataSource = multiSelectionDataSource
+```
 
 ## Author
 
