@@ -8,3 +8,19 @@ Beautifull way of having a multi-selection table on iOS
 
 Based on this dribble:
 https://dribbble.com/shots/2904577-Multi-Selection-Experiment
+
+#Usage:
+
+Most basic usage:
+
+```swift
+   let multiSelectionTableView = MultiSelectionTableView()
+   
+   let multiSelectionDataSource = MultiSelectionDataSource(control: multiSelectionTableView)
+   multiSelectionDataSource.delegate = self
+   multiSelectionDataSource.register(nib: UINib(nibName: "CellNib", bundle: nil), for: "CellIdentifier")
+        
+   multiSelectionDataSource.allItems = items
+       
+   multiSelectionTableView.dataSource = multiSelectionDataSource
+   ```
