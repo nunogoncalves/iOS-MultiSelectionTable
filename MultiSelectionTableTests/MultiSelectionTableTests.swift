@@ -11,9 +11,18 @@ import XCTest
 
 class MultiSelectionTableTests: XCTestCase {
     
+    var multiSelectionDataSource: MultiSelectionDataSource<Int>!
+    
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        multiSelectionDataSource = MultiSelectionDataSource(control: MultiSelectionTableView())
+        multiSelectionDataSource.register(nib: UINib(nibName: "AlbumCell", bundle: nil), for: "AlbumCell")
+        multiSelectionDataSource.allItems = [1, 2, 3]
+        
+        let view = MultiSelectionTableView()
+        view.dataSource = multiSelectionDataSource
+        
     }
     
     override func tearDown() {
@@ -21,9 +30,19 @@ class MultiSelectionTableTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
+    func testAllItemsCount() {
+        XCTAssert(multiSelectionDataSource.allItemsCount == 3, "All items should be three")
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+    }
+    
+    func testInitialSelectedItemsCount() {
+        XCTAssert(multiSelectionDataSource.selectedItemsCount == 0, "Selected Items should be zero at first")
+    }
+    
+    func testSelectedItemsCountAfterOneSelection() {
+//        multiSelectionDataSource.selectedItem(at: 0)
+        XCTAssert(multiSelectionDataSource.selectedItems.count == 1, "Selected Items should be zero at first")
     }
     
     func testPerformanceExample() {
