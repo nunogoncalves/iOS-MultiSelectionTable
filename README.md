@@ -2,8 +2,10 @@
 Beautifull way of having a multi-selection table on iOS
 
 <p align="center">
-  <img src="https://cloud.githubusercontent.com/assets/3007012/20760296/8250bade-b717-11e6-89b5-397d6653b5b5.gif"
-  width="200px">
+  <img src="Resources/MultiSelectionTableView.gif" width="200px" />
+  <img src="Resources/StyleBlack.png" width="200px" />
+  <img src="Resources/StyleGreenBlue.png" width="200px" />
+  <img src="Resources/StyleWhite.png" width="200px" />
 </p>
 
 Based on this dribble:
