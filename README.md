@@ -9,6 +9,15 @@ Beautifull way of having a multi-selection table on iOS
 Based on this dribble:
 https://dribbble.com/shots/2904577-Multi-Selection-Experiment
 
+#How it works:
+```MultiSelectionTable``` underneath is composed of a view and a data source, much like the ```UITableView```'s ```UITableViewDataSource/Delegate```. They both know each other and communicate between themselves.
+The view is is composed by two configurable ```UITableView``` and a line seperating them. The DataSource keeps the data the ```UITableView```s display. 
+
+#####Considerations: 
+- In order to achieve a nice animation, cells on the right (selected cells) must be equal to the cells on the left (all items cells).
+- The item object you are displaying, must conform with the ```Equatable``` protocol so the control can know where to move the items when unselecting items.
+-You can also paginate and use search on your items list. The table keeps a reference to the selected items. 
+
 #Usage:
 
 Most basic usage:
@@ -48,9 +57,7 @@ extension ViewController : MultiSelectionTableDelegate {
     }
     
 }
-
-  
-  
+    
 ```
 
 ## Author
