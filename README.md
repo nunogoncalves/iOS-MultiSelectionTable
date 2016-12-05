@@ -83,7 +83,7 @@ multiSelectionTableView.seperatorWidthOffset = 100 //will move 100 point on both
 Nuno Gonçalves
 
 |<img src="https://cdn0.iconfinder.com/data/icons/octicons/1024/mark-github-128.png" height="20px">|<img src="https://cdn1.iconfinder.com/data/icons/logotypes/32/twitter-128.png" height="20px">
-|:------------- | -------------:|
+|:-------------:|:-------------:|
 | nunogoncalves | @goncalvescmnuno |
 
 ##Licence
