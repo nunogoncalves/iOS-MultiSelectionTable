@@ -31,23 +31,27 @@
                                     <action selector="textUpdated:" destination="wwJ-Jc-SVD" eventType="editingChanged" id="dAw-6V-7B5"/>
                                 </connections>
                             </textField>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u7X-2r-L26">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5dz-ez-Hz0" customClass="MultiSelectionTableView" customModule="MultiSelectionTable" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="50" width="375" height="617"/>
-                            </stackView>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="seperatorWidthOffset">
+                                        <real key="value" value="120"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Uwz-1U-gXq" firstAttribute="top" secondItem="u7X-2r-L26" secondAttribute="bottom" id="0Sd-ss-ExW"/>
                             <constraint firstItem="mWh-4O-Jog" firstAttribute="leading" secondItem="LWu-FQ-YWP" secondAttribute="leading" id="8dx-1s-QjE"/>
                             <constraint firstAttribute="trailing" secondItem="mWh-4O-Jog" secondAttribute="trailing" id="CS2-Vt-UVL"/>
-                            <constraint firstAttribute="trailing" secondItem="u7X-2r-L26" secondAttribute="trailing" id="ab1-N4-k0U"/>
-                            <constraint firstItem="u7X-2r-L26" firstAttribute="leading" secondItem="LWu-FQ-YWP" secondAttribute="leading" id="eV9-ai-kea"/>
+                            <constraint firstItem="5dz-ez-Hz0" firstAttribute="top" secondItem="mWh-4O-Jog" secondAttribute="bottom" id="Fu6-GH-FUS"/>
+                            <constraint firstItem="Uwz-1U-gXq" firstAttribute="top" secondItem="5dz-ez-Hz0" secondAttribute="bottom" id="URm-Lw-8eo"/>
+                            <constraint firstAttribute="trailing" secondItem="5dz-ez-Hz0" secondAttribute="trailing" id="a6N-uX-fGp"/>
+                            <constraint firstItem="5dz-ez-Hz0" firstAttribute="leading" secondItem="LWu-FQ-YWP" secondAttribute="leading" id="dVv-p2-TM3"/>
                             <constraint firstItem="mWh-4O-Jog" firstAttribute="top" secondItem="2ym-ub-Ufv" secondAttribute="bottom" id="nrv-VI-byI"/>
-                            <constraint firstItem="u7X-2r-L26" firstAttribute="top" secondItem="mWh-4O-Jog" secondAttribute="bottom" id="saI-n4-1aP"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="multiSelectionTableContainer" destination="u7X-2r-L26" id="f2p-ms-hGj"/>
+                        <outlet property="multiSelectionTableView" destination="5dz-ez-Hz0" id="tUQ-4G-HiG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KTC-c5-b6g" userLabel="First Responder" sceneMemberID="firstResponder"/>

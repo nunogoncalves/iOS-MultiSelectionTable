@@ -15,7 +15,8 @@ class ViewController: UIViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
     
     private var multiSelectionDataSource: MultiSelectionDataSource<Album>!
-    fileprivate var multiSelectionTableView: MultiSelectionTableView!
+    @IBOutlet fileprivate weak var multiSelectionTableView: MultiSelectionTableView!
+    
     fileprivate var filteredAlbuns: [Album] = []
     
     fileprivate var allAlbums: [Album] = [
@@ -53,9 +54,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        multiSelectionTableView = MultiSelectionTableView()
-        multiSelectionTableContainer.addArrangedSubview(multiSelectionTableView)
-        multiSelectionTableView.seperatorWidthOffset = 130
+//        multiSelectionTableView.seperatorWidthOffset = 130
       
         multiSelectionDataSource = MultiSelectionDataSource(multiSelectionTableView: multiSelectionTableView)
         multiSelectionDataSource.delegate = self

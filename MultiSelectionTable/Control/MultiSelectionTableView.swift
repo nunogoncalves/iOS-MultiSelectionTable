@@ -8,69 +8,58 @@
 
 import UIKit
 
+@IBDesignable
 class MultiSelectionTableView : UIView {
 
     weak var dataSource: DataSource!
     
-    fileprivate lazy var allItemsTable: UITableView = {
-        let tableView = UITableView()
-
-        tableView.tableFooterView = UIView()
-
-        tableView.backgroundView = nil
-        tableView.backgroundColor = self.allItemsTableBackgroundColor
-        tableView.separatorColor = .clear
-        tableView.keyboardDismissMode = .interactive
-        
-        tableView.delegate = self
-        tableView.dataSource = self
-
-        tableView.estimatedRowHeight = 100
-        tableView.rowHeight = UITableViewAutomaticDimension
-
-        return tableView
-    }()
-    
-    fileprivate lazy var selectedItemsTable: UITableView = {
-        let tableView = UITableView()
-        
-        tableView.tableFooterView = UIView()
-        
-        tableView.backgroundView = nil
-        tableView.backgroundColor = self.selectedItemsTableBackgroundColor
-        tableView.separatorColor = .clear
-        tableView.keyboardDismissMode = .interactive
-        
-        tableView.delegate = self
-        tableView.dataSource = self
-        
-        tableView.estimatedRowHeight = 100
-        tableView.rowHeight = UITableViewAutomaticDimension
-
-        return tableView
-    }()
-    
+    fileprivate let allItemsTable = UITableView()
     fileprivate let seperator = UIView()
+    fileprivate let selectedItemsTable = UITableView()
     
     fileprivate var seperatorCenterXConstraint: NSLayoutConstraint!
     fileprivate var allItemsTableLeadingConstraint: NSLayoutConstraint!
     fileprivate var selectedItemsTableTrailingConstraint: NSLayoutConstraint!
     
     fileprivate var isSelectingMode = false
-    var seperatorWidthOffset: CGFloat = 100
+    @IBInspectable var seperatorWidthOffset: CGFloat = 100
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+
+        allItemsTable.backgroundColor = allItemsTableBackgroundColor
+        allItemsTable.separatorColor = .clear
+        allItemsTable.headerView(forSection: 0)?.backgroundColor = allItemsTableBackgroundColor
+        
+        blackLine.backgroundColor = seperatorColor
+        
+        selectedItemsTable.backgroundColor = selectedItemsTableBackgroundColor
+        selectedItemsTable.separatorColor = .clear
+        selectedItemsTable.headerView(forSection: 0)?.backgroundColor = selectedItemsTableBackgroundColor
+    }
+    
+    @IBInspectable
     var controlBackgroundColor: UIColor = .black {
         didSet {
-            blackLine.backgroundColor = controlBackgroundColor
+            backgroundColor = controlBackgroundColor
         }
     }
     
+    @IBInspectable
+    var seperatorColor: UIColor = .black {
+        didSet {
+            blackLine.backgroundColor = seperatorColor
+        }
+    }
+    
+    @IBInspectable
     var allItemsTableBackgroundColor: UIColor = .defaultTableBackground {
         didSet {
             allItemsTable.backgroundColor = allItemsTableBackgroundColor
         }
     }
     
+    @IBInspectable
     var selectedItemsTableBackgroundColor: UIColor = .defaultTableBackground {
         didSet {
             selectedItemsTable.backgroundColor = selectedItemsTableBackgroundColor
@@ -100,7 +89,7 @@ class MultiSelectionTableView : UIView {
     fileprivate let blackLine = UIView()
     private func buildSeperator() {
         addSubview(blackLine)
-        blackLine.backgroundColor = controlBackgroundColor
+        blackLine.backgroundColor = seperatorColor
         
         blackLine.topAnchor.constraint(equalTo: topAnchor).isActive = true
         blackLine.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
@@ -136,6 +125,7 @@ class MultiSelectionTableView : UIView {
     
     private func buildAllItemsTable() {
         addSubview(allItemsTable)
+        configure(allItemsTable)
         
         allItemsTableLeadingConstraint = allItemsTable.leadingAnchor.constraint(equalTo: leadingAnchor)
         allItemsTableLeadingConstraint.isActive = true
@@ -148,6 +138,7 @@ class MultiSelectionTableView : UIView {
     
     private func buildSelectedItemsTable() {
         addSubview(selectedItemsTable)
+        configure(selectedItemsTable)
         
         selectedItemsTable.leadingAnchor.constraint(equalTo: seperator.trailingAnchor, constant: -5).isActive = true
         selectedItemsTable.topAnchor.constraint(equalTo: topAnchor).isActive = true
@@ -155,6 +146,21 @@ class MultiSelectionTableView : UIView {
         selectedItemsTableTrailingConstraint = selectedItemsTable.trailingAnchor.constraint(equalTo: trailingAnchor)
         selectedItemsTableTrailingConstraint.isActive = true
         selectedItemsTable.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    private func configure(_ tableView: UITableView) {
+        tableView.tableFooterView = UIView()
+        
+        tableView.backgroundView = nil
+        tableView.backgroundColor = self.allItemsTableBackgroundColor
+        tableView.separatorColor = .clear
+        tableView.keyboardDismissMode = .interactive
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        tableView.estimatedRowHeight = 100
+        tableView.rowHeight = UITableViewAutomaticDimension
     }
     
     @objc private func swipped(gesture: UIPanGestureRecognizer) {
