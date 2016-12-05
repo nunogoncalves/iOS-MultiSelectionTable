@@ -12,11 +12,14 @@ import XCTest
 class MultiSelectionTableTests: XCTestCase {
     
     var multiSelectionDataSource: MultiSelectionDataSource<Int>!
+    let multiSelectionTableView = MultiSelectionTableView()
     
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-        multiSelectionDataSource = MultiSelectionDataSource(control: MultiSelectionTableView())
+        
+        multiSelectionDataSource = MultiSelectionDataSource(control: multiSelectionTableView)
+        multiSelectionTableView.dataSource = multiSelectionDataSource
+        
         multiSelectionDataSource.register(nib: UINib(nibName: "AlbumCell", bundle: nil), for: "AlbumCell")
         multiSelectionDataSource.allItems = [1, 2, 3]
         
@@ -41,8 +44,17 @@ class MultiSelectionTableTests: XCTestCase {
     }
     
     func testSelectedItemsCountAfterOneSelection() {
-//        multiSelectionDataSource.selectedItem(at: 0)
-        XCTAssert(multiSelectionDataSource.selectedItems.count == 1, "Selected Items should be zero at first")
+        multiSelectionDataSource.selectedItem(at: 0)
+        let selectedItems = multiSelectionDataSource.selectedItems
+        XCTAssert(selectedItems.count == 1, "Selected Items should be one after selecting one item")
+        XCTAssert(selectedItems.first == 1, "First item should be 1")
+    }
+    
+    func testAllItemsCountAfterOneSelection() {
+        multiSelectionDataSource.selectedItem(at: 0)
+        
+        let allItems = multiSelectionDataSource.allItems
+        XCTAssert(allItems.count == 3, "All items should remain the same")
     }
     
     func testPerformanceExample() {

@@ -27,7 +27,9 @@ class MultiSelectionDataSource<T : Equatable> : DataSource {
     }
     
     fileprivate var selectedItemsIndexes: [ItemIndex<T>] = []
-    private (set) var selectedItems: [T] = []
+    var selectedItems: [T] {
+        return selectedItemsIndexes.map { $0.item }
+    }
 
     var selectedItemsCount: Int {
         return selectedItemsIndexes.count
