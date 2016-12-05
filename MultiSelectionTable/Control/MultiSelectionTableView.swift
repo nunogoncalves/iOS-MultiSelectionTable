@@ -12,7 +12,6 @@ class MultiSelectionTableView : UIView {
 
     weak var dataSource: DataSource!
     
-    fileprivate let allItemsTableContainer = UIView()
     fileprivate lazy var allItemsTable: UITableView = {
         let tableView = UITableView()
 
@@ -32,7 +31,6 @@ class MultiSelectionTableView : UIView {
         return tableView
     }()
     
-    fileprivate let selectedItemsTableContainer = UIView()
     fileprivate lazy var selectedItemsTable: UITableView = {
         let tableView = UITableView()
         
@@ -137,36 +135,25 @@ class MultiSelectionTableView : UIView {
     }
     
     private func buildAllItemsTable() {
-        addSubview(allItemsTableContainer)
-        allItemsTableContainer.backgroundColor = .black
+        addSubview(allItemsTable)
         
-        allItemsTableLeadingConstraint = allItemsTableContainer.leadingAnchor.constraint(equalTo: leadingAnchor)
+        allItemsTableLeadingConstraint = allItemsTable.leadingAnchor.constraint(equalTo: leadingAnchor)
         allItemsTableLeadingConstraint.isActive = true
-        allItemsTableContainer.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        allItemsTableContainer.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        allItemsTableContainer.trailingAnchor.constraint(equalTo: seperator.leadingAnchor, constant: 5).isActive = true
-        allItemsTableContainer.translatesAutoresizingMaskIntoConstraints = false
-        
-        allItemsTableContainer.addSubview(allItemsTable)
-        
-        allItemsTable._alignToEdges(of: allItemsTableContainer)
+        allItemsTable.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        allItemsTable.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        allItemsTable.trailingAnchor.constraint(equalTo: seperator.leadingAnchor, constant: 5).isActive = true
+
         allItemsTable.translatesAutoresizingMaskIntoConstraints = false
     }
     
     private func buildSelectedItemsTable() {
-        addSubview(selectedItemsTableContainer)
+        addSubview(selectedItemsTable)
         
-        selectedItemsTableContainer.leadingAnchor.constraint(equalTo: seperator.trailingAnchor, constant: -5).isActive = true
-        selectedItemsTableContainer.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        selectedItemsTableContainer.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        selectedItemsTableTrailingConstraint = selectedItemsTableContainer.trailingAnchor.constraint(equalTo: trailingAnchor)
+        selectedItemsTable.leadingAnchor.constraint(equalTo: seperator.trailingAnchor, constant: -5).isActive = true
+        selectedItemsTable.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        selectedItemsTable.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        selectedItemsTableTrailingConstraint = selectedItemsTable.trailingAnchor.constraint(equalTo: trailingAnchor)
         selectedItemsTableTrailingConstraint.isActive = true
-        selectedItemsTableContainer.translatesAutoresizingMaskIntoConstraints = false
-        
-        selectedItemsTableContainer.addSubview(selectedItemsTable)
-        
-        
-        selectedItemsTable._alignToEdges(of: selectedItemsTableContainer)
         selectedItemsTable.translatesAutoresizingMaskIntoConstraints = false
     }
     
@@ -416,13 +403,4 @@ fileprivate extension UIColor {
         return UIColor(colorLiteralRed: 121/255, green: 2/255, blue: 188/255, alpha: 0.3)
     }
     
-}
-
-fileprivate extension UIView {
-    func _alignToEdges(of view: UIView) {
-        topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-    }
 }
