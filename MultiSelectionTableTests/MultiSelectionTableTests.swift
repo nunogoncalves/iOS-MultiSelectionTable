@@ -17,10 +17,9 @@ class MultiSelectionTableTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        multiSelectionDataSource = MultiSelectionDataSource(control: multiSelectionTableView)
+        multiSelectionDataSource = MultiSelectionDataSource(multiSelectionTableView: multiSelectionTableView)
         multiSelectionTableView.dataSource = multiSelectionDataSource
         
-        multiSelectionDataSource.register(nib: UINib(nibName: "AlbumCell", bundle: nil), for: "AlbumCell")
         multiSelectionDataSource.allItems = [1, 2, 3]
         
         let view = MultiSelectionTableView()
@@ -35,8 +34,6 @@ class MultiSelectionTableTests: XCTestCase {
     
     func testAllItemsCount() {
         XCTAssert(multiSelectionDataSource.allItemsCount == 3, "All items should be three")
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
     
     func testInitialSelectedItemsCount() {

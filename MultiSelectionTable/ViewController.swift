@@ -12,9 +12,11 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var multiSelectionTableContainer: UIStackView!
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
+    override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
+    
+    private var multiSelectionDataSource: MultiSelectionDataSource<Album>!
+    fileprivate var multiSelectionTableView: MultiSelectionTableView!
+    fileprivate var filteredAlbuns: [Album] = []
     
     fileprivate var allAlbums: [Album] = [
         Album(band: Band(name: "Nirvana"), name: "Nevermind", cover: #imageLiteral(resourceName: "nevermind"), year: 1991),
@@ -38,10 +40,6 @@ class ViewController: UIViewController {
         Album(band: Band(name: "INXS"), name: "Switch", cover: #imageLiteral(resourceName: "switch"), year: 2005),
     ]
     
-    fileprivate var filteredAlbuns: [Album] = []
-    
-    private var multiSelectionDataSource: MultiSelectionDataSource<Album>!
-    
     @IBAction func textUpdated(_ sender: UITextField) {
         if let searchText = sender.text,
             searchText.characters.count > 0 {
@@ -52,8 +50,6 @@ class ViewController: UIViewController {
         multiSelectionDataSource.allItems = filteredAlbuns
     }
     
-    fileprivate var multiSelectionTableView: MultiSelectionTableView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -61,7 +57,7 @@ class ViewController: UIViewController {
         multiSelectionTableContainer.addArrangedSubview(multiSelectionTableView)
         multiSelectionTableView.seperatorWidthOffset = 130
       
-        multiSelectionDataSource = MultiSelectionDataSource(control: multiSelectionTableView)
+        multiSelectionDataSource = MultiSelectionDataSource(multiSelectionTableView: multiSelectionTableView)
         multiSelectionDataSource.delegate = self
         multiSelectionDataSource.register(nib: UINib(nibName: "AlbumCell", bundle: nil), for: "AlbumCell")
         
@@ -75,12 +71,12 @@ class ViewController: UIViewController {
 extension ViewController : MultiSelectionTableDelegate {
     
     func paint(_ cell: UITableViewCell, for indexPath: IndexPath, with item: Any) {
-        if let _cell = cell as? AlbumCell,
+        if let cell = cell as? AlbumCell,
             let album = item as? Album {
-            _cell.nameLabel.text = album.band.name
-            _cell.subtitleLabel.text = album.name
-            _cell.albumImageView.image = album.cover
-            _cell.yearLabel.text = "\(album.year)"
+            cell.nameLabel.text = album.band.name
+            cell.subtitleLabel.text = album.name
+            cell.albumImageView.image = album.cover
+            cell.yearLabel.text = "\(album.year)"
         }
     }
     

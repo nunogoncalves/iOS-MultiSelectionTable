@@ -10,7 +10,7 @@ import UIKit
 
 class MultiSelectionDataSource<T : Equatable> : DataSource {
     
-    let control: MultiSelectionTableView!
+    let multiSelectionTableView: MultiSelectionTableView!
     
     weak var delegate: MultiSelectionTableDelegate?
     
@@ -18,7 +18,7 @@ class MultiSelectionDataSource<T : Equatable> : DataSource {
     var allItems: [T] = [] {
         didSet {
             mapToItemIndexesAndUpdateOriginSelectedIndexesIfNecessary()
-            control.reloadAllItemsTable()
+            multiSelectionTableView.reloadAllItemsTable()
         }
     }
     
@@ -46,21 +46,21 @@ class MultiSelectionDataSource<T : Equatable> : DataSource {
         }
     }
     
-    init(control: MultiSelectionTableView) {
-        self.control = control
+    init(multiSelectionTableView: MultiSelectionTableView) {
+        self.multiSelectionTableView = multiSelectionTableView
     }
     
     fileprivate var cellReuseId = "Cell"
     func register(nib: UINib, for cellReuseIdentifier: String) {
         cellReuseId = cellReuseIdentifier
-        control.register(nib, for: cellReuseId)
+        multiSelectionTableView.register(nib, for: cellReuseId)
     }
     
     func selectedItem(at index: Int) {
         let item = allItemsIndexes.remove(at: index)
         selectedItemsIndexes.append(item)
         
-        control.addToSelectedItemsTable(at: index)
+        multiSelectionTableView.addToSelectedItemsTable(at: index)
     }
     
     func unselectedItem(at index: Int) {
@@ -68,16 +68,16 @@ class MultiSelectionDataSource<T : Equatable> : DataSource {
         let item = selectedItemsIndexes.remove(at: index)
         
         guard let indexToAdd = findIndexToPutBack(item, in: allItemsIndexes) else {
-            control.removeFromSelected(at: index)
+            multiSelectionTableView.removeFromSelected(at: index)
             return
         }
         
         allItemsIndexes.insert(item, at: indexToAdd)
         
-        control.putBackInAllItemsTable(at: indexToAdd, selectedItemAt: index)
+        multiSelectionTableView.putBackInAllItemsTable(at: indexToAdd, selectedItemAt: index)
                 
         if selectedItemsIndexes.isEmpty {
-            control.displayAllItems()
+            multiSelectionTableView.displayAllItems()
         }
         
     }
