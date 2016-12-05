@@ -82,12 +82,9 @@ multiSelectionTableView.seperatorWidthOffset = 100 //will move 100 point on both
 
 Nuno Gonçalves
 
-<img src="https://cdn0.iconfinder.com/data/icons/octicons/1024/mark-github-128.png" height="20px"> nunogoncalves
-
-<img src="https://addons.opera.com/media/extensions/85/110785/0.3.2-rev1/icons/icon_64x64.png" height="20px"> numicago@gmail.com
-
-<img src="https://cdn1.iconfinder.com/data/icons/logotypes/32/twitter-128.png" height="20px"> @goncalvescmnuno
-
+|<img src="https://cdn0.iconfinder.com/data/icons/octicons/1024/mark-github-128.png" height="20px">|<img src="https://addons.opera.com/media/extensions/85/110785/0.3.2-rev1/icons/icon_64x64.png" height="20px">|<img src="https://cdn1.iconfinder.com/data/icons/logotypes/32/twitter-128.png" height="20px">
+| ------------- |:-------------:| -------------:|
+| nunogoncalves | numicago@gmail.com | @goncalvescmnuno |
 
 ##Licence
 
