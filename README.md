@@ -13,16 +13,44 @@ https://dribbble.com/shots/2904577-Multi-Selection-Experiment
 
 Most basic usage:
 
-```swift
-let multiSelectionTableView = MultiSelectionTableView()
+Considering you are using MultiSelectionTableView in ViewController:
 
-let multiSelectionDataSource = MultiSelectionDataSource(control: multiSelectionTableView)
-multiSelectionDataSource.delegate = self
-multiSelectionDataSource.register(nib: UINib(nibName: "CellNib", bundle: nil), for: "CellIdentifier")
+```swift
+
+var multiSelectionDataSource: MultiSelectionDataSource<MyItem>! //MyItems must be Equatable
+var multiSelectionTableView: MultiSelectionTableView!
+
+var allItems: [MyItem] = [] //MyItem must be Equatable
+
+override func viewDidLoad() {
+     super.viewDidLoad()
         
-multiSelectionDataSource.allItems = items
-       
-multiSelectionTableView.dataSource = multiSelectionDataSource
+     multiSelectionTableView = MultiSelectionTableView()
+     view.addSubview(multiSelectionTableView)
+     
+     multiSelectionDataSource = MultiSelectionDataSource(multiSelectionTableView: multiSelectionTableView)
+     multiSelectionDataSource.delegate = self
+     let cellReuseIdentifier = "MyCell"
+     multiSelectionDataSource.register(nib: UINib(nibName: "MyCustomCellNibName", bundle: nil), for: cellReuseIdentifier)
+        
+     multiSelectionDataSource.allItems = allItems
+      
+     multiSelectionTableView.dataSource = multiSelectionDataSource
+ }
+
+extension ViewController : MultiSelectionTableDelegate {
+    
+    func paint(_ cell: UITableViewCell, for indexPath: IndexPath, with item: Any) {
+        if let cell = cell as? MyCustomCell,
+            let myItem = item as? MyItem {
+            //configureCellWithMyItem
+        }
+    }
+    
+}
+
+  
+  
 ```
 
 ## Author
