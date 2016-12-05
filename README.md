@@ -61,6 +61,22 @@ extension ViewController : MultiSelectionTableDelegate {
 }
     
 ```
+### Configuration
+- Colors style
+```swift
+multiSelectionTableView.controlBackgroundColor = .black
+multiSelectionTableView.allItemsTableBackgroundColor = .black
+multiSelectionTableView.selectedItemsTableBackgroundColor = .black
+```
+- Horizontal movement width: 
+  - Depending on your cell, you might want to set the horizontal width the line moves. This value is based on the center X anchor. 
+```swift
+multiSelectionTableView.seperatorWidthOffset = 100 //will move 100 point on both directions from the center
+```
+
+### TODO
+- Expose actions of selected and unselected items
+- Allow seperatorWidthOffset for both left and right animations
 
 ## Author
 
