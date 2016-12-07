@@ -24,6 +24,8 @@ public class MultiSelectionTableView : UIView {
     fileprivate var isSelectingMode = false
     @IBInspectable var seperatorWidthOffset: CGFloat = 100
     
+    public var cellAnimator: CellAnimator = CellPulseAnimator(pulseColor: .defaultCellPulseColor)
+    
     override public func awakeFromNib() {
         super.awakeFromNib()
 
@@ -180,14 +182,19 @@ public class MultiSelectionTableView : UIView {
         
         let origin = tableView.convert(location, to: cell.contentView)
         
+        let actionAnimation: () -> ()
         if tableView == selectedItemsTable {
-            highlightCell(at: indexPath, in: tableView, startingAt: origin) { [weak self] in
+            actionAnimation = { [weak self] in
                 self?.dataSource.unselectedItem(at: indexPath.row)
             }
         } else {
-            highlightCell(at: indexPath, in: tableView, startingAt: origin) { [weak self] in
+            actionAnimation = { [weak self] in
                 self?.dataSource.selectedItem(at: indexPath.row)
             }
+        }
+        
+        cellAnimator.animate(cell, startingAt: origin) { [weak self] in
+            actionAnimation()
         }
     }
 
@@ -293,60 +300,6 @@ public class MultiSelectionTableView : UIView {
         selectedItemsTable.deleteRows(at: [indexPath], with: .right)
     }
     
-    
-    private let pathLayer = CAShapeLayer()
-    let pathAnimation = CABasicAnimation(keyPath: "path")
-    let opacityAnimation = CABasicAnimation(keyPath: "opacity")
-    
-    fileprivate func highlightCell(at indexPath: IndexPath,
-                               in tableView: UITableView,
-                               startingAt origin: CGPoint? = nil,
-                               finish: @escaping () -> () = {}) {
-        guard let cell = tableView.cellForRow(at: indexPath) else { return }
-        
-        let startingPoint = origin ?? cell.contentView.center
-        
-        let smallCircle = UIBezierPath(ovalIn: CGRect(x: startingPoint.x - 1,
-                                                      y: startingPoint.y - 1,
-                                                      width: 2,
-                                                      height: 2))
-        
-        let maxRadius = maxDistance(between: startingPoint, andCornersIn: cell.contentView.frame)
-        
-        let bigCircle = UIBezierPath(arcCenter: startingPoint,
-                                     radius: maxRadius,
-                                     startAngle: CGFloat(0),
-                                     endAngle: CGFloat(2 * CGFloat.pi),
-                                     clockwise: true)
-
-        
-        pathLayer.lineWidth = 0
-        cell.contentView.layer.masksToBounds = true
-        pathLayer.fillColor = UIColor.cellPulseColor.cgColor
-        cell.contentView.layer.addSublayer(pathLayer)
-        
-        CATransaction.begin()
-        
-        pathAnimation.fromValue = smallCircle.cgPath
-        pathAnimation.toValue = bigCircle.cgPath
-        
-        CATransaction.setCompletionBlock {
-            finish()
-        }
-        
-        opacityAnimation.fromValue = 1.0
-        opacityAnimation.toValue = 0.3
-
-        let animationGroup = CAAnimationGroup()
-        animationGroup.duration = 0.3
-        animationGroup.animations = [pathAnimation, opacityAnimation]
-        
-        pathLayer.add(animationGroup, forKey: "animation")
-        
-        CATransaction.commit()
-    }
-
-    
     func addToSelectedItemsTable(at index: Int) {
      
         let count = selectedItemsTable.numberOfRows(inSection: 0)
@@ -400,7 +353,6 @@ extension MultiSelectionTableView : UITableViewDataSource {
         }
     }
 
-    
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == allItemsTable {
             return dataSource.cell(for: indexPath, inAllItemsTable: tableView)
@@ -408,7 +360,6 @@ extension MultiSelectionTableView : UITableViewDataSource {
             return dataSource.cell(for: indexPath, inSelectedItemsTable: tableView)
         }
     }
-
 }
 
 extension MultiSelectionTableView : UITableViewDelegate {
@@ -431,39 +382,14 @@ extension MultiSelectionTableView : UITableViewDelegate {
         
         return nil
     }
-    
 }
 
 fileprivate extension UIColor {
-    
     static var defaultTableBackground: UIColor {
         return UIColor(colorLiteralRed: 25/255, green: 25/255, blue: 25/255, alpha: 1)
     }
     
-    static var cellPulseColor: UIColor {
+    static var defaultCellPulseColor: UIColor {
         return UIColor(colorLiteralRed: 121/255, green: 2/255, blue: 188/255, alpha: 0.3)
     }
-    
-}
-
-func maxDistance(between point: CGPoint, andCornersIn rect: CGRect) -> CGFloat {
-    let px = point.x
-    let py = point.y
-    
-    let corners = [
-        CGPoint(x: rect.origin.x, y: rect.origin.y),
-        CGPoint(x: rect.width, y: rect.origin.y),
-        CGPoint(x: rect.origin.x, y: rect.height),
-        CGPoint(x: rect.width, y: rect.height)
-    ]
-    
-    var maxDistance: CGFloat = 0
-    
-    for corner in corners {
-        let dx = abs(px - corner.x)
-        let dy = abs(py - corner.y)
-        let length = sqrt(dx * dx + dy * dy)
-        maxDistance = max(length, maxDistance)
-    }
-    return maxDistance
 }
