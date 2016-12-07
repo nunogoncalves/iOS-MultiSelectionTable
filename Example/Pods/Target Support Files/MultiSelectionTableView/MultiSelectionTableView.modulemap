@@ -1,0 +1,6 @@
+framework module MultiSelectionTableView {
+  umbrella header "MultiSelectionTableView-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -8,30 +8,30 @@
 
 import UIKit
 
-class MultiSelectionDataSource<T : Equatable> : DataSource {
+public class MultiSelectionDataSource<T : Equatable> : DataSource {
     
-    let multiSelectionTableView: MultiSelectionTableView!
+    fileprivate let multiSelectionTableView: MultiSelectionTableView!
     
-    weak var delegate: MultiSelectionTableDelegate?
+    public weak var delegate: MultiSelectionTableDelegate?
     
     fileprivate var allItemsIndexes: [ItemIndex<T>] = []
-    var allItems: [T] = [] {
+    public var allItems: [T] = [] {
         didSet {
             mapToItemIndexesAndUpdateOriginSelectedIndexesIfNecessary()
             multiSelectionTableView.reloadAllItemsTable()
         }
     }
     
-    var allItemsCount: Int {
+    public var allItemsCount: Int {
         return allItemsIndexes.count
     }
     
     fileprivate var selectedItemsIndexes: [ItemIndex<T>] = []
-    var selectedItems: [T] {
+    public var selectedItems: [T] {
         return selectedItemsIndexes.map { $0.item }
     }
 
-    var selectedItemsCount: Int {
+    public var selectedItemsCount: Int {
         return selectedItemsIndexes.count
     }
     
@@ -46,24 +46,29 @@ class MultiSelectionDataSource<T : Equatable> : DataSource {
         }
     }
     
-    init(multiSelectionTableView: MultiSelectionTableView) {
+    public init(multiSelectionTableView: MultiSelectionTableView) {
         self.multiSelectionTableView = multiSelectionTableView
     }
     
     fileprivate var cellReuseId = "Cell"
-    func register(nib: UINib, for cellReuseIdentifier: String) {
+    public func register(nib: UINib, for cellReuseIdentifier: String) {
         cellReuseId = cellReuseIdentifier
         multiSelectionTableView.register(nib: nib, for: cellReuseId)
     }
     
-    func selectedItem(at index: Int) {
+    public func register(anyClass: AnyClass?, for cellReuseIdentifier: String) {
+        cellReuseId = cellReuseIdentifier
+        multiSelectionTableView.register(anyClass: anyClass, for: cellReuseId)
+    }
+    
+    public func selectedItem(at index: Int) {
         let item = allItemsIndexes.remove(at: index)
         selectedItemsIndexes.append(item)
         
         multiSelectionTableView.addToSelectedItemsTable(at: index)
     }
     
-    func unselectedItem(at index: Int) {
+    public func unselectedItem(at index: Int) {
     
         let item = selectedItemsIndexes.remove(at: index)
         
@@ -94,7 +99,7 @@ class MultiSelectionDataSource<T : Equatable> : DataSource {
         return item.index
     }
 
-    func cell(for indexPath: IndexPath, inAllItemsTable tableView: UITableView) -> UITableViewCell {
+    public func cell(for indexPath: IndexPath, inAllItemsTable tableView: UITableView) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseId, for: indexPath)
         let item = allItemsIndexes[indexPath.row]
         delegate?.paint(cell, for: indexPath, with: item.item)
@@ -102,7 +107,7 @@ class MultiSelectionDataSource<T : Equatable> : DataSource {
         return cell
     }
     
-    func cell(for indexPath: IndexPath, inSelectedItemsTable tableView: UITableView) -> UITableViewCell {
+    public func cell(for indexPath: IndexPath, inSelectedItemsTable tableView: UITableView) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseId, for: indexPath)
         let item = selectedItemsIndexes[indexPath.row]
         delegate?.paint(cell, for: indexPath, with: item.item)

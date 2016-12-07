@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol MultiSelectionTableDelegate : class {
+public protocol MultiSelectionTableDelegate : class {
     
     func paint(_ cell: UITableViewCell, for indexPath: IndexPath, with object: Any)
     

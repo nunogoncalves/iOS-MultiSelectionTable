@@ -6,7 +6,7 @@
 //  Copyright © 2016 Nuno Gonçalves. All rights reserved.
 //
 
-struct ItemIndex<T : Equatable> : Equatable {
+internal struct ItemIndex<T : Equatable> : Equatable {
     
     let item: T
     var index: Int

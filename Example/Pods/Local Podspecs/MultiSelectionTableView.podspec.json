@@ -1,0 +1,23 @@
+{
+  "name": "MultiSelectionTableView",
+  "version": "0.1.0",
+  "summary": "Beautiful multi-selection table for iOS written in Swift 3",
+  "description": "MultiSelectionTableView is a custom view that allows displaying a list of items and select as many as one wants. One sees two lists, the first lists all items the user might select, and the second lists the selected items. The table allows pagination and search, and the selected items will not leave context making it easy for the user to interact with your view.",
+  "homepage": "https://github.com/nunogoncalves/iOS-MultiSelectionTable",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE.md"
+  },
+  "authors": {
+    "Nuno Gonçalves": ""
+  },
+  "source": {
+    "git": "https://github.com/nunogoncalves/MultiSelectionTable.git",
+    "tag": "0.1.0"
+  },
+  "social_media_url": "https://twitter.com/goncalvescmnuno",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "MultiSelectionTable/source/**/*"
+}
