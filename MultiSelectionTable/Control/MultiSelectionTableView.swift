@@ -6,11 +6,19 @@
 //  Copyright © 2016 Nuno Gonçalves. All rights reserved.
 //
 
+//
+//  MultiSelectionTableControl.swift
+//  MultiSelectionTable
+//
+//  Created by Nuno Gonçalves on 29/11/16.
+//  Copyright © 2016 Nuno Gonçalves. All rights reserved.
+//
+
 import UIKit
 
 @IBDesignable
 class MultiSelectionTableView : UIView {
-
+    
     weak var dataSource: DataSource!
     
     fileprivate let allItemsTable = UITableView()
@@ -24,9 +32,9 @@ class MultiSelectionTableView : UIView {
     fileprivate var isSelectingMode = false
     @IBInspectable var seperatorWidthOffset: CGFloat = 100
     
-    override func awakeFromNib() {
+    override public func awakeFromNib() {
         super.awakeFromNib()
-
+        
         allItemsTable.backgroundColor = allItemsTableBackgroundColor
         allItemsTable.separatorColor = .clear
         allItemsTable.headerView(forSection: 0)?.backgroundColor = allItemsTableBackgroundColor
@@ -71,7 +79,7 @@ class MultiSelectionTableView : UIView {
         initialize()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         initialize()
     }
@@ -132,7 +140,7 @@ class MultiSelectionTableView : UIView {
         allItemsTable.topAnchor.constraint(equalTo: topAnchor).isActive = true
         allItemsTable.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         allItemsTable.trailingAnchor.constraint(equalTo: seperator.leadingAnchor, constant: 5).isActive = true
-
+        
         allItemsTable.translatesAutoresizingMaskIntoConstraints = false
     }
     
@@ -153,7 +161,7 @@ class MultiSelectionTableView : UIView {
         
         tableView.backgroundView = nil
         tableView.backgroundColor = self.allItemsTableBackgroundColor
-        tableView.separatorColor = .clear
+        tableView.separatorColor = .white
         tableView.keyboardDismissMode = .interactive
         
         tableView.delegate = self
@@ -161,6 +169,33 @@ class MultiSelectionTableView : UIView {
         
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableViewAutomaticDimension
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapTable(gestureRecognizer:)))
+        tableView.addGestureRecognizer(tapGestureRecognizer)
+        
+    }
+    
+    @objc private func didTapTable(gestureRecognizer: UITapGestureRecognizer) {
+        guard let tableView = gestureRecognizer.view as? UITableView else { return }
+        
+        let location = gestureRecognizer.location(in: tableView)
+        guard let indexPath = tableView.indexPathForRow(at: location),
+            let cell = tableView.cellForRow(at: indexPath)
+            else {
+                return
+        }
+        
+        let origin = tableView.convert(location, to: cell.contentView)
+        
+        if tableView == selectedItemsTable {
+            highlightCell(at: indexPath, in: tableView, startingAt: origin) { [weak self] in
+                self?.dataSource.unselectedItem(at: indexPath.row)
+            }
+        } else {
+            highlightCell(at: indexPath, in: tableView, startingAt: origin) { [weak self] in
+                self?.dataSource.selectedItem(at: indexPath.row)
+            }
+        }
     }
     
     @objc private func swipped(gesture: UIPanGestureRecognizer) {
@@ -201,17 +236,23 @@ class MultiSelectionTableView : UIView {
                        usingSpringWithDamping: 1,
                        initialSpringVelocity: 1,
                        options: .curveEaseInOut,
-                       animations: { [weak self] in
-                          self?.layoutIfNeeded()
-                       },
+                       animations: {
+                        self.layoutIfNeeded()
+        },
                        completion: nil)
     }
     
     fileprivate var cellReuseId = "Cell"
-    func register(_ nib: UINib, for cellReuseIdentifier: String) {
+    func register(nib: UINib, for cellReuseIdentifier: String) {
         cellReuseId = cellReuseIdentifier
         allItemsTable.register(nib, forCellReuseIdentifier: cellReuseId)
         selectedItemsTable.register(nib, forCellReuseIdentifier: cellReuseId)
+    }
+    
+    func register(anyClass: AnyClass?, for cellReuseIdentifier: String) {
+        cellReuseId = cellReuseIdentifier
+        allItemsTable.register(anyClass, forCellReuseIdentifier: cellReuseId)
+        selectedItemsTable.register(anyClass, forCellReuseIdentifier: cellReuseId)
     }
     
     func reloadAllItemsTable() {
@@ -262,24 +303,30 @@ class MultiSelectionTableView : UIView {
     
     private let pathLayer = CAShapeLayer()
     let pathAnimation = CABasicAnimation(keyPath: "path")
+    
     fileprivate func highlightCell(at indexPath: IndexPath,
-                               in tableView: UITableView,
-                               finish: @escaping () -> () = {}) {
+                                   in tableView: UITableView,
+                                   startingAt origin: CGPoint? = nil,
+                                   finish: @escaping () -> () = {}) {
         guard let cell = tableView.cellForRow(at: indexPath) else { return }
         
-        let center = cell.contentView.center
+        let startingPoint = origin ?? cell.contentView.center
         
-        let smallCircle = UIBezierPath(ovalIn: CGRect(x: center.x - 1,
-                                                      y: center.y - 1,
+        let smallCircle = UIBezierPath(ovalIn: CGRect(x: startingPoint.x - 1,
+                                                      y: startingPoint.y - 1,
                                                       width: 2,
                                                       height: 2))
-        let bigCircle = UIBezierPath(arcCenter: cell.contentView.center,
-                                     radius: cell.contentView.frame.width,
+        
+        let maxRadius = maxDistance(between: startingPoint, andCornersIn: cell.contentView.frame)
+        
+        let bigCircle = UIBezierPath(arcCenter: startingPoint,
+                                     radius: maxRadius,
                                      startAngle: CGFloat(0),
                                      endAngle: CGFloat(2 * CGFloat.pi),
                                      clockwise: true)
         
         pathLayer.lineWidth = 0
+        cell.contentView.layer.masksToBounds = true
         pathLayer.fillColor = UIColor.cellPulseColor.cgColor
         cell.contentView.layer.addSublayer(pathLayer)
         
@@ -288,7 +335,7 @@ class MultiSelectionTableView : UIView {
         
         pathAnimation.fromValue = smallCircle.cgPath
         pathAnimation.toValue = bigCircle.cgPath
-        pathAnimation.duration = 0.2
+        pathAnimation.duration = 0.3
         
         CATransaction.setCompletionBlock {
             finish()
@@ -298,10 +345,10 @@ class MultiSelectionTableView : UIView {
         
         CATransaction.commit()
     }
-
+    
     
     func addToSelectedItemsTable(at index: Int) {
-     
+        
         let count = selectedItemsTable.numberOfRows(inSection: 0)
         
         let newIndexPath = IndexPath(item: count, section: 0)
@@ -352,7 +399,7 @@ extension MultiSelectionTableView : UITableViewDataSource {
             return dataSource.selectedItemsCount
         }
     }
-
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == allItemsTable {
@@ -362,6 +409,7 @@ extension MultiSelectionTableView : UITableViewDataSource {
         }
     }
 
+    
 }
 
 extension MultiSelectionTableView : UITableViewDelegate {
@@ -385,18 +433,6 @@ extension MultiSelectionTableView : UITableViewDelegate {
         return nil
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if tableView == selectedItemsTable {
-            highlightCell(at: indexPath, in: tableView) { [weak self] in
-                self?.dataSource.unselectedItem(at: indexPath.row)
-            }
-        } else {
-            highlightCell(at: indexPath, in: tableView) { [weak self] in
-                self?.dataSource.selectedItem(at: indexPath.row)
-            }
-        }
-    }
-
 }
 
 fileprivate extension UIColor {
@@ -409,4 +445,26 @@ fileprivate extension UIColor {
         return UIColor(colorLiteralRed: 121/255, green: 2/255, blue: 188/255, alpha: 0.3)
     }
     
+}
+
+func maxDistance(between point: CGPoint, andCornersIn rect: CGRect) -> CGFloat {
+    let px = point.x
+    let py = point.y
+    
+    let corners = [
+        CGPoint(x: rect.origin.x, y: rect.origin.y),
+        CGPoint(x: rect.width, y: rect.origin.y),
+        CGPoint(x: rect.origin.x, y: rect.height),
+        CGPoint(x: rect.width, y: rect.height)
+    ]
+    
+    var maxDistance: CGFloat = 0
+    
+    for corner in corners {
+        let dx = abs(px - corner.x)
+        let dy = abs(py - corner.y)
+        let length = sqrt(dx * dx + dy * dy)
+        maxDistance = max(length, maxDistance)
+    }
+    return maxDistance
 }

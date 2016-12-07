@@ -53,7 +53,7 @@ class MultiSelectionDataSource<T : Equatable> : DataSource {
     fileprivate var cellReuseId = "Cell"
     func register(nib: UINib, for cellReuseIdentifier: String) {
         cellReuseId = cellReuseIdentifier
-        multiSelectionTableView.register(nib, for: cellReuseId)
+        multiSelectionTableView.register(nib: nib, for: cellReuseId)
     }
     
     func selectedItem(at index: Int) {
