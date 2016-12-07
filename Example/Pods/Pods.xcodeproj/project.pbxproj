@@ -16,8 +16,8 @@
 		512286B34FFE7D8574F573A125943D90 /* Pods-MultiSelectionTable-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A2E72FD1B87B30157CCAAA5713717C7 /* Pods-MultiSelectionTable-dummy.m */; };
 		51E255511B1696771425323753AC8204 /* MultiSelectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1BC696549CACA4A6CC20F7269D9DD6 /* MultiSelectionDelegate.swift */; };
 		7606DC2B12146F20ACE3FB3214861313 /* MultiSelectionTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E88B492A84DCDF8A6A25A7D00CE002 /* MultiSelectionTableView.swift */; };
-		85E7AC551DF8B7BC00B491B6 /* CellAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E7AC541DF8B7BC00B491B6 /* CellAnimator.swift */; };
-		85E7AC571DF8D1E000B491B6 /* CellPulseAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E7AC561DF8D1E000B491B6 /* CellPulseAnimator.swift */; };
+		85E7AC5B1DF8D51300B491B6 /* CellAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E7AC591DF8D51300B491B6 /* CellAnimator.swift */; };
+		85E7AC5C1DF8D51300B491B6 /* CellPulseAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E7AC5A1DF8D51300B491B6 /* CellPulseAnimator.swift */; };
 		9C05035286823CA5721FFD3E68A0D4E4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
 		A18BD86C4D5E96B9C464E9037A6A4472 /* MultiSelectionTableView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E4C791BCF7EEA9CE0E3892C94C3224 /* MultiSelectionTableView-dummy.m */; };
 		AA5BBD1BA020B3C76F2AA84EC8C65F40 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0D8D4C26AF89F29553804D9A5CB064 /* DataSource.swift */; };
@@ -70,8 +70,8 @@
 		7DD04762E83955E153C09A83F9E3280B /* Pods-MultiSelectionTableTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MultiSelectionTableTests-acknowledgements.plist"; sourceTree = "<group>"; };
 		7EC5792AFA69C2AB9E76AD8E75A3B2E2 /* Pods-MultiSelectionTable-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MultiSelectionTable-acknowledgements.markdown"; sourceTree = "<group>"; };
 		80513222309C5FDBE2A8EB50C77D2B20 /* MultiSelectionTableView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MultiSelectionTableView-prefix.pch"; sourceTree = "<group>"; };
-		85E7AC541DF8B7BC00B491B6 /* CellAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellAnimator.swift; sourceTree = "<group>"; };
-		85E7AC561DF8D1E000B491B6 /* CellPulseAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellPulseAnimator.swift; sourceTree = "<group>"; };
+		85E7AC591DF8D51300B491B6 /* CellAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CellAnimator.swift; path = Animators/CellAnimator.swift; sourceTree = "<group>"; };
+		85E7AC5A1DF8D51300B491B6 /* CellPulseAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CellPulseAnimator.swift; path = Animators/CellPulseAnimator.swift; sourceTree = "<group>"; };
 		8A2E72FD1B87B30157CCAAA5713717C7 /* Pods-MultiSelectionTable-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MultiSelectionTable-dummy.m"; sourceTree = "<group>"; };
 		8CE861D7ECE6873CBF6B8527A308AB23 /* Pods-MultiSelectionTableUITests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MultiSelectionTableUITests-resources.sh"; sourceTree = "<group>"; };
 		8E3F064F95B9D885248C70B4EADDFD6B /* Pods-MultiSelectionTable-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MultiSelectionTable-frameworks.sh"; sourceTree = "<group>"; };
@@ -229,8 +229,8 @@
 		85E7AC581DF8D1EF00B491B6 /* Animations */ = {
 			isa = PBXGroup;
 			children = (
-				85E7AC541DF8B7BC00B491B6 /* CellAnimator.swift */,
-				85E7AC561DF8D1E000B491B6 /* CellPulseAnimator.swift */,
+				85E7AC591DF8D51300B491B6 /* CellAnimator.swift */,
+				85E7AC5A1DF8D51300B491B6 /* CellPulseAnimator.swift */,
 			);
 			name = Animations;
 			sourceTree = "<group>";
@@ -444,8 +444,8 @@
 				EC67235E2B13D3AD59F340FDB0A7572F /* MultiSelectionDataSource.swift in Sources */,
 				51E255511B1696771425323753AC8204 /* MultiSelectionDelegate.swift in Sources */,
 				A18BD86C4D5E96B9C464E9037A6A4472 /* MultiSelectionTableView-dummy.m in Sources */,
-				85E7AC551DF8B7BC00B491B6 /* CellAnimator.swift in Sources */,
-				85E7AC571DF8D1E000B491B6 /* CellPulseAnimator.swift in Sources */,
+				85E7AC5B1DF8D51300B491B6 /* CellAnimator.swift in Sources */,
+				85E7AC5C1DF8D51300B491B6 /* CellPulseAnimator.swift in Sources */,
 				7606DC2B12146F20ACE3FB3214861313 /* MultiSelectionTableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
