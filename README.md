@@ -79,6 +79,16 @@ multiSelectionTableView.selectedItemsTableBackgroundColor = .black
 multiSelectionTableView.seperatorWidthOffset = 100 //will move 100 point on both directions from the center
 ```
 
+## Installation
+
+**MultiSelectionTable** is available through [CocoaPods](http://cocoapods.org). To install
+it, simply add the following line to your Podfile:
+
+```ruby
+pod 'MultiSelectionTable', git: 'https://github.com/nunogoncalves/MultiSelectionTable'
+```
+
+
 ### TODO
 - Expose actions of selected and unselected items
 - Allow seperatorWidthOffset for both left and right animations
