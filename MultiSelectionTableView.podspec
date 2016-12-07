@@ -1,42 +1,23 @@
-#
-# Be sure to run `pod lib lint MultiSelectionTableView.podspec' to ensure this is a
-# valid spec before submitting.
-#
-# Any lines starting with a # are optional, but their use is encouraged
-# To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html
-#
-
 Pod::Spec.new do |s|
   s.name             = 'MultiSelectionTableView'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of MultiSelectionTableView.'
-
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
-
+  s.summary          = 'Beautiful multi-selection table for iOS written in Swift 3'
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+MultiSelectionTableView is a custom view that allows displaying a list of items and select as many as one wants. One sees two lists, the first lists all items the user might select, and the second lists the selected items. The table allows pagination and search, and the selected items will not leave context making it easy for the user to interact with your view.
                        DESC
 
-  s.homepage         = 'https://github.com/<GITHUB_USERNAME>/MultiSelectionTable'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+  s.homepage         = 'https://github.com/nunogoncalves/iOS-MultiSelectionTable'
   s.license          = { :type => 'MIT', :file => 'LICENSE.md' }
-  s.author           = { 'Nuno Gonçalves' => 'numicago@gmail.com' }
-  s.source           = { :git => 'https://github.com/<GITHUB_USERNAME>/MultiSelectionTable.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.author           = { 'Nuno Gonçalves' => '' }
+  s.source           = { :git => 'https://github.com/nunogoncalves/MultiSelectionTable.git', :tag => s.version.to_s }
+  s.social_media_url = 'https://twitter.com/goncalvescmnuno'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '9.0'
 
-  s.source_files = 'source/**/*'
+  s.source_files = 'MultiSelectionTable/source/**/*'
 
   # s.resource_bundles = {
   #   'MultiSelectionTable' => ['MultiSelectionTable/Assets/*.png']
   # }
 
-  # s.public_header_files = 'Pod/source/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
 end

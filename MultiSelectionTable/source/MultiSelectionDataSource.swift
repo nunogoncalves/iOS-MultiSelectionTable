@@ -10,7 +10,7 @@ import UIKit
 
 public class MultiSelectionDataSource<T : Equatable> : DataSource {
     
-    let multiSelectionTableView: MultiSelectionTableView!
+    fileprivate let multiSelectionTableView: MultiSelectionTableView!
     
     public weak var delegate: MultiSelectionTableDelegate?
     
@@ -56,9 +56,9 @@ public class MultiSelectionDataSource<T : Equatable> : DataSource {
         multiSelectionTableView.register(nib: nib, for: cellReuseId)
     }
     
-    public func register(cellClass: AnyClass?, for cellReuseIdentifier: String) {
+    public func register(anyClass: AnyClass?, for cellReuseIdentifier: String) {
         cellReuseId = cellReuseIdentifier
-        multiSelectionTableView.register(cellClass: cellClass, for: cellReuseId)
+        multiSelectionTableView.register(anyClass: anyClass, for: cellReuseId)
     }
     
     public func selectedItem(at index: Int) {

@@ -30,7 +30,7 @@ public class MultiSelectionTableView : UIView {
         allItemsTable.backgroundColor = allItemsTableBackgroundColor
         allItemsTable.separatorColor = .clear
         allItemsTable.headerView(forSection: 0)?.backgroundColor = allItemsTableBackgroundColor
-        allItemsTable.separatorColor = .white
+        allItemsTable.separatorColor = .clear
         
         blackLine.backgroundColor = seperatorColor
         
