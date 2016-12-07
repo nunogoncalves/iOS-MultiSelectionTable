@@ -9,10 +9,14 @@
 class CellPulseAnimator : CellAnimator {
     
     private let pathLayer = CAShapeLayer()
-    let pathAnimation = CABasicAnimation(keyPath: "path")
-    let opacityAnimation = CABasicAnimation(keyPath: "opacity")
+    private let pathAnimation = CABasicAnimation(keyPath: "path")
+    private let opacityAnimation = CABasicAnimation(keyPath: "opacity")
     
-    let pulseColor: UIColor
+    private let pulseColor: UIColor
+    private let initialPulseOpacityAlpha = 1.0
+    private let finalPulseOpacityAlpha = 0.3
+    
+    private let animationDuration: TimeInterval = 0.3
     
     internal init(pulseColor: UIColor) {
         self.pulseColor = pulseColor
@@ -51,11 +55,11 @@ class CellPulseAnimator : CellAnimator {
             finish?()
         }
         
-        opacityAnimation.fromValue = 1.0
-        opacityAnimation.toValue = 0.3
+        opacityAnimation.fromValue = initialPulseOpacityAlpha
+        opacityAnimation.toValue = finalPulseOpacityAlpha
         
         let animationGroup = CAAnimationGroup()
-        animationGroup.duration = 0.3
+        animationGroup.duration = animationDuration
         animationGroup.animations = [pathAnimation, opacityAnimation]
         
         pathLayer.add(animationGroup, forKey: "animation")
