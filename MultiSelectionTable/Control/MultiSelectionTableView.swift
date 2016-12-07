@@ -302,7 +302,8 @@ class MultiSelectionTableView : UIView {
     
     
     private let pathLayer = CAShapeLayer()
-    let pathAnimation = CABasicAnimation(keyPath: "path")
+    private let pathAnimation = CABasicAnimation(keyPath: "path")
+    private let opacityAnimation = CABasicAnimation(keyPath: "opacity")
     
     fileprivate func highlightCell(at indexPath: IndexPath,
                                    in tableView: UITableView,
@@ -341,7 +342,14 @@ class MultiSelectionTableView : UIView {
             finish()
         }
         
-        pathLayer.add(pathAnimation, forKey: "animation")
+        opacityAnimation.fromValue = 1.0
+        opacityAnimation.toValue = 0.3
+        
+        let animationGroup = CAAnimationGroup()
+        animationGroup.duration = 0.3
+        animationGroup.animations = [pathAnimation, opacityAnimation]
+        
+        pathLayer.add(animationGroup, forKey: "animation")
         
         CATransaction.commit()
     }
