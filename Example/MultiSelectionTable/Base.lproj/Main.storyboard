@@ -31,7 +31,7 @@
                                     <action selector="textUpdated:" destination="wwJ-Jc-SVD" eventType="editingChanged" id="dAw-6V-7B5"/>
                                 </connections>
                             </textField>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5dz-ez-Hz0" customClass="MultiSelectionTableView" customModule="MultiSelectionTable" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5dz-ez-Hz0" customClass="MultiSelectionTableView" customModule="MultiSelectionTableView">
                                 <rect key="frame" x="0.0" y="50" width="375" height="617"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="seperatorWidthOffset">

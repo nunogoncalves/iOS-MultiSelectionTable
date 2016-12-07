@@ -1,0 +1,6 @@
+framework module Pods_MultiSelectionTableUITests {
+  umbrella header "Pods-MultiSelectionTableUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

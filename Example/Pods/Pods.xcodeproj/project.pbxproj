@@ -1,0 +1,868 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0FF24843EE1E57D35FB702154602520B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		1EF5E21CACDA4CD210813E5DB8FC31B8 /* ItemIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = B444C028F481DCA50D6AF913C13EB180 /* ItemIndex.swift */; };
+		2149423CB2A82FB9D9DC9D75C1DDCAAD /* Pods-MultiSelectionTableTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D436DD8E4AB857E3BF3ECEFE84948A0 /* Pods-MultiSelectionTableTests-dummy.m */; };
+		2BA704A218B532B05DF9C8A1E181649B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		49EA44ECBA54A6E4561B8EDF8CB1598B /* Pods-MultiSelectionTableUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4515D7E2CC5FE06BE551A45DAEB75C67 /* Pods-MultiSelectionTableUITests-dummy.m */; };
+		4DF925641B9150A1438C69A3A27F702E /* Pods-MultiSelectionTableTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BC5E868E7A910CA7BA9617E3B0FEA69C /* Pods-MultiSelectionTableTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		512286B34FFE7D8574F573A125943D90 /* Pods-MultiSelectionTable-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A2E72FD1B87B30157CCAAA5713717C7 /* Pods-MultiSelectionTable-dummy.m */; };
+		51E255511B1696771425323753AC8204 /* MultiSelectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F95A28737FEB5AA5A1EC9647E6234C2 /* MultiSelectionDelegate.swift */; };
+		7606DC2B12146F20ACE3FB3214861313 /* MultiSelectionTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B111A354DE8931494D11A0F14D8D05 /* MultiSelectionTableView.swift */; };
+		9C05035286823CA5721FFD3E68A0D4E4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		A18BD86C4D5E96B9C464E9037A6A4472 /* MultiSelectionTableView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 047ED469DBA6CD457767307D658F8E6A /* MultiSelectionTableView-dummy.m */; };
+		AA5BBD1BA020B3C76F2AA84EC8C65F40 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1999FEEBDB0518011E6279862D86F4AB /* DataSource.swift */; };
+		C2617205DC79D010E0869C8BFC92699D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		CA38496B931CBE804B3B99D9D314A35C /* Pods-MultiSelectionTableUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B6FA8492823975F43A443516A7FF2A5C /* Pods-MultiSelectionTableUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EC67235E2B13D3AD59F340FDB0A7572F /* MultiSelectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA1122A8BFAF8F6B56588C79DC27670 /* MultiSelectionDataSource.swift */; };
+		F14C79CD075D3C4F177D18D4B4973A57 /* Pods-MultiSelectionTable-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 77CD01401F95809FB0D61B7C701C029B /* Pods-MultiSelectionTable-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F49522C758C4ECFD1BCDF5A594F2FD72 /* MultiSelectionTableView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 04D5038ED50D028260D7E9397CCA9FDC /* MultiSelectionTableView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F7085ADC2F2503AEE02F2FDB13B653CD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 52A94960D8CBBBE87B91EF0D8412F9EE;
+			remoteInfo = MultiSelectionTableView;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		047ED469DBA6CD457767307D658F8E6A /* MultiSelectionTableView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MultiSelectionTableView-dummy.m"; sourceTree = "<group>"; };
+		04D5038ED50D028260D7E9397CCA9FDC /* MultiSelectionTableView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MultiSelectionTableView-umbrella.h"; sourceTree = "<group>"; };
+		07027EEA1877295C5325FE818123B035 /* Pods-MultiSelectionTableUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MultiSelectionTableUITests-frameworks.sh"; sourceTree = "<group>"; };
+		09B4165F95F6C30D3C0BD752BD871CCC /* Pods_MultiSelectionTable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MultiSelectionTable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0AA1122A8BFAF8F6B56588C79DC27670 /* MultiSelectionDataSource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MultiSelectionDataSource.swift; sourceTree = "<group>"; };
+		1278CF340F05E1401C6C2E0D6A7EF37A /* Pods_MultiSelectionTableTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MultiSelectionTableTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		14B111A354DE8931494D11A0F14D8D05 /* MultiSelectionTableView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MultiSelectionTableView.swift; sourceTree = "<group>"; };
+		1999FEEBDB0518011E6279862D86F4AB /* DataSource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
+		1E07423545FB0349B17D6176AF7FEFEC /* Pods-MultiSelectionTableTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MultiSelectionTableTests-frameworks.sh"; sourceTree = "<group>"; };
+		29A05992A204D9B6565C1C0926086ACA /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2D436DD8E4AB857E3BF3ECEFE84948A0 /* Pods-MultiSelectionTableTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MultiSelectionTableTests-dummy.m"; sourceTree = "<group>"; };
+		2EE36DD5882AE83CF1F93079DA6B02BA /* Pods-MultiSelectionTableTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MultiSelectionTableTests.debug.xcconfig"; sourceTree = "<group>"; };
+		361D656D3D79E1AFF7CEEFE2551473F0 /* Pods-MultiSelectionTableUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-MultiSelectionTableUITests.modulemap"; sourceTree = "<group>"; };
+		3BA0D237ED2547368701BB01615AFA6B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		436E55B1BD929401DA9A64EEBB0B58DD /* Pods-MultiSelectionTable-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MultiSelectionTable-resources.sh"; sourceTree = "<group>"; };
+		4515D7E2CC5FE06BE551A45DAEB75C67 /* Pods-MultiSelectionTableUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MultiSelectionTableUITests-dummy.m"; sourceTree = "<group>"; };
+		4CAF52B8FD7B3F7358DB721A045E9937 /* Pods-MultiSelectionTableTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MultiSelectionTableTests-resources.sh"; sourceTree = "<group>"; };
+		546A1FC3EA9A123F39BAD79E6CDA1796 /* Pods-MultiSelectionTableTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MultiSelectionTableTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		54E05BD9E2F05EFEA72F1A1DCF8BB471 /* Pods-MultiSelectionTableTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-MultiSelectionTableTests.modulemap"; sourceTree = "<group>"; };
+		5BD10CFBB57C731C9A7121A9C185CF5A /* Pods-MultiSelectionTableUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MultiSelectionTableUITests.release.xcconfig"; sourceTree = "<group>"; };
+		5D2556632370C594175C7A0F3E7E9100 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6AF2E628983E08FEA045DA550CE89D79 /* Pods-MultiSelectionTableUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MultiSelectionTableUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		737E7866F72DC030D61D2885FFBB9117 /* MultiSelectionTableView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MultiSelectionTableView-prefix.pch"; sourceTree = "<group>"; };
+		74B8925DD54B8906FBCAB388A515DE90 /* Pods-MultiSelectionTable.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MultiSelectionTable.debug.xcconfig"; sourceTree = "<group>"; };
+		77CD01401F95809FB0D61B7C701C029B /* Pods-MultiSelectionTable-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MultiSelectionTable-umbrella.h"; sourceTree = "<group>"; };
+		7DD04762E83955E153C09A83F9E3280B /* Pods-MultiSelectionTableTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MultiSelectionTableTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		7EC5792AFA69C2AB9E76AD8E75A3B2E2 /* Pods-MultiSelectionTable-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MultiSelectionTable-acknowledgements.markdown"; sourceTree = "<group>"; };
+		7F95A28737FEB5AA5A1EC9647E6234C2 /* MultiSelectionDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MultiSelectionDelegate.swift; sourceTree = "<group>"; };
+		8A2E72FD1B87B30157CCAAA5713717C7 /* Pods-MultiSelectionTable-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MultiSelectionTable-dummy.m"; sourceTree = "<group>"; };
+		8CE861D7ECE6873CBF6B8527A308AB23 /* Pods-MultiSelectionTableUITests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MultiSelectionTableUITests-resources.sh"; sourceTree = "<group>"; };
+		8E3F064F95B9D885248C70B4EADDFD6B /* Pods-MultiSelectionTable-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MultiSelectionTable-frameworks.sh"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		95D591A37867D995920ED6F9D7C0C400 /* MultiSelectionTableView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MultiSelectionTableView.xcconfig; sourceTree = "<group>"; };
+		99F9BADE6699E69E8217A4D50EA39C41 /* Pods-MultiSelectionTable.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MultiSelectionTable.release.xcconfig"; sourceTree = "<group>"; };
+		9BD87FB86ABA410918A3D8EB0397831F /* Pods-MultiSelectionTableTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MultiSelectionTableTests.release.xcconfig"; sourceTree = "<group>"; };
+		A924DA8396E24D93BBF31EC4EB06BB13 /* Pods-MultiSelectionTableUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MultiSelectionTableUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		B444C028F481DCA50D6AF913C13EB180 /* ItemIndex.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ItemIndex.swift; sourceTree = "<group>"; };
+		B6FA8492823975F43A443516A7FF2A5C /* Pods-MultiSelectionTableUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MultiSelectionTableUITests-umbrella.h"; sourceTree = "<group>"; };
+		BC5E868E7A910CA7BA9617E3B0FEA69C /* Pods-MultiSelectionTableTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MultiSelectionTableTests-umbrella.h"; sourceTree = "<group>"; };
+		CA2165B22BC5F020F0670508D835C7A9 /* Pods-MultiSelectionTableUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MultiSelectionTableUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		D1B4684C7D1AB116081889F6C12B8A30 /* Pods_MultiSelectionTableUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MultiSelectionTableUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D30EE5B65024976D539BE545F61BDFCE /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DEE8DC7E214654EA697AF8F2C4F5EA28 /* Pods-MultiSelectionTable.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-MultiSelectionTable.modulemap"; sourceTree = "<group>"; };
+		E6D59C0602A8D35A3A1215BADE86E760 /* MultiSelectionTableView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MultiSelectionTableView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD5E1D32DA2CFA77518C5205AA8336F5 /* Pods-MultiSelectionTable-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MultiSelectionTable-acknowledgements.plist"; sourceTree = "<group>"; };
+		FFD50E7D43833A9C0E2001EEFA81F60B /* MultiSelectionTableView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = MultiSelectionTableView.modulemap; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		464D54EE07764D120649EB7E849DFF23 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0FF24843EE1E57D35FB702154602520B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8AB5E32E5D1F2ECC6CE24CCF4D2CB568 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C2617205DC79D010E0869C8BFC92699D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		909571A96758C522C7273BAA0F270F43 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2BA704A218B532B05DF9C8A1E181649B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C962F85C6577673DB67932ECD6F63698 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C05035286823CA5721FFD3E68A0D4E4 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		274F31475758984988EAC67C0B0A31B9 /* Pods-MultiSelectionTableTests */ = {
+			isa = PBXGroup;
+			children = (
+				29A05992A204D9B6565C1C0926086ACA /* Info.plist */,
+				54E05BD9E2F05EFEA72F1A1DCF8BB471 /* Pods-MultiSelectionTableTests.modulemap */,
+				546A1FC3EA9A123F39BAD79E6CDA1796 /* Pods-MultiSelectionTableTests-acknowledgements.markdown */,
+				7DD04762E83955E153C09A83F9E3280B /* Pods-MultiSelectionTableTests-acknowledgements.plist */,
+				2D436DD8E4AB857E3BF3ECEFE84948A0 /* Pods-MultiSelectionTableTests-dummy.m */,
+				1E07423545FB0349B17D6176AF7FEFEC /* Pods-MultiSelectionTableTests-frameworks.sh */,
+				4CAF52B8FD7B3F7358DB721A045E9937 /* Pods-MultiSelectionTableTests-resources.sh */,
+				BC5E868E7A910CA7BA9617E3B0FEA69C /* Pods-MultiSelectionTableTests-umbrella.h */,
+				2EE36DD5882AE83CF1F93079DA6B02BA /* Pods-MultiSelectionTableTests.debug.xcconfig */,
+				9BD87FB86ABA410918A3D8EB0397831F /* Pods-MultiSelectionTableTests.release.xcconfig */,
+			);
+			name = "Pods-MultiSelectionTableTests";
+			path = "Target Support Files/Pods-MultiSelectionTableTests";
+			sourceTree = "<group>";
+		};
+		2CC99A3E4092112B50154EF9465CE5EB /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				D30EE5B65024976D539BE545F61BDFCE /* Info.plist */,
+				FFD50E7D43833A9C0E2001EEFA81F60B /* MultiSelectionTableView.modulemap */,
+				95D591A37867D995920ED6F9D7C0C400 /* MultiSelectionTableView.xcconfig */,
+				047ED469DBA6CD457767307D658F8E6A /* MultiSelectionTableView-dummy.m */,
+				737E7866F72DC030D61D2885FFBB9117 /* MultiSelectionTableView-prefix.pch */,
+				04D5038ED50D028260D7E9397CCA9FDC /* MultiSelectionTableView-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/MultiSelectionTableView";
+			sourceTree = "<group>";
+		};
+		3DB45099BA2E2980162D341D224A02D0 /* Pods-MultiSelectionTableUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3BA0D237ED2547368701BB01615AFA6B /* Info.plist */,
+				361D656D3D79E1AFF7CEEFE2551473F0 /* Pods-MultiSelectionTableUITests.modulemap */,
+				6AF2E628983E08FEA045DA550CE89D79 /* Pods-MultiSelectionTableUITests-acknowledgements.markdown */,
+				A924DA8396E24D93BBF31EC4EB06BB13 /* Pods-MultiSelectionTableUITests-acknowledgements.plist */,
+				4515D7E2CC5FE06BE551A45DAEB75C67 /* Pods-MultiSelectionTableUITests-dummy.m */,
+				07027EEA1877295C5325FE818123B035 /* Pods-MultiSelectionTableUITests-frameworks.sh */,
+				8CE861D7ECE6873CBF6B8527A308AB23 /* Pods-MultiSelectionTableUITests-resources.sh */,
+				B6FA8492823975F43A443516A7FF2A5C /* Pods-MultiSelectionTableUITests-umbrella.h */,
+				CA2165B22BC5F020F0670508D835C7A9 /* Pods-MultiSelectionTableUITests.debug.xcconfig */,
+				5BD10CFBB57C731C9A7121A9C185CF5A /* Pods-MultiSelectionTableUITests.release.xcconfig */,
+			);
+			name = "Pods-MultiSelectionTableUITests";
+			path = "Target Support Files/Pods-MultiSelectionTableUITests";
+			sourceTree = "<group>";
+		};
+		73998F31B947031253C9D8B5D0C77206 /* Pods-MultiSelectionTable */ = {
+			isa = PBXGroup;
+			children = (
+				5D2556632370C594175C7A0F3E7E9100 /* Info.plist */,
+				DEE8DC7E214654EA697AF8F2C4F5EA28 /* Pods-MultiSelectionTable.modulemap */,
+				7EC5792AFA69C2AB9E76AD8E75A3B2E2 /* Pods-MultiSelectionTable-acknowledgements.markdown */,
+				FD5E1D32DA2CFA77518C5205AA8336F5 /* Pods-MultiSelectionTable-acknowledgements.plist */,
+				8A2E72FD1B87B30157CCAAA5713717C7 /* Pods-MultiSelectionTable-dummy.m */,
+				8E3F064F95B9D885248C70B4EADDFD6B /* Pods-MultiSelectionTable-frameworks.sh */,
+				436E55B1BD929401DA9A64EEBB0B58DD /* Pods-MultiSelectionTable-resources.sh */,
+				77CD01401F95809FB0D61B7C701C029B /* Pods-MultiSelectionTable-umbrella.h */,
+				74B8925DD54B8906FBCAB388A515DE90 /* Pods-MultiSelectionTable.debug.xcconfig */,
+				99F9BADE6699E69E8217A4D50EA39C41 /* Pods-MultiSelectionTable.release.xcconfig */,
+			);
+			name = "Pods-MultiSelectionTable";
+			path = "Target Support Files/Pods-MultiSelectionTable";
+			sourceTree = "<group>";
+		};
+		7531C8F8DE19F1AA3C8A7AC97A91DC29 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				9EEF1BBD534CFE6170CBA01593297235 /* Development Pods */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				9A3B4AD9C8EA1E9A4D59D1EC10766635 /* Products */,
+				DEA1AA54544358FC351A7A88C89EA126 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		9A3B4AD9C8EA1E9A4D59D1EC10766635 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E6D59C0602A8D35A3A1215BADE86E760 /* MultiSelectionTableView.framework */,
+				09B4165F95F6C30D3C0BD752BD871CCC /* Pods_MultiSelectionTable.framework */,
+				1278CF340F05E1401C6C2E0D6A7EF37A /* Pods_MultiSelectionTableTests.framework */,
+				D1B4684C7D1AB116081889F6C12B8A30 /* Pods_MultiSelectionTableUITests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9EEF1BBD534CFE6170CBA01593297235 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D026ABD1C3E1E78DF3948ED80B293409 /* MultiSelectionTableView */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7531C8F8DE19F1AA3C8A7AC97A91DC29 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D026ABD1C3E1E78DF3948ED80B293409 /* MultiSelectionTableView */ = {
+			isa = PBXGroup;
+			children = (
+				E1DBF88DFB735A720EF6E6584BC2CB86 /* source */,
+				2CC99A3E4092112B50154EF9465CE5EB /* Support Files */,
+			);
+			name = MultiSelectionTableView;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		DEA1AA54544358FC351A7A88C89EA126 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				73998F31B947031253C9D8B5D0C77206 /* Pods-MultiSelectionTable */,
+				274F31475758984988EAC67C0B0A31B9 /* Pods-MultiSelectionTableTests */,
+				3DB45099BA2E2980162D341D224A02D0 /* Pods-MultiSelectionTableUITests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		E1DBF88DFB735A720EF6E6584BC2CB86 /* source */ = {
+			isa = PBXGroup;
+			children = (
+				1999FEEBDB0518011E6279862D86F4AB /* DataSource.swift */,
+				B444C028F481DCA50D6AF913C13EB180 /* ItemIndex.swift */,
+				0AA1122A8BFAF8F6B56588C79DC27670 /* MultiSelectionDataSource.swift */,
+				7F95A28737FEB5AA5A1EC9647E6234C2 /* MultiSelectionDelegate.swift */,
+				14B111A354DE8931494D11A0F14D8D05 /* MultiSelectionTableView.swift */,
+			);
+			path = source;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		183972D9C22625E962FF6F6371749A90 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F14C79CD075D3C4F177D18D4B4973A57 /* Pods-MultiSelectionTable-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5A3AF352D88DAE24374D6DA5A605C365 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA38496B931CBE804B3B99D9D314A35C /* Pods-MultiSelectionTableUITests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC0D998BC4C88B62CB7952B1136E8065 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F49522C758C4ECFD1BCDF5A594F2FD72 /* MultiSelectionTableView-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E8F606A649386F9228D7C7A6780C7C96 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DF925641B9150A1438C69A3A27F702E /* Pods-MultiSelectionTableTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		52A94960D8CBBBE87B91EF0D8412F9EE /* MultiSelectionTableView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 30551E35ECFC71F8449B59A54104AB42 /* Build configuration list for PBXNativeTarget "MultiSelectionTableView" */;
+			buildPhases = (
+				0C929A200FA2AA7A22DC3B4177794DC4 /* Sources */,
+				C962F85C6577673DB67932ECD6F63698 /* Frameworks */,
+				DC0D998BC4C88B62CB7952B1136E8065 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MultiSelectionTableView;
+			productName = MultiSelectionTableView;
+			productReference = E6D59C0602A8D35A3A1215BADE86E760 /* MultiSelectionTableView.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		6A0312D2440F9DF62DF90D67819C6BAB /* Pods-MultiSelectionTableUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 85ECF9A7A20893D59C8CAB9836B5C38D /* Build configuration list for PBXNativeTarget "Pods-MultiSelectionTableUITests" */;
+			buildPhases = (
+				350CD7D95E869C0DD736EBD96FDF7482 /* Sources */,
+				464D54EE07764D120649EB7E849DFF23 /* Frameworks */,
+				5A3AF352D88DAE24374D6DA5A605C365 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-MultiSelectionTableUITests";
+			productName = "Pods-MultiSelectionTableUITests";
+			productReference = D1B4684C7D1AB116081889F6C12B8A30 /* Pods_MultiSelectionTableUITests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		83CC47B8CB45DA8C7FC459D0ADAA5131 /* Pods-MultiSelectionTableTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 18BB315BB8EC358FD21AA6936337E3B0 /* Build configuration list for PBXNativeTarget "Pods-MultiSelectionTableTests" */;
+			buildPhases = (
+				538ABECF648AA71D3AE4B6B3C91D5983 /* Sources */,
+				909571A96758C522C7273BAA0F270F43 /* Frameworks */,
+				E8F606A649386F9228D7C7A6780C7C96 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-MultiSelectionTableTests";
+			productName = "Pods-MultiSelectionTableTests";
+			productReference = 1278CF340F05E1401C6C2E0D6A7EF37A /* Pods_MultiSelectionTableTests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		F089BB945B68155578A20B3FD6BB4015 /* Pods-MultiSelectionTable */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A02290B05C4B1AF57FCC2B1C3730EF2A /* Build configuration list for PBXNativeTarget "Pods-MultiSelectionTable" */;
+			buildPhases = (
+				064EF7DB06F4602CE0B4AD7A7C222DB3 /* Sources */,
+				8AB5E32E5D1F2ECC6CE24CCF4D2CB568 /* Frameworks */,
+				183972D9C22625E962FF6F6371749A90 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				36731C85368C35B427B708BE7AD1ACC4 /* PBXTargetDependency */,
+			);
+			name = "Pods-MultiSelectionTable";
+			productName = "Pods-MultiSelectionTable";
+			productReference = 09B4165F95F6C30D3C0BD752BD871CCC /* Pods_MultiSelectionTable.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 9A3B4AD9C8EA1E9A4D59D1EC10766635 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				52A94960D8CBBBE87B91EF0D8412F9EE /* MultiSelectionTableView */,
+				F089BB945B68155578A20B3FD6BB4015 /* Pods-MultiSelectionTable */,
+				83CC47B8CB45DA8C7FC459D0ADAA5131 /* Pods-MultiSelectionTableTests */,
+				6A0312D2440F9DF62DF90D67819C6BAB /* Pods-MultiSelectionTableUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		064EF7DB06F4602CE0B4AD7A7C222DB3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				512286B34FFE7D8574F573A125943D90 /* Pods-MultiSelectionTable-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0C929A200FA2AA7A22DC3B4177794DC4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA5BBD1BA020B3C76F2AA84EC8C65F40 /* DataSource.swift in Sources */,
+				1EF5E21CACDA4CD210813E5DB8FC31B8 /* ItemIndex.swift in Sources */,
+				EC67235E2B13D3AD59F340FDB0A7572F /* MultiSelectionDataSource.swift in Sources */,
+				51E255511B1696771425323753AC8204 /* MultiSelectionDelegate.swift in Sources */,
+				A18BD86C4D5E96B9C464E9037A6A4472 /* MultiSelectionTableView-dummy.m in Sources */,
+				7606DC2B12146F20ACE3FB3214861313 /* MultiSelectionTableView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		350CD7D95E869C0DD736EBD96FDF7482 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49EA44ECBA54A6E4561B8EDF8CB1598B /* Pods-MultiSelectionTableUITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		538ABECF648AA71D3AE4B6B3C91D5983 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2149423CB2A82FB9D9DC9D75C1DDCAAD /* Pods-MultiSelectionTableTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		36731C85368C35B427B708BE7AD1ACC4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MultiSelectionTableView;
+			target = 52A94960D8CBBBE87B91EF0D8412F9EE /* MultiSelectionTableView */;
+			targetProxy = F7085ADC2F2503AEE02F2FDB13B653CD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		01B1F29E71A9C06B804F41701B15B348 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5BD10CFBB57C731C9A7121A9C185CF5A /* Pods-MultiSelectionTableUITests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-MultiSelectionTableUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MultiSelectionTableUITests/Pods-MultiSelectionTableUITests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_MultiSelectionTableUITests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		467E757E884862B944C82858E0AA096B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2EE36DD5882AE83CF1F93079DA6B02BA /* Pods-MultiSelectionTableTests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-MultiSelectionTableTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MultiSelectionTableTests/Pods-MultiSelectionTableTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_MultiSelectionTableTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		6D8966E667BCDF3F59A1DEF50B1E4318 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 95D591A37867D995920ED6F9D7C0C400 /* MultiSelectionTableView.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/MultiSelectionTableView/MultiSelectionTableView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MultiSelectionTableView/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/MultiSelectionTableView/MultiSelectionTableView.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = MultiSelectionTableView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		741534C6152BBC496FC432ED11B7E5D7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 99F9BADE6699E69E8217A4D50EA39C41 /* Pods-MultiSelectionTable.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-MultiSelectionTable/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MultiSelectionTable/Pods-MultiSelectionTable.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_MultiSelectionTable;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		7A3CEA2954339392F51F2BB15B71F27D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9BD87FB86ABA410918A3D8EB0397831F /* Pods-MultiSelectionTableTests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-MultiSelectionTableTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MultiSelectionTableTests/Pods-MultiSelectionTableTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_MultiSelectionTableTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		832D809E406A46DB58C17BDA02E41498 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 95D591A37867D995920ED6F9D7C0C400 /* MultiSelectionTableView.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/MultiSelectionTableView/MultiSelectionTableView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MultiSelectionTableView/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/MultiSelectionTableView/MultiSelectionTableView.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = MultiSelectionTableView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		CACE7C8415F53E79F07C6BBE57F0F61D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		E3BCE1D648579B3E6651218FB3DA2C9B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CA2165B22BC5F020F0670508D835C7A9 /* Pods-MultiSelectionTableUITests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-MultiSelectionTableUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MultiSelectionTableUITests/Pods-MultiSelectionTableUITests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_MultiSelectionTableUITests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		ED4FC68AB2A4E06C718CFF338F6F156B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EF26386E248EF6B209825D054B021A0B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 74B8925DD54B8906FBCAB388A515DE90 /* Pods-MultiSelectionTable.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-MultiSelectionTable/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MultiSelectionTable/Pods-MultiSelectionTable.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_MultiSelectionTable;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		18BB315BB8EC358FD21AA6936337E3B0 /* Build configuration list for PBXNativeTarget "Pods-MultiSelectionTableTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				467E757E884862B944C82858E0AA096B /* Debug */,
+				7A3CEA2954339392F51F2BB15B71F27D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CACE7C8415F53E79F07C6BBE57F0F61D /* Debug */,
+				ED4FC68AB2A4E06C718CFF338F6F156B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		30551E35ECFC71F8449B59A54104AB42 /* Build configuration list for PBXNativeTarget "MultiSelectionTableView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				832D809E406A46DB58C17BDA02E41498 /* Debug */,
+				6D8966E667BCDF3F59A1DEF50B1E4318 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		85ECF9A7A20893D59C8CAB9836B5C38D /* Build configuration list for PBXNativeTarget "Pods-MultiSelectionTableUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E3BCE1D648579B3E6651218FB3DA2C9B /* Debug */,
+				01B1F29E71A9C06B804F41701B15B348 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A02290B05C4B1AF57FCC2B1C3730EF2A /* Build configuration list for PBXNativeTarget "Pods-MultiSelectionTable" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF26386E248EF6B209825D054B021A0B /* Debug */,
+				741534C6152BBC496FC432ED11B7E5D7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

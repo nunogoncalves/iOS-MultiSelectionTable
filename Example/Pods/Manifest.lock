@@ -1,0 +1,16 @@
+PODS:
+  - MultiSelectionTableView (0.1.0)
+
+DEPENDENCIES:
+  - MultiSelectionTableView (from `../`)
+
+EXTERNAL SOURCES:
+  MultiSelectionTableView:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  MultiSelectionTableView: 1d8db1d6a0534fb94755a5bac5370dd2b7287ccf
+
+PODFILE CHECKSUM: 4819b4598a5e0f524b3135c4960c03c50f53a39f
+
+COCOAPODS: 1.2.0.beta.1

@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol DataSource : class {
+public protocol DataSource : class {
     
     var allItemsCount: Int { get }
     var selectedItemsCount: Int { get }

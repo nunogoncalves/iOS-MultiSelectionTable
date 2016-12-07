@@ -6,20 +6,12 @@
 //  Copyright © 2016 Nuno Gonçalves. All rights reserved.
 //
 
-//
-//  MultiSelectionTableControl.swift
-//  MultiSelectionTable
-//
-//  Created by Nuno Gonçalves on 29/11/16.
-//  Copyright © 2016 Nuno Gonçalves. All rights reserved.
-//
-
 import UIKit
 
 @IBDesignable
-class MultiSelectionTableView : UIView {
-    
-    weak var dataSource: DataSource!
+public class MultiSelectionTableView : UIView {
+
+    public weak var dataSource: DataSource!
     
     fileprivate let allItemsTable = UITableView()
     fileprivate let seperator = UIView()
@@ -34,10 +26,11 @@ class MultiSelectionTableView : UIView {
     
     override public func awakeFromNib() {
         super.awakeFromNib()
-        
+
         allItemsTable.backgroundColor = allItemsTableBackgroundColor
         allItemsTable.separatorColor = .clear
         allItemsTable.headerView(forSection: 0)?.backgroundColor = allItemsTableBackgroundColor
+        allItemsTable.separatorColor = .white
         
         blackLine.backgroundColor = seperatorColor
         
@@ -47,28 +40,28 @@ class MultiSelectionTableView : UIView {
     }
     
     @IBInspectable
-    var controlBackgroundColor: UIColor = .black {
+    public var controlBackgroundColor: UIColor = .black {
         didSet {
             backgroundColor = controlBackgroundColor
         }
     }
     
     @IBInspectable
-    var seperatorColor: UIColor = .black {
+    public var seperatorColor: UIColor = .black {
         didSet {
             blackLine.backgroundColor = seperatorColor
         }
     }
     
     @IBInspectable
-    var allItemsTableBackgroundColor: UIColor = .defaultTableBackground {
+    public var allItemsTableBackgroundColor: UIColor = .defaultTableBackground {
         didSet {
             allItemsTable.backgroundColor = allItemsTableBackgroundColor
         }
     }
     
     @IBInspectable
-    var selectedItemsTableBackgroundColor: UIColor = .defaultTableBackground {
+    public var selectedItemsTableBackgroundColor: UIColor = .defaultTableBackground {
         didSet {
             selectedItemsTable.backgroundColor = selectedItemsTableBackgroundColor
         }
@@ -140,7 +133,7 @@ class MultiSelectionTableView : UIView {
         allItemsTable.topAnchor.constraint(equalTo: topAnchor).isActive = true
         allItemsTable.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         allItemsTable.trailingAnchor.constraint(equalTo: seperator.leadingAnchor, constant: 5).isActive = true
-        
+
         allItemsTable.translatesAutoresizingMaskIntoConstraints = false
     }
     
@@ -161,7 +154,7 @@ class MultiSelectionTableView : UIView {
         
         tableView.backgroundView = nil
         tableView.backgroundColor = self.allItemsTableBackgroundColor
-        tableView.separatorColor = .white
+        tableView.separatorColor = .clear
         tableView.keyboardDismissMode = .interactive
         
         tableView.delegate = self
@@ -197,7 +190,7 @@ class MultiSelectionTableView : UIView {
             }
         }
     }
-    
+
     @objc private func swipped(gesture: UIPanGestureRecognizer) {
         if gesture.translation(in: seperator).x > 0 {
             displayAllItems()
@@ -237,8 +230,8 @@ class MultiSelectionTableView : UIView {
                        initialSpringVelocity: 1,
                        options: .curveEaseInOut,
                        animations: {
-                        self.layoutIfNeeded()
-        },
+                          self.layoutIfNeeded()
+                       },
                        completion: nil)
     }
     
@@ -302,13 +295,13 @@ class MultiSelectionTableView : UIView {
     
     
     private let pathLayer = CAShapeLayer()
-    private let pathAnimation = CABasicAnimation(keyPath: "path")
-    private let opacityAnimation = CABasicAnimation(keyPath: "opacity")
+    let pathAnimation = CABasicAnimation(keyPath: "path")
+    let opacityAnimation = CABasicAnimation(keyPath: "opacity")
     
     fileprivate func highlightCell(at indexPath: IndexPath,
-                                   in tableView: UITableView,
-                                   startingAt origin: CGPoint? = nil,
-                                   finish: @escaping () -> () = {}) {
+                               in tableView: UITableView,
+                               startingAt origin: CGPoint? = nil,
+                               finish: @escaping () -> () = {}) {
         guard let cell = tableView.cellForRow(at: indexPath) else { return }
         
         let startingPoint = origin ?? cell.contentView.center
@@ -325,6 +318,7 @@ class MultiSelectionTableView : UIView {
                                      startAngle: CGFloat(0),
                                      endAngle: CGFloat(2 * CGFloat.pi),
                                      clockwise: true)
+
         
         pathLayer.lineWidth = 0
         cell.contentView.layer.masksToBounds = true
@@ -333,10 +327,8 @@ class MultiSelectionTableView : UIView {
         
         CATransaction.begin()
         
-        
         pathAnimation.fromValue = smallCircle.cgPath
         pathAnimation.toValue = bigCircle.cgPath
-        pathAnimation.duration = 0.3
         
         CATransaction.setCompletionBlock {
             finish()
@@ -344,7 +336,7 @@ class MultiSelectionTableView : UIView {
         
         opacityAnimation.fromValue = 1.0
         opacityAnimation.toValue = 0.3
-        
+
         let animationGroup = CAAnimationGroup()
         animationGroup.duration = 0.3
         animationGroup.animations = [pathAnimation, opacityAnimation]
@@ -353,10 +345,10 @@ class MultiSelectionTableView : UIView {
         
         CATransaction.commit()
     }
-    
+
     
     func addToSelectedItemsTable(at index: Int) {
-        
+     
         let count = selectedItemsTable.numberOfRows(inSection: 0)
         
         let newIndexPath = IndexPath(item: count, section: 0)
@@ -398,7 +390,7 @@ class MultiSelectionTableView : UIView {
 
 extension MultiSelectionTableView : UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let dataSource = dataSource else { return 0 }
         
         if tableView == allItemsTable {
@@ -407,9 +399,9 @@ extension MultiSelectionTableView : UITableViewDataSource {
             return dataSource.selectedItemsCount
         }
     }
+
     
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == allItemsTable {
             return dataSource.cell(for: indexPath, inAllItemsTable: tableView)
         } else {
@@ -417,15 +409,14 @@ extension MultiSelectionTableView : UITableViewDataSource {
         }
     }
 
-    
 }
 
 extension MultiSelectionTableView : UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return tableView == selectedItemsTable ? 50 : 0
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if tableView == selectedItemsTable {
             let view = UIView()
             let label = UILabel()
