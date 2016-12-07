@@ -1,6 +1,10 @@
 # iOS-MultiSelectionTable
 Beautifull way of having a multi-selection table on iOS
 
+[![Swift 3.0](https://img.shields.io/badge/Swift-3.0-orange.svg?style=flat)](https://developer.apple.com/swift/)
+[![Xcode 8.0+](https://img.shields.io/badge/Xcode-8.0+-blue.svg?style=flat)](https://developer.apple.com/swift/)
+[![Platforms iOS](https://img.shields.io/badge/Platforms-iOS-lightgray.svg?style=flat)](https://developer.apple.com/swift/)
+
 <p align="center">
   <img src="Resources/MultiSelectionTableView.gif" width="200px" />
   <img src="Resources/StyleBlack.png" width="200px" />
@@ -8,8 +12,7 @@ Beautifull way of having a multi-selection table on iOS
   <img src="Resources/StyleWhite.png" width="200px" />
 </p>
 
-Based on this dribble:
-https://dribbble.com/shots/2904577-Multi-Selection-Experiment
+Based on [this](https://dribbble.com/shots/2904577-Multi-Selection-Experiment) dribbble by [Vitaly Rubtsov](https://dribbble.com/Vitwai)
 
 #How it works:
 ```MultiSelectionTable``` underneath is composed of a view and a data source, much like the ```UITableView```'s ```UITableViewDataSource/Delegate```. They both know each other and communicate between themselves.
