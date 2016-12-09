@@ -24,6 +24,7 @@ public class MultiSelectionTableView : UIView {
     @IBInspectable var seperatorWidthOffset: CGFloat = 100
     
     public var cellAnimator: CellAnimator = CellPulseAnimator(pulseColor: .defaultCellPulseColor)
+    public var cellTransitioner: CellTransitionable = CellReplacer()
     
     override public func awakeFromNib() {
         super.awakeFromNib()
@@ -174,8 +175,8 @@ public class MultiSelectionTableView : UIView {
         let location = gestureRecognizer.location(in: tableView)
         guard let indexPath = tableView.indexPathForRow(at: location),
             let cell = tableView.cellForRow(at: indexPath)
-            else {
-                return
+        else {
+            return
         }
         
         let origin = tableView.convert(location, to: cell.contentView)
@@ -191,7 +192,7 @@ public class MultiSelectionTableView : UIView {
             }
         }
         
-        cellAnimator.animate(cell, startingAt: origin) { [weak self] in
+        cellAnimator.animate(cell, startingAt: origin) {
             actionAnimation()
         }
     }
@@ -258,39 +259,14 @@ public class MultiSelectionTableView : UIView {
     }
     
     func putBackInAllItemsTable(at index: Int, selectedItemAt selectedItemIndex: Int) {
+        
+        let indexPathToRemove = IndexPath(item: selectedItemIndex, section: 0)
         let newIndexPath = IndexPath(item: index, section: 0)
-        allItemsTable.insertRows(at: [newIndexPath], with: .bottom)
         
-        var _newCellAdded: UITableViewCell?
-        
-        if let cell = allItemsTable.cellForRow(at: newIndexPath) {
-            _newCellAdded = cell
-        } else if let cell = allItemsTable.visibleCells.last {
-            _newCellAdded = cell
-        }
-        
-        guard let newCellAdded = _newCellAdded else { return }
-        
-        newCellAdded.contentView.isHidden = true
-        let newCellConvertedFrame = newCellAdded.convert(newCellAdded.contentView.frame, to: self)
-        
-        let indexPath = IndexPath(item: selectedItemIndex, section: 0)
-        guard let cellToDelete = selectedItemsTable.cellForRow(at: indexPath) else { return }
-        
-        if let movingCell = cellToDelete.contentView.snapshotView(afterScreenUpdates: false) {
-            cellToDelete.contentView.isHidden = true
-            addSubview(movingCell)
-            movingCell.frame = selectedItemsTable.convert(cellToDelete.frame, to: self)
-            
-            self.selectedItemsTable.deleteRows(at: [indexPath], with: .top)
-            
-            UIView.animate(withDuration: 0.4, animations: {
-                movingCell.frame = newCellConvertedFrame
-            }, completion: { _ in
-                movingCell.removeFromSuperview()
-                newCellAdded.contentView.isHidden = false
-            })
-        }
+        cellTransitioner.unselectionTransition(in: self,
+                                               fromTableView: selectedItemsTable,
+                                               fromIndexPath: indexPathToRemove,
+                                               toTableView: allItemsTable, toIndexPath: newIndexPath)
     }
     
     func removeFromSelected(at index: Int) {
@@ -299,43 +275,14 @@ public class MultiSelectionTableView : UIView {
     }
     
     func addToSelectedItemsTable(at index: Int) {
-     
         let count = selectedItemsTable.numberOfRows(inSection: 0)
-        
         let newIndexPath = IndexPath(item: count, section: 0)
-        selectedItemsTable.insertRows(at: [newIndexPath], with: .bottom)
-        
-        var _newCellAdded: UITableViewCell?
-        
-        if let cell = selectedItemsTable.cellForRow(at: newIndexPath) {
-            _newCellAdded = cell
-        } else if let cell = selectedItemsTable.visibleCells.last {
-            _newCellAdded = cell
-        }
-        
-        guard let newCellAdded = _newCellAdded else { return }
-        
-        newCellAdded.contentView.isHidden = true
-        let newCellConvertedFrame = newCellAdded.convert(newCellAdded.contentView.frame, to: self)
-        
         let indexPath = IndexPath(item: index, section: 0)
-        guard let cellToDelete = allItemsTable.cellForRow(at: indexPath) else { return }
-        
-        if let movingCell = cellToDelete.contentView.snapshotView(afterScreenUpdates: false) {
-            cellToDelete.contentView.isHidden = true
-            addSubview(movingCell)
-            movingCell.frame = allItemsTable.convert(cellToDelete.frame, to: self)
-            
-            allItemsTable.deleteRows(at: [indexPath], with: .top)
-            
-            UIView.animate(withDuration: 0.4, animations: {
-                movingCell.frame = newCellConvertedFrame
-            }, completion: { _ in
-                movingCell.removeFromSuperview()
-                newCellAdded.contentView.isHidden = false
-                cellToDelete.contentView.isHidden = false
-            })
-        }
+        cellTransitioner.selectionTransition(in: self,
+                                             fromTableView: allItemsTable,
+                                             fromIndexPath: indexPath,
+                                             toTableView: selectedItemsTable,
+                                             toIndexPath: newIndexPath)
     }
 }
 
