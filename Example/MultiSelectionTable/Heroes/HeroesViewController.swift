@@ -8,6 +8,7 @@
 
 import UIKit
 import MultiSelectionTableView
+import SDWebImage
 
 class HeroesViewController : UIViewController {
     
@@ -15,7 +16,7 @@ class HeroesViewController : UIViewController {
     
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
     
-    private var multiSelectionDataSource: MultiSelectionDataSource<Album>!
+    private var multiSelectionDataSource: MultiSelectionDataSource<Hero>!
     @IBOutlet fileprivate weak var multiSelectionTableView: MultiSelectionTableView!
     
     override func viewDidLoad() {
@@ -23,12 +24,15 @@ class HeroesViewController : UIViewController {
         
         multiSelectionDataSource = MultiSelectionDataSource(multiSelectionTableView: multiSelectionTableView)
         multiSelectionDataSource.delegate = self
-        multiSelectionDataSource.register(nib: UINib(nibName: "AlbumCell", bundle: nil), for: "AlbumCell")
+        multiSelectionDataSource.register(nib: UINib(nibName: "HeroCell", bundle: nil), for: "HeroCell")
         
-        multiSelectionDataSource.allItems = Album.all
+        Hero.all { [weak self] heroes in
+            self?.multiSelectionDataSource.allItems = heroes
+        }
         
         multiSelectionTableView.dataSource = multiSelectionDataSource
         multiSelectionTableView.cellAnimator = CellPulseAnimator(pulseColor: .black)
+        multiSelectionTableView.cellTransitioner = CellReplacer()
     }
     
 }
@@ -36,12 +40,10 @@ class HeroesViewController : UIViewController {
 extension HeroesViewController : MultiSelectionTableDelegate {
     
     func paint(_ cell: UITableViewCell, for indexPath: IndexPath, with item: Any) {
-        if let cell = cell as? AlbumCell,
-            let album = item as? Album {
-            cell.nameLabel.text = album.band.name
-            cell.subtitleLabel.text = album.name
-            cell.albumImageView.image = album.cover
-            cell.yearLabel.text = "\(album.year)"
+        if let cell = cell as? HeroCell,
+            let hero = item as? Hero {
+            cell.heroNameLabel.text = hero.name
+            cell.heroImageView.sd_setImage(with: hero.imageURL)
         }
     }
     
