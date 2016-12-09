@@ -8,6 +8,8 @@
 
 public class CellReplacer : CellTransitionable {
     
+    public init() {}
+    
     public func selectionTransition(in containerView: UIView,
                                     fromTableView: UITableView,
                                     fromIndexPath: IndexPath,
