@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '7AEF7E49C945EC651199206D97C21830'
-               BlueprintName = 'MultiSelectionTableView'
+               BlueprintIdentifier = '60A81DD0C7BD86C7600ADA963F5637B9'
+               BlueprintName = 'SDWebImage'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'MultiSelectionTableView.framework'>
+               BuildableName = 'SDWebImage.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
