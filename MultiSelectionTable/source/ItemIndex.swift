@@ -1,9 +1,8 @@
 //
 //  ItemIndex.swift
-//  MultiSelectionTable
+//  MultiSelectionTableView
 //
 //  Created by Nuno Gonçalves on 01/12/16.
-//  Copyright © 2016 Nuno Gonçalves. All rights reserved.
 //
 
 internal struct ItemIndex<T : Equatable> : Equatable {

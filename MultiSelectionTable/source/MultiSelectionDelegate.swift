@@ -1,9 +1,8 @@
 //
 //  MultiSelectionTableDelegate.swift
-//  MultiSelectionTable
+//  MultiSelectionTableView
 //
 //  Created by Nuno Gonçalves on 01/12/16.
-//  Copyright © 2016 Nuno Gonçalves. All rights reserved.
 //
 
 import UIKit
