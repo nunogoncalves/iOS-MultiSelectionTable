@@ -40,11 +40,11 @@
 		78C70A04ABD66ECDFB89D0149794C1D5 /* SDWebImageDownloader.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F2887523B9B4D40509990168BA844F2 /* SDWebImageDownloader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7D3AC617DC2F9D2F434E21279605752B /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = B3D098429AFA63708E72C5DB917A0C08 /* UIImageView+HighlightedWebCache.m */; };
 		820F3BE837D9CBD8582ED027E53CF513 /* UIImage+MultiFormat.h in Headers */ = {isa = PBXBuildFile; fileRef = 335701ADD57C030EA976D4225BBE196C /* UIImage+MultiFormat.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		82B251E9A3141AB2090DF183B2A4A766 /* CellAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A0DDA790D8159DA0B98E6DC41BF547 /* CellAnimator.swift */; };
+		82B251E9A3141AB2090DF183B2A4A766 /* CellSelectionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A0DDA790D8159DA0B98E6DC41BF547 /* CellSelectionAnimator.swift */; };
 		86BA415A0A26065446D63024A54D5B9D /* ItemIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC966EADC67EE55D0DEA2A816AD7E91A /* ItemIndex.swift */; };
 		89C6AA358C9F5D9C8DCEEF35CDA5B6D7 /* TableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A248A160983F398B4D6F1A8C9FDF06 /* TableViewHeader.swift */; };
 		8C09B3CD8C4BAC7CE074BF2FE9BF621D /* SDWebImageDownloaderOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 66686F1EC5C075A5AADC917F6997835A /* SDWebImageDownloaderOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9C81C748BB518C36BA5D559950B61E45 /* CellTransitionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F13F83B0CD2EA77139B6C6CD8D9268C /* CellTransitionable.swift */; };
+		9C81C748BB518C36BA5D559950B61E45 /* CellTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F13F83B0CD2EA77139B6C6CD8D9268C /* CellTransitionAnimator.swift */; };
 		A4BB1D46D3EDF6621A474C7AC5920849 /* UIImageView+WebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = E7B001537C9B7AF3738EE1289602BB0E /* UIImageView+WebCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A572EEC99B862AD5B5AC8C7ADC2B9DBF /* UIButton+WebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 99894E74BA201B91BBC21EA59C230365 /* UIButton+WebCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A9A78E42112BDC60AEAA3E374E9084DE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9757679632F4D96FB95D495ADE43F19A /* Foundation.framework */; };
@@ -54,7 +54,7 @@
 		B493B189C63222199F72F2C93B8168BF /* SDWebImageManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 8C2C6B626558FFEE8CA23A10FB167E85 /* SDWebImageManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B4E155153FDF3FFD9F44E7EBBBA01566 /* MultiSelectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE75707CF4CF06A62A5CBB85C7792B2 /* MultiSelectionDelegate.swift */; };
 		B845A341B4953C596CDE5D806B8642A0 /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 88085076FA0F97E0F3ADB8E1AA3E861C /* UIButton+WebCache.m */; };
-		B9D131F137281319EE723851774824D6 /* CellPulseAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B98C3DEC0B091412522BAC25997A1E3 /* CellPulseAnimator.swift */; };
+		B9D131F137281319EE723851774824D6 /* CellSelectionPulseAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B98C3DEC0B091412522BAC25997A1E3 /* CellSelectionPulseAnimator.swift */; };
 		BAF494AD3B9425DFD1F71A6CC131332C /* NSData+ImageContentType.h in Headers */ = {isa = PBXBuildFile; fileRef = 130D53DA86C640F84E5039E198719799 /* NSData+ImageContentType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BC7937DFD39BFA9404E98857D2FD0C5A /* Pods-MultiSelectionTable-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A2E72FD1B87B30157CCAAA5713717C7 /* Pods-MultiSelectionTable-dummy.m */; };
 		BD28F2AFB56A9A72BE40F31362676D92 /* UIImage+GIF.h in Headers */ = {isa = PBXBuildFile; fileRef = 175215309D904D6DBF5332A27289CC5E /* UIImage+GIF.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -83,44 +83,44 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		018F87229B383759656946934A262FC8 /* SDWebImage.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = SDWebImage.modulemap; sourceTree = "<group>"; };
+		018F87229B383759656946934A262FC8 /* SDWebImage.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SDWebImage.modulemap; sourceTree = "<group>"; };
 		07027EEA1877295C5325FE818123B035 /* Pods-MultiSelectionTableUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MultiSelectionTableUITests-frameworks.sh"; sourceTree = "<group>"; };
-		0B98C3DEC0B091412522BAC25997A1E3 /* CellPulseAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CellPulseAnimator.swift; sourceTree = "<group>"; };
+		0B98C3DEC0B091412522BAC25997A1E3 /* CellSelectionPulseAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CellSelectionPulseAnimator.swift; sourceTree = "<group>"; };
 		113FC6ACC96F49FBA6EDFAA1D8CBC9A0 /* SDWebImageDecoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageDecoder.m; path = SDWebImage/SDWebImageDecoder.m; sourceTree = "<group>"; };
 		130D53DA86C640F84E5039E198719799 /* NSData+ImageContentType.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSData+ImageContentType.h"; path = "SDWebImage/NSData+ImageContentType.h"; sourceTree = "<group>"; };
 		175215309D904D6DBF5332A27289CC5E /* UIImage+GIF.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+GIF.h"; path = "SDWebImage/UIImage+GIF.h"; sourceTree = "<group>"; };
 		1A198E42B4D258867AC9E7A3290D81AC /* UIImage+MultiFormat.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+MultiFormat.m"; path = "SDWebImage/UIImage+MultiFormat.m"; sourceTree = "<group>"; };
 		1E07423545FB0349B17D6176AF7FEFEC /* Pods-MultiSelectionTableTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MultiSelectionTableTests-frameworks.sh"; sourceTree = "<group>"; };
-		2322C3AE7015E4DFAD89E95E8BD59901 /* Pods_MultiSelectionTable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MultiSelectionTable.framework; path = "Pods-MultiSelectionTable.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2322C3AE7015E4DFAD89E95E8BD59901 /* Pods_MultiSelectionTable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MultiSelectionTable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2973126F6A8E09B18F3BD019795689BD /* SDWebImageDecoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageDecoder.h; path = SDWebImage/SDWebImageDecoder.h; sourceTree = "<group>"; };
 		29A05992A204D9B6565C1C0926086ACA /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2AA02D611D87C854A7965B939B2358E3 /* SDWebImageDownloaderOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageDownloaderOperation.m; path = SDWebImage/SDWebImageDownloaderOperation.m; sourceTree = "<group>"; };
 		2D436DD8E4AB857E3BF3ECEFE84948A0 /* Pods-MultiSelectionTableTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MultiSelectionTableTests-dummy.m"; sourceTree = "<group>"; };
 		2EE36DD5882AE83CF1F93079DA6B02BA /* Pods-MultiSelectionTableTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MultiSelectionTableTests.debug.xcconfig"; sourceTree = "<group>"; };
 		335701ADD57C030EA976D4225BBE196C /* UIImage+MultiFormat.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+MultiFormat.h"; path = "SDWebImage/UIImage+MultiFormat.h"; sourceTree = "<group>"; };
-		361D656D3D79E1AFF7CEEFE2551473F0 /* Pods-MultiSelectionTableUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-MultiSelectionTableUITests.modulemap"; sourceTree = "<group>"; };
+		361D656D3D79E1AFF7CEEFE2551473F0 /* Pods-MultiSelectionTableUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-MultiSelectionTableUITests.modulemap"; sourceTree = "<group>"; };
 		39660D73F23817901E0A28409830CEF7 /* SDWebImage-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SDWebImage-prefix.pch"; sourceTree = "<group>"; };
-		3AE4305C2B9C7D4A072740D4CB6B812E /* MultiSelectionTableView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = MultiSelectionTableView.modulemap; sourceTree = "<group>"; };
+		3AE4305C2B9C7D4A072740D4CB6B812E /* MultiSelectionTableView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = MultiSelectionTableView.modulemap; sourceTree = "<group>"; };
 		3BA0D237ED2547368701BB01615AFA6B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F2887523B9B4D40509990168BA844F2 /* SDWebImageDownloader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageDownloader.h; path = SDWebImage/SDWebImageDownloader.h; sourceTree = "<group>"; };
-		435C73D4A3141AC78DCFA2925CA0DE77 /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SDWebImage.framework; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		435C73D4A3141AC78DCFA2925CA0DE77 /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		436E55B1BD929401DA9A64EEBB0B58DD /* Pods-MultiSelectionTable-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MultiSelectionTable-resources.sh"; sourceTree = "<group>"; };
 		4515D7E2CC5FE06BE551A45DAEB75C67 /* Pods-MultiSelectionTableUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MultiSelectionTableUITests-dummy.m"; sourceTree = "<group>"; };
 		45E4C791BCF7EEA9CE0E3892C94C3224 /* MultiSelectionTableView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MultiSelectionTableView-dummy.m"; sourceTree = "<group>"; };
 		467B4342012089A14AAD274717C8133D /* MultiSelectionTableView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MultiSelectionTableView-umbrella.h"; sourceTree = "<group>"; };
-		46D6BE8A95DC6DD04697F9E118029689 /* Pods_MultiSelectionTableTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MultiSelectionTableTests.framework; path = "Pods-MultiSelectionTableTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		46D6BE8A95DC6DD04697F9E118029689 /* Pods_MultiSelectionTableTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MultiSelectionTableTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BE75707CF4CF06A62A5CBB85C7792B2 /* MultiSelectionDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MultiSelectionDelegate.swift; sourceTree = "<group>"; };
 		4CAF52B8FD7B3F7358DB721A045E9937 /* Pods-MultiSelectionTableTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MultiSelectionTableTests-resources.sh"; sourceTree = "<group>"; };
 		5069A23259481B4867BC5F2F75CCBE5C /* DataSource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
-		51A0DDA790D8159DA0B98E6DC41BF547 /* CellAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CellAnimator.swift; sourceTree = "<group>"; };
+		51A0DDA790D8159DA0B98E6DC41BF547 /* CellSelectionAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CellSelectionAnimator.swift; sourceTree = "<group>"; };
 		546A1FC3EA9A123F39BAD79E6CDA1796 /* Pods-MultiSelectionTableTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MultiSelectionTableTests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		54E05BD9E2F05EFEA72F1A1DCF8BB471 /* Pods-MultiSelectionTableTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-MultiSelectionTableTests.modulemap"; sourceTree = "<group>"; };
+		54E05BD9E2F05EFEA72F1A1DCF8BB471 /* Pods-MultiSelectionTableTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-MultiSelectionTableTests.modulemap"; sourceTree = "<group>"; };
 		59D4406BD84BF43DB084C80E5A4CE21F /* MultiSelectionTableView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MultiSelectionTableView.xcconfig; sourceTree = "<group>"; };
 		5A58EF830F04149AB69CD818FA86AF7F /* SDImageCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageCache.h; path = SDWebImage/SDImageCache.h; sourceTree = "<group>"; };
 		5BD10CFBB57C731C9A7121A9C185CF5A /* Pods-MultiSelectionTableUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MultiSelectionTableUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5D2556632370C594175C7A0F3E7E9100 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E4CB4606D97D90F1F22415945E6E7A3 /* MultiSelectionDataSource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MultiSelectionDataSource.swift; sourceTree = "<group>"; };
-		5F13F83B0CD2EA77139B6C6CD8D9268C /* CellTransitionable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CellTransitionable.swift; sourceTree = "<group>"; };
+		5F13F83B0CD2EA77139B6C6CD8D9268C /* CellTransitionAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CellTransitionAnimator.swift; sourceTree = "<group>"; };
 		662CA71788F5C0AA42595DEAA6D1DE50 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+WebCacheOperation.h"; path = "SDWebImage/UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		66686F1EC5C075A5AADC917F6997835A /* SDWebImageDownloaderOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageDownloaderOperation.h; path = SDWebImage/SDWebImageDownloaderOperation.h; sourceTree = "<group>"; };
 		6AF2E628983E08FEA045DA550CE89D79 /* Pods-MultiSelectionTableUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MultiSelectionTableUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
@@ -139,7 +139,7 @@
 		8CE861D7ECE6873CBF6B8527A308AB23 /* Pods-MultiSelectionTableUITests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MultiSelectionTableUITests-resources.sh"; sourceTree = "<group>"; };
 		8E3F064F95B9D885248C70B4EADDFD6B /* Pods-MultiSelectionTable-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MultiSelectionTable-frameworks.sh"; sourceTree = "<group>"; };
 		8FB5D3FDD290ECA538B776050385CBDD /* CellMover.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CellMover.swift; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		96AEB8A19F81978D56D6D11E6C7993D9 /* CellReplacer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CellReplacer.swift; sourceTree = "<group>"; };
 		9757679632F4D96FB95D495ADE43F19A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		99894E74BA201B91BBC21EA59C230365 /* UIButton+WebCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIButton+WebCache.h"; path = "SDWebImage/UIButton+WebCache.h"; sourceTree = "<group>"; };
@@ -160,14 +160,14 @@
 		C0341555829726BC60CF15AD94330DDC /* SDWebImageOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageOperation.h; path = SDWebImage/SDWebImageOperation.h; sourceTree = "<group>"; };
 		C211BB78ED9FFFF3FDF75360A12D7E89 /* SDWebImageCompat.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageCompat.m; path = SDWebImage/SDWebImageCompat.m; sourceTree = "<group>"; };
 		C628427AA1BFAA60D1D96C83FD061B51 /* SDWebImageCompat.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageCompat.h; path = SDWebImage/SDWebImageCompat.h; sourceTree = "<group>"; };
-		C660B8F3AA48F7260E517117E414488A /* MultiSelectionTableView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MultiSelectionTableView.framework; path = MultiSelectionTableView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C660B8F3AA48F7260E517117E414488A /* MultiSelectionTableView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MultiSelectionTableView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA2165B22BC5F020F0670508D835C7A9 /* Pods-MultiSelectionTableUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MultiSelectionTableUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		CB271ACACD99B01232C7FD3E95D90B4F /* MultiSelectionTableView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MultiSelectionTableView.swift; sourceTree = "<group>"; };
-		D13A384A76A9395CAB97D2BDEA939775 /* Pods_MultiSelectionTableUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MultiSelectionTableUITests.framework; path = "Pods-MultiSelectionTableUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D13A384A76A9395CAB97D2BDEA939775 /* Pods_MultiSelectionTableUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MultiSelectionTableUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5ACC3DAF671AAC4A4B363C7F340E3C4 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D672CB42060DBC82C3044F9B67086F15 /* UIImageView+HighlightedWebCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImageView+HighlightedWebCache.h"; path = "SDWebImage/UIImageView+HighlightedWebCache.h"; sourceTree = "<group>"; };
 		D9DBA50E94973CF8DDD2ECF0321BB768 /* NSData+ImageContentType.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSData+ImageContentType.m"; path = "SDWebImage/NSData+ImageContentType.m"; sourceTree = "<group>"; };
-		DEE8DC7E214654EA697AF8F2C4F5EA28 /* Pods-MultiSelectionTable.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-MultiSelectionTable.modulemap"; sourceTree = "<group>"; };
+		DEE8DC7E214654EA697AF8F2C4F5EA28 /* Pods-MultiSelectionTable.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-MultiSelectionTable.modulemap"; sourceTree = "<group>"; };
 		DF86DB40796E48BDB5A0A5BE2B25DB70 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+WebCacheOperation.m"; path = "SDWebImage/UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		E6F520C5764B5D8526C65737F2821869 /* SDImageCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDImageCache.m; path = SDWebImage/SDImageCache.m; sourceTree = "<group>"; };
 		E7B001537C9B7AF3738EE1289602BB0E /* UIImageView+WebCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImageView+WebCache.h"; path = "SDWebImage/UIImageView+WebCache.h"; sourceTree = "<group>"; };
@@ -338,7 +338,6 @@
 				0A8762D3B2674879B8CAA13A6CEC5DA3 /* Core */,
 				F458AEE6DB03EE2F187049ADC6024384 /* Support Files */,
 			);
-			name = SDWebImage;
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
@@ -374,7 +373,6 @@
 				B0A248A160983F398B4D6F1A8C9FDF06 /* TableViewHeader.swift */,
 				E3FA475B27B93BA7BA5ACA5D40C97C65 /* Animators */,
 			);
-			name = source;
 			path = source;
 			sourceTree = "<group>";
 		};
@@ -383,7 +381,6 @@
 			children = (
 				8845DF829A7A3DA36C56380DB805B5DA /* source */,
 			);
-			name = MultiSelectionTable;
 			path = MultiSelectionTable;
 			sourceTree = "<group>";
 		};
@@ -398,10 +395,9 @@
 		A1F7FBE3369292C1BBC6EC90F2A5EBFA /* Selection */ = {
 			isa = PBXGroup;
 			children = (
-				51A0DDA790D8159DA0B98E6DC41BF547 /* CellAnimator.swift */,
-				0B98C3DEC0B091412522BAC25997A1E3 /* CellPulseAnimator.swift */,
+				51A0DDA790D8159DA0B98E6DC41BF547 /* CellSelectionAnimator.swift */,
+				0B98C3DEC0B091412522BAC25997A1E3 /* CellSelectionPulseAnimator.swift */,
 			);
-			name = Selection;
 			path = Selection;
 			sourceTree = "<group>";
 		};
@@ -423,14 +419,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		C606A67A5F4A7A2CDACF9068F7E5D152 /* Translation */ = {
+		C606A67A5F4A7A2CDACF9068F7E5D152 /* Transition */ = {
 			isa = PBXGroup;
 			children = (
 				8FB5D3FDD290ECA538B776050385CBDD /* CellMover.swift */,
 				96AEB8A19F81978D56D6D11E6C7993D9 /* CellReplacer.swift */,
-				5F13F83B0CD2EA77139B6C6CD8D9268C /* CellTransitionable.swift */,
+				5F13F83B0CD2EA77139B6C6CD8D9268C /* CellTransitionAnimator.swift */,
 			);
-			name = Translation;
+			name = Transition;
 			path = Translation;
 			sourceTree = "<group>";
 		};
@@ -460,9 +456,8 @@
 			isa = PBXGroup;
 			children = (
 				A1F7FBE3369292C1BBC6EC90F2A5EBFA /* Selection */,
-				C606A67A5F4A7A2CDACF9068F7E5D152 /* Translation */,
+				C606A67A5F4A7A2CDACF9068F7E5D152 /* Transition */,
 			);
-			name = Animators;
 			path = Animators;
 			sourceTree = "<group>";
 		};
@@ -701,11 +696,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				82B251E9A3141AB2090DF183B2A4A766 /* CellAnimator.swift in Sources */,
+				82B251E9A3141AB2090DF183B2A4A766 /* CellSelectionAnimator.swift in Sources */,
 				D02058BD29482E37CFFB423A0F4BC49D /* CellMover.swift in Sources */,
-				B9D131F137281319EE723851774824D6 /* CellPulseAnimator.swift in Sources */,
+				B9D131F137281319EE723851774824D6 /* CellSelectionPulseAnimator.swift in Sources */,
 				16A4A74CFA0A3AED61DA9913D652E184 /* CellReplacer.swift in Sources */,
-				9C81C748BB518C36BA5D559950B61E45 /* CellTransitionable.swift in Sources */,
+				9C81C748BB518C36BA5D559950B61E45 /* CellTransitionAnimator.swift in Sources */,
 				65C3AC9F0AC0AE498210DE9167B1CC82 /* DataSource.swift in Sources */,
 				86BA415A0A26065446D63024A54D5B9D /* ItemIndex.swift in Sources */,
 				581B62CB9942DF4DD4101128C5BAA814 /* MultiSelectionDataSource.swift in Sources */,

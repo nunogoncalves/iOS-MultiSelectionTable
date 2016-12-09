@@ -1,12 +1,12 @@
 //
-//  CellPulseAnimator.swift
+//  CellSelectionPulseAnimator.swift
 //  MultiSelectionTableView
 //
 //  Created by Nuno Gonçalves on 07/12/16.
 //
 //
 
-public class CellPulseAnimator : CellAnimator {
+public class CellSelectionPulseAnimator : CellSelectionAnimator {
     
     private let pathLayer = CAShapeLayer()
     private let pathAnimation = CABasicAnimation(keyPath: "path")

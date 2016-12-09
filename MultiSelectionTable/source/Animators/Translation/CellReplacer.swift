@@ -6,7 +6,7 @@
 //
 //
 
-public class CellReplacer : CellTransitionable {
+public class CellReplacer : CellTransitionAnimator {
     
     public init() {}
     

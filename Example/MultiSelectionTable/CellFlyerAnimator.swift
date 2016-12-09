@@ -1,12 +1,16 @@
 //
-//  CellMover.swift
-//  MultiSelectionTableView
+//  CellFlyerAnimator.swift
+//  MultiSelectionTable
 //
 //  Created by Nuno Gonçalves on 09/12/16.
 //
 //
 
-public class CellMover : CellTransitionAnimator {
+import MultiSelectionTableView
+
+public class CellFlyerAnimator : CellTransitionAnimator {
+    
+    public init() {}
     
     public func selectionTransition(in containerView: UIView,
                                     fromTableView: UITableView,
@@ -32,13 +36,17 @@ public class CellMover : CellTransitionAnimator {
         guard let cellToDelete = fromTableView.cellForRow(at: fromIndexPath) else { return }
         
         if let movingCell = cellToDelete.contentView.snapshotView(afterScreenUpdates: false) {
+            let greenSquare = UIImageView(image: #imageLiteral(resourceName: "SupermanFlyRight"))
+            greenSquare.frame = CGRect(x: movingCell.frame.midX - 50, y: -40, width: 100, height: 40)
+            movingCell.addSubview(greenSquare)
+            
             cellToDelete.contentView.isHidden = true
             containerView.addSubview(movingCell)
             movingCell.frame = fromTableView.convert(cellToDelete.frame, to: containerView)
             
             fromTableView.deleteRows(at: [fromIndexPath], with: .top)
             
-            UIView.animate(withDuration: 0.4, animations: {
+            UIView.animate(withDuration: 2, animations: {
                 movingCell.frame = newCellConvertedFrame
             }, completion: { _ in
                 movingCell.removeFromSuperview()
@@ -79,13 +87,17 @@ public class CellMover : CellTransitionAnimator {
         guard let cellToDelete = selectedItemsTable.cellForRow(at: indexPath) else { return }
         
         if let movingCell = cellToDelete.contentView.snapshotView(afterScreenUpdates: false) {
+            let greenSquare = UIImageView(image: #imageLiteral(resourceName: "SupermanFlyLeft"))
+            greenSquare.frame = CGRect(x: movingCell.frame.midX - 50, y: -40, width: 100, height: 40)
+            movingCell.addSubview(greenSquare)
+            
             cellToDelete.contentView.isHidden = true
             containerView.addSubview(movingCell)
             movingCell.frame = selectedItemsTable.convert(cellToDelete.frame, to: containerView)
             
             selectedItemsTable.deleteRows(at: [indexPath], with: .top)
             
-            UIView.animate(withDuration: 0.4, animations: {
+            UIView.animate(withDuration: 2, animations: {
                 movingCell.frame = newCellConvertedFrame
             }, completion: { _ in
                 movingCell.removeFromSuperview()

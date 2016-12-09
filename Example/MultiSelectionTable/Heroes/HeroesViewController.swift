@@ -31,8 +31,8 @@ class HeroesViewController : UIViewController {
         }
         
         multiSelectionTableView.dataSource = multiSelectionDataSource
-        multiSelectionTableView.cellAnimator = CellPulseAnimator(pulseColor: .black)
-        multiSelectionTableView.cellTransitioner = CellReplacer()
+        multiSelectionTableView.cellAnimator = CellSelectionPulseAnimator(pulseColor: .black)
+        multiSelectionTableView.cellTransitioner = CellFlyerAnimator()
     }
     
 }

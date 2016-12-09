@@ -1,12 +1,12 @@
 //
-//  CellTransitionable.swift
+//  CellTransitionAnimator.swift
 //  MultiSelectionTableView
 //
 //  Created by Nuno Gonçalves on 09/12/16.
 //
 //
 
-public protocol CellTransitionable {
+public protocol CellTransitionAnimator {
     func selectionTransition(in containerView: UIView,
                              fromTableView: UITableView,
                              fromIndexPath: IndexPath,
