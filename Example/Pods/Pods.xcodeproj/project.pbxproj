@@ -16,6 +16,7 @@
 		512286B34FFE7D8574F573A125943D90 /* Pods-MultiSelectionTable-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A2E72FD1B87B30157CCAAA5713717C7 /* Pods-MultiSelectionTable-dummy.m */; };
 		51E255511B1696771425323753AC8204 /* MultiSelectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C1BC696549CACA4A6CC20F7269D9DD6 /* MultiSelectionDelegate.swift */; };
 		7606DC2B12146F20ACE3FB3214861313 /* MultiSelectionTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E88B492A84DCDF8A6A25A7D00CE002 /* MultiSelectionTableView.swift */; };
+		85C5EDA41DF96DE300B5B122 /* TableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C5EDA31DF96DE300B5B122 /* TableViewHeader.swift */; };
 		85E7AC5B1DF8D51300B491B6 /* CellAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E7AC591DF8D51300B491B6 /* CellAnimator.swift */; };
 		85E7AC5C1DF8D51300B491B6 /* CellPulseAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E7AC5A1DF8D51300B491B6 /* CellPulseAnimator.swift */; };
 		9C05035286823CA5721FFD3E68A0D4E4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
@@ -70,6 +71,7 @@
 		7DD04762E83955E153C09A83F9E3280B /* Pods-MultiSelectionTableTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MultiSelectionTableTests-acknowledgements.plist"; sourceTree = "<group>"; };
 		7EC5792AFA69C2AB9E76AD8E75A3B2E2 /* Pods-MultiSelectionTable-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MultiSelectionTable-acknowledgements.markdown"; sourceTree = "<group>"; };
 		80513222309C5FDBE2A8EB50C77D2B20 /* MultiSelectionTableView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MultiSelectionTableView-prefix.pch"; sourceTree = "<group>"; };
+		85C5EDA31DF96DE300B5B122 /* TableViewHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewHeader.swift; sourceTree = "<group>"; };
 		85E7AC591DF8D51300B491B6 /* CellAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CellAnimator.swift; path = Animators/CellAnimator.swift; sourceTree = "<group>"; };
 		85E7AC5A1DF8D51300B491B6 /* CellPulseAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CellPulseAnimator.swift; path = Animators/CellPulseAnimator.swift; sourceTree = "<group>"; };
 		8A2E72FD1B87B30157CCAAA5713717C7 /* Pods-MultiSelectionTable-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MultiSelectionTable-dummy.m"; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				1CD2AB81882737C9E181CF13139B7820 /* MultiSelectionDataSource.swift */,
 				3C1BC696549CACA4A6CC20F7269D9DD6 /* MultiSelectionDelegate.swift */,
 				15E88B492A84DCDF8A6A25A7D00CE002 /* MultiSelectionTableView.swift */,
+				85C5EDA31DF96DE300B5B122 /* TableViewHeader.swift */,
 			);
 			path = source;
 			sourceTree = "<group>";
@@ -439,6 +442,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85C5EDA41DF96DE300B5B122 /* TableViewHeader.swift in Sources */,
 				AA5BBD1BA020B3C76F2AA84EC8C65F40 /* DataSource.swift in Sources */,
 				1EF5E21CACDA4CD210813E5DB8FC31B8 /* ItemIndex.swift in Sources */,
 				EC67235E2B13D3AD59F340FDB0A7572F /* MultiSelectionDataSource.swift in Sources */,

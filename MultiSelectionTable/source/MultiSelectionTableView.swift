@@ -30,14 +30,11 @@ public class MultiSelectionTableView : UIView {
 
         allItemsTable.backgroundColor = allItemsTableBackgroundColor
         allItemsTable.separatorColor = .clear
-        allItemsTable.headerView(forSection: 0)?.backgroundColor = allItemsTableBackgroundColor
-        allItemsTable.separatorColor = .clear
         
         blackLine.backgroundColor = seperatorColor
         
         selectedItemsTable.backgroundColor = selectedItemsTableBackgroundColor
         selectedItemsTable.separatorColor = .clear
-        selectedItemsTable.headerView(forSection: 0)?.backgroundColor = selectedItemsTableBackgroundColor
     }
     
     @IBInspectable
@@ -141,6 +138,8 @@ public class MultiSelectionTableView : UIView {
     private func buildSelectedItemsTable() {
         addSubview(selectedItemsTable)
         configure(selectedItemsTable)
+
+        selectedItemsTable.tableHeaderView = TableViewHeader(title: "SELECTED")
         
         selectedItemsTable.leadingAnchor.constraint(equalTo: seperator.trailingAnchor, constant: -5).isActive = true
         selectedItemsTable.topAnchor.constraint(equalTo: topAnchor).isActive = true
@@ -361,27 +360,7 @@ extension MultiSelectionTableView : UITableViewDataSource {
     }
 }
 
-extension MultiSelectionTableView : UITableViewDelegate {
-    public func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return tableView == selectedItemsTable ? 50 : 0
-    }
-    
-    public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if tableView == selectedItemsTable {
-            let view = UIView()
-            let label = UILabel()
-            view.addSubview(label)
-            label.text = "SELECTED"
-            label.textColor = .gray
-            label.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-            label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-            label.translatesAutoresizingMaskIntoConstraints = false
-            return view
-        }
-        
-        return nil
-    }
-}
+extension MultiSelectionTableView : UITableViewDelegate { }
 
 fileprivate extension UIColor {
     static var defaultTableBackground: UIColor {
