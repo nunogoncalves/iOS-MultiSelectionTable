@@ -24,7 +24,7 @@ public class MultiSelectionTableView : UIView {
     @IBInspectable var seperatorWidthOffset: CGFloat = 100
     
     public var cellAnimator: CellAnimator = CellPulseAnimator(pulseColor: .defaultCellPulseColor)
-    public var cellTransitioner: CellTransitionable = CellReplacer()
+    public var cellTransitioner: CellTransitionable = CellMover()
     
     override public func awakeFromNib() {
         super.awakeFromNib()
