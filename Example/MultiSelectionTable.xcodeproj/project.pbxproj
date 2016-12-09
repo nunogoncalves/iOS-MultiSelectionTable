@@ -16,6 +16,8 @@
 		855B90201DFAB71000DFDC49 /* AlbumCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 855B901B1DFAB71000DFDC49 /* AlbumCell.xib */; };
 		855B90211DFAB71000DFDC49 /* AlbunsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855B901C1DFAB71000DFDC49 /* AlbunsViewController.swift */; };
 		855B90221DFAB71000DFDC49 /* Band.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855B901D1DFAB71000DFDC49 /* Band.swift */; };
+		855B90271DFABA1400DFDC49 /* HeroCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855B90251DFABA1400DFDC49 /* HeroCell.swift */; };
+		855B90281DFABA1400DFDC49 /* HeroCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 855B90261DFABA1400DFDC49 /* HeroCell.xib */; };
 		85C315161DECEFF30095AFA1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C315151DECEFF30095AFA1 /* AppDelegate.swift */; };
 		85C3151B1DECEFF30095AFA1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85C315191DECEFF30095AFA1 /* Main.storyboard */; };
 		85C315201DECEFF30095AFA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85C3151F1DECEFF30095AFA1 /* Assets.xcassets */; };
@@ -55,6 +57,8 @@
 		855B901B1DFAB71000DFDC49 /* AlbumCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AlbumCell.xib; path = Albums/AlbumCell.xib; sourceTree = "<group>"; };
 		855B901C1DFAB71000DFDC49 /* AlbunsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlbunsViewController.swift; path = Albums/AlbunsViewController.swift; sourceTree = "<group>"; };
 		855B901D1DFAB71000DFDC49 /* Band.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Band.swift; path = Albums/Band.swift; sourceTree = "<group>"; };
+		855B90251DFABA1400DFDC49 /* HeroCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeroCell.swift; path = Heroes/HeroCell.swift; sourceTree = "<group>"; };
+		855B90261DFABA1400DFDC49 /* HeroCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HeroCell.xib; path = Heroes/HeroCell.xib; sourceTree = "<group>"; };
 		85C315121DECEFF30095AFA1 /* MultiSelectionTable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiSelectionTable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85C315151DECEFF30095AFA1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85C3151A1DECEFF30095AFA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -190,6 +194,8 @@
 			isa = PBXGroup;
 			children = (
 				85C5EDA81DF989B400B5B122 /* HeroesViewController.swift */,
+				855B90251DFABA1400DFDC49 /* HeroCell.swift */,
+				855B90261DFABA1400DFDC49 /* HeroCell.xib */,
 			);
 			name = Heroes;
 			sourceTree = "<group>";
@@ -350,6 +356,7 @@
 				8506BB241DFAC9A1007E627D /* MarlvelSecretKeys.plist in Resources */,
 				85C3151B1DECEFF30095AFA1 /* Main.storyboard in Resources */,
 				855B90201DFAB71000DFDC49 /* AlbumCell.xib in Resources */,
+				855B90281DFABA1400DFDC49 /* HeroCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -519,6 +526,7 @@
 				855B90211DFAB71000DFDC49 /* AlbunsViewController.swift in Sources */,
 				855B901E1DFAB71000DFDC49 /* Album.swift in Sources */,
 				855B901F1DFAB71000DFDC49 /* AlbumCell.swift in Sources */,
+				855B90271DFABA1400DFDC49 /* HeroCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
