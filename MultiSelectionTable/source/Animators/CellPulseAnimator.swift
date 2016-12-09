@@ -1,12 +1,12 @@
 //
 //  CellPulseAnimator.swift
-//  Pods
+//  MultiSelectionTableView
 //
 //  Created by Nuno Gonçalves on 07/12/16.
 //
 //
 
-class CellPulseAnimator : CellAnimator {
+public class CellPulseAnimator : CellAnimator {
     
     private let pathLayer = CAShapeLayer()
     private let pathAnimation = CABasicAnimation(keyPath: "path")
@@ -18,7 +18,7 @@ class CellPulseAnimator : CellAnimator {
     
     private let animationDuration: TimeInterval = 0.3
     
-    internal init(pulseColor: UIColor) {
+    public init(pulseColor: UIColor) {
         self.pulseColor = pulseColor
     }
     

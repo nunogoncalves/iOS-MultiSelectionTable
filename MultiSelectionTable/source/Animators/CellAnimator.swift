@@ -1,6 +1,6 @@
 //
 //  CellAnimator.swift
-//  Pods
+//  MultiSelectionTableView
 //
 //  Created by Nuno Gonçalves on 07/12/16.
 //
