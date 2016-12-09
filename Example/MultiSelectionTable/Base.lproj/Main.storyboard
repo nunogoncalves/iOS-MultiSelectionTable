@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="wwJ-Jc-SVD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="mJA-JR-zQW">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Albuns-->
         <scene sceneID="WGu-Qp-ede">
             <objects>
-                <viewController storyboardIdentifier="VC" id="wwJ-Jc-SVD" customClass="ViewController" customModule="MultiSelectionTable" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AlbunsViewController" id="wwJ-Jc-SVD" customClass="AlbunsViewController" customModule="MultiSelectionTable" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2ym-ub-Ufv"/>
                         <viewControllerLayoutGuide type="bottom" id="Uwz-1U-gXq"/>
@@ -32,7 +32,7 @@
                                 </connections>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5dz-ez-Hz0" customClass="MultiSelectionTableView" customModule="MultiSelectionTableView">
-                                <rect key="frame" x="0.0" y="50" width="375" height="617"/>
+                                <rect key="frame" x="0.0" y="50" width="375" height="568"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="seperatorWidthOffset">
                                         <real key="value" value="120"/>
@@ -50,13 +50,104 @@
                             <constraint firstItem="mWh-4O-Jog" firstAttribute="top" secondItem="2ym-ub-Ufv" secondAttribute="bottom" id="nrv-VI-byI"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Albuns" image="MusicNote" id="jWZ-Fa-T0F"/>
                     <connections>
                         <outlet property="multiSelectionTableView" destination="5dz-ez-Hz0" id="tUQ-4G-HiG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KTC-c5-b6g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="628" y="914"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="N2n-mk-0gA">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="mJA-JR-zQW" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="qJX-fh-AOl">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="wwJ-Jc-SVD" kind="relationship" relationship="viewControllers" id="mWk-ov-ve0"/>
+                        <segue destination="aJ4-Nu-y1g" kind="relationship" relationship="viewControllers" id="Rz8-hY-ieD"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cz8-as-GCk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
             <point key="canvasLocation" x="941.60000000000002" y="150.67466266866569"/>
         </scene>
+        <!--Heroes-->
+        <scene sceneID="WVW-lG-wjj">
+            <objects>
+                <viewController storyboardIdentifier="HeroesViewController" id="aJ4-Nu-y1g" customClass="HeroesViewController" customModule="MultiSelectionTable" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="onK-M7-p9g"/>
+                        <viewControllerLayoutGuide type="bottom" id="WIR-ce-m9l"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="R93-d8-OEm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SrX-ih-kaX" customClass="MultiSelectionTableView" customModule="MultiSelectionTableView">
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="controlBackgroundColor">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="allItemsTableBackgroundColor">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedItemsTableBackgroundColor">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="seperatorColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4sm-is-AlY">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="98"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="JLT-71-tv7">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="98"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MARVEL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vUu-EY-rCK">
+                                <rect key="frame" x="54" y="20" width="267" height="78"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="65"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.95686274509803915" green="0.098039215686274508" blue="0.070588235294117646" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="WIR-ce-m9l" firstAttribute="top" secondItem="SrX-ih-kaX" secondAttribute="bottom" id="CBm-PQ-WXO"/>
+                            <constraint firstItem="SrX-ih-kaX" firstAttribute="top" secondItem="onK-M7-p9g" secondAttribute="bottom" id="OmE-is-YeF"/>
+                            <constraint firstItem="4sm-is-AlY" firstAttribute="top" secondItem="onK-M7-p9g" secondAttribute="bottom" constant="-20" id="Um0-Zp-Hun"/>
+                            <constraint firstItem="vUu-EY-rCK" firstAttribute="centerX" secondItem="R93-d8-OEm" secondAttribute="centerX" id="ViK-I6-H7Y"/>
+                            <constraint firstItem="4sm-is-AlY" firstAttribute="bottom" secondItem="vUu-EY-rCK" secondAttribute="bottom" id="ZHs-tk-4UW"/>
+                            <constraint firstAttribute="trailing" secondItem="SrX-ih-kaX" secondAttribute="trailing" id="c5e-bM-0f0"/>
+                            <constraint firstItem="4sm-is-AlY" firstAttribute="leading" secondItem="R93-d8-OEm" secondAttribute="leading" id="da7-2m-uNQ"/>
+                            <constraint firstAttribute="trailing" secondItem="4sm-is-AlY" secondAttribute="trailing" id="ijx-Jb-pb9"/>
+                            <constraint firstItem="SrX-ih-kaX" firstAttribute="leading" secondItem="R93-d8-OEm" secondAttribute="leading" id="j8b-nk-U6Y"/>
+                            <constraint firstItem="vUu-EY-rCK" firstAttribute="top" secondItem="onK-M7-p9g" secondAttribute="bottom" id="lpF-iv-30t"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Heroes" image="IronManMask" id="wgR-ly-gf1"/>
+                    <connections>
+                        <outlet property="multiSelectionTableView" destination="SrX-ih-kaX" id="BVJ-eF-BzW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NdS-O0-edk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1247" y="913"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="IronManMask" width="22" height="22"/>
+        <image name="MusicNote" width="22" height="22"/>
+    </resources>
 </document>

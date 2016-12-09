@@ -1,26 +1,27 @@
 //
-//  ViewController.swift
+//  Album.swift
 //  MultiSelectionTable
 //
-//  Created by Nuno Gonçalves on 28/11/16.
+//  Created by Nuno Gonçalves on 29/11/16.
 //  Copyright © 2016 Nuno Gonçalves. All rights reserved.
 //
 
 import UIKit
-import MultiSelectionTableView
 
-class ViewController: UIViewController {
-
-    @IBOutlet weak var multiSelectionTableContainer: UIStackView!
+struct Album : Equatable {
     
-    override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
+    let band: Band
+    let name: String
+    let cover: UIImage
+    let year: Int
     
-    private var multiSelectionDataSource: MultiSelectionDataSource<Album>!
-    @IBOutlet fileprivate weak var multiSelectionTableView: MultiSelectionTableView!
-    
-    fileprivate var filteredAlbuns: [Album] = []
-    
-    fileprivate var allAlbums: [Album] = [
+    static func ==(left: Album, right: Album) -> Bool {
+        return left.name == right.name &&
+            left.cover == right.cover &&
+            left.band == right.band
+    }
+ 
+    static let all: [Album] = [
         Album(band: Band(name: "Nirvana"), name: "Nevermind", cover: #imageLiteral(resourceName: "nevermind"), year: 1991),
         Album(band: Band(name: "Red Hot Chili Peppers"), name: "Californication", cover: #imageLiteral(resourceName: "californication"), year: 1999),
         Album(band: Band(name: "BloodHound Gang"), name: "Hoorray for boobies", cover: #imageLiteral(resourceName: "badadchaseylane"), year: 1999),
@@ -41,43 +42,5 @@ class ViewController: UIViewController {
         Album(band: Band(name: "Michael Jackson"), name: "Thriller", cover: #imageLiteral(resourceName: "thriller"), year: 1982),
         Album(band: Band(name: "INXS"), name: "Switch", cover: #imageLiteral(resourceName: "switch"), year: 2005),
     ]
-    
-    @IBAction func textUpdated(_ sender: UITextField) {
-        if let searchText = sender.text,
-            searchText.characters.count > 0 {
-            filteredAlbuns = allAlbums.filter { $0.name.lowercased().contains(searchText.lowercased()) }
-        } else {
-            filteredAlbuns = allAlbums
-        }
-        multiSelectionDataSource.allItems = filteredAlbuns
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-//        multiSelectionTableView.seperatorWidthOffset = 130
-      
-        multiSelectionDataSource = MultiSelectionDataSource(multiSelectionTableView: multiSelectionTableView)
-        multiSelectionDataSource.delegate = self
-        multiSelectionDataSource.register(nib: UINib(nibName: "AlbumCell", bundle: nil), for: "AlbumCell")
-        
-        multiSelectionDataSource.allItems = allAlbums
-        
-        multiSelectionTableView.dataSource = multiSelectionDataSource
-    }
-    
-}
-
-extension ViewController : MultiSelectionTableDelegate {
-    
-    func paint(_ cell: UITableViewCell, for indexPath: IndexPath, with item: Any) {
-        if let cell = cell as? AlbumCell,
-            let album = item as? Album {
-            cell.nameLabel.text = album.band.name
-            cell.subtitleLabel.text = album.name
-            cell.albumImageView.image = album.cover
-            cell.yearLabel.text = "\(album.year)"
-        }
-    }
     
 }

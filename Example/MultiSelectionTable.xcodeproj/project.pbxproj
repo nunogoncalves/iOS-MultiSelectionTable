@@ -9,17 +9,17 @@
 /* Begin PBXBuildFile section */
 		0CCE787197EFF26C705C5111 /* Pods_MultiSelectionTableUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78031806288743039F6E78FC /* Pods_MultiSelectionTableUITests.framework */; };
 		35AE6B93E68E6109393C2B63 /* Pods_MultiSelectionTableTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE7D9414829E14D3B5E86BF7 /* Pods_MultiSelectionTableTests.framework */; };
+		855B901E1DFAB71000DFDC49 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855B90191DFAB71000DFDC49 /* Album.swift */; };
+		855B901F1DFAB71000DFDC49 /* AlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855B901A1DFAB71000DFDC49 /* AlbumCell.swift */; };
+		855B90201DFAB71000DFDC49 /* AlbumCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 855B901B1DFAB71000DFDC49 /* AlbumCell.xib */; };
+		855B90211DFAB71000DFDC49 /* AlbunsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855B901C1DFAB71000DFDC49 /* AlbunsViewController.swift */; };
+		855B90221DFAB71000DFDC49 /* Band.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855B901D1DFAB71000DFDC49 /* Band.swift */; };
 		85C315161DECEFF30095AFA1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C315151DECEFF30095AFA1 /* AppDelegate.swift */; };
-		85C315181DECEFF30095AFA1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C315171DECEFF30095AFA1 /* ViewController.swift */; };
 		85C3151B1DECEFF30095AFA1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85C315191DECEFF30095AFA1 /* Main.storyboard */; };
 		85C315201DECEFF30095AFA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85C3151F1DECEFF30095AFA1 /* Assets.xcassets */; };
 		85C315231DECEFF30095AFA1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85C315211DECEFF30095AFA1 /* LaunchScreen.storyboard */; };
 		85C3152E1DECEFF30095AFA1 /* MultiSelectionTableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C3152D1DECEFF30095AFA1 /* MultiSelectionTableTests.swift */; };
 		85C315391DECEFF30095AFA1 /* MultiSelectionTableUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C315381DECEFF30095AFA1 /* MultiSelectionTableUITests.swift */; };
-		85D356701DED638900E32A04 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D3566F1DED638900E32A04 /* Album.swift */; };
-		85D356721DED807400E32A04 /* Band.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D356711DED807400E32A04 /* Band.swift */; };
-		85D8179D1DEEB6880063E95E /* AlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D8179B1DEEB6880063E95E /* AlbumCell.swift */; };
-		85D8179E1DEEB6880063E95E /* AlbumCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85D8179C1DEEB6880063E95E /* AlbumCell.xib */; };
 		85C5EDA91DF989B400B5B122 /* HeroesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C5EDA81DF989B400B5B122 /* HeroesViewController.swift */; };
 		EF612445992E66F568DE0B67 /* Pods_MultiSelectionTable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C74DAA1C00F5423DE7213C3B /* Pods_MultiSelectionTable.framework */; };
 /* End PBXBuildFile section */
@@ -46,9 +46,13 @@
 		4A95BD964DDA5B5FF09A934A /* Pods-MultiSelectionTableUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MultiSelectionTableUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MultiSelectionTableUITests/Pods-MultiSelectionTableUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		6A4EACF15959F8CD1E3D13E4 /* Pods-MultiSelectionTableUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MultiSelectionTableUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MultiSelectionTableUITests/Pods-MultiSelectionTableUITests.release.xcconfig"; sourceTree = "<group>"; };
 		78031806288743039F6E78FC /* Pods_MultiSelectionTableUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MultiSelectionTableUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		855B90191DFAB71000DFDC49 /* Album.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Album.swift; path = Albums/Album.swift; sourceTree = "<group>"; };
+		855B901A1DFAB71000DFDC49 /* AlbumCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlbumCell.swift; path = Albums/AlbumCell.swift; sourceTree = "<group>"; };
+		855B901B1DFAB71000DFDC49 /* AlbumCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AlbumCell.xib; path = Albums/AlbumCell.xib; sourceTree = "<group>"; };
+		855B901C1DFAB71000DFDC49 /* AlbunsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlbunsViewController.swift; path = Albums/AlbunsViewController.swift; sourceTree = "<group>"; };
+		855B901D1DFAB71000DFDC49 /* Band.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Band.swift; path = Albums/Band.swift; sourceTree = "<group>"; };
 		85C315121DECEFF30095AFA1 /* MultiSelectionTable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiSelectionTable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85C315151DECEFF30095AFA1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		85C315171DECEFF30095AFA1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		85C3151A1DECEFF30095AFA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		85C3151F1DECEFF30095AFA1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		85C315221DECEFF30095AFA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -59,10 +63,6 @@
 		85C315341DECEFF30095AFA1 /* MultiSelectionTableUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MultiSelectionTableUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		85C315381DECEFF30095AFA1 /* MultiSelectionTableUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelectionTableUITests.swift; sourceTree = "<group>"; };
 		85C3153A1DECEFF30095AFA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		85D3566F1DED638900E32A04 /* Album.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
-		85D356711DED807400E32A04 /* Band.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Band.swift; sourceTree = "<group>"; };
-		85D8179B1DEEB6880063E95E /* AlbumCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumCell.swift; sourceTree = "<group>"; };
-		85D8179C1DEEB6880063E95E /* AlbumCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlbumCell.xib; sourceTree = "<group>"; };
 		85C5EDA81DF989B400B5B122 /* HeroesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeroesViewController.swift; path = Heroes/HeroesViewController.swift; sourceTree = "<group>"; };
 		C262E671D2FFA4765D00586B /* Pods-MultiSelectionTableTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MultiSelectionTableTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MultiSelectionTableTests/Pods-MultiSelectionTableTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C2FA110E208BC064ECD27E5A /* Pods-MultiSelectionTableTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MultiSelectionTableTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MultiSelectionTableTests/Pods-MultiSelectionTableTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -125,16 +125,11 @@
 			isa = PBXGroup;
 			children = (
 				85C315151DECEFF30095AFA1 /* AppDelegate.swift */,
-				85C315171DECEFF30095AFA1 /* ViewController.swift */,
+				85C5EDA71DF988CE00B5B122 /* SupportingFiles */,
 				85C5EDA61DF9889600B5B122 /* Heroes */,
+				85C5EDA51DF9888900B5B122 /* Albuns */,
 				85C315191DECEFF30095AFA1 /* Main.storyboard */,
 				85C3151F1DECEFF30095AFA1 /* Assets.xcassets */,
-				85C315211DECEFF30095AFA1 /* LaunchScreen.storyboard */,
-				85C315241DECEFF30095AFA1 /* Info.plist */,
-				85D3566F1DED638900E32A04 /* Album.swift */,
-				85D356711DED807400E32A04 /* Band.swift */,
-				85D8179B1DEEB6880063E95E /* AlbumCell.swift */,
-				85D8179C1DEEB6880063E95E /* AlbumCell.xib */,
 			);
 			path = MultiSelectionTable;
 			sourceTree = "<group>";
@@ -157,12 +152,33 @@
 			path = MultiSelectionTableUITests;
 			sourceTree = "<group>";
 		};
+		85C5EDA51DF9888900B5B122 /* Albuns */ = {
+			isa = PBXGroup;
+			children = (
+				855B90191DFAB71000DFDC49 /* Album.swift */,
+				855B901A1DFAB71000DFDC49 /* AlbumCell.swift */,
+				855B901B1DFAB71000DFDC49 /* AlbumCell.xib */,
+				855B901C1DFAB71000DFDC49 /* AlbunsViewController.swift */,
+				855B901D1DFAB71000DFDC49 /* Band.swift */,
+			);
+			name = Albuns;
+			sourceTree = "<group>";
+		};
 		85C5EDA61DF9889600B5B122 /* Heroes */ = {
 			isa = PBXGroup;
 			children = (
 				85C5EDA81DF989B400B5B122 /* HeroesViewController.swift */,
 			);
 			name = Heroes;
+			sourceTree = "<group>";
+		};
+		85C5EDA71DF988CE00B5B122 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				85C315211DECEFF30095AFA1 /* LaunchScreen.storyboard */,
+				85C315241DECEFF30095AFA1 /* Info.plist */,
+			);
+			name = SupportingFiles;
 			sourceTree = "<group>";
 		};
 		A2D58FB8AA8262B86B675A7E /* Frameworks */ = {
@@ -265,6 +281,7 @@
 				TargetAttributes = {
 					85C315111DECEFF30095AFA1 = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 9D23XSN84S;
 						ProvisioningStyle = Automatic;
 					};
 					85C315281DECEFF30095AFA1 = {
@@ -308,8 +325,8 @@
 			files = (
 				85C315231DECEFF30095AFA1 /* LaunchScreen.storyboard in Resources */,
 				85C315201DECEFF30095AFA1 /* Assets.xcassets in Resources */,
-				85D8179E1DEEB6880063E95E /* AlbumCell.xib in Resources */,
 				85C3151B1DECEFF30095AFA1 /* Main.storyboard in Resources */,
+				855B90201DFAB71000DFDC49 /* AlbumCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,12 +489,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				85D356721DED807400E32A04 /* Band.swift in Sources */,
-				85C315181DECEFF30095AFA1 /* ViewController.swift in Sources */,
+				855B90221DFAB71000DFDC49 /* Band.swift in Sources */,
 				85C5EDA91DF989B400B5B122 /* HeroesViewController.swift in Sources */,
 				85C315161DECEFF30095AFA1 /* AppDelegate.swift in Sources */,
-				85D8179D1DEEB6880063E95E /* AlbumCell.swift in Sources */,
-				85D356701DED638900E32A04 /* Album.swift in Sources */,
+				855B90211DFAB71000DFDC49 /* AlbunsViewController.swift in Sources */,
+				855B901E1DFAB71000DFDC49 /* Album.swift in Sources */,
+				855B901F1DFAB71000DFDC49 /* AlbumCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -633,7 +650,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 9D23XSN84S;
 				INFOPLIST_FILE = MultiSelectionTable/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.numicago.MultiSelectionTable;
@@ -648,7 +665,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 9D23XSN84S;
 				INFOPLIST_FILE = MultiSelectionTable/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.numicago.MultiSelectionTable;
