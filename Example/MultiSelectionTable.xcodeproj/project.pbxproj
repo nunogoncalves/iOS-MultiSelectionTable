@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0CCE787197EFF26C705C5111 /* Pods_MultiSelectionTableUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78031806288743039F6E78FC /* Pods_MultiSelectionTableUITests.framework */; };
 		35AE6B93E68E6109393C2B63 /* Pods_MultiSelectionTableTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE7D9414829E14D3B5E86BF7 /* Pods_MultiSelectionTableTests.framework */; };
+		8506BB241DFAC9A1007E627D /* MarlvelSecretKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8506BB231DFAC9A1007E627D /* MarlvelSecretKeys.plist */; };
+		8506BB281DFACC68007E627D /* MarvelApiConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8506BB271DFACC68007E627D /* MarvelApiConfiguration.swift */; };
 		855B901E1DFAB71000DFDC49 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855B90191DFAB71000DFDC49 /* Album.swift */; };
 		855B901F1DFAB71000DFDC49 /* AlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855B901A1DFAB71000DFDC49 /* AlbumCell.swift */; };
 		855B90201DFAB71000DFDC49 /* AlbumCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 855B901B1DFAB71000DFDC49 /* AlbumCell.xib */; };
@@ -46,6 +48,8 @@
 		4A95BD964DDA5B5FF09A934A /* Pods-MultiSelectionTableUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MultiSelectionTableUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MultiSelectionTableUITests/Pods-MultiSelectionTableUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		6A4EACF15959F8CD1E3D13E4 /* Pods-MultiSelectionTableUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MultiSelectionTableUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MultiSelectionTableUITests/Pods-MultiSelectionTableUITests.release.xcconfig"; sourceTree = "<group>"; };
 		78031806288743039F6E78FC /* Pods_MultiSelectionTableUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MultiSelectionTableUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8506BB231DFAC9A1007E627D /* MarlvelSecretKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = MarlvelSecretKeys.plist; path = ../../../../Secrets/MarlvelSecretKeys.plist; sourceTree = "<group>"; };
+		8506BB271DFACC68007E627D /* MarvelApiConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarvelApiConfiguration.swift; path = UseCases/Heroes/MarvelApiConfiguration.swift; sourceTree = "<group>"; };
 		855B90191DFAB71000DFDC49 /* Album.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Album.swift; path = Albums/Album.swift; sourceTree = "<group>"; };
 		855B901A1DFAB71000DFDC49 /* AlbumCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlbumCell.swift; path = Albums/AlbumCell.swift; sourceTree = "<group>"; };
 		855B901B1DFAB71000DFDC49 /* AlbumCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AlbumCell.xib; path = Albums/AlbumCell.xib; sourceTree = "<group>"; };
@@ -99,6 +103,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		855B902C1DFAC0F600DFDC49 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				855B902D1DFAC11A00DFDC49 /* Heroes */,
+			);
+			name = UseCases;
+			sourceTree = "<group>";
+		};
+		855B902D1DFAC11A00DFDC49 /* Heroes */ = {
+			isa = PBXGroup;
+			children = (
+				8506BB271DFACC68007E627D /* MarvelApiConfiguration.swift */,
+			);
+			name = Heroes;
+			sourceTree = "<group>";
+		};
 		85C315091DECEFF30095AFA1 = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +150,8 @@
 				85C5EDA51DF9888900B5B122 /* Albuns */,
 				85C315191DECEFF30095AFA1 /* Main.storyboard */,
 				85C3151F1DECEFF30095AFA1 /* Assets.xcassets */,
+				855B902C1DFAC0F600DFDC49 /* UseCases */,
+				8506BB231DFAC9A1007E627D /* MarlvelSecretKeys.plist */,
 			);
 			path = MultiSelectionTable;
 			sourceTree = "<group>";
@@ -325,6 +347,7 @@
 			files = (
 				85C315231DECEFF30095AFA1 /* LaunchScreen.storyboard in Resources */,
 				85C315201DECEFF30095AFA1 /* Assets.xcassets in Resources */,
+				8506BB241DFAC9A1007E627D /* MarlvelSecretKeys.plist in Resources */,
 				85C3151B1DECEFF30095AFA1 /* Main.storyboard in Resources */,
 				855B90201DFAB71000DFDC49 /* AlbumCell.xib in Resources */,
 			);
@@ -492,6 +515,7 @@
 				855B90221DFAB71000DFDC49 /* Band.swift in Sources */,
 				85C5EDA91DF989B400B5B122 /* HeroesViewController.swift in Sources */,
 				85C315161DECEFF30095AFA1 /* AppDelegate.swift in Sources */,
+				8506BB281DFACC68007E627D /* MarvelApiConfiguration.swift in Sources */,
 				855B90211DFAB71000DFDC49 /* AlbunsViewController.swift in Sources */,
 				855B901E1DFAB71000DFDC49 /* Album.swift in Sources */,
 				855B901F1DFAB71000DFDC49 /* AlbumCell.swift in Sources */,
