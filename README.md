@@ -9,9 +9,9 @@ Beautifull way of having a multi-selection table on iOS
 
 <p align="center">
   <img src="Resources/MultiSelectionTableView.gif" width="200px" />
+  <img src="Resources/MultiselectionSupermanAnimation.gif" width="200px" />
   <img src="Resources/StyleBlack.png" width="200px" />
-  <img src="Resources/StyleGreenBlue.png" width="200px" />
-  <img src="Resources/StyleWhite.png" width="200px" />
+  <img src="Resources/StyleRed.png" width="200px" />
 </p>
 
 Based on [this](https://dribbble.com/shots/2904577-Multi-Selection-Experiment) dribbble by [Vitaly Rubtsov](https://dribbble.com/Vitwai)
