@@ -67,17 +67,29 @@ extension ViewController : MultiSelectionTableDelegate {
     
 ```
 ### Configuration
-- Colors style
+#### Colors style
 ```swift
 multiSelectionTableView.controlBackgroundColor = .black
 multiSelectionTableView.allItemsTableBackgroundColor = .black
 multiSelectionTableView.selectedItemsTableBackgroundColor = .black
 ```
-- Horizontal movement width: 
-  - Depending on your cell, you might want to set the horizontal width the line moves. This value is based on the center X anchor. 
+
+#### Horizontal movement width: 
+Depending on your cell, you might want to set the horizontal width the line moves. This value is based on the center X anchor. 
 ```swift
 multiSelectionTableView.seperatorWidthOffset = 100 //will move 100 point on both directions from the center
 ```
+#### Animations
+There are two animation types. The selection and the transition. You can customize your animations for both types.
+The default selection animation is a pulse starting on the tap point on the cell.
+The default transition animation moves a snapshot view of the selected cell to the corresponding side (depending on selection or unselection events)
+```swift
+
+multiSelectionTableView.cellAnimator = CellSelectionPulseAnimator(pulseColor: .black) // Must conform to CellSelectionAnimator 
+multiSelectionTableView.cellTransitioner = CellFlyerAnimator() // Must conform to CellTransitionAnimator
+
+```
+You can check out the animator examples.
 
 ## Installation
 
