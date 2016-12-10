@@ -12,7 +12,6 @@
 		8506BB241DFAC9A1007E627D /* MarlvelSecretKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8506BB231DFAC9A1007E627D /* MarlvelSecretKeys.plist */; };
 		8506BB281DFACC68007E627D /* MarvelApiConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8506BB271DFACC68007E627D /* MarvelApiConfiguration.swift */; };
 		8506BB2A1DFADF84007E627D /* HeroCellMover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8506BB291DFADF84007E627D /* HeroCellMover.swift */; };
-		85082E4A1DFB644E00599C47 /* CellFlyerAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85082E491DFB644E00599C47 /* CellFlyerAnimator.swift */; };
 		855B901E1DFAB71000DFDC49 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855B90191DFAB71000DFDC49 /* Album.swift */; };
 		855B901F1DFAB71000DFDC49 /* AlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855B901A1DFAB71000DFDC49 /* AlbumCell.swift */; };
 		855B90201DFAB71000DFDC49 /* AlbumCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 855B901B1DFAB71000DFDC49 /* AlbumCell.xib */; };
@@ -25,6 +24,7 @@
 		85A3C8331DFBF43A00117926 /* Albums.Fetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A3C8321DFBF43A00117926 /* Albums.Fetcher.swift */; };
 		85A3C8351DFBF49A00117926 /* Hero+DictInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A3C8341DFBF49A00117926 /* Hero+DictInit.swift */; };
 		85A3C8371DFBF91200117926 /* Album+DictInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A3C8361DFBF91200117926 /* Album+DictInit.swift */; };
+		85A3C8391DFC168F00117926 /* CellFlyerAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A3C8381DFC168F00117926 /* CellFlyerAnimator.swift */; };
 		85C315161DECEFF30095AFA1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C315151DECEFF30095AFA1 /* AppDelegate.swift */; };
 		85C3151B1DECEFF30095AFA1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85C315191DECEFF30095AFA1 /* Main.storyboard */; };
 		85C315201DECEFF30095AFA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85C3151F1DECEFF30095AFA1 /* Assets.xcassets */; };
@@ -60,7 +60,6 @@
 		8506BB231DFAC9A1007E627D /* MarlvelSecretKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = MarlvelSecretKeys.plist; path = ../../../../Secrets/MarlvelSecretKeys.plist; sourceTree = "<group>"; };
 		8506BB271DFACC68007E627D /* MarvelApiConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarvelApiConfiguration.swift; path = UseCases/Heroes/MarvelApiConfiguration.swift; sourceTree = "<group>"; };
 		8506BB291DFADF84007E627D /* HeroCellMover.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeroCellMover.swift; path = Heroes/HeroCellMover.swift; sourceTree = "<group>"; };
-		85082E491DFB644E00599C47 /* CellFlyerAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellFlyerAnimator.swift; sourceTree = "<group>"; };
 		855B90191DFAB71000DFDC49 /* Album.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Album.swift; path = Albums/Album.swift; sourceTree = "<group>"; };
 		855B901A1DFAB71000DFDC49 /* AlbumCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlbumCell.swift; path = Albums/AlbumCell.swift; sourceTree = "<group>"; };
 		855B901B1DFAB71000DFDC49 /* AlbumCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AlbumCell.xib; path = Albums/AlbumCell.xib; sourceTree = "<group>"; };
@@ -74,6 +73,7 @@
 		85A3C8321DFBF43A00117926 /* Albums.Fetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Albums.Fetcher.swift; path = UseCases/Albums/Albums.Fetcher.swift; sourceTree = "<group>"; };
 		85A3C8341DFBF49A00117926 /* Hero+DictInit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Hero+DictInit.swift"; path = "Heroes/Hero+DictInit.swift"; sourceTree = "<group>"; };
 		85A3C8361DFBF91200117926 /* Album+DictInit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Album+DictInit.swift"; path = "Albums/Album+DictInit.swift"; sourceTree = "<group>"; };
+		85A3C8381DFC168F00117926 /* CellFlyerAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CellFlyerAnimator.swift; path = Heroes/CellFlyerAnimator.swift; sourceTree = "<group>"; };
 		85C315121DECEFF30095AFA1 /* MultiSelectionTable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiSelectionTable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85C315151DECEFF30095AFA1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85C3151A1DECEFF30095AFA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -135,7 +135,6 @@
 			isa = PBXGroup;
 			children = (
 				855B902E1DFAC13C00DFDC49 /* Heroes.Fetcher.swift */,
-				85082E491DFB644E00599C47 /* CellFlyerAnimator.swift */,
 				8506BB271DFACC68007E627D /* MarvelApiConfiguration.swift */,
 			);
 			name = Heroes;
@@ -220,6 +219,7 @@
 		85C5EDA61DF9889600B5B122 /* Heroes */ = {
 			isa = PBXGroup;
 			children = (
+				85A3C8381DFC168F00117926 /* CellFlyerAnimator.swift */,
 				85C5EDA81DF989B400B5B122 /* HeroesViewController.swift */,
 				855B90231DFAB91D00DFDC49 /* Hero.swift */,
 				855B90251DFABA1400DFDC49 /* HeroCell.swift */,
@@ -561,10 +561,10 @@
 				855B90241DFAB91D00DFDC49 /* Hero.swift in Sources */,
 				855B901E1DFAB71000DFDC49 /* Album.swift in Sources */,
 				85A3C8351DFBF49A00117926 /* Hero+DictInit.swift in Sources */,
+				85A3C8391DFC168F00117926 /* CellFlyerAnimator.swift in Sources */,
 				855B901F1DFAB71000DFDC49 /* AlbumCell.swift in Sources */,
 				8506BB2A1DFADF84007E627D /* HeroCellMover.swift in Sources */,
 				855B90271DFABA1400DFDC49 /* HeroCell.swift in Sources */,
-				85082E4A1DFB644E00599C47 /* CellFlyerAnimator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

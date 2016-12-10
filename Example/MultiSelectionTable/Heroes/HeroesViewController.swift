@@ -13,11 +13,36 @@ import SDWebImage
 class HeroesViewController : UIViewController {
     
     @IBOutlet weak var multiSelectionTableContainer: UIStackView!
+    @IBOutlet weak var searchTextField: UITextField!
     
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
     
     private var multiSelectionDataSource: MultiSelectionDataSource<Hero>!
     @IBOutlet fileprivate weak var multiSelectionTableView: MultiSelectionTableView!
+
+    @IBAction func clearSearchText() {
+        searchTextField.text = nil
+        searchTextField.resignFirstResponder()
+        searchText = ""
+    }
+    
+    fileprivate var searchText = "" {
+        didSet {
+            searchHeroes()
+        }
+    }
+    
+    fileprivate func searchHeroes() {
+        Hero.all(named: searchText) { [weak self] heroes in
+            self?.allHeroes = heroes
+        }
+    }
+    
+    fileprivate var allHeroes: [Hero] = [] {
+        didSet {
+            multiSelectionDataSource.allItems = allHeroes
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,11 +51,12 @@ class HeroesViewController : UIViewController {
         multiSelectionDataSource.delegate = self
         multiSelectionDataSource.register(nib: UINib(nibName: "HeroCell", bundle: nil), for: "HeroCell")
         
-        Hero.all { [weak self] heroes in
-            self?.multiSelectionDataSource.allItems = heroes
-        }
+        multiSelectionDataSource.allItems = allHeroes
+        searchHeroes()
         
         multiSelectionTableView.dataSource = multiSelectionDataSource
+        multiSelectionTableView.allItemsContentInset = UIEdgeInsets(top: 100, left: 0, bottom: 0, right: 0)
+        multiSelectionTableView.selectedItemsContentInset = UIEdgeInsets(top: 100, left: 0, bottom: 0, right: 0)
         multiSelectionTableView.cellAnimator = CellSelectionPulseAnimator(pulseColor: .black)
         multiSelectionTableView.cellTransitioner = CellFlyerAnimator()
     }
@@ -48,3 +74,13 @@ extension HeroesViewController : MultiSelectionTableDelegate {
     }
     
 }
+
+extension HeroesViewController : UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        searchText = textField.text ?? ""
+        textField.resignFirstResponder()
+        return true
+    }
+}
+

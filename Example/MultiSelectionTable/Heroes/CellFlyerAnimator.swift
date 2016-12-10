@@ -36,9 +36,11 @@ public class CellFlyerAnimator : CellTransitionAnimator {
         guard let cellToDelete = fromTableView.cellForRow(at: fromIndexPath) else { return }
         
         if let movingCell = cellToDelete.contentView.snapshotView(afterScreenUpdates: false) {
-            let greenSquare = UIImageView(image: #imageLiteral(resourceName: "SupermanFlyRight"))
-            greenSquare.frame = CGRect(x: movingCell.frame.midX - 50, y: -40, width: 100, height: 40)
-            movingCell.addSubview(greenSquare)
+            let viewToHide = UIView(frame: CGRect(x: 0, y: 0, width: movingCell.frame.width, height: movingCell.frame.height))
+            movingCell.addSubview(viewToHide)
+            let superman = UIImageView(image: #imageLiteral(resourceName: "SupermanFlyRight"))
+            superman.frame = CGRect(x: -90, y: movingCell.frame.midY - 20, width: 100, height: 40)
+            movingCell.addSubview(superman)
             
             cellToDelete.contentView.isHidden = true
             containerView.addSubview(movingCell)
@@ -46,12 +48,19 @@ public class CellFlyerAnimator : CellTransitionAnimator {
             
             fromTableView.deleteRows(at: [fromIndexPath], with: .top)
             
-            UIView.animate(withDuration: 2, animations: {
+            UIView.animate(withDuration: 1, animations: {
                 movingCell.frame = newCellConvertedFrame
             }, completion: { _ in
-                movingCell.removeFromSuperview()
                 newCellAdded.contentView.isHidden = false
                 cellToDelete.contentView.isHidden = false
+                UIView.animate(withDuration: 1,
+                               animations: {
+                                 superman.frame = superman.frame.offsetBy(dx: 200, dy: 0)
+                               },
+                               completion: { _ in
+                                movingCell.removeFromSuperview()
+                               })
+                viewToHide.isHidden = true
             })
         }
         
@@ -87,9 +96,11 @@ public class CellFlyerAnimator : CellTransitionAnimator {
         guard let cellToDelete = selectedItemsTable.cellForRow(at: indexPath) else { return }
         
         if let movingCell = cellToDelete.contentView.snapshotView(afterScreenUpdates: false) {
-            let greenSquare = UIImageView(image: #imageLiteral(resourceName: "SupermanFlyLeft"))
-            greenSquare.frame = CGRect(x: movingCell.frame.midX - 50, y: -40, width: 100, height: 40)
-            movingCell.addSubview(greenSquare)
+            let viewToHide = UIView(frame: CGRect(x: 0, y: 0, width: movingCell.frame.width, height: movingCell.frame.height))
+            movingCell.addSubview(viewToHide)
+            let superman = UIImageView(image: #imageLiteral(resourceName: "SupermanFlyLeft"))
+            superman.frame = CGRect(x: movingCell.frame.width - 5, y: movingCell.frame.midY - 20, width: 100, height: 40)
+            movingCell.addSubview(superman)
             
             cellToDelete.contentView.isHidden = true
             containerView.addSubview(movingCell)
@@ -97,11 +108,18 @@ public class CellFlyerAnimator : CellTransitionAnimator {
             
             selectedItemsTable.deleteRows(at: [indexPath], with: .top)
             
-            UIView.animate(withDuration: 2, animations: {
+            UIView.animate(withDuration: 1, animations: {
                 movingCell.frame = newCellConvertedFrame
             }, completion: { _ in
-                movingCell.removeFromSuperview()
                 newCellAdded.contentView.isHidden = false
+                UIView.animate(withDuration: 1,
+                               animations: {
+                                superman.frame = superman.frame.offsetBy(dx: -400, dy: 0)
+                },
+                               completion: { _ in
+                                movingCell.removeFromSuperview()
+                })
+                viewToHide.isHidden = true
             })
         }
     }

@@ -66,6 +66,18 @@ public class MultiSelectionTableView : UIView {
         }
     }
     
+    public var allItemsContentInset: UIEdgeInsets = .zero {
+        didSet {
+            allItemsTable.contentInset = allItemsContentInset
+        }
+    }
+    
+    public var selectedItemsContentInset: UIEdgeInsets = .zero {
+        didSet {
+            selectedItemsTable.contentInset = selectedItemsContentInset
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         initialize()

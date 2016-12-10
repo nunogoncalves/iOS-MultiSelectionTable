@@ -65,6 +65,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="mJA-JR-zQW" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="qJX-fh-AOl">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
@@ -108,10 +109,37 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4sm-is-AlY">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="98"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="123"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="JLT-71-tv7">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="98"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="123"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search heroes" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jod-6G-iF4">
+                                            <rect key="frame" x="20" y="88" width="335" height="30"/>
+                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="aJ4-Nu-y1g" id="E4s-G3-o9B"/>
+                                            </connections>
+                                        </textField>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="61b-uF-8k7">
+                                            <rect key="frame" x="309" y="88" width="46" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="14"/>
+                                            <state key="normal" title="X">
+                                                <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="clearSearchText" destination="aJ4-Nu-y1g" eventType="touchUpInside" id="N0R-sr-5zF"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="jod-6G-iF4" firstAttribute="leading" secondItem="JLT-71-tv7" secondAttribute="leading" constant="20" id="XpW-Jn-T3d"/>
+                                        <constraint firstAttribute="trailing" secondItem="jod-6G-iF4" secondAttribute="trailing" constant="20" id="YCj-gt-LGL"/>
+                                        <constraint firstAttribute="bottom" secondItem="jod-6G-iF4" secondAttribute="bottom" constant="5" id="dM2-PJ-y3o"/>
+                                    </constraints>
                                 </view>
                                 <blurEffect style="light"/>
                             </visualEffectView>
@@ -128,7 +156,7 @@
                             <constraint firstItem="SrX-ih-kaX" firstAttribute="top" secondItem="onK-M7-p9g" secondAttribute="bottom" id="OmE-is-YeF"/>
                             <constraint firstItem="4sm-is-AlY" firstAttribute="top" secondItem="onK-M7-p9g" secondAttribute="bottom" constant="-20" id="Um0-Zp-Hun"/>
                             <constraint firstItem="vUu-EY-rCK" firstAttribute="centerX" secondItem="R93-d8-OEm" secondAttribute="centerX" id="ViK-I6-H7Y"/>
-                            <constraint firstItem="4sm-is-AlY" firstAttribute="bottom" secondItem="vUu-EY-rCK" secondAttribute="bottom" id="ZHs-tk-4UW"/>
+                            <constraint firstItem="4sm-is-AlY" firstAttribute="bottom" secondItem="vUu-EY-rCK" secondAttribute="bottom" constant="25" id="ZHs-tk-4UW"/>
                             <constraint firstAttribute="trailing" secondItem="SrX-ih-kaX" secondAttribute="trailing" id="c5e-bM-0f0"/>
                             <constraint firstItem="4sm-is-AlY" firstAttribute="leading" secondItem="R93-d8-OEm" secondAttribute="leading" id="da7-2m-uNQ"/>
                             <constraint firstAttribute="trailing" secondItem="4sm-is-AlY" secondAttribute="trailing" id="ijx-Jb-pb9"/>
@@ -139,6 +167,7 @@
                     <tabBarItem key="tabBarItem" title="Heroes" image="IronManMask" id="wgR-ly-gf1"/>
                     <connections>
                         <outlet property="multiSelectionTableView" destination="SrX-ih-kaX" id="BVJ-eF-BzW"/>
+                        <outlet property="searchTextField" destination="jod-6G-iF4" id="wn9-jf-BJd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NdS-O0-edk" userLabel="First Responder" sceneMemberID="firstResponder"/>

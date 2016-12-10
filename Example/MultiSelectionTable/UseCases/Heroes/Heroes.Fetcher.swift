@@ -12,10 +12,10 @@ struct Heroes {
     
     struct Fetcher {
         
-        static func fetch(got: @escaping ([Hero]) -> ()) {
+        static func fetch(named name: String? = nil, got: @escaping ([Hero]) -> ()) {
             DispatchQueue.global(qos: .userInteractive).async {
                 let urlSession = URLSession(configuration: URLSessionConfiguration.default)
-                let task = urlSession.dataTask(with: buildUrl(0), completionHandler: { (data, response, error) in
+                let task = urlSession.dataTask(with: buildUrl(0, named: name), completionHandler: { (data, response, error) in
                     if let data = data {
                         let characters = convertDataIntoCharacters(data)
                         DispatchQueue.main.async {
@@ -38,15 +38,20 @@ struct Heroes {
             return "\(ts)\(priv)\(pub)".md5
         }
         
-        fileprivate static func buildUrl(_ page: Int) -> URL {
+        fileprivate static func buildUrl(_ page: Int, named name: String? = nil) -> URL {
             let limit = 25
-            return URL(string: "\(charactersUrl)?limit=\(limit)&offset=\(page * limit)&apikey=\(pub)&ts=1&hash=\(hash)")!
+            var urlStr = "\(charactersUrl)?limit=\(limit)&offset=\(page * limit)&apikey=\(pub)&ts=1&hash=\(hash)"
+            if let name = name,
+                !name.characters.isEmpty {
+                urlStr.append("&nameStartsWith=\(name)")
+            }
+            return URL(string: urlStr)!
         }
         
         static func convertDataIntoCharacters(_ data: Data) -> [Hero] {
             do {
                 let dataJSON = try JSONSerialization
-                    .jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers)
+                    .jsonObject(with: data, options: .mutableContainers)
                 let dataDictionary = dataJSON as! NSDictionary
                 let dicCharacters = dataDictionary.value(forKeyPath: "data.results") as! [[String : Any]]
                 

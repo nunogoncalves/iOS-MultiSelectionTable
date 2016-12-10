@@ -13,8 +13,8 @@ struct Hero : Equatable {
     let name: String
     let imageURL: URL
  
-    static func all(finished: @escaping ([Hero]) -> ()) {
-        Heroes.Fetcher.fetch(got: finished)
+    static func all(named name: String? = nil, finished: @escaping ([Hero]) -> ()) {
+        Heroes.Fetcher.fetch(named: name, got: finished)
     }
     
     static func ==(leftHero: Hero, rightHero: Hero) -> Bool {
