@@ -19,7 +19,7 @@ class AlbunsViewController: UIViewController {
     @IBOutlet fileprivate weak var multiSelectionTableView: MultiSelectionTableView!
     
     fileprivate var filteredAlbuns: [Album] = []
-    fileprivate var allAlbums: [Album] = Album.all
+    fileprivate var allAlbums: [Album] = []
     
     @IBAction func textUpdated(_ sender: UITextField) {
         if let searchText = sender.text,
@@ -38,7 +38,10 @@ class AlbunsViewController: UIViewController {
         multiSelectionDataSource.delegate = self
         multiSelectionDataSource.register(nib: UINib(nibName: "AlbumCell", bundle: nil), for: "AlbumCell")
         
-        multiSelectionDataSource.allItems = allAlbums
+        Album.all { [weak self] albums in
+            self?.allAlbums = albums
+            self?.multiSelectionDataSource.allItems = albums
+        }
         
         multiSelectionTableView.dataSource = multiSelectionDataSource
     }
@@ -52,7 +55,7 @@ extension AlbunsViewController : MultiSelectionTableDelegate {
             let album = item as? Album {
             cell.nameLabel.text = album.band.name
             cell.subtitleLabel.text = album.name
-            cell.albumImageView.image = album.cover
+            cell.albumImageView.sd_setImage(with: album.coverImageURL)
             cell.yearLabel.text = "\(album.year)"
         }
     }
