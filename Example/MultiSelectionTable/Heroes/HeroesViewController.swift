@@ -55,10 +55,10 @@ class HeroesViewController : UIViewController {
         searchHeroes()
         
         multiSelectionTableView.dataSource = multiSelectionDataSource
-        multiSelectionTableView.allItemsContentInset = UIEdgeInsets(top: 100, left: 0, bottom: 0, right: 0)
-        multiSelectionTableView.selectedItemsContentInset = UIEdgeInsets(top: 100, left: 0, bottom: 0, right: 0)
+        multiSelectionTableView.allItemsContentInset = UIEdgeInsets(top: 105, left: 0, bottom: 0, right: 0)
+        multiSelectionTableView.selectedItemsContentInset = UIEdgeInsets(top: 105, left: 0, bottom: 0, right: 0)
         multiSelectionTableView.cellAnimator = CellSelectionPulseAnimator(pulseColor: .black)
-        multiSelectionTableView.cellTransitioner = CellFlyerAnimator()
+        multiSelectionTableView.cellTransitioner = HeroFlyerAnimator()
     }
     
 }

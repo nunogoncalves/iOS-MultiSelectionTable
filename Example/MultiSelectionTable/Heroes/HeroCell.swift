@@ -12,6 +12,7 @@ class HeroCell: UITableViewCell {
 
     @IBOutlet weak var heroImageView: UIImageView!
     @IBOutlet weak var heroNameLabel: UILabel!
+    @IBOutlet weak var bottomLine: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,5 +20,6 @@ class HeroCell: UITableViewCell {
 
     override func prepareForReuse() {
         heroImageView.image = nil
+        bottomLine.isHidden = false
     }
 }

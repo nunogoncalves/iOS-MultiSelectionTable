@@ -57,6 +57,7 @@
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <connections>
+                <outlet property="bottomLine" destination="WPq-3n-Eij" id="EUB-Rr-Pqq"/>
                 <outlet property="heroImageView" destination="Rza-Na-pJF" id="tmD-Bn-pz2"/>
                 <outlet property="heroNameLabel" destination="FJF-fa-8tp" id="SO1-Ev-jEe"/>
             </connections>

@@ -69,12 +69,20 @@ public class MultiSelectionTableView : UIView {
     public var allItemsContentInset: UIEdgeInsets = .zero {
         didSet {
             allItemsTable.contentInset = allItemsContentInset
+            allItemsTable.scrollIndicatorInsets = UIEdgeInsets(top: allItemsContentInset.top,
+                                                               left: 0,
+                                                               bottom: 0,
+                                                               right: 0)
         }
     }
     
     public var selectedItemsContentInset: UIEdgeInsets = .zero {
         didSet {
             selectedItemsTable.contentInset = selectedItemsContentInset
+            selectedItemsTable.scrollIndicatorInsets = UIEdgeInsets(top: selectedItemsContentInset.top,
+                                                                    left: 0,
+                                                                    bottom: 0,
+                                                                    right: 0)
         }
     }
     

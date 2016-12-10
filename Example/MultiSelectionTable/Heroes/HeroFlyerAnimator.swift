@@ -8,7 +8,7 @@
 
 import MultiSelectionTableView
 
-public class CellFlyerAnimator : CellTransitionAnimator {
+public class HeroFlyerAnimator : CellTransitionAnimator {
     
     public init() {}
     
@@ -34,8 +34,9 @@ public class CellFlyerAnimator : CellTransitionAnimator {
         let newCellConvertedFrame = newCellAdded.convert(newCellAdded.contentView.frame, to: containerView)
         
         guard let cellToDelete = fromTableView.cellForRow(at: fromIndexPath) else { return }
-        
-        if let movingCell = cellToDelete.contentView.snapshotView(afterScreenUpdates: false) {
+        (cellToDelete as? HeroCell)?.bottomLine.isHidden = true
+
+        if let movingCell = cellToDelete.contentView.snapshotView(afterScreenUpdates: true) {
             let viewToHide = UIView(frame: CGRect(x: 0, y: 0, width: movingCell.frame.width, height: movingCell.frame.height))
             movingCell.addSubview(viewToHide)
             let superman = UIImageView(image: #imageLiteral(resourceName: "SupermanFlyRight"))
@@ -55,7 +56,8 @@ public class CellFlyerAnimator : CellTransitionAnimator {
                 cellToDelete.contentView.isHidden = false
                 UIView.animate(withDuration: 1,
                                animations: {
-                                 superman.frame = superman.frame.offsetBy(dx: 200, dy: 0)
+                                 superman.frame = superman.frame.offsetBy(dx: movingCell.frame.width + superman.frame.width,
+                                                                          dy: 0)
                                },
                                completion: { _ in
                                 movingCell.removeFromSuperview()
@@ -114,7 +116,8 @@ public class CellFlyerAnimator : CellTransitionAnimator {
                 newCellAdded.contentView.isHidden = false
                 UIView.animate(withDuration: 1,
                                animations: {
-                                superman.frame = superman.frame.offsetBy(dx: -400, dy: 0)
+                                superman.frame = superman.frame.offsetBy(dx: -(movingCell.frame.width + superman.frame.width),
+                                                                         dy: 0)
                 },
                                completion: { _ in
                                 movingCell.removeFromSuperview()
