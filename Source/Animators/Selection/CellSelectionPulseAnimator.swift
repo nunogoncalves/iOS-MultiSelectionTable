@@ -6,6 +6,8 @@
 //
 //
 
+import UIKit
+
 public class CellSelectionPulseAnimator : CellSelectionAnimator {
     
     private let pathLayer = CAShapeLayer()
@@ -37,8 +39,8 @@ public class CellSelectionPulseAnimator : CellSelectionAnimator {
         
         let bigCircle = UIBezierPath(arcCenter: startingPoint,
                                      radius: maxRadius,
-                                     startAngle: CGFloat(0),
-                                     endAngle: CGFloat(2 * CGFloat.pi),
+                                     startAngle: 0,
+                                     endAngle: 2 * CGFloat.pi,
                                      clockwise: true)
         
         pathLayer.lineWidth = 0

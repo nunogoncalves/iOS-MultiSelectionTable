@@ -6,6 +6,8 @@
 //
 //
 
+import UIKit
+
 public protocol CellSelectionAnimator {
     func animate(_ cell: UITableViewCell,
                  startingAt origin: CGPoint?,
