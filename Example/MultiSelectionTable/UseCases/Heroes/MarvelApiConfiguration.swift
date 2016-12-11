@@ -10,7 +10,7 @@ import Foundation
 
 struct MarvelApiConfiguration {
     
-    //IMPORTANT: - Add Secret keys MarlvelSecretKeys.plist file at ../../../../Secrets/MarlvelSecretKeys.plist
+    //IMPORTANT: - Add Secret keys MarvelSecretKeys.plist file at ../../../../Secrets/MarvelSecretKeys.plist
     
     static let instance = MarvelApiConfiguration()
     
@@ -18,13 +18,12 @@ struct MarvelApiConfiguration {
     let secretKey: String
     
     private init() {
-        if let pListPath = Bundle.main.path(forResource: "MarlvelSecretKeys", ofType: "plist"),
+        if let pListPath = Bundle.main.path(forResource: "MarvelSecretKeys", ofType: "plist"),
             let content = NSDictionary(contentsOfFile: pListPath) {
             publicKey = content["PublicKey"] as! String
             secretKey = content["SecretKey"] as! String
         } else {
-            publicKey = "MISSING_PUBLIC_KEY ADD IT AT: ../../../../Secrets/MarlvelSecretKeys.plist"
-            secretKey = "MISSING_SECRET_KEY ADD IT AT ../../../../Secrets/MarlvelSecretKeys.plist"
+            fatalError("MarvelSecretKeys.plist. ADD IT AT: ../../../iOS-MultiSelectionTableSecrets/MarvelSecretKeys.plist")
         }
     }
 }
