@@ -30,8 +30,8 @@ struct Heroes {
         }
         
         static let ts = "1"
-        static let pub = MarvelApiConfiguration.instance.publicKey
-        static let priv = MarvelApiConfiguration.instance.secretKey
+        static let pub = "ab781b828ce0d61d8d053bde7d8c3fde"
+        static let priv = "f9490b9557c2e8e7c52b72a632898b63658dcf5b"
         static let charactersUrl = "http://gateway.marvel.com:80/v1/public/characters"
         
         static var hash : String {
