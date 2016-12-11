@@ -18,10 +18,15 @@ public class CellMover : CellTransitionAnimator {
         
         toTableView.insertRows(at: [toIndexPath], with: .top)
         
-        guard let newCellAdded = newlyAddedCell(in: toTableView, with: toIndexPath) else { return }
+        guard let cellToDelete = fromTableView.cellForRow(at: fromIndexPath) else { return }
+        
+        guard let newCellAdded = toTableView.cellForRow(at: toIndexPath) else {
+            fromTableView.deleteRows(at: [fromIndexPath], with: .right)
+            return
+        }
+        
         newCellAdded.contentView.isHidden = true
         
-        guard let cellToDelete = fromTableView.cellForRow(at: fromIndexPath) else { return }
         
         let newCellConvertedFrame = newCellAdded.convert(newCellAdded.contentView.frame, to: containerView)
         
@@ -51,12 +56,16 @@ public class CellMover : CellTransitionAnimator {
         
         toTableView.insertRows(at: [toIndexPath], with: .bottom)
         
-        guard let newCellAdded = newlyAddedCell(in: toTableView, with: toIndexPath) else { return }
+        guard let cellToDelete = fromTableView.cellForRow(at: fromIndexPath) else { return }
+        
+        guard let newCellAdded = toTableView.cellForRow(at: toIndexPath) else {
+            fromTableView.deleteRows(at: [fromIndexPath], with: .left)
+            return
+        }
         newCellAdded.contentView.isHidden = true
         
         let newCellConvertedFrame = newCellAdded.convert(newCellAdded.contentView.frame, to: containerView)
         
-        guard let cellToDelete = fromTableView.cellForRow(at: fromIndexPath) else { return }
         
         if let movingCell = cellToDelete.contentView.snapshotView(afterScreenUpdates: false) {
             cellToDelete.contentView.isHidden = true
@@ -70,6 +79,7 @@ public class CellMover : CellTransitionAnimator {
             }, completion: { _ in
                 movingCell.removeFromSuperview()
                 newCellAdded.contentView.isHidden = false
+                cellToDelete.contentView.isHidden = false
             })
         }
     }
