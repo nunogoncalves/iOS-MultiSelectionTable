@@ -14,7 +14,7 @@ MultiSelectionTableView is a custom view that allows displaying a list of items 
 
   s.ios.deployment_target = '9.0'
 
-  s.source_files = 'MultiSelectionTable/source/**/*'
+  s.source_files = 'Source/**/*'
 
   # s.resource_bundles = {
   #   'MultiSelectionTable' => ['MultiSelectionTable/Assets/*.png']

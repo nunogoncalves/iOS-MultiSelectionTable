@@ -19,5 +19,5 @@
   "platforms": {
     "ios": "9.0"
   },
-  "source_files": "MultiSelectionTable/source/**/*"
+  "source_files": "Source/**/*"
 }
