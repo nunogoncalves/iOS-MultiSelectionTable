@@ -24,6 +24,7 @@ The view is is composed by two configurable ```UITableView``` and a line seperat
 - In order to achieve a nice animation, cells on the right (selected cells) must be equal to the cells on the left (all items cells).
 - The item object you are displaying, must conform with the ```Equatable``` protocol so the control can know where to move the items when unselecting items.
 -You can also paginate and use search on your items list. The table keeps a reference to the selected items. 
+- The Marvel developers API has a 3000 requests limit per day. If this is reached and you can't try the Marvel example, you need to create a developers account to get credentials. Then replace them in ```Heroes.Fetcher.swift``` file
 
 #Usage:
 
