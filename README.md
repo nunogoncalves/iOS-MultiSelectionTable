@@ -115,9 +115,8 @@ pod 'MultiSelectionTable', git: 'https://github.com/nunogoncalves/iOS-MultiSelec
 #### Manually
 Copy the contents of [Source](https://github.com/nunogoncalves/iOS-MultiSelectionTable/tree/master/Source) folder into your project and you're ready to go.
 
-## TODO
-- Expose actions of selected and unselected items
-- Allow seperatorWidthOffset for both left and right animations
+## TODOs
+Missing features and/or bugs can be found in the [Issues](https://github.com/nunogoncalves/iOS-MultiSelectionTable/issues) section.
 
 ## Author
 
