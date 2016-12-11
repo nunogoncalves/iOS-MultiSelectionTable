@@ -199,8 +199,7 @@
 				85C5EDA71DF988CE00B5B122 /* SupportingFiles */,
 				855B902C1DFAC0F600DFDC49 /* UseCases */,
 			);
-			name = "MultiSelectionTable-Example";
-			path = MultiSelectionTable;
+			path = "MultiSelectionTable-Example";
 			sourceTree = "<group>";
 		};
 		85C3152C1DECEFF30095AFA1 /* MultiSelectionTable-ExampleTests */ = {
@@ -768,11 +767,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 9D23XSN84S;
-				INFOPLIST_FILE = MultiSelectionTable/Info.plist;
+				INFOPLIST_FILE = "MultiSelectionTable-Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.numicago.MultiSelectionTable-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = MultiSelectionTable/BridgingHeader.h;
+				SWIFT_OBJC_BRIDGING_HEADER = "MultiSelectionTable-Example/BridgingHeader.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -784,11 +783,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 9D23XSN84S;
-				INFOPLIST_FILE = MultiSelectionTable/Info.plist;
+				INFOPLIST_FILE = "MultiSelectionTable-Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.numicago.MultiSelectionTable-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = MultiSelectionTable/BridgingHeader.h;
+				SWIFT_OBJC_BRIDGING_HEADER = "MultiSelectionTable-Example/BridgingHeader.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
