@@ -108,8 +108,9 @@ it, simply add the following line to your Podfile:
 platform :ios, '9.0'
 use_frameworks!
 
-pod 'MultiSelectionTable', git: 'https://github.com/nunogoncalves/MultiSelectionTable'
+pod 'MultiSelectionTable', git: 'https://github.com/nunogoncalves/iOS-MultiSelectionTable'
 ```
+(Currently **MultiSelectionTable** is still not yet published to Cocoapods, so for now you need to add ```swift git: 'https://github.com/nunogoncalves/iOS-MultiSelectionTable'```.
 
 #### Manually
 Copy the contents of [Source](https://github.com/nunogoncalves/iOS-MultiSelectionTable/tree/master/Source) folder into your project and you're ready to go.
