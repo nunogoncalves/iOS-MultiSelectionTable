@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		083DC8A814EDA4908DF43FCB /* Pods_MultiSelectionTable_ExampleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FC80991D897FF23871D09F8 /* Pods_MultiSelectionTable_ExampleUITests.framework */; };
 		0CCE787197EFF26C705C5111 /* Pods_MultiSelectionTableUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78031806288743039F6E78FC /* Pods_MultiSelectionTableUITests.framework */; };
 		35AE6B93E68E6109393C2B63 /* Pods_MultiSelectionTableTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE7D9414829E14D3B5E86BF7 /* Pods_MultiSelectionTableTests.framework */; };
 		8506BB2A1DFADF84007E627D /* HeroCellMover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8506BB291DFADF84007E627D /* HeroCellMover.swift */; };
@@ -33,7 +34,9 @@
 		85E87C521DFD3D5C00AC83C3 /* Network.Get.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E87C511DFD3D5C00AC83C3 /* Network.Get.swift */; };
 		85E87C551DFD55DA00AC83C3 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E87C541DFD55DA00AC83C3 /* Result.swift */; };
 		85E87C571DFD58FE00AC83C3 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E87C561DFD58FE00AC83C3 /* NetworkError.swift */; };
+		C2186B450DA9D2F446084FCC /* Pods_MultiSelectionTable_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6608BF1C44187C43030F1FA /* Pods_MultiSelectionTable_Example.framework */; };
 		EF612445992E66F568DE0B67 /* Pods_MultiSelectionTable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C74DAA1C00F5423DE7213C3B /* Pods_MultiSelectionTable.framework */; };
+		F75F01950EA7D5C6A402A6DB /* Pods_MultiSelectionTable_ExampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E49C9FBB8A5E5669AE6BB74 /* Pods_MultiSelectionTable_ExampleTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +57,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04E28EE39840BC7A783A4A81 /* Pods-MultiSelectionTable-ExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MultiSelectionTable-ExampleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MultiSelectionTable-ExampleTests/Pods-MultiSelectionTable-ExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
+		0FC80991D897FF23871D09F8 /* Pods_MultiSelectionTable_ExampleUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MultiSelectionTable_ExampleUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		17238327CDE929903BC724D8 /* Pods-MultiSelectionTable-ExampleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MultiSelectionTable-ExampleUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MultiSelectionTable-ExampleUITests/Pods-MultiSelectionTable-ExampleUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		3A017AF82C67089053006C9A /* Pods-MultiSelectionTable.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MultiSelectionTable.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MultiSelectionTable/Pods-MultiSelectionTable.debug.xcconfig"; sourceTree = "<group>"; };
+		3E49C9FBB8A5E5669AE6BB74 /* Pods_MultiSelectionTable_ExampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MultiSelectionTable_ExampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		404D5BB7678803202E62E8CA /* Pods-MultiSelectionTable-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MultiSelectionTable-Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-MultiSelectionTable-Example/Pods-MultiSelectionTable-Example.release.xcconfig"; sourceTree = "<group>"; };
 		4A95BD964DDA5B5FF09A934A /* Pods-MultiSelectionTableUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MultiSelectionTableUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MultiSelectionTableUITests/Pods-MultiSelectionTableUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		6A4EACF15959F8CD1E3D13E4 /* Pods-MultiSelectionTableUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MultiSelectionTableUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MultiSelectionTableUITests/Pods-MultiSelectionTableUITests.release.xcconfig"; sourceTree = "<group>"; };
 		78031806288743039F6E78FC /* Pods_MultiSelectionTableUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MultiSelectionTableUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,27 +81,31 @@
 		85A3C8341DFBF49A00117926 /* Hero+DictInit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Hero+DictInit.swift"; path = "Heroes/Hero+DictInit.swift"; sourceTree = "<group>"; };
 		85A3C8361DFBF91200117926 /* Album+DictInit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Album+DictInit.swift"; path = "Albums/Album+DictInit.swift"; sourceTree = "<group>"; };
 		85A3C8381DFC168F00117926 /* HeroFlyerAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeroFlyerAnimator.swift; path = Heroes/HeroFlyerAnimator.swift; sourceTree = "<group>"; };
-		85C315121DECEFF30095AFA1 /* MultiSelectionTable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiSelectionTable.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		85C315121DECEFF30095AFA1 /* MultiSelectionTable-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MultiSelectionTable-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		85C315151DECEFF30095AFA1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85C3151A1DECEFF30095AFA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		85C3151F1DECEFF30095AFA1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		85C315221DECEFF30095AFA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		85C315241DECEFF30095AFA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		85C315291DECEFF30095AFA1 /* MultiSelectionTableTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MultiSelectionTableTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		85C315291DECEFF30095AFA1 /* MultiSelectionTable-ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MultiSelectionTable-ExampleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		85C3152D1DECEFF30095AFA1 /* MultiSelectionTableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelectionTableTests.swift; sourceTree = "<group>"; };
 		85C3152F1DECEFF30095AFA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		85C315341DECEFF30095AFA1 /* MultiSelectionTableUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MultiSelectionTableUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		85C315341DECEFF30095AFA1 /* MultiSelectionTable-ExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MultiSelectionTable-ExampleUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		85C315381DECEFF30095AFA1 /* MultiSelectionTableUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelectionTableUITests.swift; sourceTree = "<group>"; };
 		85C3153A1DECEFF30095AFA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		85C5EDA81DF989B400B5B122 /* HeroesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeroesViewController.swift; path = Heroes/HeroesViewController.swift; sourceTree = "<group>"; };
 		85E87C511DFD3D5C00AC83C3 /* Network.Get.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Network.Get.swift; path = UseCases/Network/Network.Get.swift; sourceTree = "<group>"; };
 		85E87C541DFD55DA00AC83C3 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Result.swift; path = Models/Result.swift; sourceTree = "<group>"; };
 		85E87C561DFD58FE00AC83C3 /* NetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkError.swift; path = Models/NetworkError.swift; sourceTree = "<group>"; };
+		A30C2E406D85C1EDF4D0DD39 /* Pods-MultiSelectionTable-ExampleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MultiSelectionTable-ExampleUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MultiSelectionTable-ExampleUITests/Pods-MultiSelectionTable-ExampleUITests.release.xcconfig"; sourceTree = "<group>"; };
+		A6608BF1C44187C43030F1FA /* Pods_MultiSelectionTable_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MultiSelectionTable_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8F77902CE6FA92D48F83591 /* Pods-MultiSelectionTable-ExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MultiSelectionTable-ExampleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MultiSelectionTable-ExampleTests/Pods-MultiSelectionTable-ExampleTests.release.xcconfig"; sourceTree = "<group>"; };
 		C262E671D2FFA4765D00586B /* Pods-MultiSelectionTableTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MultiSelectionTableTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MultiSelectionTableTests/Pods-MultiSelectionTableTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C2FA110E208BC064ECD27E5A /* Pods-MultiSelectionTableTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MultiSelectionTableTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MultiSelectionTableTests/Pods-MultiSelectionTableTests.release.xcconfig"; sourceTree = "<group>"; };
 		C74DAA1C00F5423DE7213C3B /* Pods_MultiSelectionTable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MultiSelectionTable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9CE32EF8AC099B7534C90F3 /* Pods-MultiSelectionTable.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MultiSelectionTable.release.xcconfig"; path = "Pods/Target Support Files/Pods-MultiSelectionTable/Pods-MultiSelectionTable.release.xcconfig"; sourceTree = "<group>"; };
 		EE7D9414829E14D3B5E86BF7 /* Pods_MultiSelectionTableTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MultiSelectionTableTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F973B0A7B59C2F44BCB54D76 /* Pods-MultiSelectionTable-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MultiSelectionTable-Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MultiSelectionTable-Example/Pods-MultiSelectionTable-Example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +114,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF612445992E66F568DE0B67 /* Pods_MultiSelectionTable.framework in Frameworks */,
+				C2186B450DA9D2F446084FCC /* Pods_MultiSelectionTable_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +123,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				35AE6B93E68E6109393C2B63 /* Pods_MultiSelectionTableTests.framework in Frameworks */,
+				F75F01950EA7D5C6A402A6DB /* Pods_MultiSelectionTable_ExampleTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,6 +132,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0CCE787197EFF26C705C5111 /* Pods_MultiSelectionTableUITests.framework in Frameworks */,
+				083DC8A814EDA4908DF43FCB /* Pods_MultiSelectionTable_ExampleUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,9 +168,9 @@
 		85C315091DECEFF30095AFA1 = {
 			isa = PBXGroup;
 			children = (
-				85C315141DECEFF30095AFA1 /* MultiSelectionTable */,
-				85C3152C1DECEFF30095AFA1 /* MultiSelectionTableTests */,
-				85C315371DECEFF30095AFA1 /* MultiSelectionTableUITests */,
+				85C315141DECEFF30095AFA1 /* MultiSelectionTable-Example */,
+				85C3152C1DECEFF30095AFA1 /* MultiSelectionTable-ExampleTests */,
+				85C315371DECEFF30095AFA1 /* MultiSelectionTable-ExampleUITests */,
 				85C315131DECEFF30095AFA1 /* Products */,
 				A2E4FF55415126224867CEFD /* Pods */,
 				A2D58FB8AA8262B86B675A7E /* Frameworks */,
@@ -165,14 +180,14 @@
 		85C315131DECEFF30095AFA1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				85C315121DECEFF30095AFA1 /* MultiSelectionTable.app */,
-				85C315291DECEFF30095AFA1 /* MultiSelectionTableTests.xctest */,
-				85C315341DECEFF30095AFA1 /* MultiSelectionTableUITests.xctest */,
+				85C315121DECEFF30095AFA1 /* MultiSelectionTable-Example.app */,
+				85C315291DECEFF30095AFA1 /* MultiSelectionTable-ExampleTests.xctest */,
+				85C315341DECEFF30095AFA1 /* MultiSelectionTable-ExampleUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		85C315141DECEFF30095AFA1 /* MultiSelectionTable */ = {
+		85C315141DECEFF30095AFA1 /* MultiSelectionTable-Example */ = {
 			isa = PBXGroup;
 			children = (
 				85C5EDA51DF9888900B5B122 /* Albuns */,
@@ -184,24 +199,26 @@
 				85C5EDA71DF988CE00B5B122 /* SupportingFiles */,
 				855B902C1DFAC0F600DFDC49 /* UseCases */,
 			);
-			path = MultiSelectionTable;
+			path = "MultiSelectionTable-Example";
 			sourceTree = "<group>";
 		};
-		85C3152C1DECEFF30095AFA1 /* MultiSelectionTableTests */ = {
+		85C3152C1DECEFF30095AFA1 /* MultiSelectionTable-ExampleTests */ = {
 			isa = PBXGroup;
 			children = (
 				85C3152D1DECEFF30095AFA1 /* MultiSelectionTableTests.swift */,
 				85C3152F1DECEFF30095AFA1 /* Info.plist */,
 			);
+			name = "MultiSelectionTable-ExampleTests";
 			path = MultiSelectionTableTests;
 			sourceTree = "<group>";
 		};
-		85C315371DECEFF30095AFA1 /* MultiSelectionTableUITests */ = {
+		85C315371DECEFF30095AFA1 /* MultiSelectionTable-ExampleUITests */ = {
 			isa = PBXGroup;
 			children = (
 				85C315381DECEFF30095AFA1 /* MultiSelectionTableUITests.swift */,
 				85C3153A1DECEFF30095AFA1 /* Info.plist */,
 			);
+			name = "MultiSelectionTable-ExampleUITests";
 			path = MultiSelectionTableUITests;
 			sourceTree = "<group>";
 		};
@@ -265,6 +282,9 @@
 				C74DAA1C00F5423DE7213C3B /* Pods_MultiSelectionTable.framework */,
 				EE7D9414829E14D3B5E86BF7 /* Pods_MultiSelectionTableTests.framework */,
 				78031806288743039F6E78FC /* Pods_MultiSelectionTableUITests.framework */,
+				A6608BF1C44187C43030F1FA /* Pods_MultiSelectionTable_Example.framework */,
+				3E49C9FBB8A5E5669AE6BB74 /* Pods_MultiSelectionTable_ExampleTests.framework */,
+				0FC80991D897FF23871D09F8 /* Pods_MultiSelectionTable_ExampleUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -278,6 +298,12 @@
 				C2FA110E208BC064ECD27E5A /* Pods-MultiSelectionTableTests.release.xcconfig */,
 				4A95BD964DDA5B5FF09A934A /* Pods-MultiSelectionTableUITests.debug.xcconfig */,
 				6A4EACF15959F8CD1E3D13E4 /* Pods-MultiSelectionTableUITests.release.xcconfig */,
+				F973B0A7B59C2F44BCB54D76 /* Pods-MultiSelectionTable-Example.debug.xcconfig */,
+				404D5BB7678803202E62E8CA /* Pods-MultiSelectionTable-Example.release.xcconfig */,
+				04E28EE39840BC7A783A4A81 /* Pods-MultiSelectionTable-ExampleTests.debug.xcconfig */,
+				B8F77902CE6FA92D48F83591 /* Pods-MultiSelectionTable-ExampleTests.release.xcconfig */,
+				17238327CDE929903BC724D8 /* Pods-MultiSelectionTable-ExampleUITests.debug.xcconfig */,
+				A30C2E406D85C1EDF4D0DD39 /* Pods-MultiSelectionTable-ExampleUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -285,9 +311,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		85C315111DECEFF30095AFA1 /* MultiSelectionTable */ = {
+		85C315111DECEFF30095AFA1 /* MultiSelectionTable-Example */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 85C3153D1DECEFF30095AFA1 /* Build configuration list for PBXNativeTarget "MultiSelectionTable" */;
+			buildConfigurationList = 85C3153D1DECEFF30095AFA1 /* Build configuration list for PBXNativeTarget "MultiSelectionTable-Example" */;
 			buildPhases = (
 				7CE01BB8A7D472CAF6F4B668 /* [CP] Check Pods Manifest.lock */,
 				85C3150E1DECEFF30095AFA1 /* Sources */,
@@ -300,14 +326,14 @@
 			);
 			dependencies = (
 			);
-			name = MultiSelectionTable;
+			name = "MultiSelectionTable-Example";
 			productName = MultiSelectionTable;
-			productReference = 85C315121DECEFF30095AFA1 /* MultiSelectionTable.app */;
+			productReference = 85C315121DECEFF30095AFA1 /* MultiSelectionTable-Example.app */;
 			productType = "com.apple.product-type.application";
 		};
-		85C315281DECEFF30095AFA1 /* MultiSelectionTableTests */ = {
+		85C315281DECEFF30095AFA1 /* MultiSelectionTable-ExampleTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 85C315401DECEFF30095AFA1 /* Build configuration list for PBXNativeTarget "MultiSelectionTableTests" */;
+			buildConfigurationList = 85C315401DECEFF30095AFA1 /* Build configuration list for PBXNativeTarget "MultiSelectionTable-ExampleTests" */;
 			buildPhases = (
 				E8DD9FAA516BB96BBC3813B3 /* [CP] Check Pods Manifest.lock */,
 				85C315251DECEFF30095AFA1 /* Sources */,
@@ -321,14 +347,14 @@
 			dependencies = (
 				85C3152B1DECEFF30095AFA1 /* PBXTargetDependency */,
 			);
-			name = MultiSelectionTableTests;
+			name = "MultiSelectionTable-ExampleTests";
 			productName = MultiSelectionTableTests;
-			productReference = 85C315291DECEFF30095AFA1 /* MultiSelectionTableTests.xctest */;
+			productReference = 85C315291DECEFF30095AFA1 /* MultiSelectionTable-ExampleTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		85C315331DECEFF30095AFA1 /* MultiSelectionTableUITests */ = {
+		85C315331DECEFF30095AFA1 /* MultiSelectionTable-ExampleUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 85C315431DECEFF30095AFA1 /* Build configuration list for PBXNativeTarget "MultiSelectionTableUITests" */;
+			buildConfigurationList = 85C315431DECEFF30095AFA1 /* Build configuration list for PBXNativeTarget "MultiSelectionTable-ExampleUITests" */;
 			buildPhases = (
 				F6D27EBF830FFDF00C7DB428 /* [CP] Check Pods Manifest.lock */,
 				85C315301DECEFF30095AFA1 /* Sources */,
@@ -342,9 +368,9 @@
 			dependencies = (
 				85C315361DECEFF30095AFA1 /* PBXTargetDependency */,
 			);
-			name = MultiSelectionTableUITests;
+			name = "MultiSelectionTable-ExampleUITests";
 			productName = MultiSelectionTableUITests;
-			productReference = 85C315341DECEFF30095AFA1 /* MultiSelectionTableUITests.xctest */;
+			productReference = 85C315341DECEFF30095AFA1 /* MultiSelectionTable-ExampleUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -359,7 +385,6 @@
 				TargetAttributes = {
 					85C315111DECEFF30095AFA1 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = 9D23XSN84S;
 						ProvisioningStyle = Automatic;
 					};
 					85C315281DECEFF30095AFA1 = {
@@ -376,7 +401,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 85C3150D1DECEFF30095AFA1 /* Build configuration list for PBXProject "MultiSelectionTable" */;
+			buildConfigurationList = 85C3150D1DECEFF30095AFA1 /* Build configuration list for PBXProject "MultiSelectionTable-Example" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -389,9 +414,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				85C315111DECEFF30095AFA1 /* MultiSelectionTable */,
-				85C315281DECEFF30095AFA1 /* MultiSelectionTableTests */,
-				85C315331DECEFF30095AFA1 /* MultiSelectionTableUITests */,
+				85C315111DECEFF30095AFA1 /* MultiSelectionTable-Example */,
+				85C315281DECEFF30095AFA1 /* MultiSelectionTable-ExampleTests */,
+				85C315331DECEFF30095AFA1 /* MultiSelectionTable-ExampleUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -438,7 +463,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MultiSelectionTableTests/Pods-MultiSelectionTableTests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MultiSelectionTable-ExampleTests/Pods-MultiSelectionTable-ExampleTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		0DFD6AE8B719936C95A820B3 /* [CP] Embed Pods Frameworks */ = {
@@ -453,7 +478,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MultiSelectionTable/Pods-MultiSelectionTable-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MultiSelectionTable-Example/Pods-MultiSelectionTable-Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		16D9900FA8C12C162B525763 /* [CP] Copy Pods Resources */ = {
@@ -468,7 +493,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MultiSelectionTableUITests/Pods-MultiSelectionTableUITests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MultiSelectionTable-ExampleUITests/Pods-MultiSelectionTable-ExampleUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		4BACF1752FFF1C45DCE24DC9 /* [CP] Embed Pods Frameworks */ = {
@@ -483,7 +508,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MultiSelectionTableUITests/Pods-MultiSelectionTableUITests-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MultiSelectionTable-ExampleUITests/Pods-MultiSelectionTable-ExampleUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		78CA5AC45450793EE0EA5989 /* [CP] Embed Pods Frameworks */ = {
@@ -498,7 +523,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MultiSelectionTableTests/Pods-MultiSelectionTableTests-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MultiSelectionTable-ExampleTests/Pods-MultiSelectionTable-ExampleTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		7CE01BB8A7D472CAF6F4B668 /* [CP] Check Pods Manifest.lock */ = {
@@ -528,7 +553,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MultiSelectionTable/Pods-MultiSelectionTable-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MultiSelectionTable-Example/Pods-MultiSelectionTable-Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E8DD9FAA516BB96BBC3813B3 /* [CP] Check Pods Manifest.lock */ = {
@@ -609,12 +634,12 @@
 /* Begin PBXTargetDependency section */
 		85C3152B1DECEFF30095AFA1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 85C315111DECEFF30095AFA1 /* MultiSelectionTable */;
+			target = 85C315111DECEFF30095AFA1 /* MultiSelectionTable-Example */;
 			targetProxy = 85C3152A1DECEFF30095AFA1 /* PBXContainerItemProxy */;
 		};
 		85C315361DECEFF30095AFA1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 85C315111DECEFF30095AFA1 /* MultiSelectionTable */;
+			target = 85C315111DECEFF30095AFA1 /* MultiSelectionTable-Example */;
 			targetProxy = 85C315351DECEFF30095AFA1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -736,39 +761,39 @@
 		};
 		85C3153E1DECEFF30095AFA1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3A017AF82C67089053006C9A /* Pods-MultiSelectionTable.debug.xcconfig */;
+			baseConfigurationReference = F973B0A7B59C2F44BCB54D76 /* Pods-MultiSelectionTable-Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 9D23XSN84S;
-				INFOPLIST_FILE = MultiSelectionTable/Info.plist;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = "MultiSelectionTable-Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.numicago.MultiSelectionTable;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.numicago.MultiSelectionTable-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = MultiSelectionTable/BridgingHeader.h;
+				SWIFT_OBJC_BRIDGING_HEADER = "MultiSelectionTable-Example/BridgingHeader.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		85C3153F1DECEFF30095AFA1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C9CE32EF8AC099B7534C90F3 /* Pods-MultiSelectionTable.release.xcconfig */;
+			baseConfigurationReference = 404D5BB7678803202E62E8CA /* Pods-MultiSelectionTable-Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 9D23XSN84S;
-				INFOPLIST_FILE = MultiSelectionTable/Info.plist;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = "MultiSelectionTable-Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.numicago.MultiSelectionTable;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.numicago.MultiSelectionTable-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = MultiSelectionTable/BridgingHeader.h;
+				SWIFT_OBJC_BRIDGING_HEADER = "MultiSelectionTable-Example/BridgingHeader.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
 		85C315411DECEFF30095AFA1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C262E671D2FFA4765D00586B /* Pods-MultiSelectionTableTests.debug.xcconfig */;
+			baseConfigurationReference = 04E28EE39840BC7A783A4A81 /* Pods-MultiSelectionTable-ExampleTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -778,13 +803,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.numicago.MultiSelectionTableTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MultiSelectionTable.app/MultiSelectionTable";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MultiSelectionTable-Example.app/MultiSelectionTable-Example";
 			};
 			name = Debug;
 		};
 		85C315421DECEFF30095AFA1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C2FA110E208BC064ECD27E5A /* Pods-MultiSelectionTableTests.release.xcconfig */;
+			baseConfigurationReference = B8F77902CE6FA92D48F83591 /* Pods-MultiSelectionTable-ExampleTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -794,13 +819,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.numicago.MultiSelectionTableTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MultiSelectionTable.app/MultiSelectionTable";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MultiSelectionTable-Example.app/MultiSelectionTable-Example";
 			};
 			name = Release;
 		};
 		85C315441DECEFF30095AFA1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4A95BD964DDA5B5FF09A934A /* Pods-MultiSelectionTableUITests.debug.xcconfig */;
+			baseConfigurationReference = 17238327CDE929903BC724D8 /* Pods-MultiSelectionTable-ExampleUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 9D23XSN84S;
@@ -815,7 +840,7 @@
 		};
 		85C315451DECEFF30095AFA1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6A4EACF15959F8CD1E3D13E4 /* Pods-MultiSelectionTableUITests.release.xcconfig */;
+			baseConfigurationReference = A30C2E406D85C1EDF4D0DD39 /* Pods-MultiSelectionTable-ExampleUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 9D23XSN84S;
@@ -831,7 +856,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		85C3150D1DECEFF30095AFA1 /* Build configuration list for PBXProject "MultiSelectionTable" */ = {
+		85C3150D1DECEFF30095AFA1 /* Build configuration list for PBXProject "MultiSelectionTable-Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				85C3153B1DECEFF30095AFA1 /* Debug */,
@@ -840,7 +865,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		85C3153D1DECEFF30095AFA1 /* Build configuration list for PBXNativeTarget "MultiSelectionTable" */ = {
+		85C3153D1DECEFF30095AFA1 /* Build configuration list for PBXNativeTarget "MultiSelectionTable-Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				85C3153E1DECEFF30095AFA1 /* Debug */,
@@ -849,7 +874,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		85C315401DECEFF30095AFA1 /* Build configuration list for PBXNativeTarget "MultiSelectionTableTests" */ = {
+		85C315401DECEFF30095AFA1 /* Build configuration list for PBXNativeTarget "MultiSelectionTable-ExampleTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				85C315411DECEFF30095AFA1 /* Debug */,
@@ -858,7 +883,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		85C315431DECEFF30095AFA1 /* Build configuration list for PBXNativeTarget "MultiSelectionTableUITests" */ = {
+		85C315431DECEFF30095AFA1 /* Build configuration list for PBXNativeTarget "MultiSelectionTable-ExampleUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				85C315441DECEFF30095AFA1 /* Debug */,
