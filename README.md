@@ -128,7 +128,8 @@ Nuno Gonçalves
 | nunogoncalves | @goncalvescmnuno |
 
 ## Contribute
-Feel free to contribute to **MultiSelectionTable**
+Feel free to contribute to **MultiSelectionTable**.
+Check [Issues](https://github.com/nunogoncalves/iOS-MultiSelectionTable/issues) before asking something or adding some contribuition that's already being done.
 
 ## Licence
 
