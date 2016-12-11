@@ -286,7 +286,8 @@ public class MultiSelectionTableView : UIView {
         cellTransitioner.unselectionTransition(in: self,
                                                fromTableView: selectedItemsTable,
                                                fromIndexPath: indexPathToRemove,
-                                               toTableView: allItemsTable, toIndexPath: newIndexPath)
+                                               toTableView: allItemsTable,
+                                               toIndexPath: newIndexPath)
     }
     
     func removeFromSelected(at index: Int) {
