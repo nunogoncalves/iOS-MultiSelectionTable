@@ -16,19 +16,20 @@ Beautifull way of having a multi-selection table on iOS
 
 Based on [this](https://dribbble.com/shots/2904577-Multi-Selection-Experiment) dribbble by [Vitaly Rubtsov](https://dribbble.com/Vitwai)
 
-#How it works:
+## How it works:
 ```MultiSelectionTable``` underneath is composed of a view and a data source, much like the ```UITableView```'s ```UITableViewDataSource/Delegate```. They both know each other and communicate between themselves.
 The view is is composed by two configurable ```UITableView``` and a line seperating them. The DataSource keeps the data the ```UITableView```s display. 
 
-#####Considerations: 
-- In order to achieve a nice animation, cells on the right (selected cells) must be equal to the cells on the left (all items cells).
+## Considerations: 
+(before Usage, pay attention to the following considerations)
+- In order to achieve a nice effect when transitioning, cells on the right (selected cells) must be equal to the cells on the left (all items cells).
 - The item object you are displaying, must conform with the ```Equatable``` protocol so the control can know where to move the items when unselecting items.
 -You can also paginate and use search on your items list. The table keeps a reference to the selected items. 
 - The Marvel developers API has a 3000 requests limit per day. If this is reached and you can't try the Marvel example, you need to create a developers account to get credentials. Then replace them in ```Heroes.Fetcher.swift``` file
 
-#Usage:
+## Usage:
 
-Most basic usage:
+### Most basic usage:
 
 Considering you are using MultiSelectionTableView in ViewController:
 
@@ -64,9 +65,9 @@ extension ViewController : MultiSelectionTableDelegate {
         }
     }
     
-}
-    
+} 
 ```
+
 ### Configuration
 #### Colors style
 ```swift
@@ -74,7 +75,6 @@ multiSelectionTableView.controlBackgroundColor = .black
 multiSelectionTableView.allItemsTableBackgroundColor = .black
 multiSelectionTableView.selectedItemsTableBackgroundColor = .black
 ```
-
 #### Horizontal movement width: 
 Depending on your cell, you might want to set the horizontal width the line moves. This value is based on the center X anchor. 
 ```swift
@@ -94,15 +94,22 @@ You can check out the animator examples.
 
 ## Installation
 
-**MultiSelectionTable** is available through [CocoaPods](http://cocoapods.org). To install
+#### Cocoapods
+
+MultiSelectionTable is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
+platform :ios, '9.0'
+use_frameworks!
+
 pod 'MultiSelectionTable', git: 'https://github.com/nunogoncalves/MultiSelectionTable'
 ```
 
+#### Manually
+Copy the contents of [Source](https://github.com/nunogoncalves/iOS-MultiSelectionTable/tree/master/Source) folder into your project and you're ready to go.
 
-### TODO
+## TODO
 - Expose actions of selected and unselected items
 - Allow seperatorWidthOffset for both left and right animations
 
@@ -114,6 +121,6 @@ Nuno Gonçalves
 |:-------------:|:-------------:|
 | nunogoncalves | @goncalvescmnuno |
 
-##Licence
+## Licence
 
 **iOS-MultiSelectionTable** is available under the MIT license. See the [LICENSE](https://github.com/nunogoncalves/iOS-MultiSelectionTable/blob/master/LICENSE.md) file for more info.
