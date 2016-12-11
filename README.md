@@ -92,6 +92,11 @@ multiSelectionTableView.cellTransitioner = CellFlyerAnimator() // Must conform t
 ```
 You can check out the animator examples.
 
+## Requirements
+
+- iOS 9.0+
+- Xcode 8.0+
+
 ## Installation
 
 #### Cocoapods
@@ -120,6 +125,9 @@ Nuno Gonçalves
 |<img src="https://cdn0.iconfinder.com/data/icons/octicons/1024/mark-github-128.png" height="20px">|<img src="https://cdn1.iconfinder.com/data/icons/logotypes/32/twitter-128.png" height="20px">
 |:-------------:|:-------------:|
 | nunogoncalves | @goncalvescmnuno |
+
+## Contribute
+Feel free to contribute to **MultiSelectionTable**
 
 ## Licence
 
