@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_MultiSelectionTableUITestsVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_MultiSelectionTableUITestsVersionString[];
+FOUNDATION_EXPORT double Pods_MultiSelectionTable_ExampleVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_MultiSelectionTable_ExampleVersionString[];
 

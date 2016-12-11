@@ -1,0 +1,6 @@
+framework module Pods_MultiSelectionTable_Example {
+  umbrella header "Pods-MultiSelectionTable-Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

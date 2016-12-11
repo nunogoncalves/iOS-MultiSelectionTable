@@ -12,7 +12,7 @@
         <!--Albuns-->
         <scene sceneID="WGu-Qp-ede">
             <objects>
-                <viewController storyboardIdentifier="AlbunsViewController" id="wwJ-Jc-SVD" customClass="AlbunsViewController" customModule="MultiSelectionTable" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AlbunsViewController" id="wwJ-Jc-SVD" customClass="AlbunsViewController" customModule="MultiSelectionTable_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2ym-ub-Ufv"/>
                         <viewControllerLayoutGuide type="bottom" id="Uwz-1U-gXq"/>
@@ -81,7 +81,7 @@
         <!--Heroes-->
         <scene sceneID="WVW-lG-wjj">
             <objects>
-                <viewController storyboardIdentifier="HeroesViewController" id="aJ4-Nu-y1g" customClass="HeroesViewController" customModule="MultiSelectionTable" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HeroesViewController" id="aJ4-Nu-y1g" customClass="HeroesViewController" customModule="MultiSelectionTable_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="onK-M7-p9g"/>
                         <viewControllerLayoutGuide type="bottom" id="WIR-ce-m9l"/>

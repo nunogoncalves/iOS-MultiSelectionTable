@@ -9,17 +9,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-MultiSelectionTable.xcscheme</key>
+		<key>Pods-MultiSelectionTable-Example.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-MultiSelectionTableTests.xcscheme</key>
+		<key>Pods-MultiSelectionTable-ExampleTests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-MultiSelectionTableUITests.xcscheme</key>
+		<key>Pods-MultiSelectionTable-ExampleUITests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -32,17 +32,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>147BB07DB1334294005D8C723C58BE88</key>
+		<key>17A3A128579FC213CE8E840238F5F750</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>60A81DD0C7BD86C7600ADA963F5637B9</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>6A0312D2440F9DF62DF90D67819C6BAB</key>
+		<key>4F33F3099962E7BDDD502B2589121E6E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -52,7 +47,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>83CC47B8CB45DA8C7FC459D0ADAA5131</key>
+		<key>D015FE76ECC73ED38C2718952A3472A7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FF353879DF2A6602536F69FCBA0D30B6</key>
 		<dict>
 			<key>primary</key>
 			<true/>

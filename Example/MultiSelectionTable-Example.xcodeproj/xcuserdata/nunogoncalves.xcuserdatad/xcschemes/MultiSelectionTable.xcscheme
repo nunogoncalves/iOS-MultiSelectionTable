@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "85C315111DECEFF30095AFA1"
-               BuildableName = "MultiSelectionTable.app"
-               BlueprintName = "MultiSelectionTable"
-               ReferencedContainer = "container:MultiSelectionTable.xcodeproj">
+               BuildableName = "MultiSelectionTable-Example.app"
+               BlueprintName = "MultiSelectionTable-Example"
+               ReferencedContainer = "container:MultiSelectionTable-Example.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "85C315281DECEFF30095AFA1"
-               BuildableName = "MultiSelectionTableTests.xctest"
-               BlueprintName = "MultiSelectionTableTests"
-               ReferencedContainer = "container:MultiSelectionTable.xcodeproj">
+               BuildableName = "MultiSelectionTable-ExampleTests.xctest"
+               BlueprintName = "MultiSelectionTable-ExampleTests"
+               ReferencedContainer = "container:MultiSelectionTable-Example.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "85C315331DECEFF30095AFA1"
-               BuildableName = "MultiSelectionTableUITests.xctest"
-               BlueprintName = "MultiSelectionTableUITests"
-               ReferencedContainer = "container:MultiSelectionTable.xcodeproj">
+               BuildableName = "MultiSelectionTable-ExampleUITests.xctest"
+               BlueprintName = "MultiSelectionTable-ExampleUITests"
+               ReferencedContainer = "container:MultiSelectionTable-Example.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -53,9 +53,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "85C315111DECEFF30095AFA1"
-            BuildableName = "MultiSelectionTable.app"
-            BlueprintName = "MultiSelectionTable"
-            ReferencedContainer = "container:MultiSelectionTable.xcodeproj">
+            BuildableName = "MultiSelectionTable-Example.app"
+            BlueprintName = "MultiSelectionTable-Example"
+            ReferencedContainer = "container:MultiSelectionTable-Example.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -76,9 +76,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "85C315111DECEFF30095AFA1"
-            BuildableName = "MultiSelectionTable.app"
-            BlueprintName = "MultiSelectionTable"
-            ReferencedContainer = "container:MultiSelectionTable.xcodeproj">
+            BuildableName = "MultiSelectionTable-Example.app"
+            BlueprintName = "MultiSelectionTable-Example"
+            ReferencedContainer = "container:MultiSelectionTable-Example.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <EnvironmentVariables>
@@ -102,9 +102,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "85C315111DECEFF30095AFA1"
-            BuildableName = "MultiSelectionTable.app"
-            BlueprintName = "MultiSelectionTable"
-            ReferencedContainer = "container:MultiSelectionTable.xcodeproj">
+            BuildableName = "MultiSelectionTable-Example.app"
+            BlueprintName = "MultiSelectionTable-Example"
+            ReferencedContainer = "container:MultiSelectionTable-Example.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
