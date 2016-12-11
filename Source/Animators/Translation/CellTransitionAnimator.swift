@@ -6,6 +6,8 @@
 //
 //
 
+import UIKit
+
 public protocol CellTransitionAnimator {
     func selectionTransition(in containerView: UIView,
                              fromTableView: UITableView,

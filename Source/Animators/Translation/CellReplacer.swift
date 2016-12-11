@@ -6,6 +6,8 @@
 //
 //
 
+import UIKit
+
 public class CellReplacer : CellTransitionAnimator {
     
     public init() {}

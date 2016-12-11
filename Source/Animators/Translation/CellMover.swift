@@ -6,6 +6,8 @@
 //
 //
 
+import UIKit
+
 public class CellMover : CellTransitionAnimator {
     
     public func selectionTransition(in containerView: UIView,
