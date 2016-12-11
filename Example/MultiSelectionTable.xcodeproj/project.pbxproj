@@ -32,6 +32,9 @@
 		85C3152E1DECEFF30095AFA1 /* MultiSelectionTableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C3152D1DECEFF30095AFA1 /* MultiSelectionTableTests.swift */; };
 		85C315391DECEFF30095AFA1 /* MultiSelectionTableUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C315381DECEFF30095AFA1 /* MultiSelectionTableUITests.swift */; };
 		85C5EDA91DF989B400B5B122 /* HeroesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C5EDA81DF989B400B5B122 /* HeroesViewController.swift */; };
+		85E87C521DFD3D5C00AC83C3 /* Network.Get.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E87C511DFD3D5C00AC83C3 /* Network.Get.swift */; };
+		85E87C551DFD55DA00AC83C3 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E87C541DFD55DA00AC83C3 /* Result.swift */; };
+		85E87C571DFD58FE00AC83C3 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E87C561DFD58FE00AC83C3 /* NetworkError.swift */; };
 		EF612445992E66F568DE0B67 /* Pods_MultiSelectionTable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C74DAA1C00F5423DE7213C3B /* Pods_MultiSelectionTable.framework */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +90,9 @@
 		85C315381DECEFF30095AFA1 /* MultiSelectionTableUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelectionTableUITests.swift; sourceTree = "<group>"; };
 		85C3153A1DECEFF30095AFA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		85C5EDA81DF989B400B5B122 /* HeroesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeroesViewController.swift; path = Heroes/HeroesViewController.swift; sourceTree = "<group>"; };
+		85E87C511DFD3D5C00AC83C3 /* Network.Get.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Network.Get.swift; path = UseCases/Network/Network.Get.swift; sourceTree = "<group>"; };
+		85E87C541DFD55DA00AC83C3 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Result.swift; path = Models/Result.swift; sourceTree = "<group>"; };
+		85E87C561DFD58FE00AC83C3 /* NetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkError.swift; path = Models/NetworkError.swift; sourceTree = "<group>"; };
 		C262E671D2FFA4765D00586B /* Pods-MultiSelectionTableTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MultiSelectionTableTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MultiSelectionTableTests/Pods-MultiSelectionTableTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C2FA110E208BC064ECD27E5A /* Pods-MultiSelectionTableTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MultiSelectionTableTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MultiSelectionTableTests/Pods-MultiSelectionTableTests.release.xcconfig"; sourceTree = "<group>"; };
 		C74DAA1C00F5423DE7213C3B /* Pods_MultiSelectionTable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MultiSelectionTable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -125,6 +131,7 @@
 		855B902C1DFAC0F600DFDC49 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
+				85E87C501DFD3D3E00AC83C3 /* Network */,
 				85A3C8311DFBF42000117926 /* Albums */,
 				855B902D1DFAC11A00DFDC49 /* Heroes */,
 			);
@@ -178,6 +185,7 @@
 				85C3151F1DECEFF30095AFA1 /* Assets.xcassets */,
 				85C5EDA61DF9889600B5B122 /* Heroes */,
 				85C315191DECEFF30095AFA1 /* Main.storyboard */,
+				85E87C531DFD55C000AC83C3 /* Models */,
 				85C5EDA71DF988CE00B5B122 /* SupportingFiles */,
 				855B902C1DFAC0F600DFDC49 /* UseCases */,
 				8506BB231DFAC9A1007E627D /* MarlvelSecretKeys.plist */,
@@ -238,6 +246,23 @@
 				855B90301DFAC51D00DFDC49 /* BridgingHeader.h */,
 			);
 			name = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		85E87C501DFD3D3E00AC83C3 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				85E87C511DFD3D5C00AC83C3 /* Network.Get.swift */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
+		85E87C531DFD55C000AC83C3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				85E87C561DFD58FE00AC83C3 /* NetworkError.swift */,
+				85E87C541DFD55DA00AC83C3 /* Result.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		A2D58FB8AA8262B86B675A7E /* Frameworks */ = {
@@ -554,6 +579,7 @@
 				855B90221DFAB71000DFDC49 /* Band.swift in Sources */,
 				85A3C8331DFBF43A00117926 /* Albums.Fetcher.swift in Sources */,
 				85C5EDA91DF989B400B5B122 /* HeroesViewController.swift in Sources */,
+				85E87C521DFD3D5C00AC83C3 /* Network.Get.swift in Sources */,
 				85C315161DECEFF30095AFA1 /* AppDelegate.swift in Sources */,
 				8506BB281DFACC68007E627D /* MarvelApiConfiguration.swift in Sources */,
 				855B90211DFAB71000DFDC49 /* AlbunsViewController.swift in Sources */,
@@ -563,6 +589,8 @@
 				85A3C8351DFBF49A00117926 /* Hero+DictInit.swift in Sources */,
 				85A3C8391DFC168F00117926 /* HeroFlyerAnimator.swift in Sources */,
 				855B901F1DFAB71000DFDC49 /* AlbumCell.swift in Sources */,
+				85E87C551DFD55DA00AC83C3 /* Result.swift in Sources */,
+				85E87C571DFD58FE00AC83C3 /* NetworkError.swift in Sources */,
 				8506BB2A1DFADF84007E627D /* HeroCellMover.swift in Sources */,
 				855B90271DFABA1400DFDC49 /* HeroCell.swift in Sources */,
 			);

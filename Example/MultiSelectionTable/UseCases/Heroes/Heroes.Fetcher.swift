@@ -13,19 +13,19 @@ struct Heroes {
     struct Fetcher {
         
         static func fetch(named name: String? = nil, got: @escaping ([Hero]) -> ()) {
-            DispatchQueue.global(qos: .userInteractive).async {
-                let urlSession = URLSession(configuration: URLSessionConfiguration.default)
-                let task = urlSession.dataTask(with: buildUrl(0, named: name), completionHandler: { (data, response, error) in
-                    if let data = data {
-                        let characters = convertDataIntoCharacters(data)
-                        DispatchQueue.main.async {
-                            got(characters)
-                        }
-                    } else {
-                        print("error: \(error)")
-                    }
-                })
-                task.resume()
+            let page = 0
+            let url = buildUrl(with: page, and: name)
+            Network.get(from: url) { result in
+                switch result {
+                case .success(let json):
+                    let nsJson = json as NSDictionary
+                    let dicCharacters = nsJson.value(forKeyPath: "data.results") as! [[String : Any]]
+                    let heroes = dicCharacters.flatMap { Hero(dictionary: $0) }
+                    got(heroes)
+                case .failure(_):
+                    //We should really propagate the Result the the caller
+                    return got([])
+                }
             }
         }
         
@@ -35,37 +35,24 @@ struct Heroes {
         static let charactersUrl = "http://gateway.marvel.com:80/v1/public/characters"
         
         static var hash : String {
-            return "\(ts)\(priv)\(pub)".md5
+            return "\(ts)\(priv)\(pub)".md5ed
         }
         
-        fileprivate static func buildUrl(_ page: Int, named name: String? = nil) -> URL {
+        fileprivate static func buildUrl(with page: Int, and name: String? = nil) -> URL {
             let limit = 25
             var urlStr = "\(charactersUrl)?limit=\(limit)&offset=\(page * limit)&apikey=\(pub)&ts=1&hash=\(hash)"
             if let name = name,
                 !name.characters.isEmpty {
                 urlStr.append("&nameStartsWith=\(name)")
+                urlStr = urlStr.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
             }
             return URL(string: urlStr)!
-        }
-        
-        static func convertDataIntoCharacters(_ data: Data) -> [Hero] {
-            do {
-                let dataJSON = try JSONSerialization
-                    .jsonObject(with: data, options: .mutableContainers)
-                let dataDictionary = dataJSON as! NSDictionary
-                let dicCharacters = dataDictionary.value(forKeyPath: "data.results") as! [[String : Any]]
-                
-                return dicCharacters.flatMap { Hero(dictionary: $0) }
-                
-            } catch {
-                return []
-            }
         }
     }
 }
 
 fileprivate extension String  {
-    var md5: String! {
+    var md5ed: String! {
         let str = self.cString(using: String.Encoding.utf8)
         let strLen = CC_LONG(self.lengthOfBytes(using: String.Encoding.utf8))
         let digestLen = Int(CC_MD5_DIGEST_LENGTH)
