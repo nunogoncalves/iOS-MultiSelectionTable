@@ -52,9 +52,9 @@ public class CellMover : CellTransitionAnimator {
         guard let oldCell = sourceTableView.cellForRow(at: sourceIndexPath),
             let newCell = destinationTableView.cellForRow(at: destinationIndexPath),
             let movingCell = oldCell.contentView.snapshotView(afterScreenUpdates: false)
-            else {
-                sourceTableView.deleteRows(at: [sourceIndexPath], with: defaultRemovingAnimation)
-                return
+        else {
+            sourceTableView.deleteRows(at: [sourceIndexPath], with: defaultRemovingAnimation)
+            return
         }
        
         newCell.contentView.isHidden = true
