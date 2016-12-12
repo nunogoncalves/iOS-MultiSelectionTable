@@ -16,38 +16,16 @@ public class CellMover : CellTransitionAnimator {
                                     toTableView: UITableView,
                                     toIndexPath: IndexPath) {
         
-        toTableView.insertRows(at: [toIndexPath], with: .top)
-        
-        guard let cellToDelete = fromTableView.cellForRow(at: fromIndexPath) else { return }
-        
-        guard let newCellAdded = toTableView.cellForRow(at: toIndexPath) else {
-            fromTableView.deleteRows(at: [fromIndexPath], with: .right)
-            return
-        }
-        
-        newCellAdded.contentView.isHidden = true
-        
-        
-        let newCellConvertedFrame = newCellAdded.convert(newCellAdded.contentView.frame, to: containerView)
-        
-        if let movingCell = cellToDelete.contentView.snapshotView(afterScreenUpdates: false) {
-            cellToDelete.contentView.isHidden = true
-            containerView.addSubview(movingCell)
-            movingCell.frame = fromTableView.convert(cellToDelete.frame, to: containerView)
-            
-            fromTableView.deleteRows(at: [fromIndexPath], with: .top)
-            
-            UIView.animate(withDuration: 0.4, animations: {
-                movingCell.frame = newCellConvertedFrame
-            }, completion: { _ in
-                movingCell.removeFromSuperview()
-                newCellAdded.contentView.isHidden = false
-                cellToDelete.contentView.isHidden = false
-            })
-        }
-        
+        toTableView.insertRows(at: [toIndexPath], with: .fade)
+
+        animateTransitionAnimation(defaultRemovingAnimation: .right,
+                                   sourceTableView: fromTableView,
+                                   sourceIndexPath: fromIndexPath,
+                                   destinationTableView: toTableView,
+                                   destinationIndexPath: toIndexPath,
+                                   containerView: containerView)
     }
-    
+
     public func unselectionTransition(in containerView: UIView,
                                       fromTableView: UITableView,
                                       fromIndexPath: IndexPath,
@@ -56,35 +34,45 @@ public class CellMover : CellTransitionAnimator {
         
         toTableView.insertRows(at: [toIndexPath], with: .bottom)
         
-        guard let cellToDelete = fromTableView.cellForRow(at: fromIndexPath) else { return }
-        
-        guard let newCellAdded = toTableView.cellForRow(at: toIndexPath) else {
-            fromTableView.deleteRows(at: [fromIndexPath], with: .left)
-            return
-        }
-        newCellAdded.contentView.isHidden = true
-        
-        let newCellConvertedFrame = newCellAdded.convert(newCellAdded.contentView.frame, to: containerView)
-        
-        
-        if let movingCell = cellToDelete.contentView.snapshotView(afterScreenUpdates: false) {
-            cellToDelete.contentView.isHidden = true
-            containerView.addSubview(movingCell)
-            movingCell.frame = fromTableView.convert(cellToDelete.frame, to: containerView)
-            
-            fromTableView.deleteRows(at: [fromIndexPath], with: .top)
-            
-            UIView.animate(withDuration: 0.4, animations: {
-                movingCell.frame = newCellConvertedFrame
-            }, completion: { _ in
-                movingCell.removeFromSuperview()
-                newCellAdded.contentView.isHidden = false
-                cellToDelete.contentView.isHidden = false
-            })
-        }
+        animateTransitionAnimation(defaultRemovingAnimation: .left,
+                                   sourceTableView: fromTableView,
+                                   sourceIndexPath: fromIndexPath,
+                                   destinationTableView: toTableView,
+                                   destinationIndexPath: toIndexPath,
+                                   containerView: containerView)
     }
-    
-    private func newlyAddedCell(in tableView: UITableView, with indexPath: IndexPath) -> UITableViewCell? {
-        return tableView.cellForRow(at: indexPath) ?? tableView.visibleCells.last
+
+    private func animateTransitionAnimation(defaultRemovingAnimation: UITableViewRowAnimation,
+                                            sourceTableView: UITableView,
+                                            sourceIndexPath: IndexPath,
+                                            destinationTableView: UITableView,
+                                            destinationIndexPath: IndexPath,
+                                            containerView: UIView) {
+        
+        guard let oldCell = sourceTableView.cellForRow(at: sourceIndexPath),
+            let newCell = destinationTableView.cellForRow(at: destinationIndexPath),
+            let movingCell = oldCell.contentView.snapshotView(afterScreenUpdates: false)
+            else {
+                sourceTableView.deleteRows(at: [sourceIndexPath], with: defaultRemovingAnimation)
+                return
+        }
+       
+        newCell.contentView.isHidden = true
+        oldCell.contentView.isHidden = true
+        
+        containerView.addSubview(movingCell)
+        movingCell.frame = sourceTableView.convert(oldCell.frame, to: containerView)
+        
+        sourceTableView.deleteRows(at: [sourceIndexPath], with: .fade)
+        
+        let newCellConvertedFrame = newCell.convert(newCell.contentView.frame, to: containerView)
+        
+        UIView.animate(withDuration: 0.4, animations: {
+            movingCell.frame = newCellConvertedFrame
+        }, completion: { _ in
+            movingCell.removeFromSuperview()
+            newCell.contentView.isHidden = false
+            oldCell.contentView.isHidden = false // because of reusage.
+        })
     }
 }
