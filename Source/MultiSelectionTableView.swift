@@ -8,7 +8,7 @@
 import UIKit
 
 @IBDesignable
-public class MultiSelectionTableView : UIView {
+final public class MultiSelectionTableView : UIView {
 
     public weak var dataSource: DataSource!
     

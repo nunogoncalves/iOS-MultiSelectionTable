@@ -22,4 +22,8 @@ class AlbumCell: UITableViewCell {
         
         bottomLineHeightConstraint.constant = 0.5
     }
+    
+    override func prepareForReuse() {
+        albumImageView.image = nil
+    }
 }

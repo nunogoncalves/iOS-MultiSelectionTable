@@ -7,7 +7,7 @@
 
 import UIKit
 
-public class MultiSelectionDataSource<T : Equatable> : DataSource {
+final public class MultiSelectionDataSource<T : Equatable> : DataSource {
     
     fileprivate let multiSelectionTableView: MultiSelectionTableView!
     
@@ -101,7 +101,7 @@ public class MultiSelectionDataSource<T : Equatable> : DataSource {
     public func cell(for indexPath: IndexPath, inAllItemsTable tableView: UITableView) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseId, for: indexPath)
         let item = allItemsIndexes[indexPath.row]
-        delegate?.paint(cell, for: indexPath, with: item.item)
+        delegate?.paint(cell, at: indexPath, in: tableView, with: item.item)
         
         return cell
     }
@@ -109,7 +109,7 @@ public class MultiSelectionDataSource<T : Equatable> : DataSource {
     public func cell(for indexPath: IndexPath, inSelectedItemsTable tableView: UITableView) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseId, for: indexPath)
         let item = selectedItemsIndexes[indexPath.row]
-        delegate?.paint(cell, for: indexPath, with: item.item)
+        delegate?.paint(cell, at: indexPath, in: tableView, with: item.item)
         return cell
     }
     

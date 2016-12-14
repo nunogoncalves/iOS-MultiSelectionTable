@@ -65,7 +65,7 @@ class HeroesViewController : UIViewController {
 
 extension HeroesViewController : MultiSelectionTableDelegate {
     
-    func paint(_ cell: UITableViewCell, for indexPath: IndexPath, with item: Any) {
+    func paint(_ cell: UITableViewCell, at indexPath: IndexPath, in tableView: UITableView, with item: Any) {
         if let cell = cell as? HeroCell,
             let hero = item as? Hero {
             cell.heroNameLabel.text = hero.name

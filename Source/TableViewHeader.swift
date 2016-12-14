@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TableViewHeader : UIView {
+final class TableViewHeader : UIView {
     
     let title: String
     

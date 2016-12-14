@@ -52,7 +52,7 @@ class AlbunsViewController: UIViewController {
 
 extension AlbunsViewController : MultiSelectionTableDelegate {
     
-    func paint(_ cell: UITableViewCell, for indexPath: IndexPath, with item: Any) {
+    func paint(_ cell: UITableViewCell, at indexPath: IndexPath, in tableView: UITableView, with item: Any) {
         if let cell = cell as? AlbumCell,
             let album = item as? Album {
             cell.nameLabel.text = album.band.name
