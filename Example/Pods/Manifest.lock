@@ -1,12 +1,8 @@
 PODS:
   - MultiSelectionTableView (0.1.0)
-  - SDWebImage (3.8.2):
-    - SDWebImage/Core (= 3.8.2)
-  - SDWebImage/Core (3.8.2)
 
 DEPENDENCIES:
   - MultiSelectionTableView (from `../`)
-  - SDWebImage (~> 3.8.1)
 
 EXTERNAL SOURCES:
   MultiSelectionTableView:
@@ -14,8 +10,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   MultiSelectionTableView: 7db06fbd1de16cfdd9fcf9783bc0c55cc2e85cf4
-  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
 
-PODFILE CHECKSUM: 4858226f581bdb60b11c5876bc298b354b1f1b00
+PODFILE CHECKSUM: c1f5b0b3d32d622b8f70229b856cfc9b42548a01
 
 COCOAPODS: 1.2.0.beta.1

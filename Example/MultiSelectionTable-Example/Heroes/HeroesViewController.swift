@@ -8,7 +8,6 @@
 
 import UIKit
 import MultiSelectionTableView
-import SDWebImage
 
 class HeroesViewController : UIViewController {
     
@@ -44,6 +43,8 @@ class HeroesViewController : UIViewController {
         }
     }
     
+    fileprivate let imageLoader = Cache.ImageLoader.shared
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -69,7 +70,15 @@ extension HeroesViewController : MultiSelectionTableDelegate {
         if let cell = cell as? HeroCell,
             let hero = item as? Hero {
             cell.heroNameLabel.text = hero.name
-            cell.heroImageView.sd_setImage(with: hero.imageURL)
+            if let image = imageLoader.cachedImage(with: hero.imageURL) {
+                cell.heroImageView.image = image
+            } else {
+                imageLoader.image(with: hero.imageURL) { image in
+                    if let cell = tableView.cellForRow(at: indexPath) as? HeroCell {
+                        cell.heroImageView.image = image
+                    }
+                }
+            }
         }
     }
     
