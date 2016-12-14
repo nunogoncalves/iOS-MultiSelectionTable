@@ -57,8 +57,15 @@ extension AlbunsViewController : MultiSelectionTableDelegate {
             let album = item as? Album {
             cell.nameLabel.text = album.band.name
             cell.subtitleLabel.text = album.name
-            cell.albumImageView.sd_setImage(with: album.coverImageURL)
             cell.yearLabel.text = "\(album.year)"
+
+            if let image = Cache.ImageLoader.shared.cachedImage(with: album.coverImageURL) {
+                cell.albumImageView.image = image
+            } else {
+                Cache.ImageLoader.shared.image(with: album.coverImageURL) { image in
+                    cell.albumImageView.image = image
+                }
+            }
         }
     }
     
