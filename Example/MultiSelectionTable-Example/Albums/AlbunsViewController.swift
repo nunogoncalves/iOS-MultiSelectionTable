@@ -52,8 +52,17 @@ class AlbunsViewController: UIViewController {
         multiSelectionTableView.dataSource = multiSelectionDataSource
         multiSelectionTableView.allItemsContentInset = UIEdgeInsets(top: 110, left: 0, bottom: 0, right: 0)
         multiSelectionTableView.selectedItemsContentInset = UIEdgeInsets(top: 110, left: 0, bottom: 0, right: 0)
+        multiSelectionTableView.addTarget(self, action: #selector(selectedItem(multiSelectionTableView:)), for: .itemSelected)
+        multiSelectionTableView.addTarget(self, action: #selector(unselectedItem(multiSelectionTableView:)), for: .itemUnselected)
     }
     
+    @objc private func selectedItem(multiSelectionTableView: MultiSelectionTableView) {
+        print("selected item")
+    }
+    
+    @objc private func unselectedItem(multiSelectionTableView: MultiSelectionTableView) {
+        print("unselected item")
+    }
 }
 
 extension AlbunsViewController : MultiSelectionTableDelegate {

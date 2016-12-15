@@ -8,7 +8,7 @@
 import UIKit
 
 @IBDesignable
-final public class MultiSelectionTableView : UIView {
+final public class MultiSelectionTableView : UIControl {
 
     public weak var dataSource: DataSource!
     
@@ -189,6 +189,8 @@ final public class MultiSelectionTableView : UIView {
         
     }
     
+    //Used this method instead of `tableView(tableView:didSelectRowAt:)` because we need the
+    //location on the cell where the cell was tapped. the delegate method won't give us that.
     @objc private func didTapTable(gestureRecognizer: UITapGestureRecognizer) {
         guard let tableView = gestureRecognizer.view as? UITableView else { return }
         
@@ -206,10 +208,12 @@ final public class MultiSelectionTableView : UIView {
             actionAnimation = { [weak self] in
                 self?.dataSource.unselectedItem(at: indexPath.row)
             }
+            sendActions(for: .itemUnselected)
         } else {
             actionAnimation = { [weak self] in
                 self?.dataSource.selectedItem(at: indexPath.row)
             }
+            sendActions(for: .itemSelected)
         }
         
         cellAnimator.animate(cell, startingAt: origin) {
