@@ -99,7 +99,8 @@ You can check out the animator examples.
 
 ## Installation
 
-#### Cocoapods
+<details>
+<summary>Cocoapods</summary>
 
 MultiSelectionTable is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
@@ -111,9 +112,12 @@ use_frameworks!
 pod 'MultiSelectionTable', git: 'https://github.com/nunogoncalves/iOS-MultiSelectionTable'
 ```
 (Currently **MultiSelectionTable** is still not yet published to Cocoapods, so for now you need to add ```swift git: 'https://github.com/nunogoncalves/iOS-MultiSelectionTable'```.
+</details>
 
-#### Manually
+<details>
+<summary>Manually</summary>
 Copy the contents of [Source](https://github.com/nunogoncalves/iOS-MultiSelectionTable/tree/master/Source) folder into your project and you're ready to go.
+</details>
 
 ## TODOs
 Missing features and/or bugs can be found in the [Issues](https://github.com/nunogoncalves/iOS-MultiSelectionTable/issues) section.
