@@ -92,6 +92,23 @@ multiSelectionTableView.cellTransitioner = CellFlyerAnimator() // Must conform t
 ```
 You can check out the animator examples.
 
+### Target Actions
+```swift```
+    ...
+multiSelectionTableView.addTarget(self, action: #selector(selectedItem(sender:)), for: .itemSelected)
+multiSelectionTableView.addTarget(self, action: #selector(unselectedItem(sender:)), for: .itemUnselected)
+    
+    ...
+    
+@objc private func selectedItem(sender: MultiSelectionTableView) {
+    print("selected item")
+}
+    
+@objc private func unselectedItem(sender: MultiSelectionTableView) {
+    print("unselected item")
+}
+    ...
+```
 ## Requirements
 
 - iOS 9.0+
