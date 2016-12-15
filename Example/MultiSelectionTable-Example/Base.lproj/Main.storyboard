@@ -43,17 +43,40 @@
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
+                                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" returnKeyType="done"/>
                                             <connections>
                                                 <action selector="textUpdated:" destination="wwJ-Jc-SVD" eventType="editingChanged" id="dAw-6V-7B5"/>
+                                                <outlet property="delegate" destination="wwJ-Jc-SVD" id="Bgv-aq-kX5"/>
                                             </connections>
                                         </textField>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8cv-t6-f5Y">
+                                            <rect key="frame" x="326" y="96" width="24" height="24"/>
+                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="24" id="Afp-08-kMB"/>
+                                                <constraint firstAttribute="height" constant="24" id="Fxi-Hp-yhJ"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="14"/>
+                                            <state key="normal" title="X">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="12"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="clearSearchText" destination="wwJ-Jc-SVD" eventType="touchUpInside" id="cNC-14-2wQ"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="mWh-4O-Jog" secondAttribute="trailing" constant="20" id="8jw-Cj-JO7"/>
                                         <constraint firstAttribute="bottom" secondItem="fUt-iJ-oh6" secondAttribute="bottom" id="A8s-1b-AfC"/>
                                         <constraint firstItem="fUt-iJ-oh6" firstAttribute="leading" secondItem="g8c-t1-tRK" secondAttribute="leading" id="KSA-8s-1yK"/>
+                                        <constraint firstItem="8cv-t6-f5Y" firstAttribute="trailing" secondItem="mWh-4O-Jog" secondAttribute="trailing" constant="-5" id="L8M-oq-7ck"/>
                                         <constraint firstItem="fUt-iJ-oh6" firstAttribute="top" secondItem="g8c-t1-tRK" secondAttribute="top" id="SOw-IW-jSo"/>
+                                        <constraint firstItem="8cv-t6-f5Y" firstAttribute="centerY" secondItem="mWh-4O-Jog" secondAttribute="centerY" id="XbB-BK-xT3"/>
                                         <constraint firstAttribute="trailing" secondItem="fUt-iJ-oh6" secondAttribute="trailing" id="brp-hZ-LYM"/>
                                         <constraint firstItem="mWh-4O-Jog" firstAttribute="leading" secondItem="g8c-t1-tRK" secondAttribute="leading" constant="20" id="cKi-xX-zr3"/>
                                         <constraint firstAttribute="bottom" secondItem="mWh-4O-Jog" secondAttribute="bottom" constant="5" id="lsp-qi-X0v"/>
@@ -149,11 +172,11 @@
                                             </connections>
                                         </textField>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="61b-uF-8k7">
-                                            <rect key="frame" x="326" y="94" width="28" height="28"/>
+                                            <rect key="frame" x="326" y="96" width="24" height="24"/>
                                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="28" id="L1P-wp-ZcI"/>
-                                                <constraint firstAttribute="width" constant="28" id="sQT-9B-UaE"/>
+                                                <constraint firstAttribute="height" constant="24" id="L1P-wp-ZcI"/>
+                                                <constraint firstAttribute="width" constant="24" id="sQT-9B-UaE"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="14"/>
                                             <state key="normal" title="X">
@@ -161,7 +184,7 @@
                                             </state>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                    <integer key="value" value="14"/>
+                                                    <integer key="value" value="12"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                             <connections>
@@ -174,7 +197,7 @@
                                         <constraint firstItem="61b-uF-8k7" firstAttribute="centerY" secondItem="jod-6G-iF4" secondAttribute="centerY" id="Xsr-PM-oe3"/>
                                         <constraint firstAttribute="trailing" secondItem="jod-6G-iF4" secondAttribute="trailing" constant="20" id="YCj-gt-LGL"/>
                                         <constraint firstAttribute="bottom" secondItem="jod-6G-iF4" secondAttribute="bottom" constant="5" id="dM2-PJ-y3o"/>
-                                        <constraint firstItem="61b-uF-8k7" firstAttribute="trailing" secondItem="jod-6G-iF4" secondAttribute="trailing" constant="-1" id="f8o-Ht-CN7"/>
+                                        <constraint firstItem="61b-uF-8k7" firstAttribute="trailing" secondItem="jod-6G-iF4" secondAttribute="trailing" constant="-5" id="f8o-Ht-CN7"/>
                                     </constraints>
                                 </view>
                                 <constraints>

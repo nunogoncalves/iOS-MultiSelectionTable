@@ -12,6 +12,7 @@ import MultiSelectionTableView
 class AlbunsViewController: UIViewController {
 
     @IBOutlet weak var multiSelectionTableContainer: UIStackView!
+    @IBOutlet weak var searchTextField: UITextField!
     
     override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
     
@@ -20,6 +21,11 @@ class AlbunsViewController: UIViewController {
     
     fileprivate var filteredAlbuns: [Album] = []
     fileprivate var allAlbums: [Album] = []
+    
+    @IBAction func clearSearchText() {
+        searchTextField.text = nil
+        searchTextField.resignFirstResponder()
+    }
     
     @IBAction func textUpdated(_ sender: UITextField) {
         if let searchText = sender.text,
@@ -68,5 +74,12 @@ extension AlbunsViewController : MultiSelectionTableDelegate {
             }
         }
     }
+}
+
+extension AlbunsViewController : UITextFieldDelegate {
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }
