@@ -31,19 +31,29 @@ class HeroesViewController : UIViewController {
         }
     }
     
-    fileprivate func searchHeroes() {
-        Hero.all(named: searchText) { [weak self] heroes in
-            self?.allHeroes = heroes
+    fileprivate func searchHeroes(in page: Int = 0) {
+        guard !isLoading else { return }
+        
+        isLoading = true
+        Hero.all(named: searchText, in: page) { [weak self] heroesList in
+            self?.heroesList = heroesList
+            self?.isLoading = false
         }
     }
     
-    fileprivate var allHeroes: [Hero] = [] {
+    fileprivate var heroesList: HeroesList = HeroesList.emptyHeroesList {
         didSet {
-            multiSelectionDataSource.allItems = allHeroes
+            if heroesList.isFirstPage {
+                multiSelectionDataSource.allItems = heroesList.heroes
+            } else {
+                multiSelectionDataSource.allItems.append(contentsOf: heroesList.heroes)
+            }
         }
     }
     
     fileprivate let imageLoader = Cache.ImageLoader.shared
+    
+    fileprivate var isLoading = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,14 +62,24 @@ class HeroesViewController : UIViewController {
         multiSelectionDataSource.delegate = self
         multiSelectionDataSource.register(nib: UINib(nibName: "HeroCell", bundle: nil), for: "HeroCell")
         
-        multiSelectionDataSource.allItems = allHeroes
+        multiSelectionDataSource.allItems = heroesList.heroes
         searchHeroes()
         
         multiSelectionTableView.dataSource = multiSelectionDataSource
         multiSelectionTableView.allItemsContentInset = UIEdgeInsets(top: 105, left: 0, bottom: 0, right: 0)
         multiSelectionTableView.selectedItemsContentInset = UIEdgeInsets(top: 105, left: 0, bottom: 0, right: 0)
+        multiSelectionTableView.supportsPagination = true
+        multiSelectionTableView.paginationNotificationRowIndex = 20
         multiSelectionTableView.cellAnimator = CellSelectionPulseAnimator(pulseColor: .black)
         multiSelectionTableView.cellTransitioner = HeroFlyerAnimator()
+        
+        multiSelectionTableView.addTarget(self, action: #selector(loadMoreHeroes(multiSelectionTableView:)), for: .scrollReachingEnd)
+    }
+    
+    @objc private func loadMoreHeroes(multiSelectionTableView: MultiSelectionTableView) {
+        if heroesList.hasMorePages {
+            searchHeroes(in: heroesList.currentPage + 1)
+        }
     }
     
 }

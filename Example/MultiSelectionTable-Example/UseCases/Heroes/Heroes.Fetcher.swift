@@ -12,19 +12,39 @@ struct Heroes {
     
     struct Fetcher {
         
-        static func fetch(named name: String? = nil, got: @escaping ([Hero]) -> ()) {
-            let page = 0
+        static func fetch(named name: String? = nil, in page: Int = 0, got: @escaping (HeroesList) -> ()) {
             let url = buildUrl(with: page, and: name)
             Network.get(from: url) { result in
                 switch result {
                 case .success(let json):
-                    let nsJson = json as NSDictionary
-                    let dicCharacters = nsJson.value(forKeyPath: "data.results") as! [[String : Any]]
+                    guard let dataDic = json["data"] as? [String : Any] else {
+                        return got(HeroesList(heroes: [],
+                                              totalCount: 0,
+                                              currentPage: 0,
+                                              totalPages: 0))
+                    }
+                    
+                    let totalCount = dataDic["total"] as? Int ?? 0
+                    let offset = dataDic["offset"] as? Int ?? 0
+                    let limit = dataDic["limit"] as? Int ?? 0
+
+                    let totalPages = limit == 0 ? 0 : Int(ceil(Double(totalCount / limit)))
+                    let currentPage = totalCount == 0 ? 0 : Int(ceil(Double(totalPages) * Double(offset) / Double(totalCount)))
+
+                    let dicCharacters = dataDic["results"] as! [[String : Any]]
                     let heroes = dicCharacters.flatMap { Hero(dictionary: $0) }
-                    got(heroes)
+                    
+                    let heroesList = HeroesList(heroes: heroes,
+                                                totalCount: totalCount,
+                                                currentPage: currentPage,
+                                                totalPages: totalPages)
+                    got(heroesList)
                 case .failure(_):
                     //We should really propagate the Result the the caller
-                    return got([])
+                    return got(HeroesList(heroes: [],
+                                          totalCount: 0,
+                                          currentPage: 0,
+                                          totalPages: 0))
                 }
             }
         }

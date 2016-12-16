@@ -16,4 +16,8 @@ public extension UIControlEvents {
         return UIControlEvents(rawValue: 1 << 31)
     }
     
+    static var scrollReachingEnd: UIControlEvents {
+        return UIControlEvents(rawValue: 1 << 29)
+    }
+    
 }

@@ -10,7 +10,7 @@ import UIKit
 @IBDesignable
 final public class MultiSelectionTableView : UIControl {
 
-    public weak var dataSource: DataSource!
+    public weak var dataSource: DataSource?
     
     fileprivate let allItemsTable = UITableView()
     fileprivate let seperator = UIView()
@@ -85,6 +85,16 @@ final public class MultiSelectionTableView : UIControl {
                                                                     right: 0)
         }
     }
+    
+    @IBInspectable
+    public var supportsPagination = false
+    
+    @IBInspectable
+    //If you want to provide pagination, and don't want the next page of data to be fetch on the 
+    //last item to be displayed, set this var to be the higher than the last item.
+    //A value of 1 would mean the table would signal the caller that
+    //it's displaying the second to last row and therefor send a .scrollReachingEnd action.
+    public var paginationNotificationRowIndex = 0
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -206,12 +216,12 @@ final public class MultiSelectionTableView : UIControl {
         let actionAnimation: () -> ()
         if tableView == selectedItemsTable {
             actionAnimation = { [weak self] in
-                self?.dataSource.unselectedItem(at: indexPath.row)
+                self?.dataSource?.unselectedItem(at: indexPath.row)
             }
             sendActions(for: .itemUnselected)
         } else {
             actionAnimation = { [weak self] in
-                self?.dataSource.selectedItem(at: indexPath.row)
+                self?.dataSource?.selectedItem(at: indexPath.row)
             }
             sendActions(for: .itemSelected)
         }
@@ -324,15 +334,33 @@ extension MultiSelectionTableView : UITableViewDataSource {
     }
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: UITableViewCell?
+        
         if tableView == allItemsTable {
-            return dataSource.cell(for: indexPath, inAllItemsTable: tableView)
+            cell = dataSource?.cell(for: indexPath, inAllItemsTable: tableView)
         } else {
-            return dataSource.cell(for: indexPath, inSelectedItemsTable: tableView)
+            cell = dataSource?.cell(for: indexPath, inSelectedItemsTable: tableView)
         }
+        return cell ?? tableView.dequeueReusableCell(withIdentifier: cellReuseId) ?? UITableViewCell()
     }
 }
 
-extension MultiSelectionTableView : UITableViewDelegate { }
+extension MultiSelectionTableView : UITableViewDelegate {
+
+    
+    public func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard supportsPagination,
+            let dataSource = dataSource
+        else { return }
+        
+        if tableView == allItemsTable {
+            if indexPath.row == dataSource.allItemsCount - 1 - paginationNotificationRowIndex {
+                sendActions(for: .scrollReachingEnd)
+            }
+        }
+    }
+    
+}
 
 fileprivate extension UIColor {
     static var defaultTableBackground: UIColor {
