@@ -8,7 +8,7 @@ Beautifull way of having a multi-selection table on iOS
 [![Dependencies](https://img.shields.io/gemnasium/mathiasbynens/he.svg)]()
 
 <p align="center">
-  <img src="Resources/MultiSelectionTableView.gif" width="200px" />
+  <img src="Resources/MultiSelectionTableView1.gif" width="200px" />
   <img src="Resources/MultiselectionSupermanAnimation.gif" width="200px" />
   <img src="Resources/StyleBlack.png" width="200px" />
   <img src="Resources/StyleRed.png" width="200px" />
@@ -18,13 +18,13 @@ Based on [this](https://dribbble.com/shots/2904577-Multi-Selection-Experiment) d
 
 ## How it works:
 ```MultiSelectionTable``` underneath is composed of a view and a data source, much like the ```UITableView```'s ```UITableViewDataSource/Delegate```. They both know each other and communicate between themselves.
-The view is is composed by two configurable ```UITableView``` and a line seperating them. The DataSource keeps the data the ```UITableView```s display. 
+The view is is composed by two configurable ```UITableView``` and a line seperating them. The DataSource keeps the data the ```UITableView```s display.
 
-## Considerations: 
+## Considerations:
 (before Usage, pay attention to the following considerations)
 - In order to achieve a nice effect when transitioning, cells on the right (selected cells) must be equal to the cells on the left (all items cells).
 - The item object you are displaying, must conform with the ```Equatable``` protocol so the control can know where to move the items when unselecting items.
--You can also paginate and use search on your items list. The table keeps a reference to the selected items. 
+-You can also paginate and use search on your items list. The table keeps a reference to the selected items.
 - The Marvel developers API has a 3000 requests limit per day. If this is reached and you can't try the Marvel example, you need to create a developers account to get credentials. Then replace them in ```Heroes.Fetcher.swift``` file
 
 ## Usage:
@@ -42,30 +42,30 @@ var allItems: [MyItem] = [] //MyItem must be Equatable
 
 override func viewDidLoad() {
      super.viewDidLoad()
-        
+
      multiSelectionTableView = MultiSelectionTableView()
      view.addSubview(multiSelectionTableView)
-     
+
      multiSelectionDataSource = MultiSelectionDataSource(multiSelectionTableView: multiSelectionTableView)
      multiSelectionDataSource.delegate = self
      let cellReuseIdentifier = "MyCell"
      multiSelectionDataSource.register(nib: UINib(nibName: "MyCustomCellNibName", bundle: nil), for: cellReuseIdentifier)
-        
+
      multiSelectionDataSource.allItems = allItems
-      
+
      multiSelectionTableView.dataSource = multiSelectionDataSource
  }
 
 extension ViewController : MultiSelectionTableDelegate {
-    
+
     func paint(_ cell: UITableViewCell, for indexPath: IndexPath, with item: Any) {
         if let cell = cell as? MyCustomCell,
             let myItem = item as? MyItem {
             //configureCellWithMyItem
         }
     }
-    
-} 
+
+}
 ```
 
 ### Configuration
@@ -75,8 +75,8 @@ multiSelectionTableView.controlBackgroundColor = .black
 multiSelectionTableView.allItemsTableBackgroundColor = .black
 multiSelectionTableView.selectedItemsTableBackgroundColor = .black
 ```
-#### Horizontal movement width: 
-Depending on your cell, you might want to set the horizontal width the line moves. This value is based on the center X anchor. 
+#### Horizontal movement width:
+Depending on your cell, you might want to set the horizontal width the line moves. This value is based on the center X anchor.
 ```swift
 multiSelectionTableView.seperatorWidthOffset = 100 //will move 100 point on both directions from the center
 ```
@@ -86,7 +86,7 @@ The default selection animation is a pulse starting on the tap point on the cell
 The default transition animation moves a snapshot view of the selected cell to the corresponding side (depending on selection or unselection events)
 ```swift
 
-multiSelectionTableView.cellAnimator = CellSelectionPulseAnimator(pulseColor: .black) // Must conform to CellSelectionAnimator 
+multiSelectionTableView.cellAnimator = CellSelectionPulseAnimator(pulseColor: .black) // Must conform to CellSelectionAnimator
 multiSelectionTableView.cellTransitioner = CellFlyerAnimator() // Must conform to CellTransitionAnimator
 
 ```
@@ -97,13 +97,13 @@ You can check out the animator examples.
     ...
 multiSelectionTableView.addTarget(self, action: #selector(selectedItem(sender:)), for: .itemSelected)
 multiSelectionTableView.addTarget(self, action: #selector(unselectedItem(sender:)), for: .itemUnselected)
-    
+
     ...
-    
+
 @objc private func selectedItem(sender: MultiSelectionTableView) {
     print("selected item")
 }
-    
+
 @objc private func unselectedItem(sender: MultiSelectionTableView) {
     print("unselected item")
 }
