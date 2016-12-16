@@ -68,7 +68,7 @@ extension ViewController : MultiSelectionTableDelegate {
 }
 ```
 
-### Configuration
+### Costumization
 #### Colors style
 ```swift
 multiSelectionTableView.controlBackgroundColor = .black
@@ -92,12 +92,32 @@ multiSelectionTableView.cellTransitioner = CellFlyerAnimator() // Must conform t
 ```
 You can check out the animator examples.
 
+### Pagination
+If you want MultiSelectionTableView to handle pagination you need to set:
+```swift
+multiSelectionTableView.supportsPagination = true
+```
+and you can add a target action to the control.
+
+```swift
+multiSelectionTableView.addTarget(self, action: #selector(loadMoreData(sender:)), for: .scrollReachingEnd)
+```
+
+Aditionally, you can have some control of when to get more data setting 
+```swift 
+multiSelectionTableView.paginationNotificationRowIndex = 5
+```
+this will call .scrollReachingEnd action 5 rows before reaching the end of the table, so you can pre fetch next page data.
+
+
 ### Target Actions
 ```swift```
     ...
 multiSelectionTableView.addTarget(self, action: #selector(selectedItem(sender:)), for: .itemSelected)
 multiSelectionTableView.addTarget(self, action: #selector(unselectedItem(sender:)), for: .itemUnselected)
 
+//only called if supportsPagination is set to true
+multiSelectionTableView.addTarget(self, action: #selector(loadMoreData(sender:)), for: .scrollReachingEnd) 
     ...
 
 @objc private func selectedItem(sender: MultiSelectionTableView) {
