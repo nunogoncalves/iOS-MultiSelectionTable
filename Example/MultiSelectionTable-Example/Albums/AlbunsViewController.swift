@@ -19,12 +19,17 @@ class AlbunsViewController: UIViewController {
     private var multiSelectionDataSource: MultiSelectionDataSource<Album>!
     @IBOutlet fileprivate weak var multiSelectionTableView: MultiSelectionTableView!
     
-    fileprivate var filteredAlbuns: [Album] = []
+    fileprivate var filteredAlbuns: [Album] = [] {
+        didSet {
+            multiSelectionDataSource.allItems = filteredAlbuns
+        }
+    }
     fileprivate var allAlbums: [Album] = []
     
     @IBAction func clearSearchText() {
         searchTextField.text = nil
         searchTextField.resignFirstResponder()
+        filteredAlbuns = allAlbums
     }
     
     @IBAction func textUpdated(_ sender: UITextField) {
@@ -34,7 +39,6 @@ class AlbunsViewController: UIViewController {
         } else {
             filteredAlbuns = allAlbums
         }
-        multiSelectionDataSource.allItems = filteredAlbuns
     }
     
     override func viewDidLoad() {
