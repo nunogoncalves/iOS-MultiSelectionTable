@@ -12,6 +12,7 @@ struct Hero : Equatable {
     let id: Int
     let name: String
     let imageURL: URL
+    let description: String?
  
     static func all(named name: String? = nil, in page: Int, finished: @escaping (HeroesList) -> ()) {
         Heroes.Fetcher.fetch(named: name, in: page, got: finished)

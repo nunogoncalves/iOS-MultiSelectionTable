@@ -24,6 +24,7 @@ extension Hero {
         self.id = id
         self.name = name
         self.imageURL = url
+        self.description = dictionary["description"] as? String
     }
 
 }
