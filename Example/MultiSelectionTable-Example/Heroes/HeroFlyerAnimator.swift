@@ -8,7 +8,7 @@
 
 import MultiSelectionTableView
 
-public class HeroFlyerAnimator : CellTransitionAnimator {
+public class SuperManAnimator : CellTransitionAnimator {
     
     public init() {}
     

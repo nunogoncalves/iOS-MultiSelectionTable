@@ -71,7 +71,7 @@ class HeroesViewController : UIViewController {
         multiSelectionTableView.supportsPagination = true
         multiSelectionTableView.paginationNotificationRowIndex = 20
         multiSelectionTableView.cellAnimator = CellSelectionPulseAnimator(pulseColor: .black)
-        multiSelectionTableView.cellTransitioner = HeroFlyerAnimator()
+        multiSelectionTableView.cellTransitioner = SuperManAnimator()
         
         multiSelectionTableView.addTarget(self, action: #selector(loadMoreHeroes(multiSelectionTableView:)), for: .scrollReachingEnd)
     }
