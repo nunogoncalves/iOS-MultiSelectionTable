@@ -184,3 +184,6 @@ Check [Issues](https://github.com/nunogoncalves/iOS-MultiSelectionTable/issues) 
 ## Licence
 
 **iOS-MultiSelectionTable** is available under the MIT license. See the [LICENSE](https://github.com/nunogoncalves/iOS-MultiSelectionTable/blob/master/LICENSE.md) file for more info.
+
+## Final note
+If you use `MultiSelectionTable` in a production app, let me know. I'll be very flattered and pleased and sure want to be aware of it. :)
