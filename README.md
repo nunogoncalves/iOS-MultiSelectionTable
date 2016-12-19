@@ -109,6 +109,16 @@ multiSelectionTableView.paginationNotificationRowIndex = 5
 ```
 this will call .scrollReachingEnd action 5 rows before reaching the end of the table, so you can pre fetch next page data.
 
+### Empty State View
+It's common for results to come from the web, take some time loading, and/or be empty, and/or display an error. `MultiSelectionTable` has got you covered.
+If you want to display a custom empty view, just set the `stateView` with your view. For example a loading indicator:
+
+```swift
+let loadingView = UIActivityIndicatorView(
+loadingView.transform = CGAffineTransform.init(scaleX: 2, y: 2)
+loadingView.startAnimating()
+multiSelectionTableView.stateView = loadingView
+```
 
 ### Target Actions
 ```swift```
