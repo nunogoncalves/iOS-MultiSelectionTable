@@ -14,6 +14,12 @@ class HeroCell: UITableViewCell {
     @IBOutlet weak var heroNameLabel: UILabel!
     @IBOutlet weak var bottomLine: UIView!
     
+    @IBAction func infoTapped() {
+        showInfo?()
+    }
+    
+    var showInfo: (() -> ())?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -22,4 +28,5 @@ class HeroCell: UITableViewCell {
         heroImageView.image = nil
         bottomLine.isHidden = false
     }
+    
 }

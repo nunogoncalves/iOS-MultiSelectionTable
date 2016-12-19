@@ -20,6 +20,7 @@
 		855B90271DFABA1400DFDC49 /* HeroCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855B90251DFABA1400DFDC49 /* HeroCell.swift */; };
 		855B90281DFABA1400DFDC49 /* HeroCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 855B90261DFABA1400DFDC49 /* HeroCell.xib */; };
 		855B902F1DFAC13C00DFDC49 /* Heroes.Fetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855B902E1DFAC13C00DFDC49 /* Heroes.Fetcher.swift */; };
+		857ED83A1E05F87200480D7B /* HeroDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857ED8391E05F87200480D7B /* HeroDetailsViewController.swift */; };
 		8583DF961DFF112500EF0FBF /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8583DF951DFF112500EF0FBF /* ImageLoader.swift */; };
 		85A3C8331DFBF43A00117926 /* Albums.Fetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A3C8321DFBF43A00117926 /* Albums.Fetcher.swift */; };
 		85A3C8351DFBF49A00117926 /* Hero+DictInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A3C8341DFBF49A00117926 /* Hero+DictInit.swift */; };
@@ -79,6 +80,7 @@
 		855B90261DFABA1400DFDC49 /* HeroCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HeroCell.xib; path = Heroes/HeroCell.xib; sourceTree = "<group>"; };
 		855B902E1DFAC13C00DFDC49 /* Heroes.Fetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Heroes.Fetcher.swift; path = UseCases/Heroes/Heroes.Fetcher.swift; sourceTree = "<group>"; };
 		855B90301DFAC51D00DFDC49 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
+		857ED8391E05F87200480D7B /* HeroDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeroDetailsViewController.swift; path = Heroes/HeroDetailsViewController.swift; sourceTree = "<group>"; };
 		8583DF951DFF112500EF0FBF /* ImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageLoader.swift; path = UseCases/Cache/ImageLoader.swift; sourceTree = "<group>"; };
 		85A3C8321DFBF43A00117926 /* Albums.Fetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Albums.Fetcher.swift; path = UseCases/Albums/Albums.Fetcher.swift; sourceTree = "<group>"; };
 		85A3C8341DFBF49A00117926 /* Hero+DictInit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Hero+DictInit.swift"; path = "Heroes/Hero+DictInit.swift"; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 				8506BB291DFADF84007E627D /* HeroCellMover.swift */,
 				85A3C8341DFBF49A00117926 /* Hero+DictInit.swift */,
 				85B2F8771E0445D300659DBC /* HeroesList.swift */,
+				857ED8391E05F87200480D7B /* HeroDetailsViewController.swift */,
 			);
 			name = Heroes;
 			sourceTree = "<group>";
@@ -613,6 +616,7 @@
 				85A3C8331DFBF43A00117926 /* Albums.Fetcher.swift in Sources */,
 				85C5EDA91DF989B400B5B122 /* HeroesViewController.swift in Sources */,
 				85E87C521DFD3D5C00AC83C3 /* Network.Get.swift in Sources */,
+				857ED83A1E05F87200480D7B /* HeroDetailsViewController.swift in Sources */,
 				85C315161DECEFF30095AFA1 /* AppDelegate.swift in Sources */,
 				855B90211DFAB71000DFDC49 /* AlbunsViewController.swift in Sources */,
 				85A3C8371DFBF91200117926 /* Album+DictInit.swift in Sources */,

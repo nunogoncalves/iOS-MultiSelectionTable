@@ -26,6 +26,8 @@ final public class MultiSelectionTableView : UIControl {
     public var cellAnimator: CellSelectionAnimator = CellSelectionPulseAnimator(pulseColor: .defaultCellPulseColor)
     public var cellTransitioner: CellTransitionAnimator = CellMover()
     
+    fileprivate var stateViewContainer = UIView()
+    
     override public func awakeFromNib() {
         super.awakeFromNib()
 
@@ -87,14 +89,28 @@ final public class MultiSelectionTableView : UIControl {
     }
     
     @IBInspectable
-    public var supportsPagination = false
+    public var supportsPagination: Bool = false
     
-    @IBInspectable
     //If you want to provide pagination, and don't want the next page of data to be fetch on the 
     //last item to be displayed, set this var to be the higher than the last item.
     //A value of 1 would mean the table would signal the caller that
     //it's displaying the second to last row and therefor send a .scrollReachingEnd action.
-    public var paginationNotificationRowIndex = 0
+    @IBInspectable
+    public var paginationNotificationRowIndex: Int = 0
+    
+    public var stateView: UIView? {
+        didSet {
+            stateViewContainer.subviews.forEach { $0.removeFromSuperview() }
+            if let view = stateView {
+                stateViewContainer.addSubview(view)
+                view.pinToEdges(of: stateViewContainer, top: allItemsContentInset.top)
+                view.translatesAutoresizingMaskIntoConstraints = false
+                stateViewContainer.isHidden = false
+            } else {
+                stateViewContainer.isHidden = true
+            }
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -112,6 +128,8 @@ final public class MultiSelectionTableView : UIControl {
         buildSeperator()
         buildAllItemsTable()
         buildSelectedItemsTable()
+        
+        buildStateViewContainer()
         
         displayAllItems()
     }
@@ -197,6 +215,13 @@ final public class MultiSelectionTableView : UIControl {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapTable(gestureRecognizer:)))
         tableView.addGestureRecognizer(tapGestureRecognizer)
         
+    }
+    
+    private func buildStateViewContainer() {
+        addSubview(stateViewContainer)
+        stateViewContainer.isHidden = true
+        stateViewContainer.pinToEdges(of: allItemsTable)
+        stateViewContainer.translatesAutoresizingMaskIntoConstraints = false
     }
     
     //Used this method instead of `tableView(tableView:didSelectRowAt:)` because we need the
@@ -359,7 +384,6 @@ extension MultiSelectionTableView : UITableViewDelegate {
             }
         }
     }
-    
 }
 
 fileprivate extension UIColor {
@@ -369,5 +393,31 @@ fileprivate extension UIColor {
     
     static var defaultCellPulseColor: UIColor {
         return UIColor(colorLiteralRed: 121/255, green: 2/255, blue: 188/255, alpha: 0.3)
+    }
+}
+
+fileprivate extension UIView {
+    
+    fileprivate typealias EdgesMargin = (top: CGFloat?, right: CGFloat?, bottom: CGFloat?, left: CGFloat?)
+    
+    func pinToEdges(of view: UIView, top: CGFloat = 0, left: CGFloat = 0, bottom: CGFloat = 0, right: CGFloat = 0) {
+        print(top)
+        let boundAttributes: [NSLayoutAttribute] = [.top, .right, .bottom, .left]
+        let constants: [CGFloat] = [top, bottom, right, left]
+        
+        for i in 0..<4 {
+            anchor(view, with: boundAttributes[i], withConstant: constants[i])
+        }
+    }
+    
+    private func anchor(_ view : UIView,
+                        with attribute: NSLayoutAttribute,
+                        withConstant constant: CGFloat = 0) {
+        
+        view.topAnchor.constraint(equalTo: topAnchor, constant: constant).isActive = true
+        view.leftAnchor.constraint(equalTo: leftAnchor, constant: constant).isActive = true
+        view.bottomAnchor.constraint(equalTo: bottomAnchor, constant: constant).isActive = true
+        view.rightAnchor.constraint(equalTo: rightAnchor, constant: constant).isActive = true
+        
     }
 }

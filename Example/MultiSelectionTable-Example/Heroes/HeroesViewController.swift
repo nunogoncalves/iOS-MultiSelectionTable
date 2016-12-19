@@ -19,6 +19,11 @@ class HeroesViewController : UIViewController {
     private var multiSelectionDataSource: MultiSelectionDataSource<Hero>!
     @IBOutlet fileprivate weak var multiSelectionTableView: MultiSelectionTableView!
 
+    private let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+    fileprivate lazy var heroDetailsViewController: HeroDetailsViewController = {
+        return self.mainStoryboard.instantiateViewController(withIdentifier: "HeroDetailsViewController") as! HeroDetailsViewController
+    }()
+    
     @IBAction func clearSearchText() {
         searchTextField.text = nil
         searchTextField.resignFirstResponder()
@@ -27,6 +32,7 @@ class HeroesViewController : UIViewController {
     
     fileprivate var searchText = "" {
         didSet {
+            multiSelectionDataSource.allItems = []
             searchHeroes()
         }
     }
@@ -34,8 +40,15 @@ class HeroesViewController : UIViewController {
     fileprivate func searchHeroes(in page: Int = 0) {
         guard !isLoading else { return }
         
+        if page == 0 {
+            let loadingView = UIActivityIndicatorView()
+            loadingView.transform = CGAffineTransform.init(scaleX: 2, y: 2)
+            loadingView.startAnimating()
+            multiSelectionTableView.stateView = loadingView
+        }
         isLoading = true
         Hero.all(named: searchText, in: page) { [weak self] heroesList in
+            self?.multiSelectionTableView.stateView = nil
             self?.heroesList = heroesList
             self?.isLoading = false
         }
@@ -47,6 +60,13 @@ class HeroesViewController : UIViewController {
                 multiSelectionDataSource.allItems = heroesList.heroes
             } else {
                 multiSelectionDataSource.allItems.append(contentsOf: heroesList.heroes)
+            }
+            if heroesList.heroes.count <= 1 {
+                let label = UILabel()
+                label.text = "No heroes"
+                label.textColor = .white
+                label.textAlignment = .center
+                multiSelectionTableView.stateView = label
             }
         }
     }
@@ -99,9 +119,15 @@ extension HeroesViewController : MultiSelectionTableDelegate {
                     }
                 }
             }
+            
+            let heroViewController = heroDetailsViewController
+            cell.showInfo = { [weak self] in
+                heroViewController.hero = hero
+                self?.show(heroViewController, sender: self)
+            }
         }
     }
-    
+
 }
 
 extension HeroesViewController : UITextFieldDelegate {
