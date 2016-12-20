@@ -25,7 +25,7 @@
 		85A3C8331DFBF43A00117926 /* Albums.Fetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A3C8321DFBF43A00117926 /* Albums.Fetcher.swift */; };
 		85A3C8351DFBF49A00117926 /* Hero+DictInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A3C8341DFBF49A00117926 /* Hero+DictInit.swift */; };
 		85A3C8371DFBF91200117926 /* Album+DictInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A3C8361DFBF91200117926 /* Album+DictInit.swift */; };
-		85A3C8391DFC168F00117926 /* HeroFlyerAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A3C8381DFC168F00117926 /* HeroFlyerAnimator.swift */; };
+		85A3C8391DFC168F00117926 /* SuperManAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A3C8381DFC168F00117926 /* SuperManAnimator.swift */; };
 		85B2F8781E0445D300659DBC /* HeroesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B2F8771E0445D300659DBC /* HeroesList.swift */; };
 		85C315161DECEFF30095AFA1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C315151DECEFF30095AFA1 /* AppDelegate.swift */; };
 		85C3151B1DECEFF30095AFA1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85C315191DECEFF30095AFA1 /* Main.storyboard */; };
@@ -85,7 +85,7 @@
 		85A3C8321DFBF43A00117926 /* Albums.Fetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Albums.Fetcher.swift; path = UseCases/Albums/Albums.Fetcher.swift; sourceTree = "<group>"; };
 		85A3C8341DFBF49A00117926 /* Hero+DictInit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Hero+DictInit.swift"; path = "Heroes/Hero+DictInit.swift"; sourceTree = "<group>"; };
 		85A3C8361DFBF91200117926 /* Album+DictInit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Album+DictInit.swift"; path = "Albums/Album+DictInit.swift"; sourceTree = "<group>"; };
-		85A3C8381DFC168F00117926 /* HeroFlyerAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeroFlyerAnimator.swift; path = Heroes/HeroFlyerAnimator.swift; sourceTree = "<group>"; };
+		85A3C8381DFC168F00117926 /* SuperManAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SuperManAnimator.swift; path = Heroes/SuperManAnimator.swift; sourceTree = "<group>"; };
 		85B2F8771E0445D300659DBC /* HeroesList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeroesList.swift; path = Heroes/HeroesList.swift; sourceTree = "<group>"; };
 		85C315121DECEFF30095AFA1 /* MultiSelectionTable-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MultiSelectionTable-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		85C315151DECEFF30095AFA1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -253,7 +253,7 @@
 		85C5EDA61DF9889600B5B122 /* Heroes */ = {
 			isa = PBXGroup;
 			children = (
-				85A3C8381DFC168F00117926 /* HeroFlyerAnimator.swift */,
+				85A3C8381DFC168F00117926 /* SuperManAnimator.swift */,
 				85C5EDA81DF989B400B5B122 /* HeroesViewController.swift */,
 				855B90231DFAB91D00DFDC49 /* Hero.swift */,
 				855B90251DFABA1400DFDC49 /* HeroCell.swift */,
@@ -624,7 +624,7 @@
 				855B90241DFAB91D00DFDC49 /* Hero.swift in Sources */,
 				855B901E1DFAB71000DFDC49 /* Album.swift in Sources */,
 				85A3C8351DFBF49A00117926 /* Hero+DictInit.swift in Sources */,
-				85A3C8391DFC168F00117926 /* HeroFlyerAnimator.swift in Sources */,
+				85A3C8391DFC168F00117926 /* SuperManAnimator.swift in Sources */,
 				855B901F1DFAB71000DFDC49 /* AlbumCell.swift in Sources */,
 				85E87C551DFD55DA00AC83C3 /* Result.swift in Sources */,
 				8583DF961DFF112500EF0FBF /* ImageLoader.swift in Sources */,

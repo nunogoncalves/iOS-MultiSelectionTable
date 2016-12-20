@@ -18,12 +18,12 @@ public class CellMover : CellTransitionAnimator {
         
         toTableView.insertRows(at: [toIndexPath], with: .fade)
 
-        animateTransitionAnimation(defaultRemovingAnimation: .right,
-                                   sourceTableView: fromTableView,
-                                   sourceIndexPath: fromIndexPath,
-                                   destinationTableView: toTableView,
-                                   destinationIndexPath: toIndexPath,
-                                   containerView: containerView)
+        animateTransition(defaultRemovingAnimation: .right,
+                          sourceTableView: fromTableView,
+                          sourceIndexPath: fromIndexPath,
+                          destinationTableView: toTableView,
+                          destinationIndexPath: toIndexPath,
+                          containerView: containerView)
     }
 
     public func unselectionTransition(in containerView: UIView,
@@ -34,20 +34,20 @@ public class CellMover : CellTransitionAnimator {
         
         toTableView.insertRows(at: [toIndexPath], with: .bottom)
         
-        animateTransitionAnimation(defaultRemovingAnimation: .left,
-                                   sourceTableView: fromTableView,
-                                   sourceIndexPath: fromIndexPath,
-                                   destinationTableView: toTableView,
-                                   destinationIndexPath: toIndexPath,
-                                   containerView: containerView)
+        animateTransition(defaultRemovingAnimation: .left,
+                          sourceTableView: fromTableView,
+                          sourceIndexPath: fromIndexPath,
+                          destinationTableView: toTableView,
+                          destinationIndexPath: toIndexPath,
+                          containerView: containerView)
     }
 
-    private func animateTransitionAnimation(defaultRemovingAnimation: UITableViewRowAnimation,
-                                            sourceTableView: UITableView,
-                                            sourceIndexPath: IndexPath,
-                                            destinationTableView: UITableView,
-                                            destinationIndexPath: IndexPath,
-                                            containerView: UIView) {
+    private func animateTransition(defaultRemovingAnimation: UITableViewRowAnimation,
+                                   sourceTableView: UITableView,
+                                   sourceIndexPath: IndexPath,
+                                   destinationTableView: UITableView,
+                                   destinationIndexPath: IndexPath,
+                                   containerView: UIView) {
         
         guard let oldCell = sourceTableView.cellForRow(at: sourceIndexPath),
             let newCell = destinationTableView.cellForRow(at: destinationIndexPath),
@@ -75,4 +75,5 @@ public class CellMover : CellTransitionAnimator {
             oldCell.contentView.isHidden = false // because of reusage.
         })
     }
+    
 }

@@ -19,9 +19,8 @@ class HeroesViewController : UIViewController {
     private var multiSelectionDataSource: MultiSelectionDataSource<Hero>!
     @IBOutlet fileprivate weak var multiSelectionTableView: MultiSelectionTableView!
 
-    private let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-    fileprivate lazy var heroDetailsViewController: HeroDetailsViewController = {
-        return self.mainStoryboard.instantiateViewController(withIdentifier: "HeroDetailsViewController") as! HeroDetailsViewController
+    fileprivate lazy var mainStoryboard: UIStoryboard = {
+        return UIStoryboard(name: "Main", bundle: nil)
     }()
     
     @IBAction func clearSearchText() {
@@ -120,10 +119,11 @@ extension HeroesViewController : MultiSelectionTableDelegate {
                 }
             }
             
-            let heroViewController = heroDetailsViewController
             cell.showInfo = { [weak self] in
-                heroViewController.hero = hero
-                self?.show(heroViewController, sender: self)
+                if let heroViewController = self?.mainStoryboard.instantiateViewController(withIdentifier: "HeroDetailsViewController") as? HeroDetailsViewController {
+                    heroViewController.hero = hero
+                    self?.show(heroViewController, sender: self)
+                }
             }
         }
     }

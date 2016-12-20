@@ -1,5 +1,5 @@
 //
-//  CellFlyerAnimator.swift
+//  SuperManAnimator.swift
 //  MultiSelectionTable
 //
 //  Created by Nuno Gonçalves on 09/12/16.
@@ -11,6 +11,8 @@ import MultiSelectionTableView
 public class SuperManAnimator : CellTransitionAnimator {
     
     public init() {}
+    
+    private let duration: TimeInterval = 0.5
     
     public func selectionTransition(in containerView: UIView,
                                     fromTableView: UITableView,
@@ -49,12 +51,12 @@ public class SuperManAnimator : CellTransitionAnimator {
             
             fromTableView.deleteRows(at: [fromIndexPath], with: .top)
             
-            UIView.animate(withDuration: 1, animations: {
+            UIView.animate(withDuration: duration, animations: {
                 movingCell.frame = newCellConvertedFrame
             }, completion: { _ in
                 newCellAdded.contentView.isHidden = false
                 cellToDelete.contentView.isHidden = false
-                UIView.animate(withDuration: 1,
+                UIView.animate(withDuration: self.duration,
                                animations: {
                                  superman.frame = superman.frame.offsetBy(dx: movingCell.frame.width + superman.frame.width,
                                                                           dy: 0)
@@ -110,11 +112,11 @@ public class SuperManAnimator : CellTransitionAnimator {
             
             selectedItemsTable.deleteRows(at: [indexPath], with: .top)
             
-            UIView.animate(withDuration: 1, animations: {
+            UIView.animate(withDuration: duration, animations: {
                 movingCell.frame = newCellConvertedFrame
             }, completion: { _ in
                 newCellAdded.contentView.isHidden = false
-                UIView.animate(withDuration: 1,
+                UIView.animate(withDuration: self.duration,
                                animations: {
                                 superman.frame = superman.frame.offsetBy(dx: -(movingCell.frame.width + superman.frame.width),
                                                                          dy: 0)
