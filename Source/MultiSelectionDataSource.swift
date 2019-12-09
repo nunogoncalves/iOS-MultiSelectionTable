@@ -36,8 +36,8 @@ final public class MultiSelectionDataSource<T : Equatable> : DataSource {
     
     private func mapToItemIndexesAndUpdateOriginSelectedIndexesIfNecessary() {
         let _selectedItems = selectedItemsIndexes.map{ $0.item }
-        allItemsIndexes = allItems.enumerated().flatMap { index, item in
-            if let indexOfItem = _selectedItems.index(of: item) {
+        allItemsIndexes = allItems.enumerated().compactMap { index, item in
+            if let indexOfItem = _selectedItems.firstIndex(of: item) {
                 selectedItemsIndexes[indexOfItem].index = index
                 return nil
             }

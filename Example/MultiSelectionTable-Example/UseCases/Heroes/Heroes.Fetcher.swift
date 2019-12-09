@@ -62,7 +62,7 @@ struct Heroes {
             let limit = 25
             var urlStr = "\(charactersUrl)?limit=\(limit)&offset=\(page * limit)&apikey=\(pub)&ts=1&hash=\(hash)"
             if let name = name,
-                !name.characters.isEmpty {
+                !name.isEmpty {
                 urlStr.append("&nameStartsWith=\(name)")
                 urlStr = urlStr.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
             }
@@ -85,7 +85,7 @@ fileprivate extension String  {
             hash.appendFormat("%02x", result[i])
         }
         
-        result.deallocate(capacity: digestLen)
+        result.deallocate()
         
         return String(format: hash as String)
     }

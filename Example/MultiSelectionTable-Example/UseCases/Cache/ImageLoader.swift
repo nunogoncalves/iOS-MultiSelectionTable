@@ -21,10 +21,12 @@ struct Cache {
         }()
         
         fileprivate let physicalCacheURL: URL = {
-            var url = try! FileManager.default.url(for: .cachesDirectory,
-                                                   in: .userDomainMask,
-                                                   appropriateFor: nil,
-                                                   create: true)
+            var url = try! FileManager.default.url(
+                for: .cachesDirectory,
+                in: .userDomainMask,
+                appropriateFor: nil,
+                create: true
+            )
             url = url.appendingPathComponent("ImageCache", isDirectory: true)
             
             try! FileManager.default.createDirectory(at: url, withIntermediateDirectories: true, attributes: nil)
@@ -34,7 +36,8 @@ struct Cache {
         
         func cachedImage(with url: URL) -> UIImage? {
             let hash = "\(url.hashValue)" as NSString
-            
+
+            print(hash)
             // Check if image exists on volatile cache
             if let image = cache.object(forKey: hash) {
                 return image
@@ -55,7 +58,7 @@ struct Cache {
         }
         
         private func image(with request: URLRequest, completionHandler: @escaping (UIImage) -> Void) {
-            let hash = "\((request.url! as NSURL).hash)" as NSString
+            let hash = String(describing: request.url.hash) as NSString
             
             if let image = cache.object(forKey: hash) {
                 completionHandler(image)
@@ -84,7 +87,12 @@ struct Cache {
             task.resume()
         }
         
-        private func saveFile(in url: URL, with hash: NSString, oldUrl: URL, completionHandler: @escaping (UIImage) -> Void) {
+        private func saveFile(
+            in url: URL,
+            with hash: NSString,
+            oldUrl: URL,
+            completionHandler: @escaping (UIImage) -> Void
+        ) {
             do {
                 if FileManager.default.fileExists(atPath: url.path) {
                     try FileManager.default.removeItem(at: url)

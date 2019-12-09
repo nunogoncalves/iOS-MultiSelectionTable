@@ -6,18 +6,18 @@
 //
 //
 
-public extension UIControlEvents {
+public extension UIControl.Event {
     
-    static var itemSelected: UIControlEvents {
-        return UIControlEvents(rawValue: 1 << 30)
+    static var itemSelected: UIControl.Event {
+        return UIControl.Event(rawValue: 1 << 30)
     }
     
-    static var itemUnselected: UIControlEvents {
-        return UIControlEvents(rawValue: 1 << 31)
+    static var itemUnselected: UIControl.Event {
+        return UIControl.Event(rawValue: 1 << 31)
     }
     
-    static var scrollReachingEnd: UIControlEvents {
-        return UIControlEvents(rawValue: 1 << 29)
+    static var scrollReachingEnd: UIControl.Event {
+        return UIControl.Event(rawValue: 1 << 29)
     }
     
 }

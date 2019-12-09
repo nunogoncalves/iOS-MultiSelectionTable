@@ -13,8 +13,7 @@ extension Album {
     init?(dictionary: [String : Any]) {
         guard let name = dictionary["name"] as? String,
             let year = dictionary["year"] as? Int,
-            let rawCoverImageUrl = dictionary["coverImageUrl"] as? String,
-            let coverImageUrl = URL(string: rawCoverImageUrl),
+            let coverImageName = dictionary["coverImageUrl"] as? String,
             let bandDic = dictionary["band"] as? [String: Any],
             let bandName = bandDic["name"] as? String
         else {
@@ -23,7 +22,8 @@ extension Album {
         
         self.band = Band(name: bandName)
         self.name = name
-        self.coverImageURL = coverImageUrl
+        self.coverImageName = coverImageName
+        print(coverImageName)
         self.year = year
     }
     

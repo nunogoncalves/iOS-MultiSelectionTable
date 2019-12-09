@@ -42,7 +42,7 @@ public class CellMover : CellTransitionAnimator {
                           containerView: containerView)
     }
 
-    private func animateTransition(defaultRemovingAnimation: UITableViewRowAnimation,
+    private func animateTransition(defaultRemovingAnimation: UITableView.RowAnimation,
                                    sourceTableView: UITableView,
                                    sourceIndexPath: IndexPath,
                                    destinationTableView: UITableView,

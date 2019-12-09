@@ -1,0 +1,188 @@
+{
+    "albums" : [{
+        "name" : "Nevermind",
+        "coverImageUrl" : "covers/nevermind.jpg",
+        "year": 1991,
+        "band" : {
+            "name" : "Nirvana"
+
+        }
+    }, {
+        "name" : "Californication",
+        "coverImageUrl" : "covers/californication.jpg",
+        "year": 1999,
+        "band" : {
+            "name" : "Red Hot Chili Peppers"
+
+        }
+    }, {
+        "name" : "Hoorray for boobies",
+        "coverImageUrl" : "covers/badadchaseylane.jpg",
+        "year": 1999,
+        "band" : {
+            "name" : "BloodHound Gang"
+
+        }
+    }, {
+        "name" : "Three Dollar Bill Yall",
+        "coverImageUrl" : "covers/threedollarbillyall.jpg",
+        "year": 1997,
+        "band" : {
+            "name" : "Limp Bizkit"
+
+        }
+    }, {
+        "name" : "S&M",
+        "coverImageUrl" : "covers/s&m.jpg",
+        "year": 1999,
+        "band" : {
+            "name" : "Metallica"
+
+        }
+    }, {
+        "name" : "Joyride",
+        "coverImageUrl" : "covers/joyride.jpg",
+        "year": 1991,
+        "band" : {
+            "name" : "Roxette"
+
+        }
+    }, {
+        "name" : "Best of",
+        "coverImageUrl" : "covers/u2bestof.jpg",
+        "year": 1998,
+        "band" : {
+            "name" : "U2"
+
+        }
+    }, {
+        "name" : "Greatest Hits 2",
+        "coverImageUrl" : "covers/queengreatest2.jpg",
+        "year": 1991,
+        "band" : {
+            "name" : "Queen"
+
+        }
+    }, {
+        "name" : "I'm not dead",
+        "coverImageUrl" : "covers/imnotdead.png",
+        "year": 2006,
+        "band" : {
+            "name" : "Pink"
+
+        }
+    }, {
+        "name" : "Appetite for Destruction",
+        "coverImageUrl" : "covers/appetite-for-destruction.jpg",
+        "year": 1987,
+        "band" : {
+            "name" : "Guns N Roses"
+
+        }
+    }, {
+        "name" : "Black Ice",
+        "coverImageUrl" : "covers/blackice.jpg",
+        "year": 2008,
+        "band" : {
+            "name" : "AC/DC"
+
+        }
+    }, {
+        "name" : "Dark Side of the Moon",
+        "coverImageUrl" : "covers/Dark_Side_of_the_Moon.png",
+        "year": 1973,
+        "band" : {
+            "name" : "Pink Floyd"
+
+        }
+    }, {
+        "name" : "Touch",
+        "coverImageUrl" : "covers/Eurythmics_-_Touch.jpg",
+        "year": 1983,
+        "band" : {
+            "name" : "Eurytmics"
+
+        }
+    }, {
+        "name" : "Ghosts of Stories",
+        "coverImageUrl" : "covers/ghoststoriesfull.jpg",
+        "year": 2014,
+        "band" : {
+            "name" : "Coldplay"
+
+        }
+    }, {
+        "name" : "Funhouse",
+        "coverImageUrl" : "covers/funhouse.png",
+        "year": 2008,
+        "band" : {
+            "name" : "Pink"
+
+        }
+    }, {
+        "name" : "It's My Life",
+        "coverImageUrl" : "covers/itsmylife.jpg",
+        "year": 2000,
+        "band" : {
+            "name" : "Bon Jovi"
+
+        }
+    }, {
+        "name" : "Rosenrot",
+        "coverImageUrl" : "covers/rosenrot.jpg",
+        "year": 2005,
+        "band" : {
+            "name" : "Ramstein"
+
+        }
+    }, {
+        "name" : "Thriller",
+        "coverImageUrl" : "covers/thriller.jpg",
+        "year": 1982,
+        "band" : {
+            "name" : "Michael Jackson"
+
+        }
+    }, {
+        "name" : "Switch",
+        "coverImageUrl" : "covers/switch.jpg",
+        "year": 2005,
+        "band" : {
+            "name" : "INXS"
+
+        }
+    }, {
+        "name" : "This Is Acting",
+        "coverImageUrl" : "covers/Thisisacting_albumcover.png",
+        "year": 2016,
+        "band" : {
+            "name" : "Sia"
+
+        }
+    }, {
+        "name" : "Come Clean",
+        "coverImageUrl" : "covers/PuddleOfMudd_-_ComeClean.jpg",
+        "year": 2001,
+        "band" : {
+            "name" : "Puddle of Mudd"
+
+        }
+    }, {
+        "name" : "Proud Like a God",
+        "coverImageUrl" : "covers/1000x1000.jpg",
+        "year": 1997,
+        "band" : {
+            "name" : "Guano Apes"
+
+        }
+    }, {
+        "name" : "You've Come a Long Way Baby",
+        "coverImageUrl" : "covers/YouveComeALongWayBaby2.jpg",
+        "year": 1998,
+        "band" : {
+            "name" : "Fat Boy Slim"
+
+        }
+    }
+    ]
+}

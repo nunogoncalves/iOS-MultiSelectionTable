@@ -34,7 +34,7 @@ class AlbunsViewController: UIViewController {
     
     @IBAction func textUpdated(_ sender: UITextField) {
         if let searchText = sender.text,
-            searchText.characters.count > 0 {
+            searchText.count > 0 {
             filteredAlbuns = allAlbums.filter { $0.name.lowercased().contains(searchText.lowercased()) }
         } else {
             filteredAlbuns = allAlbums
@@ -78,13 +78,8 @@ extension AlbunsViewController : MultiSelectionTableDelegate {
             cell.subtitleLabel.text = album.name
             cell.yearLabel.text = "\(album.year)"
 
-            if let image = Cache.ImageLoader.shared.cachedImage(with: album.coverImageURL) {
-                cell.albumImageView.image = image
-            } else {
-                Cache.ImageLoader.shared.image(with: album.coverImageURL) { image in
-                    cell.albumImageView.image = image
-                }
-            }
+            let image = UIImage(named: album.coverImageName)
+            cell.albumImageView.image = image
         }
     }
 }

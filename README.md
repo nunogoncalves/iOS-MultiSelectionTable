@@ -1,11 +1,10 @@
 # iOS-MultiSelectionTable
 Beautifull way of having a multi-selection table on iOS
 
-[![Swift 3.0](https://img.shields.io/badge/Swift-3.0-orange.svg?style=flat)](https://developer.apple.com/swift/)
-[![Xcode 8.0+](https://img.shields.io/badge/Xcode-8.0+-blue.svg?style=flat)](https://developer.apple.com/swift/)
-[![Platforms iOS](https://img.shields.io/badge/Platforms-iOS%209+-blue.svg?style=flat)](https://developer.apple.com/swift/)
+[![Swift 5.1](https://img.shields.io/badge/Swift-5.1-orange.svg?style=flat)](https://developer.apple.com/swift/)
+[![Xcode 11.2.1+](https://img.shields.io/badge/Xcode-11.2+-blue.svg?style=flat)](https://developer.apple.com/swift/)
+[![Platforms iOS](https://img.shields.io/badge/Platforms-iOS%2013+-blue.svg?style=flat)](https://developer.apple.com/swift/)
 [![Licence MIT](https://img.shields.io/packagist/l/doctrine/orm.svg)](https://opensource.org/licenses/MIT)
-[![Dependencies](https://img.shields.io/gemnasium/mathiasbynens/he.svg)]()
 
 <p align="center">
   <img src="Resources/MultiSelectionTableView1.gif" width="200px" />

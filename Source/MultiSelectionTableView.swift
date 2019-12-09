@@ -210,7 +210,7 @@ final public class MultiSelectionTableView : UIControl {
         tableView.dataSource = self
         
         tableView.estimatedRowHeight = 100
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapTable(gestureRecognizer:)))
         tableView.addGestureRecognizer(tapGestureRecognizer)
@@ -388,21 +388,26 @@ extension MultiSelectionTableView : UITableViewDelegate {
 
 fileprivate extension UIColor {
     static var defaultTableBackground: UIColor {
-        return UIColor(colorLiteralRed: 25/255, green: 25/255, blue: 25/255, alpha: 1)
+        UIColor(red: 25/255, green: 25/255, blue: 25/255, alpha: 1)
     }
     
     static var defaultCellPulseColor: UIColor {
-        return UIColor(colorLiteralRed: 121/255, green: 2/255, blue: 188/255, alpha: 0.3)
+        UIColor(red: 121/255, green: 2/255, blue: 188/255, alpha: 0.3)
     }
 }
 
 fileprivate extension UIView {
     
-    fileprivate typealias EdgesMargin = (top: CGFloat?, right: CGFloat?, bottom: CGFloat?, left: CGFloat?)
+    typealias EdgesMargin = (top: CGFloat?, right: CGFloat?, bottom: CGFloat?, left: CGFloat?)
     
-    func pinToEdges(of view: UIView, top: CGFloat = 0, left: CGFloat = 0, bottom: CGFloat = 0, right: CGFloat = 0) {
-        print(top)
-        let boundAttributes: [NSLayoutAttribute] = [.top, .right, .bottom, .left]
+    func pinToEdges(
+        of view: UIView,
+        top: CGFloat = 0,
+        left: CGFloat = 0,
+        bottom: CGFloat = 0,
+        right: CGFloat = 0
+    ) {
+        let boundAttributes: [NSLayoutConstraint.Attribute] = [.top, .right, .bottom, .left]
         let constants: [CGFloat] = [top, bottom, right, left]
         
         for i in 0..<4 {
@@ -410,9 +415,11 @@ fileprivate extension UIView {
         }
     }
     
-    private func anchor(_ view : UIView,
-                        with attribute: NSLayoutAttribute,
-                        withConstant constant: CGFloat = 0) {
+    private func anchor(
+        _ view : UIView,
+        with attribute: NSLayoutConstraint.Attribute,
+        withConstant constant: CGFloat = 0
+    ) {
         
         view.topAnchor.constraint(equalTo: topAnchor, constant: constant).isActive = true
         view.leftAnchor.constraint(equalTo: leftAnchor, constant: constant).isActive = true
